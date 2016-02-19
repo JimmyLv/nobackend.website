@@ -1,0 +1,37 @@
+<div class="list-column" ng-repeat="app in $ctrl.apps">
+    <article class="post animated fadeInUp">
+
+        <section class="post-cover-image">
+            <a class="thumbnail" ng-href="http://zuimeia.com/app/{{app.id}}/?platform=1" title="{{app.title}}—{{app.sub_title}}" target="_blank">
+                <img src="{{app.cover_image}}" width="640" height="360" alt="{{app.title}}" style="display: block;">
+            </a>
+        </section>
+
+        <div class="post-header">
+            <div class="app-icon">
+                <a ng-href="http://zuimeia.com/app/{{app.id}}/?platform=1" target="_blank" title="{{app.title}}—{{app.sub_title}}">
+                    <img alt="{{app.title}}" src="{{app.icon_image}}" style="display: inline;">
+                    <span class="mask"></span>
+                </a>
+            </div>
+            <h3 class="post-title">
+                <a class="title" ng-href="http://zuimeia.com/app/{{app.id}}/?platform=1" target="_blank" title="{{app.title}}—{{app.sub_title}}">{{app.title}}<br/>
+                    <span class="sub-title">{{app.sub_title}}</span>
+                </a>
+            </h3>
+        </div>
+
+        <div class="post-footer">
+            <div class="post-footer-wrapper">
+                <p class="app-desc" title="{{app.digest}}">{{app.digest | limitTo: 50 }}</p>
+                <div class="meta-info">
+                    <div class="meta">
+                        <p><i class="icon icon-flower"></i><span class="icon-number">{{app.info.up}}</span></p>
+                        <p><i class="icon icon-comment"></i><span class="icon-number">{{app.comment_times}}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </article>
+</div>

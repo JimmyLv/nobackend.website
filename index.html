@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>最美应用</title>
+    <meta name="viewport" content="width=device-width">
+    <script src="//cdn.bootcss.com/angular.js/1.5.0/angular.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.5.0/angular-route.js"></script>
+    <script src="./app.js"></script>
+    <script src="./app/helloCtrl.js"></script>
+    <script src="app/components/hello/hello.js"></script>
+    <script src="app/components/appList/appList.js"></script>
+    <link rel="stylesheet" href="style/app.min.css">
+</head>
+<body ng-app="app">
+
+<header>
+    <div class="logo">
+        <a href="http://hi.zuimeia.com" target="_blank" title="最美家族">
+            <img src="images/icon128.png"/>
+        </a>
+    </div>
+    <div class="top-bar">
+        <a href="#" platform="2" class="link link-android">Android</a>
+        <a href="#" platform="1" class="link link-apple active">iPhone</a>
+    </div>
+    <div class="menu">
+        <input autocomplete="off" class="default-search" name="keyword" placeholder="搜索最美应用" type="text">
+        <input class="search-icon" id="btn-search" type="button">
+        <input type="checkbox" id="cb-random">&nbsp;随机
+    </div>
+</header>
+<div class="wrap animation fadein">
+    <div class="container-fluid center-container">
+        <div class="row" id="app-list">
+            <div ng-controller="HelloCtrl as hello">
+                <div>{{hello.name}}</div>
+                <button ng-click="hello.sayHi()">hello</button>
+            </div>
+            <hello name="'Jimmy Lv'"></hello>
+            <div ng-view></div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="page-tool">
+        <div class="share">
+            推荐给朋友：
+            <a href="javascript:void(0);" id="weibo-link" title="分享到微博">
+                <img src="images/icon_weibo.png" width="30px"/>
+            </a>
+            <!--
+            <a href="javascript:void(0);" id="email-link" title="发给朋友">
+                <img src="images/icon_mail.png" width="30px" />
+            </a>-->
+            <input type="text" class="copy-input" value="点击复制分享插件地址：http://chrome.zuimeia.com">
+        </div>
+        <a class="next-apps" href="javascript:void(0);">
+            <div class="download-ad more-apps">查看更多应用</div>
+        </a>
+    </div>
+    <div class="slogan">
+        <b>最美应用</b> —— 有价值的好应用
+    </div>
+    <ul class="legals">
+        <li><a href="http://zuimeia.com/about.html" target="_blank">关于</a></li>
+        <li><a href="http://blog.zuimeia.com" target="_blank">博客</a></li>
+        <li><a href="http://zuimeia.com/index.html" target="_blank">网站</a></li>
+    </ul>
+    <p class="copyright">© 2015 · 最美应用 · All Rights Reserved · 北京市朝阳区望京 SOHO 塔2 C座230311室</p>
+</footer>
+</body>
+</html>
