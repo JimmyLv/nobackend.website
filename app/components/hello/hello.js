@@ -6,6 +6,9 @@ angular.module('app')
     },
     controller: function () {
       this.girlFriend = 'plus plus';
+      this.sayHi = function () {
+        alert("Hi, " + this.name)
+      }
     }
   });
 
