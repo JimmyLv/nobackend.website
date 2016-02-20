@@ -26,6 +26,7 @@
     "github-api": "~0.11.2",
     "github-js": "githubjs#~0.1.3",
     "highlight": "~8.9.1",
-    "jQuery": "~2.2.0"
+    "jQuery": "~2.2.0",
+    "font-awesome": "Font-Awesome#~4.5.0"
   }
 }
