@@ -6,14 +6,27 @@
             </h1>
             <br/>
             <section>
-                <span>分类:{{postItem.postContent.meta.category}}</span>
+                <span>分类:{{postItem.postContent.meta.category? postItem.postContent.meta.category : postItem.postContent.meta.categories}}</span>
                 <span>标签:{{postItem.postContent.meta.tags}}</span>
                 <a ng-href="{{postItem.postContent.editUrl}}" target="_blank" class="thumbnail">-> 在 Github 上编辑</a>
             </section>
-            <p marked="postItem.postContent.content">
+            <p ng-if="['post', 'photo'].indexOf(postItem.postContent.meta.layout) > -1"
+               marked="postItem.postContent.content">
             </p>
+            <div ng-if="postItem.postContent.meta.layout === 'book'">
+                <div ng-repeat="book in postItem.postContent.meta.books">
+                    <section class="post-cover-image">
+                        <a ng-href="{{book.link}}" target="_blank">
+                            <h4>{{book.title}} —— {{book.author}}</h4>
+                        </a>
+                        <div class="thumbnail">
+                            <img src="{{book.cover}}" width="640" height="360" alt="{{book.title}}" style="display: block;">
+                        </div>
+                    </section>
+                </div>
+            </div>
             <marked>
-                ~~I am something!~~
+                ~~Please waiting for a moment!~~
             </marked>
         </article>
     </div>
