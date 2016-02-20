@@ -6,6 +6,10 @@ angular
     'hc.marked',
     'angular-cache'
   ])
+  .constant("CONFIG", {
+    "url": "http://localhost",
+    "port": "0803"
+  })
   .config(['$routeProvider', 'markedProvider', function ($routeProvider, markedProvider) {
     markedProvider.setOptions({
       gfm: true,
@@ -44,6 +48,21 @@ angular
         resolve: {
           categories: function ($http) {
             return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_posts?ref=gh-pages', {
+              cache: true
+            })
+          }
+        }
+      })
+      .when('/note', {
+        template: '<note categories="$resolve.categories.data" site-info="$resolve.site.data"></note>',
+        resolve: {
+          categories: function ($http) {
+            return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_posts?ref=gh-pages', {
+              cache: true
+            })
+          },
+          site: function ($http) {
+            return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_config.yml?ref=gh-pages', {
               cache: true
             })
           }

@@ -20,6 +20,7 @@
         <a href="#hello" class="link" active>hello</a>
         <a href="#zuimeia" class="link">zuimeia</a>
         <a href="#jekyll" class="link">jekyll</a>
+        <a href="#note" class="link">note</a>
         <a href="https://github.com/JimmyLv/blog-github-api-angular" class="link" target="_blank">github</a>
     </div>
     <div class="menu">
@@ -31,6 +32,9 @@
 
 <div class="wrap animation fadein">
     <div class="container-fluid center-container">
+        <div class="row" id="important-info">
+            <div>Just say hello!</div>
+        </div>
         <div class="row" id="app-list">
             <div ng-view></div>
         </div>
@@ -83,5 +87,6 @@
 <script src="app/components/hello/hello.js"></script>
 <script src="app/components/appList/appList.js"></script>
 <script src="app/components/jekyll/posts.js"></script>
+<script src="app/components/note/note.js"></script>
 </body>
 </html>

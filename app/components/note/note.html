@@ -1,0 +1,89 @@
+<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 aside visible-md visible-lg">
+    <div class="row navside">
+        <div class="col-md-3 col-xs-3 aside1">
+            <a href="#jekyll"><img src="images/avatar.jpg" class="img-circle avatar"></a>
+            <ul class="nav nav-pills nav-stacked">
+                <div ng-repeat="category in $ctrl.categories">
+                    <a ng-href="#note/{{ category.name }}" data-toggle="tab">{{ category.name }}</a>
+                </div>
+                <!--<li><a href="#tags" data-toggle="tab">{{ site.locals.tags }}</a></li>-->
+                <li><a href="#tags" data-toggle="tab" style="padding: 0">{{ $ctrl.siteConfig.locals.tags }}</a></li>
+                <li><a href="#archive" style="padding: 0">{{ $ctrl.siteConfig.locals.archive }}</a></li>
+                <li><a href="#about" style="padding: 0">{{ $ctrl.siteConfig.locals.about }}</a></li>
+            </ul>
+            <div class="aside1_bottom">
+                <table class="table table-condensed">
+                    <tr>
+                        <td>
+                            <a href="http://blog.jimmylv.info/pages/atom.xml" target="_blank">
+                                <i class="fa fa-rss fa-2x" style="color:#000;"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="mailto:{{ site.author.email }}">
+                                <i class="fa fa-envelope-o fa-2x" style="color:#000;"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-9 col-xs-9 aside2">
+            <div class="row navside2">
+                <div class="tab-content">
+                    <div ng-repeat="category in $ctrl.categories">
+                        <div class="tab-pane" id="{{ category.name }}">
+                            <div class="list-group">
+                                <div ng-repeat="postItem in category.postItems">
+                                    <a ng-href="#{{ category.name }}/{{ postItem.name }}" class="list-group-item-lay">{{postItem.postContent.meta.title}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 aside3">
+    <div id="container">
+        <div style="text-align: center;">
+            <h3>
+                <span style="color: #000080; ">未</span>
+                <span style="color: #FFA500; ">知</span>
+                <span style="color: #2E8B57; ">的</span>
+                <span style="color: #F08080; ">可</span>
+                <span style="color: #00CED1; ">能</span>
+                <span style="color: #ff0000; ">性</span>
+                <span style="color: #BA55D3; ">,</span>
+                <span style="color: #601986; ">追</span>
+                <span style="color: #556fb5; ">随</span>
+                <span style="color: #fa1089; ">我</span>
+                <span style="color: #638c0b; ">心</span>
+            </h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">{{ $ctrl.siteConfig.locals.newest }}</div>
+                    <div ng-repeat="category in $ctrl.categories">
+                        <div ng-repeat="postItem in category.postItems">
+                            <a href='#note/{{ category.name }}/{{ postItem.name }}' class="list-group-item clearfix">
+                                {{postItem.postContent.meta.title}}
+                                <span class="badge">{{ postItem.name }}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-repeat="cate in $ctrl.siteConfig.cates">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><a href="#{{ cate }}">{{ cate }}</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
