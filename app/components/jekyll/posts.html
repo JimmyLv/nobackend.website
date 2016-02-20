@@ -1,0 +1,20 @@
+<div ng-repeat="category in $ctrl.categories">
+    <div class="list-column" ng-repeat="postItem in category.postItems">
+        <article>
+            <h1 class="title">
+                <a href="{{postItem.postContent.html_url}}" target="_blank">{{postItem.postContent.meta.title}}</a>
+            </h1>
+            <br/>
+            <section>
+                <span>分类:{{postItem.postContent.meta.category}}</span>
+                <span>标签:{{postItem.postContent.meta.tags}}</span>
+                <a ng-href="{{postItem.postContent.editUrl}}" target="_blank" class="thumbnail">-> 在 Github 上编辑</a>
+            </section>
+            <p marked="postItem.postContent.content">
+            </p>
+            <marked>
+                ~~I am something!~~
+            </marked>
+        </article>
+    </div>
+</div>

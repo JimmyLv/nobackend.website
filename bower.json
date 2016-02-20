@@ -16,6 +16,13 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.5.0"
+    "angular": "~1.5.0",
+    "angular-route": "~1.5.0",
+    "angular-base64": "~2.0.5",
+    "angular-utf8-base64": "~0.0.5",
+    "angular-marked": "~1.0.1",
+    "js-yaml": "~3.5.3",
+    "github-api": "~0.11.2",
+    "github-js": "githubjs#~0.1.3"
   }
 }
