@@ -13,6 +13,7 @@
             <p ng-if="['post', 'photo'].indexOf(postItem.postContent.meta.layout) > -1"
                marked="postItem.postContent.content">
             </p>
+            <!--<p ng-bind-html="postItem.postContent.myHTML"></p>-->
             <div ng-if="postItem.postContent.meta.layout === 'book'">
                 <div ng-repeat="book in postItem.postContent.meta.books">
                     <section class="post-cover-image">

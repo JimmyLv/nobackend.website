@@ -6,6 +6,7 @@
     <title>最美博客</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="style/app.min.css">
+    <link rel="stylesheet" href="style/github.css">
 </head>
 <body ng-app="app">
 
@@ -19,7 +20,7 @@
         <a href="#hello" class="link" active>hello</a>
         <a href="#zuimeia" class="link">zuimeia</a>
         <a href="#jekyll" class="link">jekyll</a>
-        <a href="https://github.com/JimmyLv/blog-github-api-angular" class="link">github</a>
+        <a href="https://github.com/JimmyLv/blog-github-api-angular" class="link" target="_blank">github</a>
     </div>
     <div class="menu">
         <input autocomplete="off" class="default-search" name="keyword" placeholder="搜索最美博客" type="text">
@@ -66,7 +67,7 @@
 
 <script src="app/bower_components/angular/angular.js"></script>
 <script src="app/bower_components/angular-route/angular-route.js"></script>
-<script src="app/bower_components/angular-base64/angular-base64.js"></script>
+<script src="app/bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="app/bower_components/angular-utf8-base64/angular-utf8-base64.js"></script>
 <script src="app/bower_components/marked/lib/marked.js"></script>
 <script src="app/bower_components/angular-marked/dist/angular-marked.js"></script>
@@ -75,6 +76,8 @@
 <script src="app/bower_components/github-api/src/github.js"></script>
 <script src="app/bower_components/github-js/dist/github.min.js"></script>
 <script src="app/bower_components/underscore/underscore.js"></script>
+<!--<script src="app/bower_components/highlight/src/highlight.js"></script>-->
+<script src="http://apps.bdimg.com/libs/highlight.js/8.6/highlight.min.js"></script>
 <script src="./app.js"></script>
 <script src="./app/helloCtrl.js"></script>
 <script src="app/components/hello/hello.js"></script>
