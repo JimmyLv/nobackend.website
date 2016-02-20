@@ -2,7 +2,6 @@ angular.module('app')
   .component('posts', {
     templateUrl: './app/components/jekyll/posts.html',
     bindings: {
-      post: '<',
       categories: '<'
     },
     controller: ['$http', 'base64', 'marked', function ($http, base64, marked) {

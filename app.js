@@ -40,13 +40,8 @@ angular
         }
       })
       .when('/jekyll', {
-        template: '<posts post="$resolve.post.data" categories="$resolve.categories.data"></posts>',
+        template: '<posts categories="$resolve.categories.data"></posts>',
         resolve: {
-          post: function ($http) {
-            return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_posts/%E7%BC%96%E7%A8%8B/2014-11-15-pythonic-zen.md?ref=gh-pages', {
-              cache: true
-            })
-          },
           categories: function ($http) {
             return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_posts?ref=gh-pages', {
               cache: true
