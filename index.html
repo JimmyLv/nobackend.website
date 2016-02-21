@@ -37,6 +37,7 @@
         </div>
         <div class="row" id="app-list">
             <div ng-view></div>
+            <div ui-view></div>
         </div>
     </div>
 </div>
@@ -71,6 +72,7 @@
 
 <script src="app/bower_components/angular/angular.js"></script>
 <script src="app/bower_components/angular-route/angular-route.js"></script>
+<script src="app/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="app/bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="app/bower_components/angular-utf8-base64/angular-utf8-base64.js"></script>
 <script src="app/bower_components/marked/lib/marked.js"></script>
@@ -80,13 +82,16 @@
 <script src="app/bower_components/github-api/src/github.js"></script>
 <script src="app/bower_components/github-js/dist/github.min.js"></script>
 <script src="app/bower_components/underscore/underscore.js"></script>
+<script src="app/bower_components/lowdb/lowdb.min.js"></script>
 <!--<script src="app/bower_components/highlight/src/highlight.js"></script>-->
 <script src="http://apps.bdimg.com/libs/highlight.js/8.6/highlight.min.js"></script>
 <script src="./app.js"></script>
+<script src="./routes.js"></script>
 <script src="./app/helloCtrl.js"></script>
 <script src="app/components/hello/hello.js"></script>
 <script src="app/components/appList/appList.js"></script>
 <script src="app/components/jekyll/posts.js"></script>
 <script src="app/components/note/note.js"></script>
+<script src="app/components/note/aside2/aside2.js"></script>
 </body>
 </html>

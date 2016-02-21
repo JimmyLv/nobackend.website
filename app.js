@@ -1,6 +1,7 @@
 angular
   .module('app', [
     'ngRoute',
+    'ui.router',
     'ngSanitize',
     'ab-base64',
     'hc.marked',
@@ -10,7 +11,7 @@ angular
     "url": "http://localhost",
     "port": "0803"
   })
-  .config(['$routeProvider', 'markedProvider', function ($routeProvider, markedProvider) {
+  .config(['markedProvider', function (markedProvider) {
     markedProvider.setOptions({
       gfm: true,
       tables: true,
@@ -25,49 +26,6 @@ angular
         return "<a href='" + href + "'" + (title ? " title='" + title + "'" : '') + " target='_blank'>" + text + "</a>";
       }
     });
-
-    $routeProvider
-      .when('/hello', {
-        template: '<hello name="$resolve.name"></hello>',
-        resolve: {
-          name: function () {
-            return 'jimmy';
-          }
-        }
-      })
-      .when('/zuimeia', {
-        template: '<app-list app-items="$resolve.appItems"></app-list>',
-        resolve: {
-          appItems: function ($http) {
-            return $http.get('data.json')
-          }
-        }
-      })
-      .when('/jekyll', {
-        template: '<posts categories="$resolve.categories.data"></posts>',
-        resolve: {
-          categories: function ($http) {
-            return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_posts?ref=gh-pages', {
-              cache: true
-            })
-          }
-        }
-      })
-      .when('/note', {
-        template: '<note categories="$resolve.categories.data" site-info="$resolve.site.data"></note>',
-        resolve: {
-          categories: function ($http) {
-            return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_posts?ref=gh-pages', {
-              cache: true
-            })
-          },
-          site: function ($http) {
-            return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_config.yml?ref=gh-pages', {
-              cache: true
-            })
-          }
-        }
-      });
   }])
   .run(function ($http, CacheFactory) {
     $http.defaults.cache = CacheFactory('defaultCache', {
