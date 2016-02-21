@@ -34,15 +34,15 @@ angular
       cacheFlushInterval: 60 * 60 * 1000, // This cache will clear itself every hour
       deleteOnExpire: 'aggressive' // Items will be deleted from this cache when they expire
     });
+  }])
+  .run(['$router', function ($router) {
+    $router.config([
+      {
+        path: '/dashboard',
+        component: {
+          users: 'users',
+          dashboard: 'dashboard'
+        },
+        as: 'dashboard'
+      }])
   }]);
-  //.run(['$router', function ($router) {
-  //  $router.config([
-  //    {
-  //      path: '/dashboard',
-  //      component: {
-  //        users: 'users',
-  //        dashboard: 'dashboard'
-  //      },
-  //      as: 'dashboard'
-  //    }])
-  //}]);

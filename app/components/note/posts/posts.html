@@ -1,0 +1,6 @@
+<div ng-repeat="post in $ctrl.posts">
+    <a href='http://blog.jimmylv.info/{{ post.url }}' class="list-group-item clearfix">
+        {{post.title}}
+        <span class="badge">{{ post.shortdate }}</span>
+    </a>
+</div>

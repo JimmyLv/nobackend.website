@@ -22,7 +22,7 @@
         <a href="#jekyll" class="link">jekyll</a>
         <a href="#note" class="link">note</a>
         <a ng-link="dashboard" class="link">dashboard</a>
-        <a ui-sref="users2">users</a>
+        <a ui-sref="users2" class="link">users</a>
         <a href="https://github.com/JimmyLv/blog-github-api-angular" class="link" target="_blank">github</a>
     </div>
     <div class="menu">
@@ -39,6 +39,7 @@
         </div>
         <div class="row" id="app-list">
             <div ng-view></div>
+            <div ui-view></div>
             <div ui-view="viewA"></div>
             <div ui-view="viewB"></div>
             <div ng-viewport="dashboard"></div>
@@ -91,16 +92,18 @@
 <script src="app/bower_components/lowdb/lowdb.min.js"></script>
 <!--<script src="app/bower_components/highlight/src/highlight.js"></script>-->
 <script src="http://apps.bdimg.com/libs/highlight.js/8.6/highlight.min.js"></script>
-<script src="./app.js"></script>
-<script src="./routes.js"></script>
-<script src="./app/helloCtrl.js"></script>
-<script src="./components/dashboard/dashboard.js"></script>
-<script src="./components/home/home.js"></script>
-<script src="./components/users/users.js"></script>
+<script src="app.js"></script>
+<script src="app.routes.js"></script>
+<script src="app/helloCtrl.js"></script>
+<script src="components/dashboard/dashboard.js"></script>
+<script src="components/home/home.js"></script>
+<script src="components/users/users.js"></script>
 <script src="app/components/hello/hello.js"></script>
 <script src="app/components/appList/appList.js"></script>
 <script src="app/components/jekyll/posts.js"></script>
 <script src="app/components/note/note.js"></script>
 <script src="app/components/note/aside2/aside2.js"></script>
+<script src="app/components/note/posts/posts.js"></script>
+<script src="app/services/githubService.js"></script>
 </body>
 </html>

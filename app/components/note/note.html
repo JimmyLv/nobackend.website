@@ -4,8 +4,8 @@
             <a href="#jekyll"><img src="images/avatar.jpg" class="img-circle avatar"></a>
             <ul class="nav nav-pills nav-stacked">
                 <div ng-repeat="category in $ctrl.index.categories">
-                    <!--<a ng-href="#note/{{ category.name }}" data-toggle="tab">{{ category.name }}</a>-->
-                    <button ng-click="$ctrl.selectCategory(category)">{{ category.name }}</button>
+                    <a ng-href="#note/{{ category.name }}" data-toggle="tab">{{ category.name }}</a>
+                    <!--<button ng-click="$ctrl.selectCategory(category)">{{ category.name }}</button>-->
                 </div>
                 <!--<li><a href="#tags" data-toggle="tab">{{ site.locals.tags }}</a></li>-->
                 <li><a href="#tags" data-toggle="tab" style="padding: 0">{{ $ctrl.siteConfig.locals.tags }}</a></li>
@@ -30,20 +30,12 @@
             </div>
         </div>
 
-        <aside2 category="$ctrl.selectedCategory">{{$ctrl.selectedCategory}}</aside2>
 
         <div class="col-md-9 col-xs-9 aside2">
             <div class="row navside2">
                 <div class="tab-content">
-                    <div ng-repeat="category in $ctrl.index.categories | limitTo:1">
-                        <div class="tab-pane" id="{{ category.name }}">
-                            <div class="list-group">
-                                <div ng-repeat="post in category.posts">
-                                    <a ng-href="#{{ category.name }}{{ post.id }}" class="list-group-item-lay">{{ post.title }}</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <aside2 selected-category="$ctrl.selectedCategory" posts="$ctrl.selectedPosts">
+                    </aside2>
                 </div>
             </div>
         </div>
@@ -71,20 +63,14 @@
             <div class="col-md-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">{{ $ctrl.siteConfig.locals.newest }}</div>
-                    <div ng-repeat="category in $ctrl.categories">
-                        <div ng-repeat="postItem in category.postItems">
-                            <a href='#note/{{ category.name }}/{{ postItem.name }}' class="list-group-item clearfix">
-                                {{postItem.postContent.meta.title}}
-                                <span class="badge">{{ postItem.name }}</span>
-                            </a>
-                        </div>
-                    </div>
+                    <posts-with-date posts="$ctrl.index.paginator"></posts-with-date>
                 </div>
             </div>
-            <div ng-repeat="cate in $ctrl.siteConfig.cates">
+            <div ng-repeat="tag in $ctrl.selectedTagsWithPosts">
                 <div class="col-md-12">
                     <div class="panel panel-primary">
-                        <div class="panel-heading"><a href="#{{ cate }}">{{ cate }}</a></div>
+                        <div class="panel-heading"><a href="#tags/{{ tag.name }}">{{ tag.name }}</a></div>
+                        <posts-with-date posts="tag.posts"></posts-with-date>
                     </div>
                 </div>
             </div>

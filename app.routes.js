@@ -2,7 +2,7 @@ angular
   .module('app')
   .config(['$routeProvider', '$urlRouterProvider', '$stateProvider',
     function ($routeProvider, $urlRouterProvider, $stateProvider) {
-      $urlRouterProvider.otherwise('/home'); // default route
+      //$urlRouterProvider.otherwise('/home'); // default route
 
       $stateProvider
         .state('users2', {
@@ -48,14 +48,14 @@ angular
             }
           }
         })
-        .when('/note/:category', {
+        .when('/note/:category?', {
           template: '<note categories="$resolve.categories.data" site-info="$resolve.site.data" index="$resolve.index.data"></note>',
           resolve: {
-            categories: function ($http) {
-              return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_posts?ref=gh-pages', {
-                cache: true
-              })
-            },
+            //categories: function ($http) {
+            //  return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_posts?ref=gh-pages', {
+            //    cache: true
+            //  })
+            //},
             site: function ($http) {
               return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_config.yml?ref=gh-pages', {
                 cache: true
