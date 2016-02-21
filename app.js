@@ -2,6 +2,7 @@ angular
   .module('app', [
     'ngRoute',
     'ui.router',
+    'ngNewRouter',
     'ngSanitize',
     'ab-base64',
     'hc.marked',
@@ -27,10 +28,21 @@ angular
       }
     });
   }])
-  .run(function ($http, CacheFactory) {
+  .run(['$http', 'CacheFactory', function ($http, CacheFactory) {
     $http.defaults.cache = CacheFactory('defaultCache', {
       maxAge: 15 * 60 * 1000, // Items added to this cache expire after 15 minutes
       cacheFlushInterval: 60 * 60 * 1000, // This cache will clear itself every hour
       deleteOnExpire: 'aggressive' // Items will be deleted from this cache when they expire
     });
-  });
+  }]);
+  //.run(['$router', function ($router) {
+  //  $router.config([
+  //    {
+  //      path: '/dashboard',
+  //      component: {
+  //        users: 'users',
+  //        dashboard: 'dashboard'
+  //      },
+  //      as: 'dashboard'
+  //    }])
+  //}]);

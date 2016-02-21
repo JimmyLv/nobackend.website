@@ -21,6 +21,8 @@
         <a href="#zuimeia" class="link">zuimeia</a>
         <a href="#jekyll" class="link">jekyll</a>
         <a href="#note" class="link">note</a>
+        <a ng-link="dashboard" class="link">dashboard</a>
+        <a ui-sref="users2">users</a>
         <a href="https://github.com/JimmyLv/blog-github-api-angular" class="link" target="_blank">github</a>
     </div>
     <div class="menu">
@@ -37,7 +39,10 @@
         </div>
         <div class="row" id="app-list">
             <div ng-view></div>
-            <div ui-view></div>
+            <div ui-view="viewA"></div>
+            <div ui-view="viewB"></div>
+            <div ng-viewport="dashboard"></div>
+            <div ng-viewport="users"></div>
         </div>
     </div>
 </div>
@@ -73,6 +78,7 @@
 <script src="app/bower_components/angular/angular.js"></script>
 <script src="app/bower_components/angular-route/angular-route.js"></script>
 <script src="app/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="app/bower_components/angular-new-router/dist/router.es5.js"></script>
 <script src="app/bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="app/bower_components/angular-utf8-base64/angular-utf8-base64.js"></script>
 <script src="app/bower_components/marked/lib/marked.js"></script>
@@ -88,6 +94,9 @@
 <script src="./app.js"></script>
 <script src="./routes.js"></script>
 <script src="./app/helloCtrl.js"></script>
+<script src="./components/dashboard/dashboard.js"></script>
+<script src="./components/home/home.js"></script>
+<script src="./components/users/users.js"></script>
 <script src="app/components/hello/hello.js"></script>
 <script src="app/components/appList/appList.js"></script>
 <script src="app/components/jekyll/posts.js"></script>

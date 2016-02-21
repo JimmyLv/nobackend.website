@@ -3,10 +3,13 @@ angular.module('app')
     templateUrl: './app/components/note/note.html',
     bindings: {
       categories: '<',
-      siteInfo: '<'
+      siteInfo: '<',
+      index: '<'
     },
-    controller: ['$http', 'base64', function ($http, base64) {
+    controller: ['$http', '$routeParams', 'base64', function ($http, $routeParams, base64) {
       var vm = this;
+
+      console.info('$routeParams:', $routeParams);
 
       vm.categories.forEach(function (category) {
           $http.get(category.url).then(function (res) {
@@ -30,7 +33,31 @@ angular.module('app')
       );
 
       vm.siteConfig = jsyaml.load(base64.decode(vm.siteInfo.content));
+
+      vm.selectCategory = function (category) {
+        vm.selectedCategory = category;
+        console.log(vm.selectedCategory);
+      };
+
+      function tryDB() {
+        var db = low(); // in-memory
+        var db = low('db', {storage: low.localStorage}); // localStorage
+
+        vm.index.paginator.forEach(function (item) {
+          db('paginator').push(item);
+        });
+        vm.index.categories.forEach(function (item) {
+          db('categories').push(item);
+        });
+        vm.index.tags.forEach(function (item) {
+          db('tags').push(item);
+        });
+      }
+
+      //tryDB();
+
       console.info('site info:', vm.siteConfig);
+      console.info('index:', vm.index);
       console.info('categories:', vm.categories);
     }]
   });

@@ -29,6 +29,7 @@
     "jQuery": "~2.2.0",
     "font-awesome": "Font-Awesome#~4.5.0",
     "lowdb": "~0.12.4",
-    "angular-ui-router": "^0.2.18"
+    "angular-ui-router": "^0.2.18",
+    "angular-new-router": "^0.5.3"
   }
 }

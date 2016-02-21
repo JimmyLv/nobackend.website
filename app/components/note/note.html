@@ -3,8 +3,9 @@
         <div class="col-md-3 col-xs-3 aside1">
             <a href="#jekyll"><img src="images/avatar.jpg" class="img-circle avatar"></a>
             <ul class="nav nav-pills nav-stacked">
-                <div ng-repeat="category in $ctrl.categories">
-                    <a ng-href="#note/{{ category.name }}" data-toggle="tab">{{ category.name }}</a>
+                <div ng-repeat="category in $ctrl.index.categories">
+                    <!--<a ng-href="#note/{{ category.name }}" data-toggle="tab">{{ category.name }}</a>-->
+                    <button ng-click="$ctrl.selectCategory(category)">{{ category.name }}</button>
                 </div>
                 <!--<li><a href="#tags" data-toggle="tab">{{ site.locals.tags }}</a></li>-->
                 <li><a href="#tags" data-toggle="tab" style="padding: 0">{{ $ctrl.siteConfig.locals.tags }}</a></li>
@@ -20,7 +21,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="mailto:{{ site.author.email }}">
+                            <a href="mailto:{{ $ctrl.siteConfig.author.email }}">
                                 <i class="fa fa-envelope-o fa-2x" style="color:#000;"></i>
                             </a>
                         </td>
@@ -28,14 +29,17 @@
                 </table>
             </div>
         </div>
+
+        <aside2 category="$ctrl.selectedCategory">{{$ctrl.selectedCategory}}</aside2>
+
         <div class="col-md-9 col-xs-9 aside2">
             <div class="row navside2">
                 <div class="tab-content">
-                    <div ng-repeat="category in $ctrl.categories">
+                    <div ng-repeat="category in $ctrl.index.categories | limitTo:1">
                         <div class="tab-pane" id="{{ category.name }}">
                             <div class="list-group">
-                                <div ng-repeat="postItem in category.postItems">
-                                    <a ng-href="#{{ category.name }}/{{ postItem.name }}" class="list-group-item-lay">{{postItem.postContent.meta.title}}</a>
+                                <div ng-repeat="post in category.posts">
+                                    <a ng-href="#{{ category.name }}{{ post.id }}" class="list-group-item-lay">{{ post.title }}</a>
                                 </div>
                             </div>
                         </div>
