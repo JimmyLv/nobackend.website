@@ -7,7 +7,6 @@ angular.module('app')
     },
     controller: function () {
       var vm = this;
-      console.info('all posts:', vm.posts);
       console.info('selectedCategory:', vm.selectedCategory);
       vm.$onInit = function () {
 

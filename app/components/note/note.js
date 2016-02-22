@@ -9,12 +9,22 @@ angular.module('app')
     controller: ['$http', '$routeParams', 'base64', function ($http, $routeParams, base64) {
       var vm = this;
 
-      console.info('$routeParams:', $routeParams);
-      console.info('site info:', vm.siteConfig);
-      console.info('index data:', vm.index);
-      console.info('categories:', vm.index.categories);
-      console.info('paginator:', vm.index.paginator);
-      console.info('tags:', vm.index.tags);
+      var db = low('db', {storage: low.localStorage}); // localStorage
+      if (Object.keys(db.object).length === 0) {
+        db.object = vm.index;
+      }
+
+      vm.$onInit = function () {
+        vm.siteConfig = jsyaml.load(base64.decode(vm.siteInfo.content));
+        vm.selectedCategory = $routeParams.category || '编程';
+
+        vm.selectedTagsWithPosts = db('tags').filter(function (tag) {
+          return vm.siteConfig.cates.indexOf(tag.name) > -1;
+        });
+        vm.selectedPosts = db('categories').find({name: vm.selectedCategory}).posts;
+      };
+
+      console.info('---------------------------');
 
       //vm.categories.forEach(function (category) {
       //    $http.get(category.url).then(function (res) {
@@ -36,39 +46,5 @@ angular.module('app')
       //    })
       //  }
       //);
-      vm.$onInit = function () {
-        vm.siteConfig = jsyaml.load(base64.decode(vm.siteInfo.content));
-        vm.selectedCategory = $routeParams.category ? $routeParams.category : '编程';
-
-        var selectedCategory = vm.index.categories.find(function (category) {
-          return category.name === vm.selectedCategory;
-        });
-
-        var selectedTagsWithPosts = vm.index.tags.filter(function (tag) {
-          return vm.siteConfig.cates.indexOf(tag.name) > -1;
-        });
-
-        console.info('selectedTagsWithPosts', selectedTagsWithPosts);
-
-        vm.selectedTagsWithPosts = selectedTagsWithPosts;
-        vm.selectedPosts = selectedCategory.posts;
-      };
-
-      function tryDB() {
-        var db = low(); // in-memory
-        var db = low('db', {storage: low.localStorage}); // localStorage
-
-        vm.index.paginator.forEach(function (item) {
-          db('paginator').push(item);
-        });
-        vm.index.categories.forEach(function (item) {
-          db('categories').push(item);
-        });
-        vm.index.tags.forEach(function (item) {
-          db('tags').push(item);
-        });
-      }
-
-      console.info('---------------------------');
     }]
   });

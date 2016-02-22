@@ -1,0 +1,33 @@
+<div id="container">
+    <div style="text-align: center;">
+        <h3>
+            <span style="color: #000080; ">未</span>
+            <span style="color: #FFA500; ">知</span>
+            <span style="color: #2E8B57; ">的</span>
+            <span style="color: #F08080; ">可</span>
+            <span style="color: #00CED1; ">能</span>
+            <span style="color: #ff0000; ">性</span>
+            <span style="color: #BA55D3; ">,</span>
+            <span style="color: #601986; ">追</span>
+            <span style="color: #556fb5; ">随</span>
+            <span style="color: #fa1089; ">我</span>
+            <span style="color: #638c0b; ">心</span>
+        </h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">{{ $ctrl.newest }}</div>
+                <div ng-transclude></div>
+            </div>
+        </div>
+        <div ng-repeat="tag in $ctrl.tagsWithPosts">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><a href="#tags/{{ tag.name }}">{{ tag.name }}</a></div>
+                    <posts-with-date posts="tag.posts"></posts-with-date>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
