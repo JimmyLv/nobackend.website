@@ -24,7 +24,7 @@
         <div ng-repeat="tag in $ctrl.tagsWithPosts">
             <div class="col-md-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading"><a href="#tags/{{ tag.name }}">{{ tag.name }}</a></div>
+                    <div class="panel-heading"><a href="#tags/{{ tag.name }}" class="selected-tag">{{ tag.name }}</a></div>
                     <posts-with-date posts="tag.posts"></posts-with-date>
                 </div>
             </div>

@@ -16,24 +16,20 @@
 
 <div ng-include="'app/partials/header.html'"></div>
 
-<div class="wrap animation fadein">
-    <!--<div class="container-fluid center-container">-->
-    <div class="container" style="margin-top: 60px">
-        <div class="row">
-            <div ng-view></div>
-        </div>
-    </div>
-    <div ui-view></div>
-    <div ui-view="viewA"></div>
-    <div ui-view="viewB"></div>
-    <div ng-viewport="dashboard"></div>
-    <div ng-viewport="users"></div>
+<div class="container" style="margin-top: 60px">
+    <div class="row" ng-view></div>
 </div>
 
+<div ui-view></div>
+<div ui-view="viewA"></div>
+<div ui-view="viewB"></div>
+<div ng-viewport="dashboard"></div>
+<div ng-viewport="users"></div>
+
 <!--<div style="position:fixed;right:15px;top:62px;">-->
-    <!--<button id="content_btn" class="btn btn-primary" style="width:43px; height:34px;">-->
-        <!--<i class="fa fa-lg fa-plus"></i>-->
-    <!--</button>-->
+<!--<button id="content_btn" class="btn btn-primary" style="width:43px; height:34px;">-->
+<!--<i class="fa fa-lg fa-plus"></i>-->
+<!--</button>-->
 <!--</div>-->
 
 <div style="position:fixed;right:15px;top:62px;">

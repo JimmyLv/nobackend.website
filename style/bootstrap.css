@@ -5338,24 +5338,25 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     border-right: 0px;
     /*border: 0px solid #ddd;*/
     margin-right: 0px; 
-    margin-left: 30px; 
+    /*margin-left: 30px; */
 }
 
 a.list-group-item-lay:hover, a.list-group-item-lay:focus {
-    /*text-decoration: none;*/
+    text-decoration: none;
     color: #000;
-    /*background-color: #14AA57;*/
+    background-color: #EAEDEF;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
 }
 
 .list-group-item-lay:first-child {
-    border-top-right-radius: 4px;
-    border-top-left-radius: 4px
+    /*border-top-right-radius: 4px;*/
+    /*border-top-left-radius: 4px*/
 }
 
 .list-group-item-lay:last-child {
     margin-bottom: 0;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px
+    border-bottom-right-radius: 25px;
+    /*border-bottom-left-radius: 4px*/
 }
 
 .list-group-item-lay>.badge {
@@ -5371,14 +5372,14 @@ a.list-group-item-lay {
 }
 
 .list-group-item:first-child {
-    border-top-right-radius: 4px;
-    border-top-left-radius: 4px
+    /*border-top-right-radius: 4px;*/
+    /*border-top-left-radius: 4px*/
 }
 
 .list-group-item:last-child {
     margin-bottom: 0;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px
+    /*border-bottom-right-radius: 4px;*/
+    /*border-bottom-left-radius: 4px*/
 }
 
 .list-group-item>.badge {
