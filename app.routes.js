@@ -74,12 +74,12 @@ angular
             post: function ($http, $route) {
               var category = $route.current.params.category;
               var postId = $route.current.params.post;
-              return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_posts/'+ category + '/' + postId + '.md' +'?access_token=8d86b6527b43f33313c3a12a3dc0479e441d96f9&ref=gh-pages', {
+              return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_posts/'+ category + '/' + postId + '.md' +'?ref=gh-pages', {
                 cache: true
               })
             },
             site: function ($http) {
-              return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_config.yml?access_token=8d86b6527b43f33313c3a12a3dc0479e441d96f9&ref=gh-pages', {
+              return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_config.yml?ref=gh-pages', {
                 cache: true
               })
             },
