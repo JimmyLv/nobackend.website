@@ -18,14 +18,14 @@
         <div class="col-md-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">{{ $ctrl.newest }}</div>
-                <div ng-transclude></div>
+                <div ng-transclude="newestPosts"></div>
             </div>
         </div>
         <div ng-repeat="tag in $ctrl.tagsWithPosts">
             <div class="col-md-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading"><a href="#tags/{{ tag.name }}" class="selected-tag">{{ tag.name }}</a></div>
-                    <posts-with-date posts="tag.posts"></posts-with-date>
+                    <post-link posts="tag.posts" selected-category="$ctrl.selectedCategory"></post-link>
                 </div>
             </div>
         </div>

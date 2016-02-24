@@ -8,7 +8,6 @@ angular.module('app')
     },
     controller: function () {
       var vm = this;
-      console.info('selectedCategory:', vm.categories);
       vm.$onInit = function () {
 
       }

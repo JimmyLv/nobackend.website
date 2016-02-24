@@ -1,0 +1,18 @@
+<div id="container">
+    <div class="row yue">
+        <div class="col-md-12 aside3-title">
+            <h1 id="#identifier">{{ $ctrl.meta.title }}</h1>
+            <div class="aside3-date">编辑:<a ng-href="{{ $ctrl.editUrl }}">{{ $ctrl.pageContent.path }}</a>
+            </div>
+        </div>
+        <div class="col-md-12 aside3-content">
+            <div id="content" marked="$ctrl.content"></div>
+        </div>
+        <!-- 目录 -->
+        <div id="content_table" style="position:fixed;right:20px;top:120px;display:none;">
+            <div class="panel panel-success">
+                <div class="panel-body" id="nav"></div>
+            </div>
+        </div>
+    </div>
+</div>

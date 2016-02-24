@@ -14,7 +14,16 @@
 </div>
 
 <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 aside3">
-    <aside3 newest="$ctrl.siteConfig.locals.newest" tags-with-posts="$ctrl.selectedTagsWithPosts">
-        <posts-with-date posts="$ctrl.index.paginator"></posts-with-date>
+    <page ng-if="!$ctrl.isIndex" page-content="$ctrl.postContent"></page>
+
+    <aside3 ng-if="$ctrl.isIndex"
+            newest="$ctrl.siteConfig.locals.newest"
+            tags-with-posts="$ctrl.selectedTagsWithPosts"
+            selected-category="$ctrl.selectedCategory">
+        <newest-posts>
+            <post-link posts="$ctrl.index.paginator">
+                <date></date>
+            </post-link>
+        </newest-posts>
     </aside3>
 </div>

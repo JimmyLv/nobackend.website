@@ -67,5 +67,27 @@ angular
               })
             }
           }
+        })
+        .when('/note/:category?/:post*\/', {
+          template: '<note post-content="$resolve.post.data" site-info="$resolve.site.data" index="$resolve.index.data"></note>',
+          resolve: {
+            post: function ($http, $route) {
+              var category = $route.current.params.category;
+              var postId = $route.current.params.post;
+              return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_posts/'+ category + '/' + postId + '.md' +'?access_token=8d86b6527b43f33313c3a12a3dc0479e441d96f9&ref=gh-pages', {
+                cache: true
+              })
+            },
+            site: function ($http) {
+              return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_config.yml?access_token=8d86b6527b43f33313c3a12a3dc0479e441d96f9&ref=gh-pages', {
+                cache: true
+              })
+            },
+            index: function ($http) {
+              return $http.get('http://blog.jimmylv.info/api/index.json', {
+                cache: true
+              })
+            }
+          }
         });
     }]);

@@ -1,16 +1,21 @@
 angular.module('app')
   .component('aside3', {
-    transclude: true,
+    transclude: {
+      'newestPosts': 'newestPosts'
+    },
     templateUrl: './app/components/note/aside3/aside3.html',
     bindings: {
       newest: '<',
-      tagsWithPosts: '<'
+      tagsWithPosts: '<',
+      selectedCategory: '<'
     },
     controller: function () {
       var vm = this;
-      console.info('selectedCategory:', vm.tagsWithPosts);
       vm.$onInit = function () {
-
+        vm.selectedTags = vm.tagsWithPosts.map(function (tag) {
+          return tag.name;
+        });
+        console.info('selectedTags:', vm.selectedTags);
       }
     }
   });
