@@ -43,11 +43,3 @@ locals:
   about: 关于
   newest: 最新文章
   archive: 归档
-
-gems:
-  - jekyll-sitemap
-  - jekyll-paginate
-
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "strikethrough", "superscript", "with_toc_data"]
