@@ -41,52 +41,35 @@ angular
         .when('/jekyll', {
           template: '<posts categories="$resolve.categories.data"></posts>',
           resolve: {
-            categories: function ($http) {
-              return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_posts?ref=gh-pages', {
-                cache: true
-              })
+            categories: function (GitHubService) {
+              return GitHubService.read('_posts');
             }
           }
         })
         .when('/note/:category?', {
-          template: '<note categories="$resolve.categories.data" site-info="$resolve.site.data" index="$resolve.index.data"></note>',
+          template: '<note site-info="$resolve.config.data" index="$resolve.index.data"></note>',
           resolve: {
-            //categories: function ($http) {
-            //  return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_posts?ref=gh-pages', {
-            //    cache: true
-            //  })
-            //},
-            site: function ($http) {
-              return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_config.yml?ref=gh-pages', {
-                cache: true
-              })
+            config: function (GitHubService) {
+              return GitHubService.getConfig();
             },
-            index: function ($http) {
-              return $http.get('http://blog.jimmylv.info/api/index.json', {
-                cache: true
-              })
+            index: function (GitHubService) {
+              return GitHubService.getIndex();
             }
           }
         })
         .when('/note/:category?/:post*\/', {
-          template: '<note post-content="$resolve.post.data" site-info="$resolve.site.data" index="$resolve.index.data"></note>',
+          template: '<note post-content="$resolve.post.data" site-info="$resolve.config.data" index="$resolve.index.data"></note>',
           resolve: {
-            post: function ($http, $route) {
+            post: function ($route, GitHubService) {
               var category = $route.current.params.category;
               var postId = $route.current.params.post;
-              return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_posts/'+ category + '/' + postId + '.md' +'?ref=gh-pages', {
-                cache: true
-              })
+              return GitHubService.getPost(category, postId);
             },
-            site: function ($http) {
-              return $http.get('https://api.github.com/repos/JimmyLv/Jimmy.lv/contents/_config.yml?ref=gh-pages', {
-                cache: true
-              })
+            config: function (GitHubService) {
+              return GitHubService.getConfig();
             },
-            index: function ($http) {
-              return $http.get('http://blog.jimmylv.info/api/index.json', {
-                cache: true
-              })
+            index: function (GitHubService) {
+              return GitHubService.getIndex();
             }
           }
         });

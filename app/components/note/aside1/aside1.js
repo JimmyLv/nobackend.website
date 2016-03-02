@@ -4,7 +4,7 @@ angular.module('app')
     bindings: {
       selectedCategory: '<',
       categories: '<',
-      siteConfig: '<'
+      config: '<'
     },
     controller: function () {
       var vm = this;

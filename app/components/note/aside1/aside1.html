@@ -4,9 +4,9 @@
         <li ng-repeat="category in $ctrl.categories" ng-class="category.name === $ctrl.selectedCategory ? 'active': ''">
             <a ng-href="#note/{{ category.name }}" data-toggle="tab">{{ category.name }}</a>
         </li>
-        <li><a href="#tags" data-toggle="tab">{{ $ctrl.siteConfig.locals.tags }}</a></li>
-        <li><a href="#archive">{{ $ctrl.siteConfig.locals.archive }}</a></li>
-        <li><a href="#about">{{ $ctrl.siteConfig.locals.about }}</a></li>
+        <li><a href="#tags" data-toggle="tab">{{ $ctrl.config.locals.tags }}</a></li>
+        <li><a href="#archive">{{ $ctrl.config.locals.archive }}</a></li>
+        <li><a href="#about">{{ $ctrl.config.locals.about }}</a></li>
     </ul>
     <!--<div class="aside1_bottom">-->
         <!--<table class="table table-condensed">-->
@@ -17,7 +17,7 @@
                     <!--</a>-->
                 <!--</td>-->
                 <!--<td>-->
-                    <!--<a href="mailto:{{ $ctrl.siteConfig.author.email }}">-->
+                    <!--<a href="mailto:{{ $ctrl.config.author.email }}">-->
                         <!--<i class="fa fa-envelope-o fa-2x" style="color:#000;"></i>-->
                     <!--</a>-->
                 <!--</td>-->

@@ -16,14 +16,14 @@ angular.module('app')
       console.info('------------fetch data finished---------------');
 
       vm.$onInit = function () {
-        vm.siteConfig = jsyaml.load(base64.decode(vm.siteInfo.content));
+        vm.config = jsyaml.load(base64.decode(vm.siteInfo.content));
         vm.selectedCategory = $routeParams.category || '编程';
 
         var db = low('db', {storage: low.localStorage}); // localStorage
         db.object = vm.index;
 
         vm.selectedTagsWithPosts = db('tags').filter(function (tag) {
-          return vm.siteConfig.cates.indexOf(tag.name) > -1;
+          return vm.config.cates.indexOf(tag.name) > -1;
         });
 
         vm.isIndex = vm.postContent ? false : true;
