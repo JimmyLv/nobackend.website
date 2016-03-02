@@ -1,6 +1,3 @@
-permalink: /:year/:month/:day/:title.html
-paginate: 10
-
 # 作者信息
 author: 
   name: 吕立青
