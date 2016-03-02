@@ -5341,7 +5341,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     /*margin-left: 30px; */
 }
 
-a.list-group-item-lay:hover, a.list-group-item-lay:focus {
+a.list-group-item-lay:hover, a.list-group-item-lay:focus, a.list-group-item-lay.active {
     text-decoration: none;
     color: #000;
     background-color: #EAEDEF;

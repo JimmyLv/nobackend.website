@@ -5,10 +5,12 @@ angular.module('app')
       posts: '<',
       selectedCategory: '<'
     },
-    controller: function () {
+    controller: ['$routeParams', function ($routeParams) {
       var vm = this;
       vm.$onInit = function () {
+        vm.selectedPost = '/' + $routeParams.post;
+        console.info('selectedPost:', vm.selectedPost);
         console.info('selectedCategories:', vm.selectedCategory)
       }
-    }
+    }]
   });
