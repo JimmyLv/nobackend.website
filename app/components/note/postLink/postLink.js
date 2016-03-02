@@ -11,7 +11,7 @@ angular.module('app')
     controller: function () {
       var vm = this;
       vm.$onInit = function () {
-
+        console.info(vm.category);
       }
     }
   });

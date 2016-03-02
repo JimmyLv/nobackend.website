@@ -1,5 +1,5 @@
 angular.module('app')
-  .component('page', {
+  .component('content', {
     transclude: true,
     templateUrl: './app/components/note/content/content.html',
     bindings: {

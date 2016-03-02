@@ -1,13 +1,11 @@
 angular.module('app')
   .component('aside3', {
-    transclude: {
-      'newestPosts': 'newestPosts'
-    },
     templateUrl: './app/components/note/aside3/aside3.html',
     bindings: {
       newest: '<',
       tagsWithPosts: '<',
-      selectedCategory: '<'
+      selectedCategory: '<',
+      paginator: '<newestPaginator'
     },
     controller: function () {
       var vm = this;

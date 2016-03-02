@@ -18,7 +18,9 @@
         <div class="col-md-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">{{ $ctrl.newest }}</div>
-                <div ng-transclude="newestPosts"></div>
+                <post-link posts="$ctrl.paginator"
+                           selected-category="$ctrl.selectedCategory">
+                </post-link>
             </div>
         </div>
         <div ng-repeat="tag in $ctrl.tagsWithPosts">
