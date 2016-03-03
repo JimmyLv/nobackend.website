@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .service('GitHubService', function ($http) {
+  .service('githubService', function ($http) {
     /*
     var github = new Github({
       apiUrl: 'https://api.github.com'

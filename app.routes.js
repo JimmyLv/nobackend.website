@@ -19,57 +19,68 @@ angular
           template: '<button ng-click="details.sayHi(\'ui-router\')">changed to ui-router</button>',
           controller: 'DetailsController',
           controllerAs: 'details'
-        });
-
-      $routeProvider
-        .when('/hello', {
-          template: '<hello name="$resolve.name"></hello>',
+        })
+        .state('hello', {
+          url: '/hello',
+          templateUrl: './app/components/hello/hello.html',
+          controller: 'HelloCtrl2',
+          controllerAs: 'hello',
           resolve: {
             name: function () {
               return 'jimmy';
             }
           }
         })
-        .when('/zuimeia', {
-          template: '<app-list app-items="$resolve.appItems"></app-list>',
+        .state('zuimeia', {
+          url: '/zuimeia',
+          template: '<app-list app-items="appItems"></app-list>',
           resolve: {
             appItems: function ($http) {
               return $http.get('data.json')
             }
+          },
+          controller: function ($scope, appItems) {
+            $scope.appItems = appItems;
           }
         })
-        .when('/jekyll', {
-          template: '<posts categories="$resolve.categories.data"></posts>',
+        .state('jekyll', {
+          url: '/jekyll',
+          template: '<posts categories="categories.data"></posts>',
           resolve: {
-            categories: function (GitHubService) {
-              return GitHubService.read('_posts');
+            categories: function (githubService) {
+              return githubService.read('_posts');
             }
+          },
+          controller: function ($scope, categories) {
+            $scope.categories = categories;
           }
-        })
+        });
+
+      $routeProvider
         .when('/note/:category?', {
           template: '<note site-info="$resolve.config.data" index="$resolve.index.data"></note>',
           resolve: {
-            config: function (GitHubService) {
-              return GitHubService.getConfig();
+            config: function (githubService) {
+              return githubService.getConfig();
             },
-            index: function (GitHubService) {
-              return GitHubService.getIndex();
+            index: function (githubService) {
+              return githubService.getIndex();
             }
           }
         })
-        .when('/note/:category?/:post*\/', {
+        .when('/note/:category/:post*\/', {
           template: '<note post-content="$resolve.post.data" site-info="$resolve.config.data" index="$resolve.index.data"></note>',
           resolve: {
-            post: function ($route, GitHubService) {
+            post: function ($route, githubService) {
               var category = $route.current.params.category;
               var postId = $route.current.params.post;
-              return GitHubService.getPost(category, postId);
+              return githubService.getPost(category, postId);
             },
-            config: function (GitHubService) {
-              return GitHubService.getConfig();
+            config: function (githubService) {
+              return githubService.getConfig();
             },
-            index: function (GitHubService) {
-              return GitHubService.getIndex();
+            index: function (githubService) {
+              return githubService.getIndex();
             }
           }
         });

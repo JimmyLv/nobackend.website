@@ -1,14 +1,8 @@
 angular.module('app')
-  .component('hello', {
-    templateUrl: './app/components/hello/hello.html',
-    bindings: {
-      name: '<'
-    },
-    controller: function () {
-      this.girlFriend = 'plus plus';
-      this.sayHi = function () {
-        alert("Hi, " + this.name)
-      }
+  .controller('HelloCtrl2', function (name) {
+    this.name = name;
+    this.girlFriend = 'plus plus';
+    this.sayHi = function () {
+      alert("Hi, " + this.name)
     }
   });
-
