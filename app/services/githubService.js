@@ -15,6 +15,7 @@ angular
     */
 
     const API_URL = 'https://api.github.com';
+    const TOKEN = '';
     var github = {
       useName: 'JimmyLv',
       repoName: 'jimmy.lv',
@@ -23,7 +24,8 @@ angular
 
     function buildUrl(path) {
       var baseUrl = API_URL + '/repos/' + github.useName + '/' + github.repoName + '/contents/';
-      return baseUrl + path + '?ref=' + github.branch;
+      var url = baseUrl + path + '?ref=' + github.branch;
+      return TOKEN === '' ? url : url + '&access_token=' + TOKEN;
     }
 
     return {

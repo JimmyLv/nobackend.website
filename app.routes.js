@@ -57,24 +57,15 @@ angular
         });
 
       $routeProvider
-        .when('/note/:category?', {
-          template: '<note site-info="$resolve.config.data" index="$resolve.index.data"></note>',
-          resolve: {
-            config: function (githubService) {
-              return githubService.getConfig();
-            },
-            index: function (githubService) {
-              return githubService.getIndex();
-            }
-          }
-        })
-        .when('/note/:category/:post*\/', {
+        .when('/note/:category?/:post?', {
           template: '<note post-content="$resolve.post.data" site-info="$resolve.config.data" index="$resolve.index.data"></note>',
           resolve: {
             post: function ($route, githubService) {
               var category = $route.current.params.category;
               var postId = $route.current.params.post;
-              return githubService.getPost(category, postId);
+              if (postId) {
+                return githubService.getPost(category, postId);
+              }
             },
             config: function (githubService) {
               return githubService.getConfig();
