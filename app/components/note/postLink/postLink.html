@@ -1,5 +1,5 @@
 <div ng-repeat="post in $ctrl.posts">
-    <a href='#note/{{ post.category }}{{ post.url }}' class="list-group-item clearfix">
+    <a ng-href='#note/{{ post.category }}{{ post.url }}' class="list-group-item clearfix">
         {{post.title}}
         <span ng-transclude="date" class="badge">{{ post.shortdate }}</span>
     </a>
