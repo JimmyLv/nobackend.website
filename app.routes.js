@@ -1,7 +1,7 @@
 angular
   .module('app')
-  .config(['$routeProvider', '$urlRouterProvider', '$stateProvider',
-    function ($routeProvider, $urlRouterProvider, $stateProvider) {
+  .config(['$routeProvider', '$urlRouterProvider', '$stateProvider', '$locationProvider',
+    function ($routeProvider, $urlRouterProvider, $stateProvider, $locationProvider) {
       //$urlRouterProvider.otherwise('/home'); // default route
 
       $stateProvider
@@ -75,4 +75,6 @@ angular
             }
           }
         });
+
+      $locationProvider.hashPrefix('!');
     }]);

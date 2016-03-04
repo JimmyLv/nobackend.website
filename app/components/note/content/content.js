@@ -14,6 +14,11 @@ angular.module('app')
         vm.editUrl = vm.pageContent.html_url.replace('blob', 'edit');
         vm.content = decodedContent.split('---')[2];
         vm.meta = jsyaml.load(decodedContent.split('---')[1]);
+        vm.disqusConfig = {
+          disqus_shortname: 'gotoshare',
+          disqus_identifier: 'JimmyLv',
+          disqus_url: 'http://blog.jimmylv.info/'
+        }
       }
     }
   });

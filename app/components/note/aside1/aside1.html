@@ -2,11 +2,11 @@
     <!--<a href="#jekyll"><img src="images/avatar.jpg" class="img-circle avatar"></a>-->
     <ul class="nav nav-pills nav-stacked">
         <li ng-repeat="category in $ctrl.categories" ng-class="category.name === $ctrl.selectedCategory ? 'active': ''">
-            <a ng-href="#note/{{ category.name }}" data-toggle="tab">{{ category.name }}</a>
+            <a ng-href="#!/note/{{ category.name }}" data-toggle="tab">{{ category.name }}</a>
         </li>
-        <li><a href="#tags" data-toggle="tab">{{ $ctrl.config.locals.tags }}</a></li>
-        <li><a href="#archive">{{ $ctrl.config.locals.archive }}</a></li>
-        <li><a href="#about">{{ $ctrl.config.locals.about }}</a></li>
+        <li><a href="#!/tags" data-toggle="tab">{{ $ctrl.config.locals.tags }}</a></li>
+        <li><a href="#!/archive">{{ $ctrl.config.locals.archive }}</a></li>
+        <li><a href="#!/about">{{ $ctrl.config.locals.about }}</a></li>
     </ul>
     <!--<div class="aside1_bottom">-->
         <!--<table class="table table-condensed">-->

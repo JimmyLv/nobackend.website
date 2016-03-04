@@ -6,7 +6,8 @@ angular
     'ngSanitize',
     'ab-base64',
     'hc.marked',
-    'angular-cache'
+    'angular-cache',
+    'angularUtils.directives.dirDisqus'
   ])
   .constant("CONFIG", {
     "url": "http://localhost",

@@ -1,7 +1,7 @@
 <div class="tab-pane" id="{{ $ctrl.selectedCategory }}">
     <div class="list-group">
         <div ng-repeat="post in $ctrl.posts">
-            <a ng-href="#note/{{ $ctrl.selectedCategory }}{{ post.url }}"
+            <a ng-href="#!/note/{{ $ctrl.selectedCategory }}{{ post.url }}"
                class="list-group-item-lay"
                ng-class="post.url === $ctrl.selectedPost ? 'active': ''">{{ post.title }}</a>
         </div>
