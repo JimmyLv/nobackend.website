@@ -4,7 +4,9 @@ angular.module('app')
     bindings: {
       postContent: '<',
       siteInfo: '<',
-      index: '<'
+      index: '<',
+      showNav: '<',
+      showToc: '<'
     },
     controller: ['$http', '$routeParams', 'base64', function ($http, $routeParams, base64) {
       var vm = this;

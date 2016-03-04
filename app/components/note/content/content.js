@@ -3,11 +3,13 @@ angular.module('app')
     transclude: true,
     templateUrl: './app/components/note/content/content.html',
     bindings: {
-      pageContent: '<'
+      pageContent: '<',
+      showToc: '<'
     },
-    controller: function (base64) {
+    controller: ['base64', 'marked', function (base64, marked) {
       var vm = this;
       console.info('selectedPageContent:', vm.pageContent);
+      console.info('showTOC:', vm.showToc);
 
       vm.$onInit = function () {
         var result = _parseContent('---', vm.pageContent.content);
@@ -15,11 +17,12 @@ angular.module('app')
         vm.editUrl = vm.pageContent.html_url.replace('blob', 'edit');
         vm.content = result.content;
         vm.meta = jsyaml.load(result.meta);
+        vm.html = marked('# TEST');
         vm.disqusConfig = {
           disqus_shortname: 'gotoshare',
           disqus_identifier: 'JimmyLv',
           disqus_url: 'http://blog.jimmylv.info/'
-        }
+        };
       };
 
       function _parseContent(separator, rawContent) {
@@ -29,5 +32,5 @@ angular.module('app')
           meta: splitResult[1]
         }
       }
-    }
+    }]
   });

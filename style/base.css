@@ -76,14 +76,14 @@ ul.nav.nav-pills.nav-stacked {
     margin: 20px 0 20px 0;
 }
 
-.aside1_bottom {
+.aside1-bottom {
     width: 100%;
     position: absolute;
     bottom: 0px;
     left: 0px;
 }
 
-.aside1_bottom > .table {
+.aside1-bottom > .table {
     /*margin-bottom: 75px;*/
 }
 
@@ -157,6 +157,31 @@ h4.panel-title {
     line-height: 2;
 }
 
+#content-table {
+    position: fixed;
+    right: 16px;
+    top: 160px;
+    width: 30%;
+    height: 60%;
+    overflow-y: auto;
+    box-shadow: 0 1px 2px 3px rgba(0, 0, 0, .1);
+}
+
+.toc-title {
+    display: block;
+    cursor:pointer;
+}
+
+.toc-title.level2 {
+    margin-left: 15px;
+}
+.toc-title.level3 {
+    margin-left: 30px;
+}
+.toc-title.level4 {
+    margin-left: 45px;
+}
+
 blockquote p {
     /*color: #95a5a6;*/
     /*font-size: 20px;*/
@@ -177,4 +202,22 @@ blockquote p {
 .show-commend {
     width: 100%;
     margin-bottom: 10px;
+}
+
+#nav-btn {
+    position: fixed;
+    right: 15px;
+    top:70px;
+}
+
+#content-btn {
+    position: fixed;
+    right: 15px;
+    top: 113px;
+}
+
+.btn-primary.active, .btn-primary.focus, .btn-primary:focus, .btn-primary:hover {
+    color: #fff;
+    background-color: #000;
+    border-color: #fff;
 }

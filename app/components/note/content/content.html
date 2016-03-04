@@ -5,16 +5,22 @@
             <div class="aside3-date">编辑:<a ng-href="{{ $ctrl.editUrl }}">{{ $ctrl.pageContent.path }}</a>
             </div>
         </div>
-        <div class="col-md-12 aside3-content">
-            <div id="page-content" marked="$ctrl.content"></div>
-            <hr>
-            <dir-disqus config="$ctrl.disqusConfig"></dir-disqus>
-        </div>
-        <!-- 目录 -->
-        <div id="content_table" style="position:fixed;right:20px;top:120px;display:none;">
-            <div class="panel panel-success">
-                <div class="panel-body" id="nav"></div>
+
+        <table-of-contents toc-html="$ctrl.html">
+            <!-- 正文 -->
+            <div class="col-md-12 aside3-content">
+                <div id="page-content" marked="$ctrl.content"></div>
+                <hr>
+                <dir-disqus config="$ctrl.disqusConfig"></dir-disqus>
             </div>
-        </div>
+            <!-- 目录 -->
+            <div id="content-table" class="panel panel-success" ng-show="$ctrl.showToc">
+                <div class="panel-body" id="nav">
+                    <a class="toc-title" ng-repeat="headline in headlines"
+                       ng-class="{level2: headline.level == 2, level3: headline.level == 3, level4: headline.level == 4}"
+                       ng-click="scrollTo(headline)">{{ headline.label }}</a>
+                </div>
+            </div>
+        </table-of-contents>
     </div>
 </div>

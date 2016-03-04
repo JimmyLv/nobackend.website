@@ -16,33 +16,29 @@
 </head>
 <body ng-app="app" class="body-design">
 
-<div ng-include="'app/partials/header.html'"></div>
 
 <div class="container" ng-controller="MainCtrl as main">
+    <div ng-include="'app/partials/header.html'"></div>
     <!--<div>{{ main.message }} / {{ main.config }} </div>-->
     <!--<note site-info="main.config" index="main.index"></note>-->
     <div class="row" ng-view></div>
     <div class="row" ui-view></div>
-</div>
 
-<div ui-view="viewA"></div>
-<div ui-view="viewB"></div>
-<div ng-viewport="dashboard"></div>
-<div ng-viewport="users"></div>
+    <div ui-view="viewA"></div>
+    <div ui-view="viewB"></div>
+    <div ng-viewport="dashboard"></div>
+    <div ng-viewport="users"></div>
 
-<div style="position:fixed;right:15px;top:111px;">
-    <button id="content_btn" class="btn btn-primary" style="width:43px; height:34px;">
-        <i class="fa fa-lg fa-plus"></i>
-    </button>
-</div>
-
-<div style="position:fixed;right:15px;top:68px;">
-    <button id="nav_btn" class="btn btn-primary">
+    <button id="nav-btn" class="btn btn-primary" ng-click="main.toggleNav()">
         <i class="fa fa-lg fa-navicon"></i>
     </button>
-</div>
 
-<div ng-include="'app/partials/footer.html'"></div>
+    <button id="content-btn" class="btn btn-primary" ng-click="main.toggleTOC()">
+        <i class="fa fa-lg fa-plus"></i>
+    </button>
+
+    <div ng-include="'app/partials/footer.html'"></div>
+</div>
 
 <script src="app/bower_components/angular/angular.js"></script>
 <script src="app/bower_components/angular-route/angular-route.js"></script>
@@ -77,6 +73,7 @@
 <script src="app/components/appList/appList.js"></script>
 <script src="app/components/jekyll/posts.js"></script>
 <script src="app/components/note/note.js"></script>
+<script src="app/components/note/toc.js"></script>
 <script src="app/components/note/aside1/aside1.js"></script>
 <script src="app/components/note/aside2/aside2.js"></script>
 <script src="app/components/note/aside3/aside3.js"></script>

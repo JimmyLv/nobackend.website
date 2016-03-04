@@ -5806,7 +5806,7 @@ a.list-group-item-danger.active:focus {
 }
 
 .panel-success {
-    border-color: #d6e9c6
+    border-color: #fff;
 }
 
 .panel-success>.panel-heading {

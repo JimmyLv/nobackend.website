@@ -58,7 +58,7 @@ angular
 
       $routeProvider
         .when('/note/:category?/:post?', {
-          template: '<note post-content="$resolve.post.data" site-info="$resolve.config.data" index="$resolve.index.data"></note>',
+          template: '<note post-content="$resolve.post.data" site-info="$resolve.config.data" index="$resolve.index.data" show-nav="main.showNav" show-toc="main.showTOC"></note>',
           resolve: {
             post: function ($route, githubService) {
               var category = $route.current.params.category;
