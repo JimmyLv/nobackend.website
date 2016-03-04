@@ -1,19 +1,21 @@
 angular
   .module('app', [
     'ngRoute',
+    'ngAnimate',
     'ui.router',
     'ngNewRouter',
     'ngSanitize',
     'ab-base64',
     'hc.marked',
     'angular-cache',
-    'angularUtils.directives.dirDisqus'
+    'angularUtils.directives.dirDisqus',
+    'angular-loading-bar'
   ])
   .constant("CONFIG", {
     "url": "http://localhost",
     "port": "0803"
   })
-  .config(['markedProvider', function (markedProvider) {
+  .config(['markedProvider', 'cfpLoadingBarProvider', function (markedProvider, cfpLoadingBarProvider) {
     markedProvider.setOptions({
       gfm: true,
       tables: true,
@@ -28,6 +30,8 @@ angular
         return "<a href='" + href + "'" + (title ? " title='" + title + "'" : '') + " target='_blank'>" + text + "</a>";
       }
     });
+
+    cfpLoadingBarProvider.includeSpinner = false;
   }])
   .run(['$http', 'CacheFactory', function ($http, CacheFactory) {
     $http.defaults.cache = CacheFactory('defaultCache', {
