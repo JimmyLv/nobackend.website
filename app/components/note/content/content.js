@@ -6,7 +6,7 @@ angular.module('app')
       pageContent: '<',
       showToc: '<'
     },
-    controller: ['base64', 'marked', function (base64, marked) {
+    controller: ['base64', function (base64) {
       var vm = this;
       console.info('selectedPageContent:', vm.pageContent);
       console.info('showTOC:', vm.showToc);

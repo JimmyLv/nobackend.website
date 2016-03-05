@@ -10,6 +10,7 @@
             <!-- 正文 -->
             <div class="col-md-12 aside3-content">
                 <div id="page-content" marked="$ctrl.content"></div>
+                <book-list ng-if="$ctrl.meta.layout === 'book'" books="$ctrl.meta.books"></book-list>
                 <hr>
                 <dir-disqus config="$ctrl.disqusConfig"></dir-disqus>
             </div>
