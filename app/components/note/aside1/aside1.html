@@ -1,27 +1,19 @@
 <div class="col-md-3 col-xs-3 aside1">
-    <!--<a href="#jekyll"><img src="images/avatar.jpg" class="img-circle avatar"></a>-->
+    <!--<a ng-href="#jekyll"><img src="images/avatar.jpg" class="img-circle avatar"></a>-->
     <ul class="nav nav-pills nav-stacked">
         <li ng-repeat="category in $ctrl.categories" ng-class="category.name === $ctrl.selectedCategory ? 'active': ''">
             <a ng-href="#!/note/{{ category.name }}" data-toggle="tab">{{ category.name }}</a>
         </li>
-        <li><a href="#!/tags" data-toggle="tab">{{ $ctrl.config.locals.tags }}</a></li>
-        <li><a href="#!/archive">{{ $ctrl.config.locals.archive }}</a></li>
-        <li><a href="#!/about">{{ $ctrl.config.locals.about }}</a></li>
+        <li><a ng-href="#!/tags" data-toggle="tab">{{ $ctrl.config.locals.tags }}</a></li>
+        <li><a ng-href="#!/archive">{{ $ctrl.config.locals.archive }}</a></li>
+        <li><a ng-href="#!/about">{{ $ctrl.config.locals.about }}</a></li>
     </ul>
-    <!--<div class="aside1_bottom">-->
-        <!--<table class="table table-condensed">-->
-            <!--<tr>-->
-                <!--<td>-->
-                    <!--<a href="http://blog.jimmylv.info/pages/atom.xml" target="_blank">-->
-                        <!--<i class="fa fa-rss fa-2x" style="color:#000;"></i>-->
-                    <!--</a>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<a href="mailto:{{ $ctrl.config.author.email }}">-->
-                        <!--<i class="fa fa-envelope-o fa-2x" style="color:#000;"></i>-->
-                    <!--</a>-->
-                <!--</td>-->
-            <!--</tr>-->
-        <!--</table>-->
-    <!--</div>-->
+    <div class="aside1-bottom">
+        <a ng-href="http://blog.jimmylv.info/pages/atom.xml" target="_blank">
+            <i class="fa fa-rss fa-2x" style="color:#000;"></i>
+        </a>
+        <a ng-href="mailto:{{ $ctrl.config.author.email }}">
+            <i class="fa fa-envelope-o fa-2x" style="color:#000;"></i>
+        </a>
+    </div>
 </div>

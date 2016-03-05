@@ -83,12 +83,15 @@ ul.nav.nav-pills.nav-stacked {
 .aside1-bottom {
     width: 100%;
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
+    border-top: 3px solid #EAEDEF;
+    padding-top: 7px;
 }
 
-.aside1-bottom > .table {
-    /*margin-bottom: 75px;*/
+.aside1-bottom a {
+    margin: 5px;
+    text-decoration: none;
 }
 
 /* 中部目录栏 */
