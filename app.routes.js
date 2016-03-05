@@ -86,6 +86,9 @@ angular
             }
           }
         })
+        .when('/photos', {
+          template: '<iframe id="preview" src="http://unperfectlove.lofter.com/" frameborder="0" width="100%" height="100%"></iframe>'
+        })
         .when('/', {
           redirectTo: '/note'
         });
