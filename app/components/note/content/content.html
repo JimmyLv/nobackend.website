@@ -14,7 +14,7 @@
                 <dir-disqus config="$ctrl.disqusConfig"></dir-disqus>
             </div>
             <!-- 目录 -->
-            <div id="content-table" class="panel panel-success" ng-show="$ctrl.showToc">
+            <div id="content-table" class="panel panel-success no-mobile" ng-show="$ctrl.showToc">
                 <div class="panel-body" id="nav">
                     <a class="toc-title" ng-repeat="headline in headlines"
                        ng-class="{level2: headline.level == 2, level3: headline.level == 3, level4: headline.level == 4}"

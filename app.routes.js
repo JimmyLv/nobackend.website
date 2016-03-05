@@ -2,7 +2,7 @@ angular
   .module('app')
   .config(['$routeProvider', '$urlRouterProvider', '$stateProvider', '$locationProvider',
     function ($routeProvider, $urlRouterProvider, $stateProvider, $locationProvider) {
-      //$urlRouterProvider.otherwise('/home'); // default route
+      //$urlRouterProvider.otherwise('/note'); // default route
 
       $stateProvider
         .state('users2', {
@@ -74,6 +74,9 @@ angular
               return githubService.getIndex();
             }
           }
+        })
+        .when('/', {
+          redirectTo: '/note'
         });
 
       $locationProvider.hashPrefix('!');

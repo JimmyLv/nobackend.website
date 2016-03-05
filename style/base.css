@@ -13,8 +13,12 @@ body, html {
 }
 
 .row {
-    margin-top: 0px;
-    height: 100%;
+    margin-top: 0;
+    height: 96%;
+}
+
+.app-list {
+    overflow-y: auto;
 }
 
 /* 导航栏 + 目录栏 */
@@ -224,4 +228,10 @@ blockquote p {
     color: #fff;
     background-color: #000;
     border-color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+    .no-mobile {
+        display: none;
+    }
 }
