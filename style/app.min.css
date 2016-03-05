@@ -11656,7 +11656,8 @@ header {
 }
 
 .link {
-    color: #777
+    color: #777;
+    cursor: pointer;
 }
 
 .link:hover {
@@ -11685,6 +11686,7 @@ header .menu {
     border: 1px solid #cfd8dc;
     width: 180px;
     height: 28px;
+    line-height: normal;
     padding: 6px 12px;
     border-radius: 20px;
     -webkit-box-sizing: border-box;

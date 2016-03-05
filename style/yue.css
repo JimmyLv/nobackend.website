@@ -262,7 +262,7 @@
 .yue td {
   text-align: left;
   padding: 4px 8px 4px 10px;
-  border: 1px solid #dadada;
+  border-left: 1px solid #dadada;
 }
 
 .yue td {
@@ -270,7 +270,7 @@
 }
 
 .yue tr:nth-child(even) {
-  background-color: #efefee;
+  background-color: #EAEDEF;
 }
 
 .yue iframe {

@@ -15,8 +15,25 @@
         <a href="https://github.com/JimmyLv/nobackend.website" class="link" target="_blank">GitHub</a>
     </div>
     <div class="menu">
-        <input autocomplete="off" class="default-search no-mobile" name="keyword" placeholder="搜索最美博客" type="text">
-        <input class="search-icon" id="btn-search" type="button">
-        <input type="checkbox" id="cb-random"><label for="cb-random">&nbsp;随机</label>
+        <input autocomplete="off" class="default-search no-mobile" ng-model="main.searchText" name="keyword"
+               placeholder="Search..." type="text">
+        <span class="cancel-search no-mobile" ng-click="main.clearSearch()"><i class="fa fa-times"></i></span>
+        <span class="random-post" ng-click="main.randomPost()">随机文章</span>
     </div>
 </header>
+<div class="row yue search-results" ng-if="main.searchText">
+    <table id="search-text-results">
+        <tr>
+            <th>Category</th>
+            <th>Post</th>
+            <th>Tags</th>
+            <th>搜索「<span class="link" ng-click="main.clearSearch()">{{main.searchText}}</span>」共计{{(main.posts | filter:main.searchText).length}}个结果:</th>
+        </tr>
+        <tr ng-repeat="post in main.posts | filter:main.searchText">
+            <td>{{post.category}}</td>
+            <td>{{post.url}}</td>
+            <td>{{post.tags}}</td>
+            <td><a ng-href="#!/note/{{post.category}}{{post.url}}">{{post.title}}</a></td>
+        </tr>
+    </table>
+</div>
