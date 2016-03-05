@@ -118,6 +118,7 @@ h4.panel-title {
 /* 右侧内容栏 */
 .aside3 {
     height: 100%;
+    font-weight: 300;
     overflow-y: auto;
     background-color: #fff;
     /*background-image: url(/public/img/bg_lines1.jpg);*/
