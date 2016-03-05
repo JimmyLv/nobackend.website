@@ -33,7 +33,7 @@ angular
       },
       heading: function (text, level) {
         return '<h' + level + ' id="' + text + '" class="anchor">'
-          + text +  '</h' + level + '>';
+          + text + '</h' + level + '>';
       }
     });
 
@@ -56,4 +56,7 @@ angular
         },
         as: 'dashboard'
       }])
+  }])
+  .run(['$anchorScroll', function ($anchorScroll) {
+    $anchorScroll.yOffset = 50;   // always scroll by 50 extra pixels
   }]);

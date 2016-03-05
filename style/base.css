@@ -123,6 +123,11 @@ h4.panel-title {
     /*background-image: url(/public/img/bg_lines1.jpg);*/
 }
 
+.nest {
+    height: 100%;
+    padding: 0;
+}
+
 .content-center {
     margin-left: 1%;
 }
@@ -149,7 +154,7 @@ h4.panel-title {
 }
 
 .aside3-content {
-    margin-bottom: 60px;
+    /*margin-bottom: 60px;*/
     padding-left: 30px;
     padding-right: 30px;
     color: #444443;

@@ -4,9 +4,7 @@ angular.module('app')
     bindings: {
       postContent: '<',
       siteInfo: '<',
-      index: '<',
-      showNav: '<',
-      showToc: '<'
+      index: '<'
     },
     controller: ['$http', '$routeParams', 'base64', function ($http, $routeParams, base64) {
       var vm = this;
@@ -31,6 +29,20 @@ angular.module('app')
         vm.isIndex = vm.postContent ? false : true;
         vm.selectedPosts = db('categories').find({name: vm.selectedCategory}).posts;
         console.info('------------initialize vm finished---------------');
+
+        vm.showNav = true;
+        vm.showToc = false;
+
+        vm.toggleNav = function () {
+          vm.showNav = !vm.showNav;
+          vm.showToc = !vm.showToc;
+          console.info('vm.showNav', vm.showNav);
+        };
+
+        vm.toggleTOC = function () {
+          vm.showToc = !vm.showToc;
+          console.info('vm.showToc', vm.showToc);
+        };
       };
     }]
   });

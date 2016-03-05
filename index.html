@@ -22,20 +22,12 @@
     <!--<div>{{ main.message }} / {{ main.config }} </div>-->
     <!--<note site-info="main.config" index="main.index"></note>-->
     <div class="row" ng-view></div>
-    <div class="row app-list" ui-view></div>
+    <!--<div class="row app-list" ui-view></div>-->
 
     <div ui-view="viewA"></div>
     <div ui-view="viewB"></div>
     <div ng-viewport="dashboard"></div>
     <div ng-viewport="users"></div>
-
-    <button id="nav-btn" class="btn btn-primary" ng-click="main.toggleNav()">
-        <i class="fa fa-lg fa-navicon"></i>
-    </button>
-
-    <button id="content-btn" class="btn btn-primary" ng-click="main.toggleTOC()">
-        <i class="fa fa-lg fa-plus"></i>
-    </button>
 
     <div ng-include="'app/partials/footer.html'"></div>
 </div>
@@ -80,6 +72,8 @@
 <script src="app/components/note/aside3/aside3.js"></script>
 <script src="app/components/note/postLink/postLink.js"></script>
 <script src="app/components/note/content/content.js"></script>
+<script src="app/components/note/nest/nest.js"></script>
+<script src="app/components/note/book/bookList.js"></script>
 <script src="app/services/githubService.js"></script>
 </body>
 </html>

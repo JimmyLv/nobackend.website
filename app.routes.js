@@ -75,6 +75,17 @@ angular
             }
           }
         })
+        .when('/pages/:page', {
+          template: '<nest site-info="$resolve.config.data" index="$resolve.index.data"></nest>',
+          resolve: {
+            config: function (githubService) {
+              return githubService.getConfig();
+            },
+            index: function (githubService) {
+              return githubService.getIndex();
+            }
+          }
+        })
         .when('/', {
           redirectTo: '/note'
         });
