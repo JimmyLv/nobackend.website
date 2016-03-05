@@ -116,6 +116,10 @@ h4.panel-title {
     /*background-image: url(/public/img/bg_lines1.jpg);*/
 }
 
+.content-center {
+    margin-left: 1%;
+}
+
 .selected-tag {
     color: #777;
     margin-right: 10px;
