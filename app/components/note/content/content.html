@@ -2,14 +2,14 @@
     <div class="row yue">
         <div class="col-md-12 aside3-title">
             <h1 id="#identifier">{{ $ctrl.meta.title }}</h1>
-            <div class="aside3-date">编辑:<a ng-href="{{ $ctrl.editUrl }}">{{ $ctrl.pageContent.path }}</a>
+            <div class="aside3-date">编辑:<a ng-href="{{ $ctrl.editUrl }}" target="_blank">{{ $ctrl.pageContent.path }}</a>
             </div>
         </div>
 
         <table-of-contents toc-html="$ctrl.html">
             <!-- 正文 -->
             <div class="col-md-12 aside3-content">
-                <div id="page-content" marked="$ctrl.content"></div>
+                <div id="page-content" ng-class="{photo: $ctrl.meta.layout === 'photo'}" marked="$ctrl.content"></div>
                 <book-list ng-if="$ctrl.meta.layout === 'book'" books="$ctrl.meta.books"></book-list>
                 <hr>
                 <dir-disqus config="$ctrl.disqusConfig"></dir-disqus>

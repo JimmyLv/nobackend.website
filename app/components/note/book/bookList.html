@@ -13,7 +13,7 @@
                             <tr><td style="width:80px;">作者</td><td>{{ book.author }}</td></tr>
                             <tr><td>出版商</td><td>{{ book.publisher }}</td></tr>
                             <tr><td>语言</td><td>{{ book.language }}</td></tr>
-                            <tr><td>链接</td><td><a href="{{ book.link }}" title="{{ book.link }}">图书链接</a></td></tr>
+                            <tr><td>链接</td><td><a href="{{ book.link }}" title="{{ book.link }}" target="_blank">图书链接</a></td></tr>
                             <tr><td>状态</td>
                                 <td ng-switch="book.status">
                                     <span class="label label-success" ng-switch-when="已读">{{ book.status }}</span>
