@@ -10,6 +10,7 @@ angular.module('app')
     controller: function () {
       var vm = this;
       vm.$onInit = function () {
+        vm.newestPosts = vm.paginator.slice(0,10);
         vm.selectedTags = vm.tagsWithPosts.map(function (tag) {
           return tag.name;
         });
