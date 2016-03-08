@@ -105,7 +105,9 @@
 .yue img {
   max-width: 100%;
   height: auto;
-  margin: 0.2em 0;
+  clear: both;
+  display: block;
+  margin: auto;
   /*box-shadow: 10px 10px 5px #888888;*/
 }
 
@@ -113,6 +115,7 @@
   max-width: 49.5%;
   height: auto;
   margin: 0.2em 0;
+  display: inline;
 }
 
 .yue a img {
