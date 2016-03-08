@@ -207,6 +207,10 @@
   list-style-type: circle;
 }
 
+.yue ul li {
+  list-style: inherit;
+}
+
 .yue li p {
   margin: 0.4em 0 0.6em;
 }
