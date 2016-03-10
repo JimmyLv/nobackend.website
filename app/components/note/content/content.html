@@ -2,7 +2,9 @@
     <div class="row yue">
         <div class="col-md-12 aside3-title">
             <h1 id="#identifier">{{ $ctrl.meta.title }}</h1>
-            <div class="aside3-date">编辑:<a ng-href="{{ $ctrl.editUrl }}" target="_blank" class="content-edit">{{ $ctrl.pageContent.path }}</a>
+            <div class="entry-meta">
+                <span class="words">{{ $ctrl.content.length }} words</span>
+                <a class="content-edit" rel="nofollow" ng-href="{{ $ctrl.editUrl }}" target="_blank">{{ $ctrl.pageContent.path }}</a>
             </div>
         </div>
 
@@ -11,6 +13,11 @@
             <div class="col-md-12 aside3-content">
                 <div id="page-content" ng-class="{photo: $ctrl.meta.layout === 'photo'}" marked="$ctrl.content"></div>
                 <book-list ng-if="$ctrl.meta.layout === 'book'" books="$ctrl.meta.books"></book-list>
+
+                <!-- 标签 -->
+                <div class="tags" ng-repeat="tag in $ctrl.meta.tags">
+                    <a class="tag" ng-href="#!/pages/tags#{{ tag }}">{{ tag }}</a>
+                </div>
                 <hr>
                 <dir-disqus config="$ctrl.disqusConfig"></dir-disqus>
             </div>

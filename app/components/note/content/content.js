@@ -16,7 +16,7 @@ angular.module('app')
 
         vm.editUrl = vm.pageContent.html_url.replace('blob', 'edit');
         vm.content = result.content;
-        vm.meta = jsyaml.load(result.meta);
+        vm.meta = result.meta;
         vm.html = marked('# TEST');
         vm.disqusConfig = {
           disqus_shortname: 'gotoshare',
@@ -29,7 +29,7 @@ angular.module('app')
         var splitResult = base64.decode(rawContent).split(separator);
         return {
           content: splitResult.slice(2).join(separator),
-          meta: splitResult[1]
+          meta: jsyaml.load(splitResult[1])
         }
       }
     }]
