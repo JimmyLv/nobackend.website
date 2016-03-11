@@ -188,7 +188,6 @@ h4.panel-title {
 }
 
 .tags {
-    float: left;
     margin-bottom: 20px;
 }
 
@@ -207,7 +206,7 @@ a.tag {
 }
 
 .post-share {
-    margin: 0.8em 0;
+    margin: 0.5em 0;
     padding-top: .7em;
     padding-bottom: .6em;
     font-size: 28px;
