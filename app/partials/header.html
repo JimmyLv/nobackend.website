@@ -18,7 +18,7 @@
         <input autocomplete="off" class="default-search no-mobile" ng-model="main.searchText" name="keyword"
                placeholder="Search..." type="text">
         <span class="cancel-search no-mobile" ng-click="main.clearSearch()"><i class="fa fa-times"></i></span>
-        <span class="random-post" ng-click="main.randomPost()">随机文章</span>
+        <span class="random-post" ng-click="main.randomPost()" analytics-on analytics-event="RandomPost" analytics-category="Commands">随机文章</span>
     </div>
 </header>
 <div class="row yue search-results" ng-if="main.searchText">

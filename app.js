@@ -9,7 +9,9 @@ angular
     'hc.marked',
     'angular-cache',
     'angularUtils.directives.dirDisqus',
-    'angular-loading-bar'
+    'angular-loading-bar',
+    'angulartics',
+    'angulartics.google.analytics'
   ])
   .constant("CONFIG", {
     "url": "http://localhost",
