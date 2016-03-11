@@ -6,7 +6,7 @@ angular.module('app')
       pageContent: '<',
       showToc: '<'
     },
-    controller: ['base64', function (base64) {
+    controller: ['$location', 'base64', function ($location, base64) {
       var vm = this;
       console.info('selectedPageContent:', vm.pageContent);
       console.info('showTOC:', vm.showToc);
@@ -23,6 +23,13 @@ angular.module('app')
           disqus_identifier: 'JimmyLv',
           disqus_url: 'http://blog.jimmylv.info/'
         };
+        vm.socialShare = [
+          {url: 'https://twitter.com/share', icon: 'twitter'},
+          {url: 'https://www.evernote.com/clip.action', icon: 'wechat'},
+          {url: 'http://service.weibo.com/share/share.php', icon: 'weibo'},
+          {url: vm.editUrl, icon: 'github'}
+        ];
+        vm.shareLink = $location.absUrl();
       };
 
       function _parseContent(separator, rawContent) {
