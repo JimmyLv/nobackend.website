@@ -17,7 +17,7 @@
 </div>
 
 <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 aside3" ng-class="{'content-center': !$ctrl.showNav}">
-    <content ng-if="!$ctrl.isIndex" page-content="$ctrl.postContent" show-toc="$ctrl.showToc"></content>
+    <post ng-if="!$ctrl.isIndex" page-content="$ctrl.postContent" show-toc="$ctrl.showToc"></post>
 
     <aside3 ng-if="$ctrl.isIndex"
             newest="$ctrl.config.locals.newest"

@@ -1,6 +1,6 @@
 angular.module('app')
   .component('postLink', {
-    templateUrl: './app/components/note/postLink/postLink.html',
+    templateUrl: './app/components/note/link/link.html',
     bindings: {
       posts: '<',
       category: '<selectedCategory'

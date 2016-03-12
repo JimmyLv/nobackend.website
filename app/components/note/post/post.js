@@ -1,7 +1,7 @@
 angular.module('app')
-  .component('content', {
+  .component('post', {
     transclude: true,
-    templateUrl: './app/components/note/content/content.html',
+    templateUrl: './app/components/note/post/post.html',
     bindings: {
       pageContent: '<',
       showToc: '<'
