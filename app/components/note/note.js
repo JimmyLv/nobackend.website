@@ -43,6 +43,12 @@ angular.module('app')
           vm.showToc = !vm.showToc;
           console.info('vm.showToc', vm.showToc);
         };
+
+        vm.disqusConfig = {
+          disqus_shortname: 'nobackend-website',
+          disqus_identifier: 'nobackend-website',
+          disqus_url: 'http://nobackend.website'
+        };
       };
     }]
   });
