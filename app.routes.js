@@ -56,6 +56,22 @@ angular
           }
         });
 
+      var originalWhen = $routeProvider.when;
+
+      $routeProvider.when = function (path, route) {
+        route.resolve || (route.resolve = {});
+        angular.extend(route.resolve, {
+          config: function (githubService) {
+            return githubService.getConfig();
+          },
+          index: function (githubService) {
+            return githubService.getIndex();
+          }
+        });
+
+        return originalWhen.call($routeProvider, path, route);
+      };
+
       $routeProvider
         .when('/note/:category?/:post?', {
           template: '<note post-content="$resolve.post.data" site-info="$resolve.config.data" index="$resolve.index.data" show-nav="main.showNav" show-toc="main.showTOC"></note>',
@@ -66,32 +82,12 @@ angular
               if (postId) {
                 return githubService.getPost(category, postId);
               }
-            },
-            config: function (githubService) {
-              return githubService.getConfig();
-            },
-            index: function (githubService) {
-              return githubService.getIndex();
             }
           }
         })
-        .when('/pages/:page', {
-          template: '<nest site-info="$resolve.config.data" index="$resolve.index.data"></nest>',
-          resolve: {
-            config: function (githubService) {
-              return githubService.getConfig();
-            },
-            index: function (githubService) {
-              return githubService.getIndex();
-            }
-          }
-        })
-        .when('/photos', {
-          template: '<iframe id="preview" src="http://unperfectlove.lofter.com/" frameborder="0" width="100%" height="100%"></iframe>'
-        })
-        .when('/', {
-          redirectTo: '/note'
-        });
+        .when('/pages/:page', {template: '<nest site-info="$resolve.config.data" index="$resolve.index.data"></nest>'})
+        .when('/photos', {template: '<iframe id="preview" src="http://unperfectlove.lofter.com/" frameborder="0" width="100%" height="100%"></iframe>'})
+        .when('/', {redirectTo: '/note'});
 
       $locationProvider.hashPrefix('!');
     }])

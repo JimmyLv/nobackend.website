@@ -15,8 +15,8 @@ angular.module('app')
         vm.config = jsyaml.load(base64.decode(vm.siteInfo.content));
         vm.selectedCategory = $routeParams.category || '编程';
         vm.selectedPosts = db('categories').find({name: vm.selectedCategory}).posts;
-
         vm.pageUrl = $sce.trustAsResourceUrl('http://blog.jimmylv.info/pages/' + $routeParams.page + '.html');
+
         console.info('------------initialize vm finished---------------');
       };
     }]

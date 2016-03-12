@@ -11,9 +11,7 @@ angular.module('app')
       var vm = this;
       vm.$onInit = function () {
         vm.newestPosts = vm.paginator.slice(0,10);
-        vm.selectedTags = vm.tagsWithPosts.map(function (tag) {
-          return tag.name;
-        });
+        vm.selectedTags = vm.tagsWithPosts.map(function (tag) {return tag.name});
         console.info('selectedTags:', vm.selectedTags);
       }
     }

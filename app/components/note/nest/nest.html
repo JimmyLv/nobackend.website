@@ -1,15 +1,14 @@
 <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 aside">
-    <div class="row navside">
-        <aside1 selected-category="$ctrl.selectedCategory" categories="$ctrl.index.categories"
-                site-config="$ctrl.config"></aside1>
-        <div class="col-md-9 col-xs-9 aside2">
-            <div class="row navside2">
-                <div class="tab-content">
-                    <aside2 selected-category="$ctrl.selectedCategory" posts="$ctrl.selectedPosts">
-                    </aside2>
-                </div>
-            </div>
-        </div>
+    <div class="navside">
+        <aside1 class="col-md-3 col-xs-3 aside1"
+                selected-category="$ctrl.selectedCategory"
+                categories="$ctrl.index.categories"
+                site-config="$ctrl.config">
+        </aside1>
+        <aside2 class="col-md-9 col-xs-9 aside2"
+                selected-category="$ctrl.selectedCategory"
+                posts="$ctrl.selectedPosts">
+        </aside2>
     </div>
 </div>
 

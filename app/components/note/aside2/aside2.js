@@ -9,8 +9,7 @@ angular.module('app')
       var vm = this;
       vm.$onInit = function () {
         vm.selectedPost = '/' + $routeParams.post;
-        console.info('selectedPost:', vm.selectedPost);
-        console.info('selectedCategories:', vm.selectedCategory)
+        console.info('selectedPost:', vm.selectedCategory + vm.selectedPost);
       }
     }]
   });
