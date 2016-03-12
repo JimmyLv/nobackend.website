@@ -1623,7 +1623,7 @@ pre code {
 }
 
 .row {
-    margin-top: 80px;
+    /*margin-top: 80px;*/
     margin-left: -15px;
     margin-right: -15px;
 }

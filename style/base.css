@@ -1,6 +1,6 @@
 /* 页面配置 */
 .container {
-    margin-top: 60px;
+    padding-top: 60px;
     width: 100%;
     height: 100%;
 }
@@ -13,8 +13,7 @@ body, html {
 }
 
 .row {
-    margin-top: 0;
-    height: 96%;
+    height: 100%;
 }
 
 .app-list {
@@ -27,8 +26,11 @@ body, html {
 }
 
 .navside {
-    margin-top: 0px;
+    margin-top: 0;
+    margin-left: -15px;
+    margin-right: -15px;
     font-weight: 300;
+    height: 100%;
 }
 
 /* 左侧导航栏 */
@@ -97,18 +99,16 @@ ul.nav.nav-pills.nav-stacked {
 /* 中部目录栏 */
 .aside2 {
     background-color: #fff;
-    /*background-image: url(/public/img/body_bg.jpg);*/
     height: 100%;
     width: 70%;
     margin-left: 10px;
     overflow-y: auto;
-    font-color: #fff;
     padding-top: 20px;
-    /*padding-right: 30px;*/
 }
 
 .navside2 {
-    /*margin-top: 60px;*/
+    margin-left: -15px;
+    margin-right: -15px;
 }
 
 h4.panel-title {

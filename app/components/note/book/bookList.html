@@ -1,31 +1,27 @@
-<div class="row">
-    <div class="col-md-12" ng-repeat="book in $ctrl.books">
-        <div class="panel panel-primary">
-            <div class="panel-heading">{{ book.title }}</div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-4 col-xs-12 center">
-                        <img src="{{ book.cover }}" alt="cover" class="img-thumbnail">
-                    </div>
-                    <div class="col-md-8 col-xs-12">
-                        <table class="table table-bordered">
-                            <tbody>
-                            <tr><td style="width:80px;">作者</td><td>{{ book.author }}</td></tr>
-                            <tr><td>出版商</td><td>{{ book.publisher }}</td></tr>
-                            <tr><td>语言</td><td>{{ book.language }}</td></tr>
-                            <tr><td>链接</td><td><a href="{{ book.link }}" title="{{ book.link }}" target="_blank">图书链接</a></td></tr>
-                            <tr><td>状态</td>
-                                <td ng-switch="book.status">
-                                    <span class="label label-success" ng-switch-when="已读">{{ book.status }}</span>
-                                    <span class="label label-info" ng-switch-when="在读">{{ book.status }}</span>
-                                    <span class="label label-default" ng-switch-default>{{ book.status }}</span>
-                                </td>
-                            </tr>
-                            <tr><td>评论</td><td>{{ book.description }}</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+<div class="panel panel-primary" ng-repeat="book in $ctrl.books">
+    <div class="panel-heading">{{ book.title }}</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4 col-xs-12 center">
+                <img src="{{ book.cover }}" alt="cover" class="img-thumbnail">
+            </div>
+            <div class="col-md-8 col-xs-12">
+                <table class="table table-bordered">
+                    <tbody>
+                    <tr><td style="width:80px;">作者</td><td>{{ book.author }}</td></tr>
+                    <tr><td>出版商</td><td>{{ book.publisher }}</td></tr>
+                    <tr><td>语言</td><td>{{ book.language }}</td></tr>
+                    <tr><td>链接</td><td><a href="{{ book.link }}" title="{{ book.link }}" target="_blank">图书链接</a></td></tr>
+                    <tr><td>状态</td>
+                        <td ng-switch="book.status">
+                            <span class="label label-success" ng-switch-when="已读">{{ book.status }}</span>
+                            <span class="label label-info" ng-switch-when="在读">{{ book.status }}</span>
+                            <span class="label label-default" ng-switch-default>{{ book.status }}</span>
+                        </td>
+                    </tr>
+                    <tr><td>评论</td><td>{{ book.description }}</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

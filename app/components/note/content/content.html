@@ -1,53 +1,48 @@
-<div id="container">
-    <div class="row yue">
-        <div class="col-md-12 aside3-title">
-            <h1 id="#identifier">{{ $ctrl.meta.title }}</h1>
-            <div class="entry-meta">
-                <span class="words">{{ $ctrl.content.length }} words</span>
-                <a class="content-edit" rel="nofollow" ng-href="{{ $ctrl.editUrl }}" target="_blank">
-                    {{ $ctrl.pageContent.path }}
-                </a>
+<div class="yue">
+    <div class="col-md-12 aside3-title">
+        <h1 id="#identifier">{{ $ctrl.meta.title }}</h1>
+        <div class="entry-meta">
+            <span class="words">{{ $ctrl.content.length }} words</span>
+            <a class="content-edit" rel="nofollow" ng-href="{{ $ctrl.editUrl }}" target="_blank">{{ $ctrl.pageContent.path }}</a>
+        </div>
+    </div>
+
+    <div table-of-contents class="col-md-12 aside3-content">
+        <!-- 正文 -->
+        <div id="content-page" ng-class="{photo: $ctrl.meta.layout === 'photo'}" marked="$ctrl.content"></div>
+        <book-list ng-if="$ctrl.meta.layout === 'book'" books="$ctrl.meta.books"></book-list>
+
+        <!-- 目录 -->
+        <div id="content-table" class="panel panel-success no-mobile" ng-show="$ctrl.showToc">
+            <div class="panel-body" id="nav">
+                <a class="toc-title" ng-repeat="headline in toc.headlines"
+                   ng-class="{level2: headline.level == 2, level3: headline.level == 3, level4: headline.level == 4}"
+                   ng-click="toc.scrollTo(headline)">{{ headline.label }}</a>
             </div>
         </div>
 
-        <div table-of-contents class="col-md-12 aside3-content">
-            <!-- 正文 -->
-            <div id="content-page" ng-class="{photo: $ctrl.meta.layout === 'photo'}" marked="$ctrl.content"></div>
-            <book-list ng-if="$ctrl.meta.layout === 'book'" books="$ctrl.meta.books"></book-list>
-
-            <!-- 目录 -->
-            <div id="content-table" class="panel panel-success no-mobile" ng-show="$ctrl.showToc">
-                <div class="panel-body" id="nav">
-                    <a class="toc-title" ng-repeat="headline in toc.headlines"
-                       ng-class="{level2: headline.level == 2, level3: headline.level == 3, level4: headline.level == 4}"
-                       ng-click="toc.scrollTo(headline)">{{ headline.label }}</a>
-                </div>
-            </div>
-
-            <!-- 标签 -->
-            <div class="aside3-tags">
-                <a ng-repeat="tag in $ctrl.meta.tags" class="tag" ng-href="#!/pages/tags#{{ tag }}">{{ tag }}</a>
-            </div>
-
-            <!-- 分享 -->
-            <div class="aside3-share">
-                <a ng-repeat="share in $ctrl.socialShare" socialshare
-                   socialshare-provider="{{ share.name }}"
-                   socialshare-text="{{ $ctrl.meta.title }} | 最美博客"
-                   socialshare-url="{{ $ctrl.shareLink }}"
-                   socialshare-hashtags="{{ $ctrl.hashTags }}">
-                    <i class="post-share-icon fa {{ share.icon }}"></i>
-                </a>
-
-                <a ng-href="http://service.weibo.com/share/share.php?url={{ $ctrl.encodedShareLink }}&amp;title={{ $ctrl.encodedShareContent }}" target="_blank">
-                    <i class="post-share-icon fa fa-weibo"></i>
-                </a>
-                <a class="weixin-qr">
-                    <i class="post-share-icon fa fa-weixin"></i>
-                    <qr text="$ctrl.shareLink"></qr>
-                </a>
-            </div>
-            <hr>
+        <!-- 标签 -->
+        <div class="aside3-tags">
+            <a ng-repeat="tag in $ctrl.meta.tags" class="tag" ng-href="#!/pages/tags#{{ tag }}">{{ tag }}</a>
         </div>
+
+        <!-- 分享 -->
+        <div class="aside3-share">
+            <a ng-repeat="share in $ctrl.socialShare" socialshare
+               socialshare-provider="{{ share.name }}"
+               socialshare-text="{{ $ctrl.meta.title }} | 最美博客"
+               socialshare-url="{{ $ctrl.shareLink }}"
+               socialshare-hashtags="{{ $ctrl.hashTags }}">
+                <i class="post-share-icon fa {{ share.icon }}"></i>
+            </a>
+            <a ng-href="http://service.weibo.com/share/share.php?url={{ $ctrl.encodedShareLink }}&amp;title={{ $ctrl.encodedShareContent }}" target="_blank">
+                <i class="post-share-icon fa fa-weibo"></i>
+            </a>
+            <a class="weixin-qr">
+                <i class="post-share-icon fa fa-weixin"></i>
+                <qr text="$ctrl.shareLink"></qr>
+            </a>
+        </div>
+        <hr>
     </div>
 </div>
