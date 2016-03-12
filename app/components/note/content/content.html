@@ -8,35 +8,34 @@
             </div>
         </div>
 
-        <table-of-contents toc-html="$ctrl.html">
+        <div table-of-contents="$ctrl.showToc" class="col-md-12 aside3-content">
             <!-- 正文 -->
-            <div class="col-md-12 aside3-content">
-                <div id="page-content" ng-class="{photo: $ctrl.meta.layout === 'photo'}" marked="$ctrl.content"></div>
-                <book-list ng-if="$ctrl.meta.layout === 'book'" books="$ctrl.meta.books"></book-list>
+            <div id="content-page" ng-class="{photo: $ctrl.meta.layout === 'photo'}" marked="$ctrl.content"></div>
+            <book-list ng-if="$ctrl.meta.layout === 'book'" books="$ctrl.meta.books"></book-list>
 
-                <!-- 标签 -->
-                <div class="tags">
-                    <a ng-repeat="tag in $ctrl.meta.tags" class="tag" ng-href="#!/pages/tags#{{ tag }}">{{ tag }}</a>
-                </div>
-
-                <!-- 分享 -->
-                <div class="post-share">
-                    <a ng-repeat="share in $ctrl.socialShare" ng-href="{{ share.url }}?url={{ $ctrl.shareLink }}&title={{ $ctrl.meta.title }}" target="_blank">
-                        <i class="post-share-icon fa fa-{{ share.icon }}"></i>
-                    </a>
-                </div>
-
-                <hr>
-                <dir-disqus config="$ctrl.disqusConfig"></dir-disqus>
-            </div>
             <!-- 目录 -->
             <div id="content-table" class="panel panel-success no-mobile" ng-show="$ctrl.showToc">
                 <div class="panel-body" id="nav">
-                    <a class="toc-title" ng-repeat="headline in headlines"
+                    <a class="toc-title" ng-repeat="headline in toc.headlines"
                        ng-class="{level2: headline.level == 2, level3: headline.level == 3, level4: headline.level == 4}"
-                       ng-click="scrollTo(headline)">{{ headline.label }}</a>
+                       ng-click="toc.scrollTo(headline)">{{ headline.label }}</a>
                 </div>
             </div>
-        </table-of-contents>
+
+            <!-- 标签 -->
+            <div class="aside3-tags">
+                <a ng-repeat="tag in $ctrl.meta.tags" class="tag" ng-href="#!/pages/tags#{{ tag }}">{{ tag }}</a>
+            </div>
+
+            <!-- 分享 -->
+            <div class="aside3-share">
+                <a ng-repeat="share in $ctrl.socialShare"
+                   ng-href="{{ share.url }}?url={{ $ctrl.shareLink }}&title={{ $ctrl.meta.title }}" target="_blank">
+                    <i class="post-share-icon fa fa-{{ share.icon }}"></i>
+                </a>
+            </div>
+            <hr>
+            <dir-disqus config="$ctrl.disqusConfig"></dir-disqus>
+        </div>
     </div>
 </div>
