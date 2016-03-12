@@ -1,5 +1,5 @@
 angular.module('app')
-  .directive('tableOfContents', function ($location, $anchorScroll) {
+  .directive('tableOfContents', function ($anchorScroll) {
     return {
       require: '?ngModel',
       scope: true,
@@ -7,11 +7,11 @@ angular.module('app')
         this.headlines = [];
         this.scrollTo = function (headline) {
           console.info('selectedHeadline', headline.element.id);
+          var content = angular.element(document.querySelector('#content'));
 
-          //headline.element.scrollIntoView();
-          $location.hash(headline.element.id);
-
-          $anchorScroll();
+          content.removeClass('offset-fixed');
+          $anchorScroll(headline.element.id);
+          content.addClass('offset-fixed');
         };
       },
       controllerAs: 'toc',

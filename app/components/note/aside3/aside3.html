@@ -19,7 +19,7 @@
         <post-link posts="$ctrl.newestPosts" selected-category="$ctrl.selectedCategory"></post-link>
     </div>
     <div class="panel panel-primary" ng-repeat="tag in $ctrl.tagsWithPosts">
-        <div class="panel-heading"><a href="#tags/{{ tag.name }}" class="selected-tag">{{ tag.name }}</a></div>
+        <div class="panel-heading"><a ng-href="#tags/{{ tag.name }}" class="selected-tag">{{ tag.name }}</a></div>
         <post-link posts="tag.posts" selected-category="$ctrl.selectedCategory"></post-link>
     </div>
 </div>
