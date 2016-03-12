@@ -31,6 +31,10 @@ angular.module('app')
         vm.shareLink = $location.absUrl();
         vm.encodedShareLink = encodeURIComponent($location.absUrl());
         vm.hashTags = vm.meta.tags.join(', ');
+        vm.formatedHashTags = vm.meta.tags.map(function (tag) {
+          return '#' + tag + '#';
+        }).join(' ');
+        vm.encodedShareContent = encodeURIComponent(vm.formatedHashTags + ' ' + vm.meta.title + ' | 最美博客');
       };
 
       function _parseContent(separator, rawContent) {
