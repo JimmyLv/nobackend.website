@@ -14,16 +14,18 @@
                 <div id="page-content" ng-class="{photo: $ctrl.meta.layout === 'photo'}" marked="$ctrl.content"></div>
                 <book-list ng-if="$ctrl.meta.layout === 'book'" books="$ctrl.meta.books"></book-list>
 
+                <!-- 标签 -->
+                <div class="tags">
+                    <a ng-repeat="tag in $ctrl.meta.tags" class="tag" ng-href="#!/pages/tags#{{ tag }}">{{ tag }}</a>
+                </div>
+
                 <!-- 分享 -->
                 <div class="post-share">
                     <a ng-repeat="share in $ctrl.socialShare" ng-href="{{ share.url }}?url={{ $ctrl.shareLink }}&title={{ $ctrl.meta.title }}" target="_blank">
                         <i class="post-share-icon fa fa-{{ share.icon }}"></i>
                     </a>
                 </div>
-                <!-- 标签 -->
-                <div class="tags">
-                    <a ng-repeat="tag in $ctrl.meta.tags" class="tag" ng-href="#!/pages/tags#{{ tag }}">{{ tag }}</a>
-                </div>
+
                 <hr>
                 <dir-disqus config="$ctrl.disqusConfig"></dir-disqus>
             </div>
