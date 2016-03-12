@@ -8,7 +8,7 @@
             </div>
         </div>
 
-        <div table-of-contents="$ctrl.showToc" class="col-md-12 aside3-content">
+        <div table-of-contents class="col-md-12 aside3-content">
             <!-- 正文 -->
             <div id="content-page" ng-class="{photo: $ctrl.meta.layout === 'photo'}" marked="$ctrl.content"></div>
             <book-list ng-if="$ctrl.meta.layout === 'book'" books="$ctrl.meta.books"></book-list>
