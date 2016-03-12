@@ -94,4 +94,9 @@ angular
         });
 
       $locationProvider.hashPrefix('!');
-    }]);
+    }])
+  .run(['$rootScope', '$route', '$location', function ($rootScope, $route, $location) {
+    $rootScope.$on('$locationChangeSuccess', function () {
+      console.info($location.absUrl());
+    });
+  }]);

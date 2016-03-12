@@ -4,7 +4,9 @@
             <h1 id="#identifier">{{ $ctrl.meta.title }}</h1>
             <div class="entry-meta">
                 <span class="words">{{ $ctrl.content.length }} words</span>
-                <a class="content-edit" rel="nofollow" ng-href="{{ $ctrl.editUrl }}" target="_blank">{{ $ctrl.pageContent.path }}</a>
+                <a class="content-edit" rel="nofollow" ng-href="{{ $ctrl.editUrl }}" target="_blank">
+                    {{ $ctrl.pageContent.path }}
+                </a>
             </div>
         </div>
 
@@ -29,9 +31,20 @@
 
             <!-- 分享 -->
             <div class="aside3-share">
-                <a ng-repeat="share in $ctrl.socialShare"
-                   ng-href="{{ share.url }}?url={{ $ctrl.shareLink }}&title={{ $ctrl.meta.title }}" target="_blank">
-                    <i class="post-share-icon fa fa-{{ share.icon }}"></i>
+                <a ng-repeat="share in $ctrl.socialShare" socialshare
+                   socialshare-provider="{{ share.name }}"
+                   socialshare-text="{{ $ctrl.meta.title }}"
+                   socialshare-url="{{ $ctrl.shareLink }}"
+                   socialshare-hashtags="{{ $ctrl.hashTags }}">
+                    <i class="post-share-icon fa {{ share.icon }}"></i>
+                </a>
+
+                <a ng-href="http://service.weibo.com/share/share.php?url={{ $ctrl.encodedShareLink }}&amp;title={{ $ctrl.meta.title }}" target="_blank">
+                    <i class="post-share-icon fa fa-weibo"></i>
+                </a>
+                <a class="weixin-qr">
+                    <i class="post-share-icon fa fa-weixin"></i>
+                    <qr text="$ctrl.shareLink"></qr>
                 </a>
             </div>
             <hr>

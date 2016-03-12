@@ -24,12 +24,13 @@ angular.module('app')
           disqus_url: 'http://blog.jimmylv.info/'
         };
         vm.socialShare = [
-          {url: 'https://twitter.com/share', icon: 'twitter'},
-          {url: 'https://www.evernote.com/clip.action', icon: 'wechat'},
-          {url: 'http://service.weibo.com/share/share.php', icon: 'weibo'},
-          {url: vm.editUrl, icon: 'github'}
+          {name: 'twitter', icon: 'fa-twitter'},
+          {name: 'facebook', icon: 'fa-facebook'},
+          {name: 'pocket', icon: 'fa-get-pocket'}
         ];
         vm.shareLink = $location.absUrl();
+        vm.encodedShareLink = encodeURIComponent($location.absUrl());
+        vm.hashTags = vm.meta.tags.join(', ');
       };
 
       function _parseContent(separator, rawContent) {

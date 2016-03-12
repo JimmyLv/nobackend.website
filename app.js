@@ -11,7 +11,9 @@ angular
     'angularUtils.directives.dirDisqus',
     'angular-loading-bar',
     'angulartics',
-    'angulartics.google.analytics'
+    'angulartics.google.analytics',
+    '720kb.socialshare',
+    'ja.qr'
   ])
   .constant("CONFIG", {
     "url": "http://localhost",
