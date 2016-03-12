@@ -16,9 +16,9 @@
 </head>
 <body ng-app="app" class="body-design">
 
-<div class="container" ng-controller="MainCtrl as main">
+<div class="container" id="container" ng-controller="MainCtrl as main">
     <div ng-include="'app/partials/header.html'"></div>
-    <div class="row" id="content" ng-view></div>
+    <div class="row" ng-view></div>
     <div class="row app-list" ui-view></div>
 
     <div ui-view="viewA"></div>

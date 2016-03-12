@@ -7,7 +7,7 @@ angular.module('app')
         this.headlines = [];
         this.scrollTo = function (headline) {
           console.info('selectedHeadline', headline.element.id);
-          var content = angular.element(document.querySelector('#content'));
+          var content = angular.element(document.querySelector('#container'));
 
           content.removeClass('offset-fixed');
           $anchorScroll(headline.element.id);
