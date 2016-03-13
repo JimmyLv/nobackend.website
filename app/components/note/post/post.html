@@ -10,7 +10,7 @@
     <div table-of-contents class="col-md-12 aside3-content">
         <!-- 正文 -->
         <div id="content-page" ng-class="{photo: $ctrl.meta.layout === 'photo'}" marked="$ctrl.content"></div>
-        <book-list ng-if="$ctrl.meta.layout === 'book'" books="$ctrl.meta.books"></book-list>
+        <books ng-if="$ctrl.meta.layout === 'book'" books="$ctrl.meta.books"></books>
 
         <!-- 目录 -->
         <div id="content-table" class="panel panel-success no-mobile" ng-show="$ctrl.showToc">
