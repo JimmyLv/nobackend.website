@@ -1,3 +1,5 @@
+const hljs = require('highlight.js');
+
 export default function config(markedProvider, cfpLoadingBarProvider) {
   'ngInject';
   markedProvider.setOptions({

@@ -1,18 +1,17 @@
+import { Github } from 'github-api';
+
 export default function ($http) {
   'ngInject';
-
-  /*
-   var github = new Github({
-   apiUrl: 'https://api.github.com'
-   });
-   var repo = github.getRepo('JimmyLv', 'jimmy.lv');
-   repo.contents('gh-pages', '_posts/', function(err, contents) {
-   console.info(contents);
-   });
-   repo.read('gh-pages', '_config.yml', function(err, data) {
-   console.info(data);
-   });
-   */
+  /*var githubIns = new Github({
+    apiUrl: 'https://api.github.com'
+  });
+  var repo = githubIns.getRepo('JimmyLv', 'jimmy.lv');
+  repo.contents('gh-pages', '_posts/', function(err, contents) {
+    console.info(contents);
+  });
+  repo.read('gh-pages', '_config.yml', function(err, data) {
+    console.info(data);
+  });*/
 
   const API_URL = 'https://api.github.com';
   const TOKEN = '';

@@ -3,6 +3,12 @@ import ngRoute from 'angular-route';
 import ngAnimate from 'angular-animate';
 import ngSanitize from 'angular-sanitize';
 
+import 'angular-ui-router';
+import 'angular-new-router';
+import ngCache from './node_modules/angular-cache/dist/angular-cache';
+import ngDisqus from 'angularUtils-disqus';
+import ngLoadingBar from 'angular-loading-bar';
+import angulartics from 'angulartics';
 import marked from 'marked';
 import ngMarked from 'angular-marked';
 
@@ -32,10 +38,10 @@ angular
     'ngNewRouter',
     'ab-base64',
     ngMarked,
-    'angular-cache',
-    'angularUtils.directives.dirDisqus',
-    'angular-loading-bar',
-    'angulartics',
+    ngCache,
+    ngDisqus,
+    ngLoadingBar,
+    angulartics,
     'angulartics.google.analytics',
     '720kb.socialshare',
     'ja.qr'

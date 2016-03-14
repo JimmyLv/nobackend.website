@@ -16,24 +16,10 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.5.0",
-    "angular-route": "~1.5.0",
-    "angular-sanitize": "~1.5.0",
     "angular-utf8-base64": "~0.0.5",
-    "angular-marked": "~1.0.1",
-    "angular-cache": "~4.5.0",
-    "js-yaml": "~3.5.3",
-    "github-api": "~0.11.2",
-    "highlight": "~8.9.1",
-    "jQuery": "~2.2.0",
-    "font-awesome": "Font-Awesome#~4.5.0",
-    "lowdb": "~0.12.4",
-    "angular-ui-router": "^0.2.18",
-    "angular-new-router": "^0.5.3",
-    "angularUtils-disqus": "angular-utils-disqus#^1.0.0",
-    "angular-loading-bar": "^0.8.0",
-    "angular-animate": "^1.5.0",
     "angulartics-google-analytics": "^0.1.4",
-    "angular-qr": "^0.2.0"
+    "js-yaml": "~3.5.3",
+    "angular-qr": "^0.2.0",
+    "angular-socialshare": "^1.4.5"
   }
 }

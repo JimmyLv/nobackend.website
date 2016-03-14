@@ -1,3 +1,6 @@
+const low = require('lowdb');
+const localStorage = require('lowdb/browser');
+
 export default {
   templateUrl: './app/components/note/note.html',
   bindings: {
@@ -20,7 +23,7 @@ export default {
       vm.config = jsyaml.load(base64.decode(vm.siteInfo.content));
       vm.selectedCategory = $routeParams.category || '编程';
 
-      var db = low('db', {storage: low.localStorage}); // localStorage
+      var db = low('db', {storage: localStorage}); // localStorage
       db.object = vm.index;
 
       vm.selectedTagsWithPosts = db('tags').filter(function (tag) {
