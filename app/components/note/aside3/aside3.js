@@ -1,5 +1,5 @@
 export default {
-  templateUrl: './app/components/note/aside3/aside3.html',
+  template: require('./aside3.html'),
   bindings: {
     newest: '<',
     tagsWithPosts: '<',

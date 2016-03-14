@@ -1,6 +1,6 @@
 export default {
   transclude: true,
-  templateUrl: './app/components/note/post/post.html',
+  template: require('./post.html'),
   bindings: {
     pageContent: '<',
     showToc: '<'

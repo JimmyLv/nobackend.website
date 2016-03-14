@@ -1,5 +1,5 @@
 export default {
-  templateUrl: './app/components/note/nest/nest.html',
+  template: require('./nest.html'),
   bindings: {
     siteInfo: '<',
     index: '<'

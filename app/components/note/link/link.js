@@ -1,5 +1,5 @@
 export default {
-  templateUrl: './app/components/note/link/link.html',
+  template: require('./link.html'),
   bindings: {
     posts: '<',
     category: '<selectedCategory'

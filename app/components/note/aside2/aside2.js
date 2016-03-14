@@ -1,5 +1,5 @@
 export default {
-  templateUrl: './app/components/note/aside2/aside2.html',
+  template: require('./aside2.html'),
   bindings: {
     posts: '<',
     selectedCategory: '<'

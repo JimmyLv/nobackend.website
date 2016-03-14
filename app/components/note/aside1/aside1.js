@@ -1,5 +1,5 @@
 export default {
-  templateUrl: './app/components/note/aside1/aside1.html',
+  template: require('./aside1.html'),
   bindings: {
     selectedCategory: '<',
     categories: '<',

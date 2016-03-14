@@ -1,5 +1,5 @@
 export default {
-  templateUrl: './app/components/jekyll/posts.html',
+  template: require('./posts.html'),
   bindings: {
     categories: '<'
   },

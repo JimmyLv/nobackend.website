@@ -1,6 +1,6 @@
 export default {
   transclude: true,
-  templateUrl: './app/components/note/books/books.html',
+  template: require('./books.html'),
   bindings: {
     books: '<'
   },
