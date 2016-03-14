@@ -21,10 +21,14 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
       template: '<apps app-items="appItems"></apps>',
       resolve: {
         appItems: function ($http) {
+          'ngInject';
+
           return $http.get('data.json')
         }
       },
       controller: function ($scope, appItems) {
+        'ngInject';
+
         $scope.appItems = appItems;
       }
     })
@@ -33,10 +37,14 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
       template: '<posts categories="categories.data"></posts>',
       resolve: {
         categories: function (githubService) {
+          'ngInject';
+
           return githubService.read('_posts');
         }
       },
       controller: function ($scope, categories) {
+        'ngInject';
+
         $scope.categories = categories;
       }
     });
@@ -47,9 +55,13 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
     route.resolve || (route.resolve = {});
     angular.extend(route.resolve, {
       config: function (githubService) {
+        'ngInject';
+
         return githubService.getConfig();
       },
       index: function (githubService) {
+        'ngInject';
+
         return githubService.getIndex();
       }
     });
@@ -62,6 +74,8 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
       template: '<note post-content="$resolve.post.data" site-info="$resolve.config.data" index="$resolve.index.data" show-nav="main.showNav" show-toc="main.showTOC"></note>',
       resolve: {
         post: function ($route, githubService) {
+          'ngInject';
+
           var category = $route.current.params.category;
           var postId = $route.current.params.post;
           if (postId) {

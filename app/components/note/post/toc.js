@@ -1,5 +1,7 @@
 angular.module('app')
   .directive('tableOfContents', function ($anchorScroll) {
+    'ngInject';
+
     return {
       require: '?ngModel',
       scope: true,

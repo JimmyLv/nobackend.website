@@ -2,6 +2,7 @@ import { Github } from 'github-api';
 
 export default function ($http) {
   'ngInject';
+
   /*var githubIns = new Github({
     apiUrl: 'https://api.github.com'
   });
