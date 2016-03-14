@@ -15,7 +15,12 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.js$/, exclude: /node_modules/, loader: 'ng-annotate?add=true!babel-loader'},
+      {test: /\.css$/, loader: "style!css"},
+      {test: /\.less$/, loader: "style!css!less"},
+      {test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, loader : 'file-loader'},
       {test: /\.html$/, loader: 'raw'}
+    ],
+    noParse: [
     ]
   },
 
@@ -24,6 +29,9 @@ module.exports = {
   ],
 
   resolve: {
-    extensions: ['', '.js', '.json']
+    extensions: ['', '.js', '.json'],
+    alias: {
+      'react': 'build/react'
+    }
   }
 };

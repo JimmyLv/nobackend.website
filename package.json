@@ -11,26 +11,27 @@
   "license": "ISC",
   "dependencies": {
     "angular-socialshare": "^0.1.20",
+    "angular-ui-router": "^0.2.18",
     "js-yaml": "^3.5.4",
     "lowdb": "^0.12.5",
-    "markdown-toc": "^0.12.3"
+    "markdown-toc": "^0.12.3",
+    "github-api": "^0.11.2",
+    "highlight.js": "^9.2.0"
   },
   "devDependencies": {
-    "angular-ui-router": "^0.2.18",
     "babel-core": "^6.7.2",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.6.0",
+    "less": "^2.6.1",
+    "less-loader": "^2.2.2",
     "css-loader": "^0.23.1",
+    "style-loader": "^0.13.0",
     "file-loader": "^0.8.5",
-    "raw-loader": "^0.5.1",
-    "github-api": "^0.11.2",
-    "highlight.js": "^9.2.0",
-    "js-yaml": "^3.5.4",
     "ng-annotate-loader": "^0.1.0",
     "ng-annotate-webpack-plugin": "^0.1.2",
     "node-sass": "^3.4.2",
     "sass-loader": "^3.2.0",
-    "style-loader": "^0.13.0",
+    "raw-loader": "^0.5.1",
     "url-loader": "^0.5.7"
   }
 }

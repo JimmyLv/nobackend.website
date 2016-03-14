@@ -1,3 +1,6 @@
+const low = require('lowdb');
+const localStorage = require('lowdb/browser');
+
 export default {
   template: require('./nest.html'),
   bindings: {
@@ -10,7 +13,7 @@ export default {
     var vm = this;
 
     vm.$onInit = function () {
-      var db = low('db', {storage: low.localStorage}); // localStorage
+      var db = low('db', {storage: localStorage}); // localStorage
       db.object = vm.index;
 
       vm.config = jsyaml.load(base64.decode(vm.siteInfo.content));
