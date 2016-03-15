@@ -23,11 +23,6 @@ export default {
       vm.content = result.content;
       vm.meta = result.meta;
 
-      vm.disqusConfig = {
-        disqus_shortname: 'gotoshare',
-        disqus_identifier: 'JimmyLv',
-        disqus_url: 'http://blog.jimmylv.info/'
-      };
       vm.socialShare = [
         {name: 'twitter', icon: 'fa-twitter'},
         {name: 'facebook', icon: 'fa-facebook'},

@@ -17,11 +17,10 @@ module.exports = {
       {test: /\.js$/, exclude: /node_modules/, loader: 'ng-annotate?add=true!babel-loader'},
       {test: /\.css$/, loader: "style!css"},
       {test: /\.less$/, loader: "style!css!less"},
-      {test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, loader : 'file-loader'},
+      {test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/, loader: 'url?limit=100000&name=[name].[ext]'},
       {test: /\.html$/, loader: 'raw'}
     ],
-    noParse: [
-    ]
+    noParse: []
   },
 
   plugins: [

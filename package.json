@@ -12,11 +12,12 @@
   "dependencies": {
     "angular-socialshare": "^0.1.20",
     "angular-ui-router": "^0.2.18",
+    "bootstrap": "^3.3.6",
+    "github-api": "^0.11.2",
+    "highlight.js": "^9.2.0",
     "js-yaml": "^3.5.4",
     "lowdb": "^0.12.5",
-    "markdown-toc": "^0.12.3",
-    "github-api": "^0.11.2",
-    "highlight.js": "^9.2.0"
+    "markdown-toc": "^0.12.3"
   },
   "devDependencies": {
     "babel-core": "^6.7.2",

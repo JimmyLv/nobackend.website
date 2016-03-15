@@ -1,5 +1,8 @@
 require ('./style/hightlight.css');
 require ('./style/loading-bar.css');
+require ('./style/font-awesome.css');
+
+require ('./style/bootstrap.css');
 require ('./style/yue.css');
 require ('./style/base.css');
 
