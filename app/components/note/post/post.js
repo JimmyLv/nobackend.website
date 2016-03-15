@@ -5,19 +5,24 @@ export default {
     pageContent: '<',
     showToc: '<'
   },
-  controller: function ($location, base64) {
+  controller: function ($document, $location, base64) {
     'ngInject';
 
     var vm = this;
     console.info('selectedPageContent:', vm.pageContent);
     console.info('showTOC:', vm.showToc);
 
+    var result = _parseContent('---', vm.pageContent.content);
+
+    console.info('setting tile', result.meta.title);
+    $document[0].title = result.meta.title + ' | 最美博客';
+
     vm.$onInit = function () {
-      var result = _parseContent('---', vm.pageContent.content);
 
       vm.editUrl = vm.pageContent.html_url.replace('blob', 'edit');
       vm.content = result.content;
       vm.meta = result.meta;
+
       vm.disqusConfig = {
         disqus_shortname: 'gotoshare',
         disqus_identifier: 'JimmyLv',
@@ -34,7 +39,7 @@ export default {
       vm.formatedHashTags = vm.meta.tags.map(function (tag) {
         return '#' + tag + '#'
       }).join(' ');
-      vm.encodedShareContent = encodeURIComponent(vm.formatedHashTags + ' ' + vm.meta.title + ' | 最美博客');
+      vm.encodedShareContent = encodeURIComponent(vm.meta.title + ' ' + vm.formatedHashTags + ' | 最美博客');
     };
 
     function _parseContent(separator, rawContent) {

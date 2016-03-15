@@ -3,28 +3,28 @@ require ('./style/loading-bar.css');
 require ('./style/yue.css');
 require ('./style/base.css');
 
-import angular from 'angular';
-import ngRoute from 'angular-route';
-import ngAnimate from 'angular-animate';
-import ngSanitize from 'angular-sanitize';
+import angular from 'angular'
+import ngRoute from 'angular-route'
+import ngAnimate from 'angular-animate'
+import ngSanitize from 'angular-sanitize'
 
-import 'angular-ui-router';
-import 'angular-new-router';
-import './node_modules/angular-utf8-base64/angular-utf8-base64';
-import './node_modules/angulartics-google-analytics/lib/angulartics-google-analytics';
-import './node_modules/angulartics-google-analytics/lib/angulartics-google-analytics';
-import './node_modules/angular-socialshare/src/js/angular-socialshare';
+import 'angular-ui-router'
+import 'angular-new-router'
+import './node_modules/angular-utf8-base64/angular-utf8-base64'
+import './node_modules/angulartics-google-analytics/lib/angulartics-google-analytics'
+import './node_modules/angulartics-google-analytics/lib/angulartics-google-analytics'
+import './node_modules/angular-socialshare/src/js/angular-socialshare'
 
-import ngCache from './node_modules/angular-cache/dist/angular-cache';
-import ngDisqus from 'angularUtils-disqus';
-import ngLoadingBar from 'angular-loading-bar';
-import angulartics from 'angulartics';
-import marked from 'marked';
-import ngMarked from 'angular-marked';
+import ngCache from './node_modules/angular-cache/dist/angular-cache'
+import ngDisqus from 'angularUtils-disqus'
+import ngLoadingBar from 'angular-loading-bar'
+import angulartics from 'angulartics'
+import marked from 'marked'
+import ngMarked from 'angular-marked'
 
-import config from './app.config';
-import routing from './app.routes';
-import running from './app.run';
+import config from './app.config'
+import routing from './app.routes'
+import running from './app.run'
 
 import apps from './app/components/apps/apps'
 import posts from './app/components/jekyll/posts'
