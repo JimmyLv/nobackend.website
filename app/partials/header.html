@@ -4,7 +4,7 @@
             <img ng-src="images/avatar.jpg"/>
         </a>
     </div>
-    <div class="top-bar">
+    <div class="menu">
         <a ng-href="#!/hello" class="link no-mobile">HELLO</a>
         <a ng-href="#!/zuimeia" class="link no-mobile">APPS</a>
         <a ng-href="#!/jekyll" class="link no-mobile">JEKYLL</a>
@@ -14,20 +14,21 @@
         <a ui-sref="users2" class="link no-mobile">USERS</a>
         <a href="https://github.com/JimmyLv/nobackend.website" class="link" target="_blank">GITHUB</a>
     </div>
-    <div class="menu">
+    <div class="tool-bar">
         <input autocomplete="off" class="default-search no-mobile" ng-model="main.searchText" name="keyword"
                placeholder="Search..." type="text">
         <span class="cancel-search no-mobile" ng-click="main.clearSearch()"><i class="fa fa-times"></i></span>
         <span class="random-post" ng-click="main.randomPost()" analytics-on analytics-event="RandomPost" analytics-category="Commands">随机文章</span>
     </div>
 </header>
+
 <div class="row yue search-results" ng-if="main.searchText">
-    <table id="search-text-results">
+    <table>
         <tr>
             <th>Category</th>
             <th>Post</th>
             <th>Tags</th>
-            <th>搜索「<span class="link" ng-click="main.clearSearch()">{{main.searchText}}</span>」共计{{(main.posts | filter:main.searchText).length}}个结果:</th>
+            <th>搜索「<span id="search-text" ng-click="main.clearSearch()">{{main.searchText}}</span>」共计{{(main.posts | filter:main.searchText).length}}个结果:</th>
         </tr>
         <tr ng-repeat="post in main.posts | filter:main.searchText">
             <td>{{post.category}}</td>

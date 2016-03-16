@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 aside3" ng-class="{'content-center': !$ctrl.showNav}">
+<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 aside3" ng-class="{'center-fixed': !$ctrl.showNav}">
     <post ng-if="!$ctrl.isIndex" page-content="$ctrl.postContent" show-toc="$ctrl.showToc"></post>
 
     <aside3 ng-if="$ctrl.isIndex"
@@ -29,10 +29,11 @@
     <dir-disqus config="$ctrl.disqusConfig"></dir-disqus>
 </div>
 
-<button id="nav-btn" class="btn btn-primary" ng-click="$ctrl.toggleNav()">
-    <i class="fa fa-lg fa-navicon"></i>
-</button>
-
-<button id="content-btn" class="btn btn-primary" ng-click="$ctrl.toggleTOC()">
-    <i class="fa fa-lg fa-plus"></i>
-</button>
+<div class="toggle-btn">
+    <button id="nav-btn" class="btn btn-primary" ng-click="$ctrl.toggleNav()">
+        <i class="fa fa-lg fa-navicon"></i>
+    </button>
+    <button id="toc-btn" class="btn btn-primary" ng-click="$ctrl.toggleTOC()">
+        <i class="fa fa-lg fa-plus"></i>
+    </button>
+</div>

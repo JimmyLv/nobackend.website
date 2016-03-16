@@ -4,7 +4,7 @@ require ('./style/font-awesome.css');
 
 require ('./style/bootstrap.css');
 require ('./style/yue.css');
-require ('./style/base.css');
+require ('./style/base.less');
 
 import angular from 'angular'
 import ngRoute from 'angular-route'
