@@ -1,5 +1,5 @@
 export default {
-  template: require('./aside3.html'),
+  templateUrl: require('./aside3.html'),
   bindings: {
     newest: '<',
     tagsWithPosts: '<',

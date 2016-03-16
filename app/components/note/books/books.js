@@ -1,6 +1,6 @@
 export default {
   transclude: true,
-  template: require('./books.html'),
+  templateUrl: require('./books.html'),
   bindings: {
     books: '<'
   },

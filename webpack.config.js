@@ -18,7 +18,7 @@ module.exports = {
       {test: /\.css$/, loader: "style!css"},
       {test: /\.less$/, loader: "style!css!less"},
       {test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/, loader: 'url?limit=100000&name=[name].[ext]'},
-      {test: /\.html$/, loader: 'raw'}
+      {test: /\.html$/, loader: 'ngtemplate!html'}
     ],
     noParse: []
   },

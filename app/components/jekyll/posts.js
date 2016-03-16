@@ -1,5 +1,5 @@
 export default {
-  template: require('./posts.html'),
+  templateUrl: require('./posts.html'),
   bindings: {
     categories: '<'
   },

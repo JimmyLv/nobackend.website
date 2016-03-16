@@ -1,5 +1,5 @@
 export default {
-  template: require('./apps.html'),
+  templateUrl: require('./apps.html'),
   bindings: {
     appItems: '<'
   },

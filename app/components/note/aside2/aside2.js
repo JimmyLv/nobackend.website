@@ -1,5 +1,5 @@
 export default {
-  template: require('./aside2.html'),
+  templateUrl: require('./aside2.html'),
   bindings: {
     posts: '<',
     selectedCategory: '<'

@@ -1,5 +1,5 @@
 export default {
-  template: require('./link.html'),
+  templateUrl: require('./link.html'),
   bindings: {
     posts: '<',
     category: '<selectedCategory'

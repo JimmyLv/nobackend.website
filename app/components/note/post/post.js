@@ -1,6 +1,6 @@
 export default {
   transclude: true,
-  template: require('./post.html'),
+  templateUrl: require('./post.html'),
   bindings: {
     pageContent: '<',
     showToc: '<'

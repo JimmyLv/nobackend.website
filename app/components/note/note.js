@@ -2,7 +2,7 @@ const low = require('lowdb');
 const localStorage = require('lowdb/browser');
 
 export default {
-  template: require('./note.html'),
+  templateUrl: require('./note.html'),
   bindings: {
     postContent: '<',
     siteInfo: '<',
