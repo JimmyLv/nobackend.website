@@ -17,8 +17,9 @@ module.exports = {
       {test: /\.js$/, exclude: /node_modules/, loader: 'ng-annotate?add=true!babel-loader'},
       {test: /\.css$/, loader: "style!css"},
       {test: /\.less$/, loader: "style!css!less"},
-      {test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/, loader: 'url?limit=100000&name=[name].[ext]'},
-      {test: /\.html$/, loader: 'ngtemplate!html'}
+      {test: /\.(eot|woff|woff2|ttf|svg)(\?\S*)?$/, loader: 'url?limit=100000&name=./fonts/[name].[ext]'},
+      {test: /\.(png|jpe?g|gif)$/, loader: 'url-loader?limit=8192&name=./images/[hash].[ext]'},
+      {test: /\.html$/, loader: 'ngtemplate!html?attrs[]=img:src img:ng-src'}
     ],
     noParse: []
   },
