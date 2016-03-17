@@ -39,7 +39,7 @@ import books from './app/components/note/books/books'
 import link from './app/components/note/link/link'
 import nest from './app/components/note/nest/nest'
 import post from './app/components/note/post/post'
-import mainCtrl from './app/controllers/mainController'
+import MainCtrl from './app/controllers/mainController'
 import githubService from './app/services/githubService'
 import toc from './app/components/note/post/toc'
 
@@ -63,7 +63,7 @@ angular
   .config(config)
   .config(routing)
   .run(running)
-  .controller('MainCtrl', mainCtrl)
+  .controller('MainCtrl', MainCtrl)
   .service('githubService', githubService)
   .component('post', post)
   .component('apps', apps)
