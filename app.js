@@ -32,7 +32,7 @@ import running from './app.run'
 import toc from './app/directives/toc'
 import githubService from './app/services/githubService'
 import MainCtrl from './app/controllers/mainController'
-import Components from './app/components/components'
+import Components from './app/components/components.module'
 
 angular
   .module('app', [
