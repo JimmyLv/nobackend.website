@@ -34,9 +34,7 @@ export default  {
       var db = low('db', {storage: localStorage});
       db.object = vm.index;
 
-      vm.selectedTagsWithPosts = db('tags').filter(function (tag) {
-        return vm.config.cates.indexOf(tag.name) > -1;
-      });
+      vm.selectedTagsWithPosts = db('tags').filter(tag => vm.config.cates.indexOf(tag.name) > -1);
 
       vm.isIndex = vm.postContent ? false : true;
       vm.selectedPosts = db('categories').find({name: vm.selectedCategory}).posts;
@@ -45,15 +43,13 @@ export default  {
       vm.showNav = true;
       vm.showToc = false;
 
-      vm.toggleNav = function () {
+      vm.toggleNav = () => {
         vm.showNav = !vm.showNav;
         vm.showToc = !vm.showToc;
-        console.info('vm.showNav', vm.showNav);
       };
 
-      vm.toggleTOC = function () {
+      vm.toggleTOC = () => {
         vm.showToc = !vm.showToc;
-        console.info('vm.showToc', vm.showToc);
       };
 
       vm.disqusConfig = {

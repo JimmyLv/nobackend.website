@@ -33,9 +33,7 @@ export default {
       vm.shareLink = $location.absUrl();
       vm.encodedShareLink = encodeURIComponent($location.absUrl());
       vm.hashTags = vm.meta.tags.join(', ');
-      vm.formatedHashTags = vm.meta.tags.map(function (tag) {
-        return '#' + tag + '#'
-      }).join(' ');
+      vm.formatedHashTags = vm.meta.tags.map(tag => '#' + tag + '#').join(' ');
       vm.encodedShareContent = encodeURIComponent(vm.meta.title + ' ' + vm.formatedHashTags + ' | 最美博客');
     };
 

@@ -9,6 +9,7 @@ export default {
   },
   controller: function () {
     var vm = this;
+
     vm.$onInit = function () {
       console.info(vm.category);
     }
