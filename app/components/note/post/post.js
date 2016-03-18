@@ -1,3 +1,5 @@
+const jsyaml = require('js-yaml/lib/js-yaml.js');
+
 export default {
   transclude: true,
   templateUrl: require('./post.html'),

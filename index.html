@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon.ico"/>
 </head>
-<body ng-app="app" class="body-design">
-
+<body ng-app="app" ng-cloak class="body-design">
+<!--<app></app>-->
 <div id="container" ng-controller="MainCtrl as main">
     <div ng-include="'app/partials/header.html'"></div>
     <div class="row" ng-view></div>
@@ -23,7 +23,6 @@
 </div>
 
 <script src="./assets/bundle.js"></script>
-<script src="app/bower_components/js-yaml/dist/js-yaml.min.js"></script>
 <script src="app/bower_components/qrcode/lib/qrcode.min.js"></script>
 <script src="app/bower_components/angular-qr/angular-qr.min.js"></script>
 

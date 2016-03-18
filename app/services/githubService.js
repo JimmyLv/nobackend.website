@@ -13,18 +13,18 @@ class GitHubService {
     this.$http = $http;
   }
 
-  _read(filename) {
+  read(filename) {
     return this.$http.get(_url(filename), {
       cache: true
     })
   }
 
   getPost(category, post) {
-    return this._read('_posts/' + category + '/' + post + '.md')
+    return this.read('_posts/' + category + '/' + post + '.md')
   }
 
   getConfig() {
-    return this._read('_config.yml')
+    return this.read('_config.yml')
   }
 
   getIndex() {

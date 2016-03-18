@@ -1,7 +1,16 @@
 const low = require('lowdb');
 const localStorage = require('lowdb/browser');
+const jsyaml = require('js-yaml/lib/js-yaml.js');
 
-export default {
+import aside1 from './aside1/aside1'
+import aside2 from './aside2/aside2'
+import aside3 from './aside3/aside3'
+import books from './books/books'
+import link from './link/link'
+import nest from './nest/nest'
+import post from './post/post'
+
+export default  {
   templateUrl: require('./note.html'),
   bindings: {
     postContent: '<',
@@ -13,7 +22,6 @@ export default {
 
     var vm = this;
 
-    console.info($routeParams);
     console.info('index data:', vm.index);
     console.info('site config:', vm.siteInfo);
     console.info('post content:', vm.postContent);
@@ -23,7 +31,7 @@ export default {
       vm.config = jsyaml.load(base64.decode(vm.siteInfo.content));
       vm.selectedCategory = $routeParams.category || '编程';
 
-      var db = low('db', {storage: localStorage}); // localStorage
+      var db = low('db', {storage: localStorage});
       db.object = vm.index;
 
       vm.selectedTagsWithPosts = db('tags').filter(function (tag) {

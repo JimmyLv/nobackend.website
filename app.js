@@ -29,19 +29,10 @@ import config from './app.config'
 import routing from './app.routes'
 import running from './app.run'
 
-import apps from './app/components/apps/apps'
-import posts from './app/components/jekyll/posts'
-import note from './app/components/note/note'
-import aside1 from './app/components/note/aside1/aside1'
-import aside2 from './app/components/note/aside2/aside2'
-import aside3 from './app/components/note/aside3/aside3'
-import books from './app/components/note/books/books'
-import link from './app/components/note/link/link'
-import nest from './app/components/note/nest/nest'
-import post from './app/components/note/post/post'
-import MainCtrl from './app/controllers/mainController'
+import toc from './app/directives/toc'
 import githubService from './app/services/githubService'
-import toc from './app/components/note/post/toc'
+import MainCtrl from './app/controllers/mainController'
+import Components from './app/components/components'
 
 angular
   .module('app', [
@@ -58,21 +49,12 @@ angular
     angulartics,
     'angulartics.google.analytics',
     '720kb.socialshare',
-    'ja.qr'
+    'ja.qr',
+    Components.name
   ])
   .config(config)
   .config(routing)
   .run(running)
   .controller('MainCtrl', MainCtrl)
   .service('githubService', githubService)
-  .component('post', post)
-  .component('apps', apps)
-  .component('posts', posts)
-  .component('note', note)
-  .component('aside1', aside1)
-  .component('aside2', aside2)
-  .component('aside3', aside3)
-  .component('books', books)
-  .component('postLink', link)
-  .component('nest', nest)
   .directive('tableOfContents', toc);
