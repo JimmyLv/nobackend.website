@@ -1,54 +1,46 @@
-import { Github } from 'github-api';
+const github = {
+  apiUrl: 'https://api.github.com',
+  token: '',
+  userName: 'JimmyLv',
+  repoName: 'jimmy.lv',
+  branch: 'gh-pages'
+};
 
-export default function ($http) {
-  'ngInject';
+class GitHubService {
+  constructor($http) {
+    'ngInject';
 
-  /*var githubIns = new Github({
-    apiUrl: 'https://api.github.com'
-  });
-  var repo = githubIns.getRepo('JimmyLv', 'jimmy.lv');
-  repo.contents('gh-pages', '_posts/', function(err, contents) {
-    console.info(contents);
-  });
-  repo.read('gh-pages', '_config.yml', function(err, data) {
-    console.info(data);
-  });*/
-
-  const API_URL = 'https://api.github.com';
-  const TOKEN = '';
-  var github = {
-    useName: 'JimmyLv',
-    repoName: 'jimmy.lv',
-    branch: 'gh-pages'
-  };
-
-  function _buildUrl(path) {
-    var baseUrl = API_URL + '/repos/' + github.useName + '/' + github.repoName + '/contents/';
-    var url = baseUrl + path + '?ref=' + github.branch;
-    return TOKEN === '' ? url : url + '&access_token=' + TOKEN;
+    this.$http = $http;
   }
 
-  return {
-    read: function (path) {
-      return $http.get(_buildUrl(path), {
-        cache: true
-      })
-    },
-    getPost: function (category, postId) {
-      var filePath = '_posts/' + category + '/' + postId + '.md';
-      return $http.get(_buildUrl(filePath), {
-        cache: true
-      })
-    },
-    getConfig: function () {
-      return $http.get(_buildUrl('_config.yml'), {
-        cache: true
-      })
-    },
-    getIndex: function () {
-      return $http.get('http://blog.jimmylv.info/api/index.json', {
-        cache: true
-      })
-    }
+  _read(filename) {
+    return this.$http.get(_url(filename), {
+      cache: true
+    })
+  }
+
+  getPost(category, post) {
+    return this._read('_posts/' + category + '/' + post + '.md')
+  }
+
+  getConfig() {
+    return this._read('_config.yml')
+  }
+
+  getIndex() {
+    return this.$http.get('http://blog.jimmylv.info/api/index.json', {cache: true})
   }
 }
+
+function _url(path) {
+  var baseUrl = github.apiUrl + '/repos/' + github.userName + '/' + github.repoName + '/contents/';
+  var url = baseUrl + path + '?ref=' + github.branch;
+  return github.token === '' ? url : url + '&access_token=' + github.token;
+}
+
+function _rawUrl(path) {
+  var baseUrl = 'https://raw.githubusercontent.com/' + github.userName + '/' + github.repoName + '/' + github.branch;
+  return baseUrl + path;
+}
+
+export default GitHubService;
