@@ -30,9 +30,9 @@ import routing from './app.routes'
 import running from './app.run'
 
 import toc from './app/directives/toc'
-import githubService from './app/services/githubService'
 import MainCtrl from './app/controllers/mainController'
 import Components from './app/components/components.module'
+import Services from './app/services/services.module'
 
 angular
   .module('app', [
@@ -50,11 +50,11 @@ angular
     'angulartics.google.analytics',
     '720kb.socialshare',
     'ja.qr',
-    Components.name
+    Components.name,
+    Services.name
   ])
   .config(config)
   .config(routing)
   .run(running)
   .controller('MainCtrl', MainCtrl)
-  .service('githubService', githubService)
   .directive('tableOfContents', toc);
