@@ -9,8 +9,9 @@
 </head>
 <body ng-app="app" ng-cloak class="body-design">
 <!--<app></app>-->
-<div id="container" ng-controller="MainCtrl as main">
-    <div ng-include="'app/partials/header.html'"></div>
+<div id="container">
+    <app-header></app-header>
+    <!--<div ng-include="'app/common/header.html'"></div>-->
     <div class="row" ng-view></div>
     <div class="row app-list" ui-view></div>
 
@@ -19,7 +20,7 @@
     <div ng-viewport="dashboard"></div>
     <div ng-viewport="users"></div>
 
-    <div ng-include="'app/partials/footer.html'"></div>
+    <div ng-include="'app/commons/footer.html'"></div>
 </div>
 
 <script src="./assets/bundle.js"></script>
