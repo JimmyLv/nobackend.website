@@ -5,9 +5,9 @@ export default {
     categories: '<',
     config: '<siteConfig'
   },
-  controller: function () {
-    var vm = this;
-    vm.$onInit = function () {
+  controller() {
+    const vm = this;
+    vm.$onInit = () => {
 
     }
   }

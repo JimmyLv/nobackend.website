@@ -4,12 +4,12 @@ export default {
     posts: '<',
     selectedCategory: '<'
   },
-  controller: function ($routeParams) {
-    'ngInject';
+  controller($routeParams) {
+    "ngInject";
 
-    var vm = this;
-    vm.$onInit = function () {
-      vm.selectedPost = '/' + $routeParams.post;
+    const vm = this;
+    vm.$onInit = () => {
+      vm.selectedPost = `/${$routeParams.post}`;
       console.info('selectedPost:', vm.selectedCategory + vm.selectedPost);
     }
   }

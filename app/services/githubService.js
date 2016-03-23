@@ -13,12 +13,6 @@ class GitHubService {
     this.$http = $http;
   }
 
-  readApi(filename) {
-    return this.$http.get(_url(filename), {
-      cache: true
-    })
-  }
-
   read(filename) {
     return this.$http.get(_rawUrl(filename), {
       cache: true

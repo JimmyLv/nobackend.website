@@ -1,14 +1,6 @@
-const low = require('lowdb');
-const localStorage = require('lowdb/browser');
-const jsyaml = require('js-yaml/lib/js-yaml.js');
-
-import aside1 from './aside1/aside1'
-import aside2 from './aside2/aside2'
-import aside3 from './aside3/aside3'
-import books from './books/books'
-import link from './link/link'
-import nest from './nest/nest'
-import post from './post/post'
+import low from 'lowdb';
+import localStorage from 'lowdb/browser';
+import jsyaml from 'js-yaml/lib/js-yaml.js';
 
 export default  {
   templateUrl: require('./note.html'),
@@ -17,19 +9,19 @@ export default  {
     siteInfo: '<',
     index: '<'
   },
-  controller: function ($http, $routeParams) {
-    'ngInject';
+  controller($routeParams) {
+    "ngInject";
 
-    var vm = this;
+    const vm = this;
 
     console.info('index data:', vm.index);
     console.info('------------fetch data finished---------------');
 
-    vm.$onInit = function () {
+    vm.$onInit = () => {
       vm.config = jsyaml.load(vm.siteInfo);
       vm.selectedCategory = $routeParams.category || '编程';
 
-      var db = low('db', {storage: localStorage});
+      const db = low('db', {storage: localStorage});
       db.object = vm.index;
 
       console.info(vm.config);

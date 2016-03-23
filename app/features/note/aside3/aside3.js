@@ -6,9 +6,9 @@ export default {
     selectedCategory: '<',
     paginator: '<newestPaginator'
   },
-  controller: function () {
-    var vm = this;
-    vm.$onInit = function () {
+  controller() {
+    const vm = this;
+    vm.$onInit = () => {
       vm.newestPosts = vm.paginator.slice(0, 10);
       vm.selectedTags = vm.tagsWithPosts.map(tag => tag.name);
       console.info('selectedTags:', vm.selectedTags);

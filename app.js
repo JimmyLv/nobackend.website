@@ -30,7 +30,7 @@ import routing from './app.routes'
 import running from './app.run'
 
 import toc from './app/directives/toc'
-import Components from './app/components/components.module'
+import Features from './app/features/features.module.js'
 import Services from './app/services/services.module'
 import Commons from './app/commons/commons.module'
 
@@ -42,6 +42,7 @@ angular
     'ui.router',
     'ngNewRouter',
     'ab-base64',
+    'ja.qr',
     ngMarked,
     ngCache,
     ngDisqus,
@@ -49,8 +50,7 @@ angular
     angulartics,
     'angulartics.google.analytics',
     '720kb.socialshare',
-    'ja.qr',
-    Components.name,
+    Features.name,
     Services.name,
     Commons.name
   ])

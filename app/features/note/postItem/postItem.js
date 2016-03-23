@@ -1,5 +1,5 @@
 export default {
-  templateUrl: require('./link.html'),
+  templateUrl: require('./postItem.html'),
   bindings: {
     posts: '<',
     category: '<selectedCategory'
@@ -7,10 +7,10 @@ export default {
   transclude: {
     'date': '?postDate'
   },
-  controller: function () {
-    var vm = this;
+  controller() {
+    const vm = this;
 
-    vm.$onInit = function () {
+    vm.$onInit = () => {
       console.info(vm.category);
     }
   }

@@ -17,10 +17,10 @@
 <div class="col-md-12">
     <div class="panel panel-primary">
         <div class="panel-heading">{{ $ctrl.newest }}</div>
-        <post-link posts="$ctrl.newestPosts" selected-category="$ctrl.selectedCategory"></post-link>
+        <post-item posts="$ctrl.newestPosts" selected-category="$ctrl.selectedCategory"></post-item>
     </div>
     <div class="panel panel-primary" ng-repeat="tag in $ctrl.tagsWithPosts">
         <div class="panel-heading"><a ng-href="#tags/{{ tag.name }}">{{ tag.name }}</a></div>
-        <post-link posts="tag.posts" selected-category="$ctrl.selectedCategory"></post-link>
+        <post-item posts="tag.posts" selected-category="$ctrl.selectedCategory"></post-item>
     </div>
 </div>

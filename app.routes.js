@@ -31,22 +31,6 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
 
         $scope.appItems = appItems;
       }
-    })
-    .state('jekyll', {
-      url: '/jekyll',
-      template: '<posts categories="categories.data"></posts>',
-      resolve: {
-        categories(githubService) {
-          'ngInject';
-
-          return githubService.readApi('_posts');
-        }
-      },
-      controller($scope, categories) {
-        'ngInject';
-
-        $scope.categories = categories;
-      }
     });
 
   const originalWhen = $routeProvider.when;
@@ -84,7 +68,7 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
         }
       }
     })
-    .when('/pages/:page', {template: '<nest site-info="$resolve.config.data" index="$resolve.index.data"></nest>'})
+    .when('/pages/:page', {template: '<page site-info="$resolve.config.data" index="$resolve.index.data"></page>'})
     .when('/photos', {template: '<iframe id="preview" src="http://unperfectlove.lofter.com/" frameborder="0" width="100%" height="100%"></iframe>'})
     .when('/', {redirectTo: '/note'});
 

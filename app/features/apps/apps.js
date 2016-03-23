@@ -1,10 +1,10 @@
-export default angular.module('app.components.apps', [])
+export default angular.module('app.apps', [])
   .component('apps', {
     templateUrl: require('./apps.html'),
     bindings: {
       appItems: '<'
     },
-    controller: function () {
+    controller() {
       this.apps = this.appItems.data.data.apps;
     }
   })

@@ -4,10 +4,10 @@ export default {
   bindings: {
     books: '<'
   },
-  controller: function () {
-    var vm = this;
+  controller() {
+    const vm = this;
 
-    vm.$onInit = function () {
+    vm.$onInit = () => {
       console.info('books:', vm.books);
 
     };
