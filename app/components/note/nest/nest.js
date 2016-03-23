@@ -17,7 +17,7 @@ export default {
       var db = low('db', {storage: localStorage}); // localStorage
       db.object = vm.index;
 
-      vm.config = jsyaml.load(vm.siteInfo.content);
+      vm.config = jsyaml.load(vm.siteInfo);
       vm.selectedCategory = $routeParams.category || '编程';
       vm.selectedPosts = db('categories').find({name: vm.selectedCategory}).posts;
       vm.pageUrl = $sce.trustAsResourceUrl('http://blog.jimmylv.info/pages/' + $routeParams.page + '.html');
