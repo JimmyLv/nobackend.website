@@ -14,12 +14,11 @@ export default {
 
     var result = _parseContent('---', vm.pageContent);
 
-    console.info('setting tile', result.meta.title);
+    console.info('setting tile:', result.meta.title);
     $document[0].title = result.meta.title + ' | 最美博客';
 
     vm.$onInit = function () {
 
-      console.info($routeParams);
       vm.filename = `_posts/${$routeParams.category}/${$routeParams.post}.md`;
       vm.editUrl = `https://github.com/JimmyLv/jimmy.lv/edit/gh-pages/${vm.filename}`;
       vm.content = result.content;

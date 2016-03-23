@@ -7,7 +7,7 @@ export default function ($anchorScroll) {
     controller: function () {
       this.headlines = [];
       this.scrollTo = function (headline) {
-        console.info('selectedHeadline', headline.element.id);
+        console.info('selectedHeadline:', headline.element.id);
         var content = angular.element(document.querySelector('#container'));
 
         content.removeClass('offset-fixed');
@@ -36,8 +36,6 @@ export default function ($anchorScroll) {
         });
         return headlines;
       }
-
-      console.info('$scope', $scope);
     }
   }
 }

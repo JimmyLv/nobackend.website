@@ -30,9 +30,9 @@ import routing from './app.routes'
 import running from './app.run'
 
 import toc from './app/directives/toc'
-import MainCtrl from './app/controllers/mainController'
 import Components from './app/components/components.module'
 import Services from './app/services/services.module'
+import Commons from './app/commons/commons.module'
 
 angular
   .module('app', [
@@ -51,10 +51,10 @@ angular
     '720kb.socialshare',
     'ja.qr',
     Components.name,
-    Services.name
+    Services.name,
+    Commons.name
   ])
   .config(config)
   .config(routing)
   .run(running)
-  .controller('MainCtrl', MainCtrl)
   .directive('tableOfContents', toc);
