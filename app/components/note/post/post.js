@@ -7,21 +7,21 @@ export default {
     pageContent: '<',
     showToc: '<'
   },
-  controller: function ($document, $location, base64) {
+  controller: function ($document, $location, $routeParams) {
     'ngInject';
 
     var vm = this;
-    console.info('selectedPageContent:', vm.pageContent);
-    console.info('showTOC:', vm.showToc);
 
-    var result = _parseContent('---', vm.pageContent.content);
+    var result = _parseContent('---', vm.pageContent);
 
     console.info('setting tile', result.meta.title);
     $document[0].title = result.meta.title + ' | 最美博客';
 
     vm.$onInit = function () {
 
-      vm.editUrl = vm.pageContent.html_url.replace('blob', 'edit');
+      console.info($routeParams);
+      vm.filename = `_posts/${$routeParams.category}/${$routeParams.post}.md`;
+      vm.editUrl = `https://github.com/JimmyLv/jimmy.lv/edit/gh-pages/${vm.filename}`;
       vm.content = result.content;
       vm.meta = result.meta;
 
@@ -38,7 +38,7 @@ export default {
     };
 
     function _parseContent(separator, rawContent) {
-      var splitResult = base64.decode(rawContent).split(separator);
+      var splitResult = rawContent.split(separator);
       return {
         content: splitResult.slice(2).join(separator),
         meta: jsyaml.load(splitResult[1])

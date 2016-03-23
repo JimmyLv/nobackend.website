@@ -1,5 +1,3 @@
-import angular from 'angular';
-
 import aside1 from './aside1/aside1'
 import aside2 from './aside2/aside2'
 import aside3 from './aside3/aside3'

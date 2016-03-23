@@ -17,23 +17,22 @@ export default  {
     siteInfo: '<',
     index: '<'
   },
-  controller: function ($http, $routeParams, base64) {
+  controller: function ($http, $routeParams) {
     'ngInject';
 
     var vm = this;
 
     console.info('index data:', vm.index);
-    console.info('site config:', vm.siteInfo);
-    console.info('post content:', vm.postContent);
     console.info('------------fetch data finished---------------');
 
     vm.$onInit = function () {
-      vm.config = jsyaml.load(base64.decode(vm.siteInfo.content));
+      vm.config = jsyaml.load(vm.siteInfo);
       vm.selectedCategory = $routeParams.category || '编程';
 
       var db = low('db', {storage: localStorage});
       db.object = vm.index;
 
+      console.info(vm.config);
       vm.selectedTagsWithPosts = db('tags').filter(tag => vm.config.cates.indexOf(tag.name) > -1);
 
       vm.isIndex = vm.postContent ? false : true;

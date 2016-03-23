@@ -1,5 +1,6 @@
 const low = require('lowdb');
 const localStorage = require('lowdb/browser');
+const jsyaml = require('js-yaml/lib/js-yaml.js');
 
 export default {
   templateUrl: require('./nest.html'),
@@ -7,7 +8,7 @@ export default {
     siteInfo: '<',
     index: '<'
   },
-  controller: function ($http, $routeParams, $sce, base64) {
+  controller: function ($http, $routeParams, $sce) {
     'ngInject';
 
     var vm = this;
@@ -16,7 +17,7 @@ export default {
       var db = low('db', {storage: localStorage}); // localStorage
       db.object = vm.index;
 
-      vm.config = jsyaml.load(base64.decode(vm.siteInfo.content));
+      vm.config = jsyaml.load(vm.siteInfo.content);
       vm.selectedCategory = $routeParams.category || '编程';
       vm.selectedPosts = db('categories').find({name: vm.selectedCategory}).posts;
       vm.pageUrl = $sce.trustAsResourceUrl('http://blog.jimmylv.info/pages/' + $routeParams.page + '.html');

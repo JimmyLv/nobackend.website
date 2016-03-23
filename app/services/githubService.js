@@ -13,14 +13,20 @@ class GitHubService {
     this.$http = $http;
   }
 
-  read(filename) {
+  readApi(filename) {
     return this.$http.get(_url(filename), {
       cache: true
     })
   }
 
+  read(filename) {
+    return this.$http.get(_rawUrl(filename), {
+      cache: true
+    })
+  }
+
   getPost(category, post) {
-    return this.read('_posts/' + category + '/' + post + '.md')
+    return this.read(`_posts/${category}/${post}.md`)
   }
 
   getConfig() {
@@ -33,14 +39,12 @@ class GitHubService {
 }
 
 function _url(path) {
-  var baseUrl = github.apiUrl + '/repos/' + github.userName + '/' + github.repoName + '/contents/';
-  var url = baseUrl + path + '?ref=' + github.branch;
-  return github.token === '' ? url : url + '&access_token=' + github.token;
+  const url = `${github.apiUrl}/repos/${github.userName}/${github.repoName}/contents/${path}?ref=${github.branch}`;
+  return github.token === '' ? url : `${url}&access_token=${github.token}`;
 }
 
 function _rawUrl(path) {
-  var baseUrl = 'https://raw.githubusercontent.com/' + github.userName + '/' + github.repoName + '/' + github.branch;
-  return baseUrl + path;
+  return `https://raw.githubusercontent.com/${github.userName}/${github.repoName}/${github.branch}/${path}`;
 }
 
 export default GitHubService;

@@ -1,4 +1,3 @@
-import angular from 'angular';
 const jsyaml = require('js-yaml/lib/js-yaml.js');
 
 export default angular.module('app.components.posts', [])

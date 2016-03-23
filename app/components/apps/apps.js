@@ -1,5 +1,3 @@
-import angular from 'angular';
-
 export default angular.module('app.components.apps', [])
   .component('apps', {
     templateUrl: require('./apps.html'),

@@ -20,13 +20,13 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
       url: '/zuimeia',
       template: '<apps app-items="appItems"></apps>',
       resolve: {
-        appItems: function ($http) {
+        appItems($http) {
           'ngInject';
 
           return $http.get('data.json')
         }
       },
-      controller: function ($scope, appItems) {
+      controller($scope, appItems) {
         'ngInject';
 
         $scope.appItems = appItems;
@@ -36,30 +36,30 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
       url: '/jekyll',
       template: '<posts categories="categories.data"></posts>',
       resolve: {
-        categories: function (githubService) {
+        categories(githubService) {
           'ngInject';
 
-          return githubService.read('_posts');
+          return githubService.readApi('_posts');
         }
       },
-      controller: function ($scope, categories) {
+      controller($scope, categories) {
         'ngInject';
 
         $scope.categories = categories;
       }
     });
 
-  var originalWhen = $routeProvider.when;
+  const originalWhen = $routeProvider.when;
 
-  $routeProvider.when = function (path, route) {
+  $routeProvider.when = (path, route) => {
     route.resolve || (route.resolve = {});
     angular.extend(route.resolve, {
-      config: function (githubService) {
+      config(githubService) {
         'ngInject';
 
         return githubService.getConfig();
       },
-      index: function (githubService) {
+      index(githubService) {
         'ngInject';
 
         return githubService.getIndex();
@@ -71,13 +71,13 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
 
   $routeProvider
     .when('/note/:category?/:post?', {
-      template: '<note post-content="$resolve.post.data" site-info="$resolve.config.data" index="$resolve.index.data" show-nav="main.showNav" show-toc="main.showTOC"></note>',
+      template: '<note post-content="$resolve.post.data" site-info="$resolve.config.data" index="$resolve.index.data"></note>',
       resolve: {
-        post: function ($route, githubService) {
+        post($route, githubService) {
           'ngInject';
 
-          var category = $route.current.params.category;
-          var postId = $route.current.params.post;
+          const category = $route.current.params.category;
+          const postId = $route.current.params.post;
           if (postId) {
             return githubService.getPost(category, postId);
           }
