@@ -41,6 +41,7 @@ angular
     ngSanitize,
     'ui.router',
     'ngNewRouter',
+    'ab-base64',
     ngMarked,
     ngCache,
     ngDisqus,
