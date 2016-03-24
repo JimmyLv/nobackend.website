@@ -8,7 +8,7 @@ module.exports = {
     app: ['webpack/hot/dev-server', './app.js']
   },
   output: {
-    path: './assets',
+    path: './dist',
     filename: 'bundle.js'
   },
 

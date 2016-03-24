@@ -1,10 +1,10 @@
-require('./style/hightlight.css');
-require('./style/loading-bar.css');
-require('./style/font-awesome.css');
+require('./assets/styles/hightlight.css');
+require('./assets/styles/loading-bar.css');
+require('./assets/styles/font-awesome.css');
 
-require('./style/bootstrap.css');
-require('./style/yue.css');
-require('./style/base.less');
+require('./assets/styles/bootstrap.css');
+require('./assets/styles/yue.css');
+require('./assets/styles/base.less');
 
 import angular from 'angular'
 import ngRoute from 'angular-route'
@@ -25,9 +25,9 @@ import angulartics from 'angulartics'
 import marked from 'marked'
 import ngMarked from 'angular-marked'
 
-import config from './app.config'
-import routing from './app.routes'
-import running from './app.run'
+import config from './app/configs/app.config.js'
+import routing from './app/configs/app.routes.js'
+import running from './app/configs/app.run.js'
 
 import toc from './app/directives/toc'
 import Features from './app/features/features.module.js'

@@ -14,7 +14,7 @@ export default  {
 
     const vm = this;
 
-    console.info('index data:', vm.index);
+    console.info('index:', vm.index);
     console.info('------------fetch data finished---------------');
 
     vm.$onInit = () => {
@@ -24,7 +24,7 @@ export default  {
       const db = low('db', {storage: localStorage});
       db.object = vm.index;
 
-      console.info(vm.config);
+      console.info('config:', vm.config);
       vm.selectedTagsWithPosts = db('tags').filter(tag => vm.config.cates.indexOf(tag.name) > -1);
 
       vm.isIndex = vm.postContent ? false : true;
