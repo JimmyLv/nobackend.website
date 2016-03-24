@@ -23,7 +23,7 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
         appItems($http) {
           'ngInject';
 
-          return $http.get('data.json')
+          return $http.get('../../assets/data.json')
         }
       },
       controller($scope, appItems) {

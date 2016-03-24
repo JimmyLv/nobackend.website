@@ -7,54 +7,31 @@ require('./assets/styles/yue.css');
 require('./assets/styles/base.less');
 
 import angular from 'angular'
-import ngRoute from 'angular-route'
 import ngAnimate from 'angular-animate'
 import ngSanitize from 'angular-sanitize'
 
-import 'angular-ui-router'
-import 'angular-new-router'
-import './node_modules/angular-utf8-base64/angular-utf8-base64'
-import './node_modules/angulartics-google-analytics/lib/angulartics-google-analytics'
-import './node_modules/angulartics-google-analytics/lib/angulartics-google-analytics'
-import './node_modules/angular-socialshare/src/js/angular-socialshare'
-
-import ngCache from './node_modules/angular-cache/dist/angular-cache'
-import ngDisqus from 'angularUtils-disqus'
-import ngLoadingBar from 'angular-loading-bar'
+import ngCache from 'angular-cache'
 import angulartics from 'angulartics'
-import marked from 'marked'
-import ngMarked from 'angular-marked'
+import 'angular-socialshare'
+import 'angulartics-google-analytics'
 
-import config from './app/configs/app.config.js'
-import routing from './app/configs/app.routes.js'
-import running from './app/configs/app.run.js'
-
-import Features from './app/features/features.module.js'
+import Configs from './app/configs/configs.module'
 import Services from './app/services/services.module'
-import Commons from './app/commons/commons.module'
+import Features from './app/features/features.module'
 import Decorators from './app/decorators/decorators.module'
+import Commons from './app/commons/commons.module'
 
 angular
   .module('app', [
-    ngRoute,
     ngAnimate,
     ngSanitize,
-    'ui.router',
-    'ngNewRouter',
-    'ab-base64',
-    'ja.qr',
-    ngMarked,
     ngCache,
-    ngDisqus,
-    ngLoadingBar,
     angulartics,
     'angulartics.google.analytics',
     '720kb.socialshare',
+    Configs.name,
     Services.name,
     Commons.name,
     Decorators.name,
     Features.name
-  ])
-  .config(config)
-  .config(routing)
-  .run(running);
+  ]);
