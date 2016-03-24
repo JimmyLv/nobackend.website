@@ -1,4 +1,4 @@
-import angular from 'angular'
+import './toc.less'
 
 export default function ($anchorScroll) {
   'ngInject';

@@ -1,3 +1,5 @@
+import './header.less'
+
 export default  {
   templateUrl: require('./header.html'),
   bindings: {},
