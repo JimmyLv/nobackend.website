@@ -1,3 +1,5 @@
+import '../../assets/styles/loading-bar.css'
+
 import ngRoute from 'angular-route'
 import uirouter from 'angular-ui-router'
 import 'angular-new-router'

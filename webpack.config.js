@@ -5,7 +5,7 @@ var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 module.exports = {
   context: __dirname,
   entry: {
-    app: ['webpack/hot/dev-server', './app.js']
+    app: ['webpack/hot/dev-server', './app/app.js']
   },
   output: {
     path: './dist',
@@ -32,9 +32,9 @@ module.exports = {
     extensions: ['', '.js', '.json'],
     alias: {
       'react': './pages/build/react',
-      'angular-cache': './node_modules/angular-cache/dist/angular-cache',
-      'angular-socialshare': './node_modules/angular-socialshare/src/js/angular-socialshare',
-      'angulartics-google-analytics': './node_modules/angulartics-google-analytics/lib/angulartics-google-analytics'
+      'angular-cache': 'angular-cache/dist/angular-cache',
+      'angular-socialshare': 'angular-socialshare/src/js/angular-socialshare',
+      'angulartics-google-analytics': 'angulartics-google-analytics/lib/angulartics-google-analytics'
     },
     modulesDirectories: ['node_modules']
   }
