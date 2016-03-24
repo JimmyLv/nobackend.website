@@ -29,10 +29,10 @@ import config from './app/configs/app.config.js'
 import routing from './app/configs/app.routes.js'
 import running from './app/configs/app.run.js'
 
-import toc from './app/directives/toc'
 import Features from './app/features/features.module.js'
 import Services from './app/services/services.module'
 import Commons from './app/commons/commons.module'
+import Decorators from './app/decorators/decorators.module'
 
 angular
   .module('app', [
@@ -50,11 +50,11 @@ angular
     angulartics,
     'angulartics.google.analytics',
     '720kb.socialshare',
-    Features.name,
     Services.name,
-    Commons.name
+    Commons.name,
+    Decorators.name,
+    Features.name
   ])
   .config(config)
   .config(routing)
-  .run(running)
-  .directive('tableOfContents', toc);
+  .run(running);

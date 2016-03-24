@@ -15,4 +15,4 @@ export default angular.module('app.note', [])
   .component('post', post)
   .component('postItem', postItem)
   .component('page', page)
-  .component('note', note)
+  .component('note', note);
