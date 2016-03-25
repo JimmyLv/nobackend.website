@@ -1,3 +1,4 @@
+import './page.less'
 import low from 'lowdb';
 import localStorage from 'lowdb/browser';
 import jsyaml from 'js-yaml/lib/js-yaml.js';

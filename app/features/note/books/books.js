@@ -1,3 +1,5 @@
+import './books.less'
+
 export default {
   transclude: true,
   templateUrl: require('./books.html'),

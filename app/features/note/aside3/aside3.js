@@ -1,17 +1,31 @@
+import './aside3.less'
+
 export default {
   templateUrl: require('./aside3.html'),
   bindings: {
-    newest: '<',
-    tagsWithPosts: '<',
+    config: '<',
+    posts: '<',
     selectedCategory: '<',
-    paginator: '<newestPaginator'
+    tagsWithPosts: '<',
+    newestPosts: '<',
+    postContent: '<',
+    showToc: '<',
+    showNav: '<'
   },
-  controller() {
+  controller($routeParams) {
+    "ngInject";
+
     const vm = this;
+
     vm.$onInit = () => {
-      vm.newestPosts = vm.paginator.slice(0, 10);
-      vm.selectedTags = vm.tagsWithPosts.map(tag => tag.name);
-      console.info('selectedTags:', vm.selectedTags);
+      vm.isIndex = vm.postContent ? false : true;
+      vm.selectedCategory = $routeParams.category || '编程';
+
+      vm.disqusConfig = {
+        disqus_shortname: 'nobackend-website',
+        disqus_identifier: 'nobackend-website',
+        disqus_url: 'http://nobackend.website'
+      };
     }
   }
 }

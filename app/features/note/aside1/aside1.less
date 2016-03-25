@@ -1,0 +1,42 @@
+.aside1 {
+  background-color: #fff;
+  height: 100%;
+  padding-top: 20px;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+
+  & > .nav > li > a {
+    border-radius: 0;
+    color: #000;
+    font-size: 15px;
+    padding: 10px;
+
+    &:hover {
+      background-color: #EAEDEF;
+    }
+  }
+
+  .nav > li.active > a, .nav > li.active > a:hover, .nav > li.active > a:focus {
+    color: #fff;
+    background-color: #000;
+  }
+
+  .aside1-bottom {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 3px solid #EAEDEF;
+    padding-top: 7px;
+
+    a {
+      margin: 5px;
+      text-decoration: none;
+
+      i {
+        color: #000;
+      }
+    }
+  }
+}

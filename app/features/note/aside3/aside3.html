@@ -1,26 +1,15 @@
-<div class="center">
-    <h3>
-        <span style="color: #000080; ">未</span>
-        <span style="color: #FFA500; ">知</span>
-        <span style="color: #2E8B57; ">的</span>
-        <span style="color: #F08080; ">可</span>
-        <span style="color: #00CED1; ">能</span>
-        <span style="color: #ff0000; ">性</span>
-        <span style="color: #BA55D3; ">,</span>
-        <span style="color: #601986; ">追</span>
-        <span style="color: #556fb5; ">随</span>
-        <span style="color: #fa1089; ">我</span>
-        <span style="color: #638c0b; ">心</span>
-    </h3>
-</div>
+<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 aside3" ng-class="{'center-fixed': !$ctrl.showNav}">
 
-<div class="col-md-12">
-    <div class="panel panel-primary">
-        <div class="panel-heading">{{ $ctrl.newest }}</div>
-        <post-item posts="$ctrl.newestPosts" selected-category="$ctrl.selectedCategory"></post-item>
-    </div>
-    <div class="panel panel-primary" ng-repeat="tag in $ctrl.tagsWithPosts">
-        <div class="panel-heading"><a ng-href="#tags/{{ tag.name }}">{{ tag.name }}</a></div>
-        <post-item posts="tag.posts" selected-category="$ctrl.selectedCategory"></post-item>
-    </div>
+    <home ng-if="$ctrl.isIndex"
+          newest="$ctrl.config.locals.newest"
+          newest-posts="$ctrl.newestPosts"
+          tags-with-posts="$ctrl.tagsWithPosts">
+    </home>
+
+    <post ng-if="!$ctrl.isIndex"
+          post-content="$ctrl.postContent"
+          show-toc="$ctrl.showToc">
+    </post>
+
+    <dir-disqus config="$ctrl.disqusConfig"></dir-disqus>
 </div>

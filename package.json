@@ -10,6 +10,7 @@
   "author": "Jimmy Lv",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.5.2",
     "angular-socialshare": "^0.1.20",
     "angular-ui-router": "^0.2.18",
     "bootstrap": "^3.3.6",

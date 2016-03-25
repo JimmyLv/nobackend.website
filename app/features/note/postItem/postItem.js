@@ -1,8 +1,9 @@
+import './postItem.less'
+
 export default {
   templateUrl: require('./postItem.html'),
   bindings: {
-    posts: '<',
-    category: '<selectedCategory'
+    posts: '<'
   },
   transclude: {
     'date': '?postDate'
@@ -11,7 +12,6 @@ export default {
     const vm = this;
 
     vm.$onInit = () => {
-      console.info(vm.category);
     }
   }
 }

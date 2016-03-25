@@ -1,0 +1,81 @@
+
+.aside3-title {
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+  color: #747778;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1em;
+}
+
+.aside3-date {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.aside3-meta {
+  position: relative;
+  display: block;
+  font-size: 14px;
+  font-family: Optima, "Helvetica Neue", sans-serif;
+  padding-bottom: 1em;
+
+  .words::after {
+    content: " in ";
+  }
+
+  a.content-edit {
+    color: #999;
+    text-decoration: none;
+  }
+}
+
+.aside3-tags {
+  margin-bottom: 20px;
+
+  .tag {
+    margin-right: 6px;
+    font-size: 13px;
+    text-decoration: none;
+
+    &:before {
+      content: '#';
+      color: #999;
+    }
+  }
+}
+
+.aside3-share {
+  margin: 0.5em 0;
+  padding-top: .7em;
+  padding-bottom: .6em;
+  font-size: 28px;
+  text-align: center;
+  background: #fcfcfc;
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+
+    i {
+      margin: 0 10px;
+      font-style: normal;
+      color: #BCC1C4;
+      transition: color .15s linear;
+      outline: none;
+
+      &:hover {
+        color: #309E85;
+      }
+    }
+
+    &.weixin-qr > qr {
+      display: none;
+    }
+
+    &.weixin-qr:hover > qr {
+      margin-top: 20px;
+      display: block;
+    }
+  }
+}

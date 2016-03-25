@@ -1,3 +1,5 @@
+import './aside2.less'
+
 export default {
   templateUrl: require('./aside2.html'),
   bindings: {

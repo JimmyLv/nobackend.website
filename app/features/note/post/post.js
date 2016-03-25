@@ -1,10 +1,11 @@
+import './post.less'
 import jsyaml from 'js-yaml/lib/js-yaml.js';
 
 export default {
   transclude: true,
   templateUrl: require('./post.html'),
   bindings: {
-    pageContent: '<',
+    postContent: '<',
     showToc: '<'
   },
   controller($document, $location, $routeParams) {
@@ -12,7 +13,7 @@ export default {
 
     const vm = this;
 
-    const result = _parseContent('---', vm.pageContent);
+    const result = _parseContent('---', vm.postContent);
 
     console.info('setting tile:', result.meta.title);
     $document[0].title = `${result.meta.title} | 最美博客`;

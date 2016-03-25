@@ -1,39 +1,23 @@
-<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 aside"
+<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 nav-aside"
      ng-class="{ 'hidden-md': !$ctrl.showNav, 'visible-md': $ctrl.showNav,
      'hidden-lg': !$ctrl.showNav, 'visible-lg': $ctrl.showNav }">
 
-    <div class="navside">
-        <aside1 class="col-md-3 col-xs-3 aside1"
-                selected-category="$ctrl.selectedCategory"
-                categories="$ctrl.index.categories"
-                site-config="$ctrl.config">
-        </aside1>
+    <aside1 selected-category="$ctrl.selectedCategory"
+            categories="$ctrl.index.categories"
+            site-config="$ctrl.config">
+    </aside1>
 
-        <aside2 class="col-md-9 col-xs-9 aside2"
-                selected-category="$ctrl.selectedCategory"
-                posts="$ctrl.selectedPosts">
-        </aside2>
-    </div>
+    <aside2 selected-category="$ctrl.selectedCategory"
+            posts="$ctrl.selectedPostsByCategory">
+    </aside2>
 </div>
 
-<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 aside3" ng-class="{'center-fixed': !$ctrl.showNav}">
-    <post ng-if="!$ctrl.isIndex" page-content="$ctrl.postContent" show-toc="$ctrl.showToc"></post>
+<aside3 config="$ctrl.config"
+        newest-posts="$ctrl.newestPosts"
+        tags-with-posts="$ctrl.selectedTagsWithPosts"
+        post-content="$ctrl.postContent"
+        show-toc="$ctrl.showToc"
+        show-nav="$ctrl.showNav">
+</aside3>
 
-    <aside3 ng-if="$ctrl.isIndex"
-            newest="$ctrl.config.locals.newest"
-            tags-with-posts="$ctrl.selectedTagsWithPosts"
-            selected-category="$ctrl.selectedCategory"
-            newest-paginator="$ctrl.index.paginator">
-    </aside3>
-
-    <dir-disqus config="$ctrl.disqusConfig"></dir-disqus>
-</div>
-
-<div class="toggle-btn">
-    <button id="nav-btn" class="btn btn-primary" ng-click="$ctrl.toggleNav()">
-        <i class="fa fa-lg fa-navicon"></i>
-    </button>
-    <button id="toc-btn" class="btn btn-primary" ng-click="$ctrl.toggleTOC()">
-        <i class="fa fa-lg fa-plus"></i>
-    </button>
-</div>
+<toggle-button toggle-nav="$ctrl.toggleNav()" toggle-toc="$ctrl.toggleToc()"></toggle-button>
