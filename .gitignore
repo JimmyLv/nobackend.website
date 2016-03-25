@@ -6,5 +6,5 @@
 /.jekyll-metadata
 /npm-debug.log
 
-/dist
+/dist/*
 !/dist/bundle.js
