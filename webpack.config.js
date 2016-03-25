@@ -31,10 +31,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.json'],
     alias: {
-      'react': './pages/build/react',
-      'angular-cache': 'angular-cache/dist/angular-cache',
-      'angular-socialshare': 'angular-socialshare/src/js/angular-socialshare',
-      'angulartics-google-analytics': 'angulartics-google-analytics/lib/angulartics-google-analytics'
+      'react': './pages/build/react'
     },
     modulesDirectories: ['node_modules']
   }
