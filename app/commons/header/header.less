@@ -10,6 +10,23 @@ header {
   background: #fff;
   box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
 
+  .link {
+    a {
+      margin-right: 10px;
+      color: #777;
+      font-weight: 500;
+      font-size: 15px;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+
+      &.active {
+        color: #f8c027;
+      }
+    }
+  }
+
   .logo {
     position: absolute;
     img {
@@ -24,19 +41,16 @@ header {
     display: inline-block;
     vertical-align: middle;
     margin-left: 66px;
-    a {
-      margin-right: 10px;
-      font-weight: 500;
-      font-size: 15px;
-      letter-spacing: 1.1px;
-      text-transform: uppercase;
-      color: #777;
-      cursor: pointer;
 
-      &.active {
-        color: #f8c027;
-      }
-    }
+    .link;
+  }
+
+  .music-player {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 100px;
+
+    .link;
   }
 
   .tool-bar {
@@ -46,6 +60,8 @@ header {
     color: #78909c;
     font-weight: 700;
     font-size: 14px;
+
+    .link;
 
     .default-search {
       color: #727272;
@@ -100,5 +116,11 @@ header {
   #search-text {
     color: #777;
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .m-player {
+    margin-left: 10px !important;
   }
 }

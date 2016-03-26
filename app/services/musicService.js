@@ -5,10 +5,11 @@ class MusicService {
     this.$http = $http;
   }
 
-  get(musicId) {
-    return this.$http.jsonp('http://app.atime.me/music-api-server/?p=netease&t=songlist&i=27853227&c=JSON_CALLBACK', {
+  getPlayList(listId) {
+    return this.$http.jsonp(`http://app.atime.me/music-api-server/?p=netease&t=playlist&i=${listId}&c=JSON_CALLBACK`, {
       cache: true
     })
   }
 }
- export default MusicService;
+
+export default MusicService;
