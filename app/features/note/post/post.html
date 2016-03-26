@@ -34,13 +34,13 @@
                socialshare-text="{{ $ctrl.meta.title }} | 最美博客"
                socialshare-url="{{ $ctrl.shareLink }}"
                socialshare-hashtags="{{ $ctrl.hashTags }}">
-                <i class="fa {{ share.icon }}"></i>
+                <i class="fa {{ share.icon }} faa-shake animated"></i>
             </a>
             <a ng-href="http://service.weibo.com/share/share.php?url={{ $ctrl.encodedShareLink }}&amp;title={{ $ctrl.encodedShareContent }}" target="_blank">
-                <i class="fa fa-weibo"></i>
+                <i class="fa fa-weibo faa-shake animated"></i>
             </a>
             <a class="weixin-qr">
-                <i class="fa fa-weixin"></i>
+                <i class="fa fa-weixin faa-shake animated"></i>
                 <qr text="$ctrl.shareLink"></qr>
             </a>
         </div>
