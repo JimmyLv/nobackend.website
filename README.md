@@ -4,7 +4,7 @@
 
 ## Install dependencies & Run
 
-```
+```bash
 npm i
 
 npm run build

@@ -5,6 +5,7 @@
             <span class="words">{{ $ctrl.content.length }} words</span>
             <a class="content-edit" rel="nofollow" ng-href="{{ $ctrl.editUrl }}" target="_blank">{{ $ctrl.filename }}</a>
         </div>
+        <music-box ng-if="$ctrl.meta.music" class="aside3-music" music-id="$ctrl.meta.music">{{ $ctrl.meta }}</music-box>
     </div>
 
     <div table-of-contents class="col-md-12 aside3-content">
