@@ -11,6 +11,7 @@ import angulartics from 'angulartics'
 import 'angular-socialshare'
 import 'angulartics-google-analytics'
 
+import '../assets/libraries/angular.audio'
 import '../assets/libraries/angular-ui-awesome'
 import '../assets/styles/angular-ui-awesome.css'
 
@@ -33,6 +34,7 @@ angular
     'angulartics.google.analytics',
     '720kb.socialshare',
     'ja.qr',
+    'ngAudio',
     'ngUiAwesome',
     Configs.name,
     Services.name,

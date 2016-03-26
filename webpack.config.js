@@ -33,6 +33,6 @@ module.exports = {
     alias: {
       'react': './pages/build/react'
     },
-    modulesDirectories: ['node_modules']
+    modulesDirectories: ['node_modules', 'bower_components']
   }
 };
