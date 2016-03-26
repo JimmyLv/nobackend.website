@@ -1,4 +1,4 @@
-<div class="yue">
+<div class="yue fx-dur-800 fx-ease-none" ng-class="{'fx-fade-normal': $ctrl.showContent}">
     <div class="col-md-12 aside3-title">
         <h1 id="#identifier">{{ $ctrl.meta.title }}</h1>
         <div class="aside3-meta">
@@ -13,7 +13,7 @@
         <books ng-if="$ctrl.meta.layout === 'book'" books="$ctrl.meta.books"></books>
 
         <!-- 目录 -->
-        <div id="toc" class="panel panel-success no-mobile" ng-show="$ctrl.showToc">
+        <div id="toc" class="panel panel-success no-mobile fx-rotate-down-right fx-dur-800 fx-ease-circ" ng-show="$ctrl.showToc">
             <div class="panel-body" id="nav">
                 <a class="toc-title" ng-repeat="headline in toc.headlines"
                    ng-class="{level2: headline.level == 2, level3: headline.level == 3, level4: headline.level == 4}"

@@ -1,6 +1,7 @@
 import angular from 'angular'
-import ngAnimate from 'angular-animate'
 import ngSanitize from 'angular-sanitize'
+import ngAnimate from 'angular-animate'
+import ngFx from 'ng-fx'
 
 import ngCache from 'angular-cache'
 import ngMarked from 'angular-marked'
@@ -9,6 +10,9 @@ import ngLoadingBar from 'angular-loading-bar'
 import angulartics from 'angulartics'
 import 'angular-socialshare'
 import 'angulartics-google-analytics'
+
+import '../assets/libraries/angular-ui-awesome'
+import '../assets/styles/angular-ui-awesome.css'
 
 import Configs from './configs/configs.module'
 import Services from './services/services.module'
@@ -19,6 +23,7 @@ import Commons from './commons/commons.module'
 angular
   .module('app', [
     ngAnimate,
+    ngFx,
     ngSanitize,
     ngCache,
     ngMarked,
@@ -28,6 +33,7 @@ angular
     'angulartics.google.analytics',
     '720kb.socialshare',
     'ja.qr',
+    'ngUiAwesome',
     Configs.name,
     Services.name,
     Commons.name,

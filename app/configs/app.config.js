@@ -14,6 +14,7 @@ export default function config(markedProvider, cfpLoadingBarProvider) {
       }
     }
   });
+
   markedProvider.setRenderer({
     link(href, title, text) {
       return `<a href="${href}" ${title ? 'title="' + title + '"' : ''} target="_blank">${text}</a>`;
@@ -23,5 +24,6 @@ export default function config(markedProvider, cfpLoadingBarProvider) {
     }
   });
 
-  cfpLoadingBarProvider.includeSpinner = false;
+  cfpLoadingBarProvider.parentSelector = '#loading-bar-container';
+  cfpLoadingBarProvider.spinnerTemplate = `<div class="uac-loader uac-loader-sail"><span></span><span></span><span></span><span></span></div>`;
 }

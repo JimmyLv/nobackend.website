@@ -1,6 +1,5 @@
-<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 nav-aside"
-     ng-class="{ 'hidden-md': !$ctrl.showNav, 'visible-md': $ctrl.showNav,
-     'hidden-lg': !$ctrl.showNav, 'visible-lg': $ctrl.showNav }">
+<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 nav-aside fx-bounce-left fx-dur-800 fx-ease-sine"
+     ng-show="$ctrl.showNav">
 
     <aside1 selected-category="$ctrl.selectedCategory"
             categories="$ctrl.index.categories"

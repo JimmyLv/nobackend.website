@@ -1,5 +1,5 @@
-import Footer from './footer'
-import Header from './header'
+import Footer from './footer/footer'
+import Header from './header/header'
 
 export default angular.module('app.commons', [])
   .component('appFooter', Footer)
