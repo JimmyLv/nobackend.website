@@ -1,8 +1,10 @@
 import Footer from './footer/footer'
 import Header from './header/header'
-import Music from './music/music'
+import MusicBox from './musicBox/musicBox'
+import Player from './player/player'
 
 export default angular.module('app.commons', [])
   .component('appFooter', Footer)
   .component('appHeader', Header)
-  .component('musicBox', Music);
+  .component('musicBox', MusicBox)
+  .component('player', Player);

@@ -1,5 +1,5 @@
 export default  {
-  templateUrl: require('./music.html'),
+  templateUrl: require('./musicBox.html'),
   bindings: {
     musicId: '<'
   },
