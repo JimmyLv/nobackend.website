@@ -13,7 +13,7 @@
         <books ng-if="$ctrl.meta.layout === 'book'" books="$ctrl.meta.books"></books>
 
         <!-- 目录 -->
-        <div id="toc" class="panel panel-success no-mobile fx-rotate-down-right fx-dur-800 fx-ease-circ" ng-show="$ctrl.showToc">
+        <div id="toc" class="panel panel-success no-mobile fx-rotate-down-right fx-dur-500 fx-ease-none" ng-show="$ctrl.showToc">
             <div class="panel-body" id="nav">
                 <a class="toc-title" ng-repeat="headline in toc.headlines"
                    ng-class="{level2: headline.level == 2, level3: headline.level == 3, level4: headline.level == 4}"
