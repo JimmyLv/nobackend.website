@@ -18,7 +18,7 @@ export default  {
         vm.audio.pause();
         vm.audio.unbind()
       }
-      selectedMusic = sample(playList);
+      selectedMusic = sample(without(playList, selectedMusic));
       vm.selectedMusicName = `${selectedMusic.name} - ${selectedMusic.artists}`;
       vm.audio = ngAudio.load(selectedMusic.url);
       vm.audio.play();
@@ -30,13 +30,14 @@ export default  {
 
       musicService.getPlayList('309097660').success(res => {
         vm.musics = res.songs;
-        vm.shuffle().complete(()=> {
-          !vm.audio.paused || _random(vm.musics);
-        });
+        vm.shuffle();
       });
 
       vm.shuffle = () => {
-        return _random(without(vm.musics, selectedMusic));
+        return _random(vm.musics)
+          .complete(_random(vm.musics))
+          .complete(_random(vm.musics))
+          .complete(_random(vm.musics));
       };
     }
   }
