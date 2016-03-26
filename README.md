@@ -1,13 +1,19 @@
-# A blog using AngularJS with GitHub API.
+# A powerful rich interactive web application by using nobackend tech stack.
 
-## Install dependencies
+## Install dependencies & Run
 
 ```
 npm i
-bower i
+
+npm run build
+npm start
 ```
 
 ## Thanks
 
 [最美应用](http://zuimeia.com/) & [Chrome 插件](http://chrome.zuimeia.com)
 
+
+-------
+
+Host on [GitHub](https://github.com/JimmyLv/nobackend.website)
