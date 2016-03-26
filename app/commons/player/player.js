@@ -13,12 +13,12 @@ export default  {
     const vm = this;
 
     var selectedMusic;
-    const _random = (playList) => {
+    const _random = () => {
       if (vm.audio) {
         vm.audio.pause();
         vm.audio.unbind()
       }
-      selectedMusic = sample(without(playList, selectedMusic));
+      selectedMusic = sample(without(vm.musics, selectedMusic));
       vm.selectedMusicName = `${selectedMusic.name} - ${selectedMusic.artists}`;
       vm.audio = ngAudio.load(selectedMusic.url);
       vm.audio.play();
@@ -34,10 +34,19 @@ export default  {
       });
 
       vm.shuffle = () => {
-        return _random(vm.musics)
-          .complete(_random(vm.musics))
-          .complete(_random(vm.musics))
-          .complete(_random(vm.musics));
+        _random().complete(() => {
+          _random().complete(() => {
+            _random().complete(() => {
+              _random().complete(() => {
+                _random().complete(() => {
+                  _random().complete(() => {
+                    _random()
+                  });
+                });
+              });
+            });
+          });
+        });
       };
     }
   }
