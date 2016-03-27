@@ -10,7 +10,7 @@
         <i class="fa fa-random"></i>
     </a>
     <a ng-click="$ctrl.audio.muting = !$ctrl.audio.muting">
-        <i class="fa {{$ctrl.audio.muting ? 'fa-volume-up' : 'fa-volume-off' }}"></i>
+        <i class="fa {{$ctrl.audio.muting ? 'fa-volume-off' : 'fa-volume-up' }}"></i>
     </a>
     <a ng-click="$ctrl.showName = !$ctrl.showName">{{ $ctrl.audio.remaining | trackTime }}
         <span ng-show="$ctrl.showName" class="music-name m-hide fx-fade-normal fx-dur-600 fx-ease-none">

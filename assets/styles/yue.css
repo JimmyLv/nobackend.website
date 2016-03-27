@@ -190,6 +190,7 @@
 }
 
 .yue li {
+  list-style: inherit;
   margin-bottom: 0.2em;
 }
 
