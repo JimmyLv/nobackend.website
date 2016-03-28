@@ -4,8 +4,9 @@
   "description": "A powerful rich interactive web application by using nobackend tech stack.",
   "main": "./app/app.js",
   "scripts": {
-    "build": "webpack -w --bail --display-error-details",
-    "start": "webpack-dev-server --history-api-fallback --hot --inline --progress"
+    "dev": "webpack -w --bail --display-error-details",
+    "start": "webpack-dev-server --history-api-fallback --hot --inline --progress",
+    "build": "webpack -p"
   },
   "repository": {
     "type": "git",

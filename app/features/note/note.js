@@ -10,7 +10,7 @@ export default  {
     siteInfo: '<',
     index: '<'
   },
-  controller($routeParams) {
+  controller($routeParams, $window) {
     "ngInject";
 
     const vm = this;
@@ -37,7 +37,11 @@ export default  {
       };
 
       vm.toggleToc = () => {
-        vm.showToc = !vm.showToc;
+        if ($routeParams.category === '演讲') {
+          $window.open(`http://blog.jimmylv.info/pages/slides/${$routeParams.post}.htm`, '_blank');
+        } else {
+          vm.showToc = !vm.showToc;
+        }
       };
     };
   }

@@ -8,7 +8,7 @@ export default {
     postContent: '<',
     showToc: '<'
   },
-  controller($document, $location, $routeParams) {
+  controller($document, $location, $routeParams, $sce) {
     "ngInject";
 
     const vm = this;
@@ -24,6 +24,8 @@ export default {
       vm.editUrl = `https://github.com/JimmyLv/jimmy.lv/edit/gh-pages/${vm.filename}`;
       vm.content = result.content;
       vm.meta = result.meta;
+
+      vm.slideUrl = $sce.trustAsResourceUrl(`http://blog.jimmylv.info/pages/slides/${$routeParams.post}.htm`);
 
       vm.socialShare = [
         {name: 'twitter', icon: 'fa-twitter'},

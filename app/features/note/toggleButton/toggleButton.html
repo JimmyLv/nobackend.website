@@ -3,6 +3,6 @@
         <i class="fa fa-lg fa-navicon"></i>
     </button>
     <button id="toc-btn" class="btn btn-primary" ng-click="$ctrl.toggleToc()">
-        <i class="fa fa-lg fa-plus"></i>
+        <i class="fa fa-lg {{ $ctrl.isSlide ? 'fa-arrows-alt' : 'fa-plus' }}"></i>
     </button>
 </div>
