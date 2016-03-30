@@ -11,14 +11,20 @@ project:
   description: A powerful rich interactive web application by using nobackend tech stack.
   url: http://nobackend.website
 
-# active items
-meta:
-  songlist: 309097660
-  posts:
+# _posts folder and github repo
+posts:
+  github:
     user: JimmyLv
     repo: jimmy.lv
     folder: _posts
     branch: gh-pages
+  api:
+    endpoint: http://blog.jimmylv.info
+    index: /api/index.json
+
+# active items
+meta:
+  songlist: 309097660
   active: 编程
   tags:
     - React

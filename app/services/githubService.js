@@ -11,36 +11,36 @@ class GitHubService {
     'ngInject';
 
     this.$http = $http;
-    this.github = configService.config;
+    this.github = configService.config.posts.github;
+    this.api = configService.config.posts.api;
     console.info('config from _config.yml:', this.github);
   }
 
-  read(filename) {
-    return this.$http.get(_rawUrl(filename), {
-      cache: true
-    })
-  }
-
   getPost(category, post) {
-    return this.read(`_posts/${category}/${post}.md`)
+    return this._read(`_posts/${category}/${post}.md`)
   }
 
   getConfig() {
-    return this.read('_config.yml')
+    return this._read('_config.yml')
   }
 
   getIndex() {
-    return this.$http.get('http://blog.jimmylv.info/api/index.json', {cache: true})
+    return this.$http.get(this.api.endpoint + this.api.index, {cache: true})
   }
-}
 
-function _url(path) {
-  const url = `${github.apiUrl}/repos/${github.userName}/${github.repoName}/contents/${path}?ref=${github.branch}`;
-  return github.token === '' ? url : `${url}&access_token=${github.token}`;
-}
+  _read(filename) {
+    return this.$http.get(this._rawUrl(filename), {cache: true})
+  }
 
-function _rawUrl(path) {
-  return `https://raw.githubusercontent.com/${github.userName}/${github.repoName}/${github.branch}/${path}`;
+  _rawUrl(path) {
+    return `https://raw.githubusercontent.com/${this.github.user}/${this.github.repo}/${this.github.branch}/${path}`;
+  }
+
+  _url(path) {
+    const token = '';
+    const url = `https://api.github.com/repos/${this.github.user}/${this.github.repo}/contents/${path}?ref=${this.github.branch}`;
+    return token === '' ? url : `${url}&access_token=${token}`;
+  }
 }
 
 export default GitHubService;
