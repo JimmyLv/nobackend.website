@@ -7,6 +7,8 @@ export default {
     tagsWithPosts: '<'
   },
   controller(configService) {
+    "ngInject";
+
     const vm = this;
     vm.$onInit = () => {
       vm.newest = configService.config.locals.newest;
