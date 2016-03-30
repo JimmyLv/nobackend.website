@@ -9,3 +9,5 @@
 
 /dist/*
 !/dist/bundle.js
+!/dist/vendor.js
+!/dist/app.css
