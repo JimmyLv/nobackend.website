@@ -12,7 +12,7 @@ export default {
     showToc: '<',
     showNav: '<'
   },
-  controller($routeParams) {
+  controller($routeParams, configService) {
     "ngInject";
 
     const vm = this;
@@ -21,11 +21,7 @@ export default {
       vm.isIndex = vm.postContent ? false : true;
       vm.selectedCategory = $routeParams.category || '编程';
 
-      vm.disqusConfig = {
-        disqus_shortname: 'nobackend-website',
-        disqus_identifier: 'nobackend-website',
-        disqus_url: 'http://nobackend.website'
-      };
+      vm.disqusConfig = configService.config.disqus;
     }
   }
 }
