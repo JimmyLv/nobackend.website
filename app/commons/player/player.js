@@ -7,28 +7,15 @@ export default  {
   bindings: {
     musicId: '<'
   },
-  controller(musicService, ngAudio) {
+  controller(configService, musicService, ngAudio) {
     'ngInject';
 
     const vm = this;
-
     var selectedMusic;
-    const _random = () => {
-      if (vm.audio) {
-        vm.audio.pause();
-        vm.audio.unbind()
-      }
-      selectedMusic = sample(without(vm.musics, selectedMusic));
-      vm.selectedMusicName = `${selectedMusic.name} - ${selectedMusic.artists}`;
-      vm.audio = ngAudio.load(selectedMusic.url);
-      vm.audio.play();
-      return vm.audio;
-    };
-
     vm.$onInit = () => {
       vm.showName = false;
 
-      musicService.getPlayList('309097660').success(res => {
+      musicService.getPlayList(configService.config.meta.songlist).success(res => {
         vm.musics = res.songs;
         vm.shuffle();
       });
@@ -48,6 +35,18 @@ export default  {
           });
         });
       };
-    }
+    };
+
+    const _random = () => {
+      if (vm.audio) {
+        vm.audio.pause();
+        vm.audio.unbind()
+      }
+      selectedMusic = sample(without(vm.musics, selectedMusic));
+      vm.selectedMusicName = `${selectedMusic.name} - ${selectedMusic.artists}`;
+      vm.audio = ngAudio.load(selectedMusic.url);
+      vm.audio.play();
+      return vm.audio;
+    };
   }
 }

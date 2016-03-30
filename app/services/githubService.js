@@ -1,11 +1,3 @@
-const github = {
-  apiUrl: 'https://api.github.com',
-  token: '',
-  userName: 'JimmyLv',
-  repoName: 'jimmy.lv',
-  branch: 'gh-pages'
-};
-
 class GitHubService {
   constructor($http, configService) {
     'ngInject';

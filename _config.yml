@@ -9,7 +9,8 @@ author:
 project:
   title: NoBackend Website
   description: A powerful rich interactive web application by using nobackend tech stack.
-  url: http://nobackend.website
+  repository: https://github.com/JimmyLv/nobackend.website
+  website: http://nobackend.website
 
 # _posts folder and github repo
 posts:
