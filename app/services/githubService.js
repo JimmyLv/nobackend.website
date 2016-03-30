@@ -17,7 +17,7 @@ class GitHubService {
   }
 
   getIndex() {
-    return this.$http.get(this.api.endpoint + this.api.index, {cache: true})
+    return this.$http.get(this.api.index, {cache: true})
   }
 
   _read(filename) {

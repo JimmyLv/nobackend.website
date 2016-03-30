@@ -20,8 +20,8 @@ posts:
     folder: _posts
     branch: gh-pages
   api:
-    endpoint: http://blog.jimmylv.info
-    index: /api/index.json
+    index: http://blog.jimmylv.info/api/index.json
+    rss: http://blog.jimmylv.info/pages/atom.xml
 
 # active items for show
 meta:

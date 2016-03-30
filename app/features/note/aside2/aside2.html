@@ -1,7 +1,7 @@
 <div class="col-md-9 col-xs-9 aside2">
-    <div class="list-group" id="{{ $ctrl.selectedCategory }}">
+    <div class="list-group" id="{{ $ctrl.category }}">
         <div ng-repeat="post in $ctrl.posts">
-            <a ng-href="#!/note/{{ $ctrl.selectedCategory }}{{ post.url }}"
+            <a ng-href="#!/note/{{ $ctrl.category }}{{ post.url }}"
                class="list-group-item-lay"
                ng-class="post.url === $ctrl.selectedPost ? 'active': ''">{{ post.title }}</a>
         </div>

@@ -4,13 +4,15 @@ export default {
   templateUrl: require('./aside1.html'),
   bindings: {
     selectedCategory: '<',
-    categories: '<',
-    config: '<siteConfig'
+    categories: '<'
   },
-  controller() {
+  controller(configService) {
+    "ngInject";
+
     const vm = this;
     vm.$onInit = () => {
-
+      vm.locals = configService.config.locals;
+      vm.rssUrl = configService.config.posts.api.rss;
     }
   }
 }

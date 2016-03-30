@@ -3,8 +3,6 @@ import './aside3.less'
 export default {
   templateUrl: require('./aside3.html'),
   bindings: {
-    config: '<',
-    posts: '<',
     selectedCategory: '<',
     tagsWithPosts: '<',
     newestPosts: '<',
@@ -12,15 +10,13 @@ export default {
     showToc: '<',
     showNav: '<'
   },
-  controller($routeParams, configService) {
+  controller(configService) {
     "ngInject";
 
     const vm = this;
 
     vm.$onInit = () => {
       vm.isIndex = vm.postContent ? false : true;
-      vm.selectedCategory = $routeParams.category || '编程';
-
       vm.disqusConfig = configService.config.disqus;
     }
   }

@@ -4,7 +4,7 @@ export default {
   templateUrl: require('./aside2.html'),
   bindings: {
     posts: '<',
-    selectedCategory: '<'
+    category: '<selectedCategory'
   },
   controller($routeParams) {
     "ngInject";
@@ -12,7 +12,7 @@ export default {
     const vm = this;
     vm.$onInit = () => {
       vm.selectedPost = `/${$routeParams.post}`;
-      console.info('selectedPost:', vm.selectedCategory + vm.selectedPost);
+      console.info('selectedPost:', vm.category + vm.selectedPost);
     }
   }
 }
