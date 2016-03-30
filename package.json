@@ -54,6 +54,7 @@
     "file-loader": "^0.8.5",
     "gulp": "^3.9.1",
     "html-loader": "^0.4.3",
+    "json-loader": "^0.5.4",
     "less": "^2.6.1",
     "less-loader": "^2.2.2",
     "ng-annotate-loader": "^0.1.0",
@@ -67,6 +68,7 @@
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1",
     "webpack-stream": "^3.1.0",
+    "yaml-loader": "^0.1.0",
     "yargs": "^4.3.2"
   }
 }

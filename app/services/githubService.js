@@ -7,10 +7,12 @@ const github = {
 };
 
 class GitHubService {
-  constructor($http) {
+  constructor($http, configService) {
     'ngInject';
 
     this.$http = $http;
+    this.github = configService.config;
+    console.info('config from _config.yml:', this.github);
   }
 
   read(filename) {
