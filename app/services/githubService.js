@@ -12,10 +12,6 @@ class GitHubService {
     return this._read(`_posts/${category}/${post}.md`)
   }
 
-  getConfig() {
-    return this._read('_config.yml')
-  }
-
   getIndex() {
     return this.$http.get(this.api.index, {cache: true})
   }

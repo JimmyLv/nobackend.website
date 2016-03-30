@@ -3,6 +3,7 @@ import hljs from 'highlight.js'
 
 export default function config(markedProvider, cfpLoadingBarProvider) {
   "ngInject";
+
   markedProvider.setOptions({
     gfm: true,
     tables: true,

@@ -38,11 +38,6 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
   $routeProvider.when = (path, route) => {
     route.resolve || (route.resolve = {});
     angular.extend(route.resolve, {
-      config(githubService) {
-        'ngInject';
-
-        return githubService.getConfig();
-      },
       index(githubService) {
         'ngInject';
 
@@ -55,7 +50,7 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
 
   $routeProvider
     .when('/note/:category?/:post?', {
-      template: '<note post-content="$resolve.post.data" site-info="$resolve.config.data" index="$resolve.index.data"></note>',
+      template: '<note post-content="$resolve.post.data" index="$resolve.index.data"></note>',
       resolve: {
         post($route, githubService) {
           'ngInject';
@@ -68,7 +63,7 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
         }
       }
     })
-    .when('/pages/:page', {template: '<page site-info="$resolve.config.data" index="$resolve.index.data"></page>'})
+    .when('/pages/:page', {template: '<page index="$resolve.index.data"></page>'})
     .when('/photos', {template: '<iframe id="preview" src="http://unperfectlove.lofter.com/" frameborder="0" width="100%" height="100%"></iframe>'})
     .when('/', {redirectTo: '/note'});
 

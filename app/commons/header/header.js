@@ -9,9 +9,6 @@ export default  {
     const vm = this;
 
     vm.$onInit = () => {
-      githubService.getConfig().then(res => {
-        vm.config = res.data
-      });
       githubService.getIndex().then(res => {
         vm.posts = res.data.paginator
       });

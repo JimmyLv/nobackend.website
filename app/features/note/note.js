@@ -1,23 +1,21 @@
 import './note.less'
 import low from 'lowdb';
 import localStorage from 'lowdb/browser';
-import jsyaml from 'js-yaml/lib/js-yaml.js';
 
 export default  {
   templateUrl: require('./note.html'),
   bindings: {
-    postContent: '<',
-    siteInfo: '<',
-    index: '<'
+    index: '<',
+    postContent: '<'
   },
-  controller($routeParams, $window) {
+  controller($routeParams, $window, configService) {
     "ngInject";
 
     const vm = this;
 
     vm.$onInit = () => {
-      vm.config = jsyaml.load(vm.siteInfo);
-      vm.selectedCategory = $routeParams.category || '编程';
+      var meta = configService.config.meta;
+      vm.selectedCategory = $routeParams.category || meta.active;
 
       const db = low('db', {storage: localStorage});
       db.object = vm.index;
@@ -26,7 +24,7 @@ export default  {
 
       vm.isIndex = vm.postContent ? false : true;
       vm.newestPosts = vm.index.paginator.slice(0, 10);
-      vm.selectedTagsWithPosts = db('tags').filter(tag => vm.config.cates.indexOf(tag.name) > -1);
+      vm.selectedTagsWithPosts = db('tags').filter(tag => meta.tags.indexOf(tag.name) > -1);
 
       vm.showNav = true;
       vm.showToc = false;
