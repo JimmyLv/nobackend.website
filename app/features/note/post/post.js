@@ -15,15 +15,15 @@ export default {
 
     const result = _parseContent('---', vm.postContent);
 
-    console.info('setting tile:', result.meta.title);
-    $document[0].title = `${result.meta.title} | 最美博客`;
+    console.info('setting tile:', result.matter.title);
+    $document[0].title = `${result.matter.title} | 最美博客`;
 
     vm.$onInit = () => {
 
       vm.filename = `_posts/${$routeParams.category}/${$routeParams.post}.md`;
       vm.editUrl = `https://github.com/JimmyLv/jimmy.lv/edit/gh-pages/${vm.filename}`;
       vm.content = result.content;
-      vm.meta = result.meta;
+      vm.matter = result.matter;
 
       vm.slideUrl = $sce.trustAsResourceUrl(`http://blog.jimmylv.info/pages/slides/${$routeParams.post}.htm`);
 
@@ -34,16 +34,16 @@ export default {
       ];
       vm.shareLink = $location.absUrl();
       vm.encodedShareLink = encodeURIComponent($location.absUrl());
-      vm.hashTags = vm.meta.tags.join(', ');
-      var formattedHashTags = vm.meta.tags.map(tag => `#${tag}#`).join(' ');
-      vm.encodedShareContent = encodeURIComponent(`${vm.meta.title} ${formattedHashTags} | 最美博客`);
+      vm.hashTags = vm.matter.tags.join(', ');
+      var formattedHashTags = vm.matter.tags.map(tag => `#${tag}#`).join(' ');
+      vm.encodedShareContent = encodeURIComponent(`${vm.matter.title} ${formattedHashTags} | 最美博客`);
     };
 
     function _parseContent(separator, rawContent) {
       const splitResult = rawContent.split(separator);
       return {
         content: splitResult.slice(2).join(separator),
-        meta: jsyaml.load(splitResult[1])
+        matter: jsyaml.load(splitResult[1])
       }
     }
   }

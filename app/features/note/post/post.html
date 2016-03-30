@@ -1,18 +1,18 @@
 <div class="yue fx-dur-800 fx-ease-none" ng-class="{'fx-fade-normal': $ctrl.showContent}">
     <div class="col-md-12 aside3-title">
-        <h1 id="#identifier">{{ $ctrl.meta.title }}</h1>
-        <div class="aside3-meta">
+        <h1 id="#identifier">{{ $ctrl.matter.title }}</h1>
+        <div class="aside3-matter">
             <span class="words">{{ $ctrl.content.length }} words</span>
             <a class="content-edit" rel="nofollow" ng-href="{{ $ctrl.editUrl }}" target="_blank">{{ $ctrl.filename }}</a>
         </div>
-        <music-box ng-if="$ctrl.meta.music" class="aside3-music" music-id="$ctrl.meta.music">{{ $ctrl.meta }}</music-box>
+        <music-box ng-if="$ctrl.matter.music" class="aside3-music" music-id="$ctrl.matter.music">{{ $ctrl.matter }}</music-box>
     </div>
 
     <div table-of-contents class="col-md-12 aside3-content">
         <!-- 正文 -->
-        <div ng-hide="$ctrl.meta.layout === 'session'" id="content-page" ng-class="{photo: $ctrl.meta.layout === 'photo'}" marked="$ctrl.content"></div>
-        <books ng-if="$ctrl.meta.layout === 'book'" books="$ctrl.meta.books"></books>
-        <iframe ng-if="$ctrl.meta.layout === 'session'" class="aside3-slide" id="preview" ng-src="{{ $ctrl.slideUrl }}"
+        <div ng-hide="$ctrl.matter.layout === 'session'" id="content-page" ng-class="{photo: $ctrl.matter.layout === 'photo'}" marked="$ctrl.content"></div>
+        <books ng-if="$ctrl.matter.layout === 'book'" books="$ctrl.matter.books"></books>
+        <iframe ng-if="$ctrl.matter.layout === 'session'" class="aside3-slide" id="preview" ng-src="{{ $ctrl.slideUrl }}"
                 frameborder="0" width="100%" height="100%"></iframe>
 
         <!-- 目录 -->
@@ -26,14 +26,14 @@
 
         <!-- 标签 -->
         <div class="aside3-tags">
-            <a ng-repeat="tag in $ctrl.meta.tags" class="tag" ng-href="#!/pages/tags#{{ tag }}">{{ tag }}</a>
+            <a ng-repeat="tag in $ctrl.matter.tags" class="tag" ng-href="#!/pages/tags#{{ tag }}">{{ tag }}</a>
         </div>
 
         <!-- 分享 -->
         <div class="aside3-share">
             <a ng-repeat="share in $ctrl.socialShare" socialshare
                socialshare-provider="{{ share.name }}"
-               socialshare-text="{{ $ctrl.meta.title }} | 最美博客"
+               socialshare-text="{{ $ctrl.matter.title }} | 最美博客"
                socialshare-url="{{ $ctrl.shareLink }}"
                socialshare-hashtags="{{ $ctrl.hashTags }}">
                 <i class="fa {{ share.icon }} faa-shake animated"></i>
