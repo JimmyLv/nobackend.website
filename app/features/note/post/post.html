@@ -33,7 +33,7 @@
         <div class="aside3-share">
             <a ng-repeat="share in $ctrl.socialShare" socialshare
                socialshare-provider="{{ share.name }}"
-               socialshare-text="{{ $ctrl.matter.title }} | 最美博客"
+               socialshare-text="{{ $ctrl.matter.title }} | {{ $ctrl.subtitle }}"
                socialshare-url="{{ $ctrl.shareLink }}"
                socialshare-hashtags="{{ $ctrl.hashTags }}">
                 <i class="fa {{ share.icon }} faa-shake animated"></i>

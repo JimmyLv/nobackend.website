@@ -18,9 +18,10 @@ export default {
       const db = low('db', {storage: localStorage});
       db.object = vm.index;
 
-      vm.selectedCategory = $routeParams.category || configService.config.meta.active;
+      var meta = configService.config.meta;
+      vm.selectedCategory = $routeParams.category || meta.active;
       vm.selectedPosts = db('categories').find({name: vm.selectedCategory}).posts;
-      vm.pageUrl = $sce.trustAsResourceUrl(`http://blog.jimmylv.info/pages/${$routeParams.page}.html`);
+      vm.pageUrl = $sce.trustAsResourceUrl(`${meta.posts.api.endpoint}/pages/${$routeParams.page}.html`);
 
       console.info('------------initialize vm finished---------------');
     };

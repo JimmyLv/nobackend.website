@@ -36,7 +36,7 @@ export default  {
 
       vm.toggleToc = () => {
         if ($routeParams.category === '演讲') {
-          $window.open(`http://blog.jimmylv.info/pages/slides/${$routeParams.post}.htm`, '_blank');
+          $window.open(`${configService.config.posts.api.endpoint}/pages/slides/${$routeParams.post}.htm`, '_blank');
         } else {
           vm.showToc = !vm.showToc;
         }

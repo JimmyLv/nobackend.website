@@ -8,6 +8,7 @@ author:
 
 project:
   title: NoBackend Website
+  subtitle: 最美博客
   description: A powerful rich interactive web application by using nobackend tech stack.
   repository: https://github.com/JimmyLv/nobackend.website
   website: http://nobackend.website
@@ -20,8 +21,10 @@ posts:
     folder: _posts
     branch: gh-pages
   api:
+    endpoint: http://blog.jimmylv.info
     index: http://blog.jimmylv.info/api/index.json
     rss: http://blog.jimmylv.info/pages/atom.xml
+    slides: http://blog.jimmylv.info/pages/slides
 
 # active items for show
 meta:

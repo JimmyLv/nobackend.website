@@ -8,7 +8,7 @@ export default {
     postContent: '<',
     showToc: '<'
   },
-  controller($document, $location, $routeParams, $sce) {
+  controller($document, $location, $routeParams, $sce, configService) {
     "ngInject";
 
     const vm = this;
@@ -16,7 +16,8 @@ export default {
     const result = _parseContent('---', vm.postContent);
 
     console.info('setting tile:', result.matter.title);
-    $document[0].title = `${result.matter.title} | 最美博客`;
+    vm.subtitle = configService.config.project.subtitle;
+    $document[0].title = `${result.matter.title} | ${vm.subtitle}`;
 
     vm.$onInit = () => {
 
@@ -25,7 +26,8 @@ export default {
       vm.content = result.content;
       vm.matter = result.matter;
 
-      vm.slideUrl = $sce.trustAsResourceUrl(`http://blog.jimmylv.info/pages/slides/${$routeParams.post}.htm`);
+      var api = configService.config.posts.api;
+      vm.slideUrl = $sce.trustAsResourceUrl(`${api.endpoint}/pages/slides/${$routeParams.post}.htm`);
 
       vm.socialShare = [
         {name: 'twitter', icon: 'fa-twitter'},
@@ -36,7 +38,7 @@ export default {
       vm.encodedShareLink = encodeURIComponent($location.absUrl());
       vm.hashTags = vm.matter.tags.join(', ');
       var formattedHashTags = vm.matter.tags.map(tag => `#${tag}#`).join(' ');
-      vm.encodedShareContent = encodeURIComponent(`${vm.matter.title} ${formattedHashTags} | 最美博客`);
+      vm.encodedShareContent = encodeURIComponent(`${vm.matter.title} ${formattedHashTags} | ${vm.subtitle}`);
     };
 
     function _parseContent(separator, rawContent) {
