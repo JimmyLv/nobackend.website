@@ -1,3 +1,8 @@
+permalink: /:year-:month-:day-:title
+paginate: 10
+markdown: kramdown
+encoding: utf-8
+
 author:
   name: 吕立青
   email: jimmy.jinglv@gmail.com
