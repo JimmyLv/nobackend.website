@@ -63,7 +63,19 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
         }
       }
     })
-    .when('/pages/:page', {template: '<page index="$resolve.index.data"></page>'})
+    .when('/pages/:page', {
+      template: '<page index="$resolve.index.data" zhihu="$resolve.zhihu.data"></page>',
+      resolve: {
+        zhihu($route, zhihuService) {
+          'ngInject';
+
+          const page = $route.current.params.page;
+          if (page === 'zhihu') {
+            return zhihuService.getTopAnswers();
+          }
+        }
+      }
+    })
     .when('/photos', {template: '<iframe id="preview" src="http://unperfectlove.lofter.com/" frameborder="0" width="100%" height="100%"></iframe>'})
     .when('/', {redirectTo: '/note'});
 

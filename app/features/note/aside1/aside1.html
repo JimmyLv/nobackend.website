@@ -1,18 +1,15 @@
 <div class="col-md-3 col-xs-3 aside1">
     <ul class="nav">
-        <li ng-repeat="category in $ctrl.categories" ng-class="category.name === $ctrl.selectedCategory ? 'active': ''">
-            <a ng-href="#!/note/{{ category.name }}" data-toggle="tab">{{ category.name }}</a>
+        <li ng-repeat="nav in $ctrl.navItems" ng-class="{'active': nav.id === $ctrl.selectedNav}">
+            <a ng-href="#!{{ nav.href }}">{{ nav.name }}</a>
         </li>
-        <li><a ng-href="#!/pages/tags" data-toggle="tab">{{ $ctrl.locals.tags }}</a></li>
-        <li><a ng-href="#!/pages/archive">{{ $ctrl.locals.archive }}</a></li>
-        <li><a ng-href="#!/pages/about">{{ $ctrl.locals.about }}</a></li>
     </ul>
 
     <div class="aside1-bottom">
         <a ng-href="{{ $ctrl.rssUrl }}" target="_blank">
             <i class="fa fa-rss fa-2x"></i>
         </a>
-        <a ng-href="mailto:{{ $ctrl.author.email }}">
+        <a ng-href="mailto:{{ $ctrl.email }}">
             <i class="fa fa-envelope-o fa-2x"></i>
         </a>
     </div>

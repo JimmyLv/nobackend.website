@@ -36,12 +36,13 @@ api:
     music:
       endpoint: http://app.atime.me/music-api-server
       provider: netease # or xiami
-    zhihu: http://api.kanzhihu.com
+    zhihu:
+      endpoint: http://api.kanzhihu.com
+      userId: JimmyLv
 
 # active items for show
 meta:
   songlist: 309097660
-  zhihu: 616ce531de7f8a1cb33b6ec43ef763fc
   active: 前端
   tags:
     - React
@@ -49,6 +50,7 @@ meta:
 
 # chinese localization
 locals:
+  zhihu: 知乎
   tags: 标签
   about: 关于
   newest: 最新文章
