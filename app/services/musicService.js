@@ -1,31 +1,33 @@
 class MusicService {
-  constructor($http) {
+  constructor($http, configService) {
     'ngInject';
 
     this.$http = $http;
+    this.configService = configService;
   }
 
   getPlayList(id) {
-    return this.$http.jsonp(_url('playlist',id), {
+    return this.$http.jsonp(this._url('playlist',id), {
       cache: true
     })
   }
 
   getMusic(ids) {
-    return this.$http.jsonp(_url('songlist',ids), {
+    return this.$http.jsonp(this._url('songlist',ids), {
       cache: true
     })
   }
 
   getAlbum(id) {
-    return this.$http.jsonp(_url('album',id), {
+    return this.$http.jsonp(this._url('album',id), {
       cache: true
     })
   }
-}
 
-function _url(type, id) {
-  return `http://app.atime.me/music-api-server/?p=netease&t=${type}&i=${id}&c=JSON_CALLBACK`
+  _url(type, id) {
+    var music = this.configService.service('music');
+    return `${music.endpoint}/?p=${music.provider}&t=${type}&i=${id}&c=JSON_CALLBACK`
+  }
 }
 
 export default MusicService;

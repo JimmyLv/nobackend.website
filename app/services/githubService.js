@@ -3,17 +3,17 @@ class GitHubService {
     'ngInject';
 
     this.$http = $http;
-    this.github = configService.config.posts.github;
-    this.api = configService.config.posts.api;
+    this.configService = configService;
+    this.github = configService.config.github;
     console.info('config from _config.yml:', this.github);
   }
 
   getPost(category, post) {
-    return this._read(`_posts/${category}/${post}.md`)
+    return this._read(`${this.github.posts}/${category}/${post}.md`)
   }
 
   getIndex() {
-    return this.$http.get(this.api.index, {cache: true})
+    return this.$http.get(this.configService.api('index'), {cache: true})
   }
 
   _read(filename) {

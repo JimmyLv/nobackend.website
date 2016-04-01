@@ -13,7 +13,7 @@ export default {
     vm.$onInit = () => {
       vm.author = configService.config.author;
       vm.locals = configService.config.locals;
-      vm.rssUrl = configService.config.posts.api.rss;
+      vm.rssUrl = configService.api('rss');
     }
   }
 }

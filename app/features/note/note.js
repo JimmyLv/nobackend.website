@@ -15,6 +15,7 @@ export default  {
 
     vm.$onInit = () => {
       var meta = configService.config.meta;
+      console.info('rss api:', configService.api('rss'));
       vm.selectedCategory = $routeParams.category || meta.active;
 
       const db = low('db', {storage: localStorage});
@@ -36,7 +37,7 @@ export default  {
 
       vm.toggleToc = () => {
         if ($routeParams.category === '演讲') {
-          $window.open(`${configService.config.posts.api.endpoint}/pages/slides/${$routeParams.post}.htm`, '_blank');
+          $window.open(`${configService.api('slides')}/${$routeParams.post}.htm`, '_blank');
         } else {
           vm.showToc = !vm.showToc;
         }

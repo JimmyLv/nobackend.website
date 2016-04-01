@@ -20,14 +20,14 @@ export default {
     $document[0].title = `${result.matter.title} | ${vm.subtitle}`;
 
     vm.$onInit = () => {
-      var posts = configService.config.posts;
+      var github = configService.config.github;
 
       vm.filename = `_posts/${$routeParams.category}/${$routeParams.post}.md`;
-      vm.editUrl = `https://github.com/${posts.github.user}/${posts.github.repo}/edit/${posts.github.branch}/${vm.filename}`;
+      vm.editUrl = `https://github.com/${github.user}/${github.repo}/edit/${github.branch}/${vm.filename}`;
       vm.content = result.content;
       vm.matter = result.matter;
 
-      vm.slideUrl = $sce.trustAsResourceUrl(`${posts.api.slides}/${$routeParams.post}.htm`);
+      vm.slideUrl = $sce.trustAsResourceUrl(`${configService.api('slides')}/${$routeParams.post}.htm`);
 
       vm.socialShare = [
         {name: 'twitter', icon: 'fa-twitter'},
