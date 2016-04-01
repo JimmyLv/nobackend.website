@@ -13,6 +13,8 @@ export default {
 
     const vm = this;
 
+    console.info('zhihu:', vm.zhihu);
+
     vm.$onInit = () => {
 
       const db = low('db', {storage: localStorage});

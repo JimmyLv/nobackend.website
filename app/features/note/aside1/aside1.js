@@ -3,16 +3,14 @@ import './aside1.less'
 export default {
   templateUrl: require('./aside1.html'),
   bindings: {
-    selectedNav: '<selectedCategory',
-    categories: '<'
+    selectedNav: '<',
+    categories: '<?'
   },
   controller(configService) {
     "ngInject";
 
     const vm = this;
     vm.$onInit = () => {
-
-      console.info('');
 
       const categories = vm.categories
         .map(category => category.name)
