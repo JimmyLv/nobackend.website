@@ -17,14 +17,14 @@ project:
 posts:
   github:
     user: JimmyLv
-    repo: jimmy.lv
+    repo: nobackend.website
     folder: _posts
     branch: gh-pages
   api:
-    endpoint: http://blog.jimmylv.info
-    index: http://blog.jimmylv.info/api/index.json
-    rss: http://blog.jimmylv.info/pages/atom.xml
-    slides: http://blog.jimmylv.info/pages/slides
+    endpoint: http://nobackend.website
+    index: http://nobackend.website/api/index.json
+    slides: http://nobackend.website/slides
+    rss: http://nobackend.website/pages/atom.xml
 
 # active items for show
 meta:
