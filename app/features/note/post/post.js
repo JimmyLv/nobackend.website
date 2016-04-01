@@ -23,11 +23,11 @@ export default {
       var posts = configService.config.posts;
 
       vm.filename = `_posts/${$routeParams.category}/${$routeParams.post}.md`;
-      vm.editUrl = `https://github.com/${posts.github.user}/${posts.github.repo}/edit/gh-pages/${vm.filename}`;
+      vm.editUrl = `https://github.com/${posts.github.user}/${posts.github.repo}/edit/${posts.github.branch}/${vm.filename}`;
       vm.content = result.content;
       vm.matter = result.matter;
 
-      vm.slideUrl = $sce.trustAsResourceUrl(`${posts.api.endpoint}/pages/slides/${$routeParams.post}.htm`);
+      vm.slideUrl = $sce.trustAsResourceUrl(`${posts.api.slides}/${$routeParams.post}.htm`);
 
       vm.socialShare = [
         {name: 'twitter', icon: 'fa-twitter'},
