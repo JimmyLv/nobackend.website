@@ -44,7 +44,7 @@ export default {
         vm.pageUrl = $sce.trustAsResourceUrl(`http://blog.jimmylv.info/pages/${$routeParams.page}.html`);
       }
 
-      // TODO: refactor together
+      // TODO: refactor toge
       vm.showNav = true;
       vm.showToc = false;
 
