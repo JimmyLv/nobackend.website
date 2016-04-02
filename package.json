@@ -40,6 +40,7 @@
     "markdown-toc": "^0.12.5",
     "marked": "^0.3.5",
     "ng-fx": "^2.0.4",
+    "to-markdown": "^2.0.1",
     "zhihu-api": "0.0.13"
   },
   "optionalDependencies": {

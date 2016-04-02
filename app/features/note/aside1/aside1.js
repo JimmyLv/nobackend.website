@@ -23,7 +23,7 @@ export default {
           return {id: item, name: configService.config.locals[item], href: `/pages/${item}`}
         });
 
-      vm.navItems = categories.concat(pages);
+      vm.navItems = pages.concat(categories);
       console.info('categories & pages:', vm.navItems);
 
       vm.email = configService.config.author.email;

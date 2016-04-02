@@ -6,14 +6,14 @@ export default {
   templateUrl: require('./page.html'),
   bindings: {
     index: '<',
-    zhihu: '<'
+    zhihu: '<',
+    zhihu: '<',
+    question: '<'
   },
   controller($routeParams, $sce) {
     "ngInject";
 
     const vm = this;
-
-    console.info('zhihu:', vm.zhihu);
 
     vm.$onInit = () => {
 
@@ -22,8 +22,7 @@ export default {
 
       vm.selectedPage = $routeParams.page;
 
-      if ($routeParams.page === 'zhihu') {
-       console.info('zhihu: ', vm.zhihu.topanswers);
+      if (vm.selectedPage === 'zhihu') {
         vm.selectedPosts = vm.zhihu.topanswers;
       } else {
         vm.selectedPosts = db('categories').find({name: '编程'}).posts;
