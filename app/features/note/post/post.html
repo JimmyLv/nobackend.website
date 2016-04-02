@@ -3,7 +3,8 @@
         <h1 id="#identifier">{{ $ctrl.matter.title }}</h1>
         <div class="aside3-matter">
             <span class="words">{{ $ctrl.content.length }} words</span>
-            <a class="content-edit" rel="nofollow" ng-href="{{ $ctrl.editUrl }}" target="_blank">{{ $ctrl.filename }}</a>
+            <a ng-if="$ctrl.matter.layout !== 'zhihu'" class="content-edit" rel="nofollow" ng-href="{{ $ctrl.editUrl }}" target="_blank">{{ $ctrl.filename }}</a>
+            <a ng-if="$ctrl.matter.layout === 'zhihu'" class="content-edit" rel="nofollow" ng-href="{{ $ctrl.zhihuUrl }}" target="_blank">{{ $ctrl.matter.date }}</a>
         </div>
         <music-box ng-if="$ctrl.matter.music" class="aside3-music" music-id="$ctrl.matter.music">{{ $ctrl.matter }}</music-box>
     </div>

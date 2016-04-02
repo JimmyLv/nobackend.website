@@ -22,6 +22,7 @@ export default {
 
       vm.filename = `_posts/${$routeParams.category}/${$routeParams.post}.md`;
       vm.editUrl = `https://github.com/${github.user}/${github.repo}/edit/${github.branch}/${vm.filename}`;
+      vm.zhihuUrl = `https://zhihu.com/question/${$routeParams.question}/answer/${$routeParams.answer}`;
 
       vm.slideUrl = $sce.trustAsResourceUrl(`${configService.api('slides')}/${$routeParams.post}.htm`);
 
