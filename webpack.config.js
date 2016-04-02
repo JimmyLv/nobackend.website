@@ -33,7 +33,8 @@ module.exports = {
       'angulartics-google-analytics',
       'js-yaml/lib/js-yaml.js',
       'lowdb',
-      'lowdb/browser'
+      'lowdb/browser',
+      'to-markdown'
     ]
   },
   output: {

@@ -7,11 +7,12 @@ export default {
   bindings: {
     index: '<',
     zhihu: '<',
-    zhihu: '<',
-    question: '<'
+    question: '<?'
   },
   controller($routeParams, $sce) {
     "ngInject";
+
+    console.info('$routeParams', $routeParams);
 
     const vm = this;
 
@@ -20,11 +21,12 @@ export default {
       const db = low('db', {storage: localStorage});
       db.object = vm.index;
 
-      vm.selectedPage = $routeParams.page;
-
-      if (vm.selectedPage === 'zhihu') {
+      if ($routeParams.page === 'zhihu') {
+        console.info('got zhihu:', vm.question);
+        vm.selectedPage = 'zhihu';
         vm.selectedPosts = vm.zhihu.topanswers;
       } else {
+        vm.selectedPage = $routeParams.page;
         vm.selectedPosts = db('categories').find({name: '编程'}).posts;
         vm.pageUrl = $sce.trustAsResourceUrl(`http://blog.jimmylv.info/pages/${$routeParams.page}.html`);
       }

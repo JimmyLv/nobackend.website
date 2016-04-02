@@ -1,5 +1,3 @@
-import toMarkdown from 'to-markdown';
-
 export default function routing($routeProvider, $urlRouterProvider, $stateProvider, $locationProvider) {
   'ngInject';
   $stateProvider
@@ -78,36 +76,19 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
         }
       }
     })
-    .when('pages/zhihu/question/:question/answer/:answer', {
-      template: '<page index="$resolve.index.data" zhihu="$resolve.zhihu.data" question="$resolve.question.data"></page>',
+    .when('/pages/:page/question/:question/answer/:answer', {
+      template: '<page index="$resolve.index.data" zhihu="$resolve.zhihu.data" question="$resolve.question"></page>',
       resolve: {
         zhihu(zhihuService) {
           'ngInject';
 
           return zhihuService.getTopAnswers();
         },
-        question($http, $route) {
+        question($route, zhihuService) {
           'ngInject';
 
-          vm.selectedPosts = vm.zhihu.topanswers.map(function (answer) {
-            answer['url'] = answer['link'];
-            return answer;
-          });
-          const answer = vm.zhihu.topanswers[0];
-
           const params = $route.current.params;
-          const root = 'https://query.yahooapis.com/v1/public/yql';
-          const url = `https://zhihu.com/question/${params.question}/answer/${params.answer}`;
-          const xpath = '//*[@id="zh-question-answer-wrap"]/div/div[3]/div[2]';
-          const sql = encodeURIComponent(`select * from html where url='${url}' and xpath='${xpath}'`);
-          const format = 'xml';
-          const encodedUrl = `${root}?q=${sql}&format=${format}&env=store://datatables.org/alltableswithkeys`;
-
-          return $http.get(encodedUrl).then(function (res) {
-            const md = toMarkdown(res.data);
-            console.info('yql result:', md);
-            return md;
-          });
+          return zhihuService.getAnswer(params.question, params.answer);
         }
       }
     })

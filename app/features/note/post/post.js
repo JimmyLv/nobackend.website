@@ -1,11 +1,11 @@
 import './post.less'
-import jsyaml from 'js-yaml/lib/js-yaml.js';
 
 export default {
   transclude: true,
   templateUrl: require('./post.html'),
   bindings: {
-    postContent: '<',
+    matter: '<frontMatter',
+    content: '<postContent',
     showToc: '<'
   },
   controller($document, $location, $routeParams, $sce, configService) {
@@ -13,19 +13,15 @@ export default {
 
     const vm = this;
 
-    const result = _parseContent('---', vm.postContent);
-
-    console.info('setting tile:', result.matter.title);
+    console.info('setting tile:', vm.matter.title);
     vm.subtitle = configService.config.project.subtitle;
-    $document[0].title = `${result.matter.title} | ${vm.subtitle}`;
+    $document[0].title = `${vm.matter.title} | ${vm.subtitle}`;
 
     vm.$onInit = () => {
       var github = configService.config.github;
 
       vm.filename = `_posts/${$routeParams.category}/${$routeParams.post}.md`;
       vm.editUrl = `https://github.com/${github.user}/${github.repo}/edit/${github.branch}/${vm.filename}`;
-      vm.content = result.content;
-      vm.matter = result.matter;
 
       vm.slideUrl = $sce.trustAsResourceUrl(`${configService.api('slides')}/${$routeParams.post}.htm`);
 
@@ -40,13 +36,5 @@ export default {
       var formattedHashTags = vm.matter.tags.map(tag => `#${tag}#`).join(' ');
       vm.encodedShareContent = encodeURIComponent(`${vm.matter.title} ${formattedHashTags} | ${vm.subtitle}`);
     };
-
-    function _parseContent(separator, rawContent) {
-      const splitResult = rawContent.split(separator);
-      return {
-        content: splitResult.slice(2).join(separator),
-        matter: jsyaml.load(splitResult[1])
-      }
-    }
   }
 }
