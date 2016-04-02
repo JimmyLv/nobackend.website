@@ -3,7 +3,7 @@
         <div ng-repeat="item in $ctrl.items">
             <a ng-href="#!{{ item.link }}"
                class="list-group-item-lay"
-               ng-class="{'active': item.id === $ctrl.selectedPost}">{{ item.title }}</a>
+               ng-class="{'active': item.link === $ctrl.selectedLinkOfPost}">{{ item.title }}</a>
         </div>
     </div>
 </div>

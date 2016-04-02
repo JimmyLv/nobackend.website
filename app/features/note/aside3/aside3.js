@@ -18,7 +18,9 @@ export default {
     vm.$onInit = () => {
       vm.isIndex = vm.postContent ? false : true;
       vm.disqusConfig = configService.config.disqus;
-      vm.article = _parseContent('---', vm.postContent);
+      if (!vm.isIndex) {
+        vm.article = _parseContent('---', vm.postContent);
+      }
     };
 
     function _parseContent(separator, rawContent) {

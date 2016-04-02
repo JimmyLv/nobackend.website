@@ -6,33 +6,30 @@ export default {
     posts: '<',
     selectedNav: '<'
   },
-  controller($routeParams) {
+  controller($location) {
     "ngInject";
 
     const vm = this;
     vm.$onInit = () => {
       console.info('posts: ', vm.posts);
 
-      vm.selectedPost = `/${$routeParams.post}`;
+      vm.selectedLinkOfPost = $location.url();
 
       if (vm.selectedNav === 'zhihu') {
         vm.items = vm.posts.map((question)=> {
           return {
-            id: question.link,
             title: question.title,
-            link: `pages/zhihu${question.link}`
+            link: `/pages/zhihu${question.link}`
           }
         })
       } else {
         vm.items = vm.posts.map((post) => {
           return {
-            id: post.url,
             title: post.title,
-            link: `note/${post.category}${post.url}`
+            link: `/note/${encodeURIComponent(post.category)}${post.url}`
           }
         });
       }
-      console.info('selected item:', vm.selectedNav + vm.selectedPost);
     }
   }
 }
