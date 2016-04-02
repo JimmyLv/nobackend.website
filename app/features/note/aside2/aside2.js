@@ -18,7 +18,7 @@ export default {
       if (vm.selectedNav === 'zhihu') {
         vm.items = vm.posts.map((question)=> {
           return {
-            title: question.title,
+            title: `${question.title} |  ${question.agree} 赞`,
             link: `/pages/zhihu${question.link}`
           }
         })

@@ -1,26 +1,23 @@
 import './page.less'
-import low from 'lowdb';
-import localStorage from 'lowdb/browser';
 import find from 'lodash/find';
 
 export default {
   templateUrl: require('./page.html'),
   bindings: {
     index: '<',
+    categories: '<',
     zhihu: '<',
     question: '<?'
   },
   controller($routeParams, $sce) {
     "ngInject";
 
-    console.info('$routeParams', $routeParams);
-
     const vm = this;
 
-    vm.$onInit = () => {
+    console.info('$routeParams', $routeParams);
+    console.info('categories', vm.categories);
 
-      const db = low('db', {storage: localStorage});
-      db.object = vm.index;
+    vm.$onInit = () => {
 
       if ($routeParams.page === 'zhihu') {
         vm.selectedPage = 'zhihu';
@@ -40,7 +37,7 @@ export default {
         }
       } else {
         vm.selectedPage = $routeParams.page;
-        vm.selectedPosts = db('categories').find({name: '编程'}).posts;
+        vm.selectedPosts = find(vm.index.categories, {name: '编程'}).posts;
         vm.pageUrl = $sce.trustAsResourceUrl(`http://blog.jimmylv.info/pages/${$routeParams.page}.html`);
       }
 

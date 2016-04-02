@@ -15,7 +15,7 @@ export default  {
 
     vm.$onInit = () => {
       var meta = configService.config.meta;
-      console.info('rss api:', configService.api('rss'));
+
       vm.selectedCategory = $routeParams.category || meta.active;
 
       const db = low('db', {storage: localStorage});
@@ -24,7 +24,7 @@ export default  {
       vm.selectedPostsByCategory = db('categories').find({name: vm.selectedCategory}).posts;
 
       vm.isIndex = vm.postContent ? false : true;
-      vm.newestPosts = vm.index.paginator.slice(0, 10);
+      vm.newestPosts = vm.index.paginator.slice(0, configService.config.paginate);
       vm.selectedTagsWithPosts = db('tags').filter(tag => meta.tags.indexOf(tag.name) > -1);
 
       vm.showNav = true;
