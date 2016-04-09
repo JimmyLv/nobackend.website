@@ -10,7 +10,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var isProd = args.prod;
 
 module.exports = {
-  context: __dirname,
+  devtools: 'inline-source-map',
   entry: {
     app: ['webpack/hot/dev-server', './app/app.js'],
     vendor: [
@@ -38,7 +38,7 @@ module.exports = {
     ]
   },
   output: {
-    path: './dist',
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
 
@@ -59,6 +59,8 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
     new ExtractTextPlugin('[name].css')
   ],
@@ -68,6 +70,6 @@ module.exports = {
     alias: {
       'react': './pages/build/react'
     },
-    modulesDirectories: ['node_modules', 'bower_components']
+    modulesDirectories: ['node_modules', 'bower_components'] // 'app'
   }
 };

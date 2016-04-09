@@ -24,6 +24,7 @@ github:
   repo: jimmy.lv
   branch: gh-pages
   posts: _posts
+  subfolder: true
 
 # api endpoint
 api:

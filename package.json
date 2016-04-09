@@ -42,8 +42,7 @@
     "ng-fx": "^2.0.4",
     "to-markdown": "^2.0.1",
     "xmldom": "^0.1.22",
-    "xpath": "0.0.22",
-    "zhihu-api": "0.0.13"
+    "xpath": "0.0.22"
   },
   "optionalDependencies": {
     "fsevents": "^1.0.0"
