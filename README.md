@@ -2,7 +2,7 @@
 
 > A powerful rich interactive web application by using nobackend tech stack.
 
-## Getting Start
+## Getting Started
 
 Only need change configuration inside `_config.yml` as you did in [Jekyll](https://jekyllrb.com).
 
@@ -12,7 +12,7 @@ Only need change configuration inside `_config.yml` as you did in [Jekyll](https
 ## Install dependencies & Run
 
 ```bash
-npm i
+npm install # properly use cnpm if you are in China
 
 npm run dev
 npm start
