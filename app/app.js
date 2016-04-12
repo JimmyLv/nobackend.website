@@ -11,8 +11,9 @@ import angulartics from 'angulartics'
 import 'angular-socialshare'
 import 'angulartics-google-analytics'
 
-import '../assets/libraries/angular.audio'
-import '../assets/libraries/angular-ui-awesome'
+// from assets
+import 'angular.audio'
+import 'angular-ui-awesome'
 import '../assets/styles/angular-ui-awesome.css'
 
 import Configs from './configs/configs.module'

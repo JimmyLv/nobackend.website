@@ -57,6 +57,7 @@
     "file-loader": "^0.8.5",
     "gulp": "^3.9.1",
     "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.15.0",
     "json-loader": "^0.5.4",
     "less": "^2.6.1",
     "less-loader": "^2.2.2",

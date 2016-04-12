@@ -2,7 +2,7 @@ var path = require('path');
 var args = require('yargs').argv;
 
 var webpack = require('webpack');
-var precss       = require('precss');
+var precss = require('precss');
 var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -28,8 +28,10 @@ module.exports = {
       'angular-marked',
       'angularUtils-disqus',
       'angular-loading-bar',
-      'angulartics',
       'angular-socialshare',
+      'angular.audio',
+      'angular-ui-awesome',
+      'angulartics',
       'angulartics-google-analytics',
       'js-yaml/lib/js-yaml.js',
       'lowdb',
@@ -70,6 +72,6 @@ module.exports = {
     alias: {
       'react': './pages/build/react'
     },
-    modulesDirectories: ['node_modules', 'bower_components'] // 'app'
+    modulesDirectories: ['node_modules', 'assets/libraries']
   }
 };

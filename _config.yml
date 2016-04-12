@@ -67,3 +67,11 @@ disqus:
   disqus_shortname: nobackend-website
   disqus_identifier: nobackend-website
   disqus_url: http://nobackend.website
+
+gems:
+  - jekyll-sitemap
+  - jekyll-paginate
+
+exclude:
+  - .idea/
+  - node_modules
