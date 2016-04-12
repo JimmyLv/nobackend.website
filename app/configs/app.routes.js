@@ -1,21 +1,15 @@
 export default function routing($routeProvider, $urlRouterProvider, $stateProvider, $locationProvider) {
   'ngInject';
+
+  $urlRouterProvider.when(/hello|users|dashboard/, function ($match, $state, $location) {
+    'ngInject';
+
+    console.info($match, $state);
+    alert('Hello, but this page is not ready yet!');
+    $location.path('note');
+  });
+
   $stateProvider
-    .state('users2', {
-      url: '/users2',
-      views: {
-        "viewA": {templateUrl: './components/users/users.html'},
-        "viewB": {template: '<a ui-sref="users2.details({id:34})">cross link (ui-sref)</a>'}
-      },
-      controller: 'Users2Controller',
-      controllerAs: 'users2'
-    })
-    .state('users2.details', {
-      url: '/:id',
-      template: '<button ng-click="details.sayHi(\'ui-router\')">changed to ui-router</button>',
-      controller: 'DetailsController',
-      controllerAs: 'details'
-    })
     .state('zuimeia', {
       url: '/zuimeia',
       template: '<apps app-items="appItems"></apps>',

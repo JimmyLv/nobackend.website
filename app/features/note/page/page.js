@@ -38,7 +38,7 @@ export default {
       } else {
         vm.selectedPage = $routeParams.page;
         vm.selectedPosts = find(vm.index.categories, {name: '编程'}).posts;
-        vm.pageUrl = $sce.trustAsResourceUrl(`http://blog.jimmylv.info/pages/${$routeParams.page}.html`);
+        vm.pageUrl = $sce.trustAsResourceUrl(`http://blog.jimmylv.info/pages/${$routeParams.page}`);
       }
 
       // TODO: refactor toge

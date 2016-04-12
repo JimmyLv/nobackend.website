@@ -7,16 +7,6 @@ export default function running($rootScope, $location, $router, $http, CacheFact
     deleteOnExpire: 'aggressive' // Items will be deleted from this cache when they expire
   });
 
-  $router.config([
-    {
-      path: '/dashboard',
-      component: {
-        users: 'users',
-        dashboard: 'dashboard'
-      },
-      as: 'dashboard'
-    }]);
-
   $rootScope.$on('$locationChangeSuccess', function () {
     console.info($location.absUrl());
   });
