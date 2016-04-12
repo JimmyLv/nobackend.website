@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack -w --bail --display-error-details",
     "start": "webpack-dev-server --history-api-fallback --hot --inline --progress",
-    "build": "rm -rf ./dist && webpack -p --progress"
+    "build": "rm -rf ./dist; webpack -p --progress; cp -f index.html v1/index.html"
   },
   "repository": {
     "type": "git",
