@@ -6,4 +6,6 @@
 /.jekyll-metadata
 /npm-debug.log
 
-/_site/**/*.hot-update.*
+/_site
+
+/v1/**/*.hot-update.*

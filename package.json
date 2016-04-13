@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack -w --bail --display-error-details",
     "start": "webpack-dev-server",
-    "build": "rm -rf ./_site && webpack -p --progress"
+    "build": "rm -rf v1 && webpack -p --progress"
   },
   "repository": {
     "type": "git",

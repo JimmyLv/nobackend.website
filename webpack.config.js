@@ -14,7 +14,7 @@ const isProd = args.prod;
 
 const PATHS = {
   app: path.join(__dirname, 'app'),
-  build: path.join(__dirname, '_site')
+  build: path.join(__dirname, 'v1')
 };
 
 module.exports = {
