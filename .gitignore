@@ -9,3 +9,4 @@
 /_site
 
 /v1/**/*.hot-update.*
+/v1/*.map

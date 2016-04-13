@@ -5,7 +5,7 @@ import ngFx from 'ng-fx'
 
 import ngCache from 'angular-cache'
 import ngMarked from 'angular-marked'
-import ngDisqus from 'angularUtils-disqus'
+import ngDisqus from 'angular-utils-disqus'
 import ngLoadingBar from 'angular-loading-bar'
 import angulartics from 'angulartics'
 import 'angular-socialshare'

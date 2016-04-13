@@ -13,7 +13,7 @@ export default {
     vm.$onInit = () => {
       console.info('posts: ', vm.posts);
 
-      vm.selectedLinkOfPost = $location.url();
+      vm.selectedLinkOfPost = $location.url() + '/';
 
       if (vm.selectedNav === 'zhihu') {
         vm.items = vm.posts.map((question)=> {

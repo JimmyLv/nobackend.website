@@ -43,7 +43,7 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
   };
 
   $routeProvider
-    .when('/note/:category?/:post?', {
+    .when('/note/:category?/:post?/', {
       template: '<note post-content="$resolve.post.data" index="$resolve.index.data"></note>',
       resolve: {
         post($route, githubService) {

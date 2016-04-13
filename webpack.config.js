@@ -18,7 +18,7 @@ const PATHS = {
 };
 
 module.exports = {
-  devtools: 'source-map',
+  devtool: 'source-map',
   devServer: {
     contentBase: PATHS.build,
     historyApiFallback: true,
@@ -42,7 +42,7 @@ module.exports = {
       'ng-fx',
       'angular-cache',
       'angular-marked',
-      'angularUtils-disqus',
+      'angular-utils-disqus',
       'angular-loading-bar',
       'angular-socialshare',
       'angular.audio',
