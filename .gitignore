@@ -3,11 +3,7 @@
 /node_modules
 /bower_components
 
-/_site
 /.jekyll-metadata
 /npm-debug.log
 
-/dist/*
-!/dist/bundle.js
-!/dist/vendor.js
-!/dist/app.css
+/_site/**/*.hot-update.*

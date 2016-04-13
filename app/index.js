@@ -12,6 +12,8 @@ import 'angular-socialshare'
 import 'angulartics-google-analytics'
 
 // from assets
+import 'expose?QRCode!qrcode'
+import 'angular-qr'
 import 'angular.audio'
 import 'angular-ui-awesome'
 import '../assets/styles/angular-ui-awesome.css'

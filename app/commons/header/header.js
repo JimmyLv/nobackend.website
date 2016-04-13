@@ -1,4 +1,5 @@
 import './header.less'
+import '../../../assets/images/avatar.jpg'
 
 export default  {
   templateUrl: require('./header.html'),
