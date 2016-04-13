@@ -2,6 +2,8 @@
 
 > A powerful rich interactive web application by using nobackend tech stack.
 
+[![Build Status](https://travis-ci.org/JimmyLv/nobackend.website.svg?branch=gh-pages)](https://travis-ci.org/JimmyLv/nobackend.website)
+
 ## Getting Started
 
 Only need change configuration inside `_config.yml` as you did in [Jekyll](https://jekyllrb.com).

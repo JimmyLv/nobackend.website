@@ -1,0 +1,16 @@
+branches:
+  only:
+    - gh-pages
+language: node_js
+node_js:
+  - stable
+script:
+  - npm install
+  - npm run build
+deploy:
+  provider: s3
+  access_key_id: <%= ENV['S3_ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['S3_SECRET_KEY'] %>
+  bucket: "nobackend-website"
+  skip_cleanup: true
+  local_dir: v1
