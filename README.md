@@ -37,4 +37,4 @@ git push
 
 -------
 
-Host on [GitHub](https://github.com/JimmyLv/nobackend.website)
+Host on [GitHub](https://github.com/JimmyLv/nobackend.website) / [AWS S3](http://nobackend.website.s3-website-ap-southeast-1.amazonaws.com/#!/note)
