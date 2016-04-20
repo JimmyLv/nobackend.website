@@ -1,5 +1,6 @@
 permalink: /:year-:month-:day-:title
 markdown: kramdown
+paginate: 10
 encoding: utf-8
 
 author:
