@@ -1,5 +1,4 @@
 const path = require('path');
-const args = require('yargs').argv;
 
 const webpack = require('webpack');
 const precss = require('precss');
@@ -9,24 +8,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const NpmInstallPlugin = require('npm-install-webpack-plugin');
 
-// parameters
-const isProd = args.prod;
-
 const PATHS = {
   app: path.join(__dirname, 'app'),
   build: path.join(__dirname, 'v1')
 };
 
 module.exports = {
-  devtool: 'source-map',
-  devServer: {
-    contentBase: PATHS.build,
-    historyApiFallback: true,
-    hot: true,
-    inline: true,
-    progress: true,
-    stats: 'errors-only'
-  },
   entry: {
     app: PATHS.app,
     vendor: [
@@ -107,3 +94,30 @@ module.exports = {
     modulesDirectories: ['node_modules', 'assets/libraries']
   }
 };
+
+if (process.env.NODE_ENV === 'production') {
+  var plugins = module.exports.plugins;
+  plugins = plugins.concat([
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.optimize.OccurenceOrderPlugin()
+  ]);
+} else {
+  module.exports.devtool = 'source-map';
+  module.exports.devServer = {
+    contentBase: PATHS.build,
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    progress: true,
+    stats: 'errors-only'
+  };
+}
