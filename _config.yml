@@ -75,3 +75,7 @@ gems:
 exclude:
   - .idea/
   - node_modules
+
+include:
+  - _ng
+  - _vue
