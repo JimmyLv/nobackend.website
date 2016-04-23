@@ -1,19 +1,19 @@
-const path = require('path');
+var path = require('path');
 
-const webpack = require('webpack');
-const precss = require('precss');
-const autoprefixer = require('autoprefixer');
+var webpack = require('webpack');
+var precss = require('precss');
+var autoprefixer = require('autoprefixer');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const NpmInstallPlugin = require('npm-install-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var NpmInstallPlugin = require('npm-install-webpack-plugin');
 
 const PATHS = {
   app: path.join(__dirname, 'app'),
   build: path.join(__dirname, 'v1')
 };
 
-module.exports = {
+var config = {
   entry: {
     app: PATHS.app,
     vendor: [
@@ -96,8 +96,7 @@ module.exports = {
 };
 
 if (process.env.NODE_ENV === 'production') {
-  var plugins = module.exports.plugins;
-  plugins = plugins.concat([
+  config.plugins = (config.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
@@ -111,13 +110,16 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.optimize.OccurenceOrderPlugin()
   ]);
 } else {
-  module.exports.devtool = 'source-map';
-  module.exports.devServer = {
+  config.devtool = 'source-map';
+  config.devServer = {
     contentBase: PATHS.build,
     historyApiFallback: true,
     hot: true,
     inline: true,
+    noInfo: true,
     progress: true,
     stats: 'errors-only'
   };
 }
+
+module.exports = config

@@ -10,3 +10,5 @@
 
 /v1/**/*.hot-update.*
 /v1/*.map
+/v2/**/*.hot-update.*
+/v2/*.map
