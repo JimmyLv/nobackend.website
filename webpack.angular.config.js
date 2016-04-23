@@ -7,6 +7,7 @@ var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var NpmInstallPlugin = require('npm-install-webpack-plugin');
+var HappyPack = require('happypack');
 
 const PATHS = {
   app: path.join(__dirname, 'angular'),
@@ -54,7 +55,7 @@ var config = {
 
   module: {
     loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loader: 'ng-annotate?add=true!babel?presets[]=es2015'},
+      {test: /\.js$/, exclude: /node_modules/, loader: 'ng-annotate?add=true!happypack/loader'},
       {test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss')},
       {test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss!less')},
       {test: /\.(eot|woff|woff2|ttf|svg)(\?\S*)?$/, loader: 'url?limit=100000&name=./fonts/[name].[ext]'},
@@ -68,6 +69,12 @@ var config = {
   },
 
   plugins: [
+    new HappyPack({
+      cache: true,
+      loaders: [ 'babel?presets[]=es2015' ],
+      threads: 5
+    }),
+
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
     new ExtractTextPlugin('[name].css'),
     new HtmlWebpackPlugin({ //根据模板插入css/js等生成最终HTML
@@ -110,7 +117,7 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.optimize.OccurenceOrderPlugin()
   );
 } else {
-  config.devtool = 'source-map'
+  config.devtool = 'eval-source-map'
   config.devServer = {
     contentBase: PATHS.build,
     historyApiFallback: true,

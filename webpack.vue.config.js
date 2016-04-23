@@ -90,7 +90,7 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.optimize.OccurenceOrderPlugin()
   )
 } else {
-  config.devtool = 'source-map'
+  config.devtool = 'eval-source-map'
   config.devServer = {
     contentBase: PATHS.build,
     historyApiFallback: true,
