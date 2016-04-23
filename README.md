@@ -16,20 +16,23 @@ Only need change configuration inside `_config.yml` as you did in [Jekyll](https
 ```bash
 npm install # properly use cnpm if you are in China
 
-npm run dev
-npm start
+npm run dev:ng # open http://localhost:8080/
+npm run dev:vue # open http://localhost:8081/
 ```
 
-## Deploy to GitHub Page
+## Deploy && CI
 
 ```bash
 npm run build
 git push
 ```
 
+<https://travis-ci.org/JimmyLv/nobackend.website>
+
 ## Thanks to
 
 - [Angular 1.x](http://angularjs.org/)
+- [Vue](http://vuejs.org/)
 - [Webpack](http://webpack.github.io/)
 - [Babel](https://babeljs.io/) & [ES6](https://babeljs.io/docs/learn-es2015/)
 - [最美应用](http://zuimeia.com/) & [Chrome 插件](http://chrome.zuimeia.com)

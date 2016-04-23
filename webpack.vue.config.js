@@ -3,6 +3,7 @@ var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var NpmInstallPlugin = require('npm-install-webpack-plugin');
 
 const PATHS = {
   app: path.join(__dirname, 'vue'),
@@ -10,6 +11,7 @@ const PATHS = {
 };
 
 var config = {
+  stats: {children: false},
   entry: {
     app: PATHS.app,
     vendor: [
@@ -52,7 +54,6 @@ var config = {
   },
 
   plugins: [
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
     new ExtractTextPlugin('[name].css'),
     new HtmlWebpackPlugin({ //根据模板插入css/js等生成最终HTML
@@ -71,30 +72,36 @@ var config = {
 }
 
 if (process.env.NODE_ENV === 'production') {
-  config.plugins = (config.plugins || []).concat([
+  config.plugins.push(
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
       }
     }),
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       }
     }),
     new webpack.optimize.OccurenceOrderPlugin()
-  ])
+  )
 } else {
-  config.plugins.devtool = 'source-map'
+  config.devtool = 'source-map'
   config.devServer = {
     contentBase: PATHS.build,
     historyApiFallback: true,
     hot: true,
     inline: true,
-    noInfo: true,
     progress: true,
-    stats: 'errors-only'
+    stats: 'errors-only',
+    port: 8081
   }
+  config.plugins.push(
+    new NpmInstallPlugin({saveDev: true}),
+    new webpack.HotModuleReplacementPlugin()
+  )
 }
 
 module.exports = config

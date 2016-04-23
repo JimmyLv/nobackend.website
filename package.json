@@ -4,12 +4,10 @@
   "description": "A powerful rich interactive web application by using nobackend tech stack.",
   "main": "./app/app.js",
   "scripts": {
-    "dev:ng": "webpack --config webpack.angular.config.js -w --bail --display-error-details --hide-modules",
-    "serve:ng": "webpack-dev-server --config webpack.angular.config.js",
+    "dev:ng": "webpack-dev-server --config webpack.angular.config.js",
     "build:ng": "cross-env NODE_ENV=production webpack --config webpack.angular.config.js -p --progress --hide-modules",
 
-    "dev:vue": "webpack --config webpack.vue.config.js -w --bail --display-error-details",
-    "serve:vue": "webpack-dev-server --config webpack.vue.config.js",
+    "dev:vue": "webpack-dev-server --config webpack.vue.config.js",
     "build:vue": "cross-env NODE_ENV=production webpack --config webpack.vue.config.js --progress --hide-modules",
 
     "clean": "rm -rf v1 v2 v3",
