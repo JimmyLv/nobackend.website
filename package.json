@@ -4,9 +4,10 @@
   "description": "A powerful rich interactive web application by using nobackend tech stack.",
   "main": "./app/app.js",
   "scripts": {
-    "dev": "webpack -w --bail --display-error-details",
-    "start": "webpack-dev-server",
-    "build": "rm -rf v1 && cross-env NODE_ENV=production webpack -p --progress"
+    "clean": "rm -rf v1 v2 v3",
+    "dev:ng": "webpack --config webpack.angular.config.js -w --bail --display-error-details",
+    "start:ng": "webpack-dev-server --config webpack.angular.config.js",
+    "build:ng": "npm run clean && cross-env NODE_ENV=production webpack --config webpack.angular.config.js -p --progress"
   },
   "repository": {
     "type": "git",
