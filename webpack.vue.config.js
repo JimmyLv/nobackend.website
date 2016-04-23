@@ -7,7 +7,7 @@ var NpmInstallPlugin = require('npm-install-webpack-plugin');
 
 const PATHS = {
   app: path.join(__dirname, 'vue'),
-  build: path.join(__dirname, 'v2')
+  build: path.join(__dirname, '_vue')
 };
 
 var config = {

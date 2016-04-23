@@ -8,7 +8,7 @@
 
 /_site
 
-/v1/**/*.hot-update.*
-/v1/*.map
-/v2/**/*.hot-update.*
-/v2/*.map
+/_ng/**/*.hot-update.*
+/_ng/*.map
+/_vue/**/*.hot-update.*
+/_vue/*.map

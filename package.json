@@ -10,7 +10,7 @@
     "dev:vue": "webpack-dev-server --config webpack.vue.config.js",
     "build:vue": "cross-env NODE_ENV=production webpack --config webpack.vue.config.js --progress --hide-modules",
 
-    "clean": "rm -rf v1 v2 v3",
+    "clean": "rm -rf _ng _vue",
     "build": "npm run clean && npm run build:ng && npm run build:vue"
   },
   "repository": {

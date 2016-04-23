@@ -10,7 +10,7 @@ var NpmInstallPlugin = require('npm-install-webpack-plugin');
 
 const PATHS = {
   app: path.join(__dirname, 'angular'),
-  build: path.join(__dirname, 'v1')
+  build: path.join(__dirname, '_ng')
 };
 
 var config = {
