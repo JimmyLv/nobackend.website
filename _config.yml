@@ -29,7 +29,7 @@ github:
 # api endpoint
 api:
   github:
-    base: http://blog.jimmylv.info
+    base: http://blog.jimmylv.info.s3-website-ap-southeast-1.amazonaws.com
     index: /api/index.json
     slides: /slides
     rss: /pages/atom.xml
