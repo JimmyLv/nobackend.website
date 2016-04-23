@@ -10,7 +10,8 @@ var NpmInstallPlugin = require('npm-install-webpack-plugin');
 
 const PATHS = {
   app: path.join(__dirname, 'angular'),
-  build: path.join(__dirname, '_ng')
+  build: path.join(__dirname, '_ng'),
+  publicPath: 'http://7xjbdq.com1.z0.glb.clouddn.com/_ng/'
 };
 
 var config = {
@@ -47,6 +48,7 @@ var config = {
   },
   output: {
     path: PATHS.build,
+    publicPath: PATHS.publicPath,
     filename: 'bundle.js'
   },
 

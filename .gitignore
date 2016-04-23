@@ -12,3 +12,5 @@
 /_ng/*.map
 /_vue/**/*.hot-update.*
 /_vue/*.map
+
+/scripts
