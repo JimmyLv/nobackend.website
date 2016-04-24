@@ -72,7 +72,7 @@ gems:
   - jekyll-sitemap
   - jekyll-paginate
 
-source: ./public
+source: public
 
 include:
   - _ng

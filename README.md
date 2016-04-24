@@ -40,4 +40,4 @@ git push
 
 -------
 
-Host on [GitHub](https://github.com/JimmyLv/nobackend.website) / [AWS S3](http://nobackend.website.s3-website-ap-southeast-1.amazonaws.com/#!/note)
+Host on [GitHub](https://github.com/JimmyLv/nobackend.website) / [AWS S3](http://nobackend.website.s3-website-ap-southeast-1.amazonaws.com/#!/note) / [七牛](http://7xjbdq.com1.z0.glb.clouddn.com/_ng/#!/note)
