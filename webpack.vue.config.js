@@ -5,6 +5,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var NpmInstallPlugin = require('npm-install-webpack-plugin');
 
+var isProd = process.env.NODE_ENV === 'production'
+
 const PATHS = {
   app: path.join(__dirname, 'src/vue'),
   build: path.join(__dirname, '_vue'),
@@ -23,7 +25,7 @@ var config = {
   },
   output: {
     path: PATHS.build,
-    publicPath: PATHS.publicPath,
+    publicPath: isProd ? PATHS.publicPath : '',
     filename: 'bundle.js'
   },
 
@@ -63,7 +65,7 @@ var config = {
       filename: './index.html', //生成的html存放路径，相对于path
       template: './src/vue/index.template', //html模板路径
       inject: 'body', //js插入的位置，true/'head'/'body'/false
-      hash: true, //为静态资源生成hash值
+      hash: !!isProd, //为静态资源生成hash值
       chunks: ['vendor', 'app'],//需要引入的chunk，不配置就会引入所有页面的资源
       minify: { //压缩HTML文件
         removeComments: true, //移除HTML中的注释
@@ -73,7 +75,7 @@ var config = {
   ]
 }
 
-if (process.env.NODE_ENV === 'production') {
+if (isProd) {
   config.plugins.push(
     new webpack.DefinePlugin({
       'process.env': {
