@@ -16,13 +16,13 @@ import 'expose?QRCode!qrcode'
 import 'angular-qr'
 import 'angular.audio'
 import 'angular-ui-awesome'
-import '../assets/styles/angular-ui-awesome.css'
+import 'angular-ui-awesome.css'
 
-import Configs from './configs/configs.module'
-import Services from './services/services.module'
-import Features from './features/features.module'
-import Decorators from './decorators/decorators.module'
-import Commons from './commons/commons.module'
+import Configs from './configs/configs.module.js'
+import Services from './services/services.module.js'
+import Features from './features/features.module.js'
+import Decorators from './decorators/decorators.module.js'
+import Commons from './commons/commons.module.js'
 
 angular
   .module('app', [

@@ -1,12 +1,12 @@
-import '../../assets/styles/loading-bar.css'
+import 'loading-bar.css'
 
 import ngRoute from 'angular-route'
 import uiRouter from 'angular-ui-router'
 import 'angular-new-router'
 
-import config from './app.config'
-import routing from './app.routes'
-import running from './app.run'
+import config from './app.config.js'
+import routing from './app.routes.js'
+import running from './app.run.js'
 
 export default angular.module('app.configs', [
     ngRoute,

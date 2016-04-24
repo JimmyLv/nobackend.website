@@ -6,8 +6,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var NpmInstallPlugin = require('npm-install-webpack-plugin');
 
 const PATHS = {
-  app: path.join(__dirname, 'vue'),
-  build: path.join(__dirname, 'app/_vue'),
+  app: path.join(__dirname, 'src/vue'),
+  build: path.join(__dirname, '_vue'),
   publicPath: 'http://7xjbdq.com1.z0.glb.clouddn.com/_vue/'
 };
 
@@ -61,7 +61,7 @@ var config = {
     new HtmlWebpackPlugin({ //根据模板插入css/js等生成最终HTML
       favicon: './assets/images/vue.png', //favicon路径，通过webpack引入同时可以生成hash值
       filename: './index.html', //生成的html存放路径，相对于path
-      template: './vue/index.template', //html模板路径
+      template: './src/vue/index.template', //html模板路径
       inject: 'body', //js插入的位置，true/'head'/'body'/false
       hash: true, //为静态资源生成hash值
       chunks: ['vendor', 'app'],//需要引入的chunk，不配置就会引入所有页面的资源

@@ -1,4 +1,4 @@
-import '../../assets/styles/hightlight.css'
+import 'hightlight.css'
 import hljs from 'highlight.js'
 
 export default function config(markedProvider, cfpLoadingBarProvider) {

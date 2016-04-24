@@ -1,4 +1,4 @@
-import config from 'json!yaml!../../_config.yml';
+import config from 'json!yaml!../../../_config.yml';
 
 
 class ConfigService {

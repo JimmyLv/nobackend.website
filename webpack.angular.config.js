@@ -12,8 +12,8 @@ var HappyPack = require('happypack')
 var isProd = process.env.NODE_ENV === 'production'
 
 const PATHS = {
-  app: path.join(__dirname, 'angular'),
-  build: path.join(__dirname, 'app/_ng'),
+  app: path.join(__dirname, 'src/angular'),
+  build: path.join(__dirname, '_ng'),
   publicPath: 'http://7xjbdq.com1.z0.glb.clouddn.com/_ng/'
 }
 
@@ -81,7 +81,7 @@ var config = {
     new HtmlWebpackPlugin({ //根据模板插入css/js等生成最终HTML
       favicon: './assets/images/favicon.ico', //favicon路径，通过webpack引入同时可以生成hash值
       filename: './index.html', //生成的html存放路径，相对于path
-      template: './angular/index.template', //html模板路径
+      template: './src/angular/index.template', //html模板路径
       inject: 'body', //js插入的位置，true/'head'/'body'/false
       hash: !!isProd, //为静态资源生成hash值
       chunks: ['vendor', 'app'],//需要引入的chunk，不配置就会引入所有页面的资源
@@ -97,7 +97,7 @@ var config = {
     alias: {
       'react': './pages/build/react'
     },
-    modulesDirectories: ['node_modules', 'assets/libraries']
+    modulesDirectories: ['node_modules', 'assets/libraries', 'assets/styles', 'assets/images']
   }
 }
 

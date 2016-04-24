@@ -8,6 +8,7 @@ node_js:
 script:
   - npm install
   - npm run build
+  - cp -r _ng app/_ng && cp -r _vue app/_vue && cp index.html app/index.html
 cache:
   directories:
     - node_modules
@@ -18,5 +19,6 @@ deploy:
   bucket: nobackend.website
   region: ap-southeast-1
   skip_cleanup: true
+  local_dir: app
   on:
     branch: gh-pages

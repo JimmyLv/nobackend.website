@@ -8,11 +8,11 @@
     "build:ng": "cross-env NODE_ENV=production webpack --config webpack.angular.config.js --progress --hide-modules",
     "dev:vue": "webpack-dev-server --config webpack.vue.config.js",
     "build:vue": "cross-env NODE_ENV=production webpack --config webpack.vue.config.js --progress --hide-modules",
-    "cdn": "cd scripts && ./qrsync-v2 conf.json",
-    "clean": "rm -rf app",
-    "build": "npm run build:ng && npm run build:vue",
-    "prod": "npm run clean && npm run build && npm run cdn && cp index.html app/index.html",
-    "serve": "jekyll clean && jekyll serve"
+    "cdn": "cd scripts && ./qrsync-v2 _ng.conf.json && ./qrsync-v2 _vue.conf.json",
+    "clean": "rm -rf _ng _vue",
+    "build": "npm run clean && npm run build:ng && npm run build:vue",
+    "prod": "npm run build && npm run cdn",
+    "start": "jekyll clean && jekyll serve"
   },
   "repository": {
     "type": "git",
