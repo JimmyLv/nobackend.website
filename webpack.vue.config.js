@@ -33,10 +33,7 @@ var config = {
     // avoid webpack trying to shim process
     noParse: /es6-promise\.js$/,
     loaders: [
-      {
-        test: /\.vue$/,
-        loader: 'vue'
-      },
+      {test: /\.vue$/, loader: 'vue'},
       {
         test: /\.js$/,
         // excluding some local linked packages.
