@@ -72,9 +72,7 @@ gems:
   - jekyll-sitemap
   - jekyll-paginate
 
-exclude:
-  - .idea/
-  - node_modules
+source: ./public
 
 include:
   - _ng

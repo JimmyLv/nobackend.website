@@ -7,7 +7,7 @@ var NpmInstallPlugin = require('npm-install-webpack-plugin');
 
 const PATHS = {
   app: path.join(__dirname, 'vue'),
-  build: path.join(__dirname, '_vue'),
+  build: path.join(__dirname, 'public/_vue'),
   publicPath: 'http://7xjbdq.com1.z0.glb.clouddn.com/_vue/'
 };
 

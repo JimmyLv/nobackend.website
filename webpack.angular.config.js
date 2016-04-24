@@ -1,19 +1,21 @@
-var path = require('path');
+var path = require('path')
 
-var webpack = require('webpack');
-var precss = require('precss');
-var autoprefixer = require('autoprefixer');
+var webpack = require('webpack')
+var precss = require('precss')
+var autoprefixer = require('autoprefixer')
 
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var NpmInstallPlugin = require('npm-install-webpack-plugin');
-var HappyPack = require('happypack');
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var NpmInstallPlugin = require('npm-install-webpack-plugin')
+var HappyPack = require('happypack')
+
+var isProd = process.env.NODE_ENV === 'production'
 
 const PATHS = {
   app: path.join(__dirname, 'angular'),
-  build: path.join(__dirname, '_ng'),
+  build: path.join(__dirname, 'public/_ng'),
   publicPath: 'http://7xjbdq.com1.z0.glb.clouddn.com/_ng/'
-};
+}
 
 var config = {
   stats: {children: false},
@@ -49,7 +51,7 @@ var config = {
   },
   output: {
     path: PATHS.build,
-    publicPath: PATHS.publicPath,
+    publicPath: isProd ? PATHS.publicPath : '',
     filename: 'bundle.js'
   },
 
@@ -61,11 +63,10 @@ var config = {
       {test: /\.(eot|woff|woff2|ttf|svg)(\?\S*)?$/, loader: 'url?limit=100000&name=./fonts/[name].[ext]'},
       {test: /\.(png|jpe?g|gif)$/, loader: 'file?limit=8192&name=./images/[name].[ext]'},
       {test: /\.html$/, loader: 'ngtemplate!html?attrs[]=img:src img:ng-src'}
-    ],
-    noParse: []
+    ]
   },
   postcss: function () {
-    return [precss, autoprefixer];
+    return [precss, autoprefixer]
   },
 
   plugins: [
@@ -82,7 +83,7 @@ var config = {
       filename: './index.html', //生成的html存放路径，相对于path
       template: './angular/index.template', //html模板路径
       inject: 'body', //js插入的位置，true/'head'/'body'/false
-      hash: true, //为静态资源生成hash值
+      hash: !!isProd, //为静态资源生成hash值
       chunks: ['vendor', 'app'],//需要引入的chunk，不配置就会引入所有页面的资源
       minify: { //压缩HTML文件
         removeComments: true, //移除HTML中的注释
@@ -98,9 +99,9 @@ var config = {
     },
     modulesDirectories: ['node_modules', 'assets/libraries']
   }
-};
+}
 
-if (process.env.NODE_ENV === 'production') {
+if (isProd) {
   config.plugins.push(
     new webpack.DefinePlugin({
       'process.env': {
@@ -115,7 +116,7 @@ if (process.env.NODE_ENV === 'production') {
       }
     }),
     new webpack.optimize.OccurenceOrderPlugin()
-  );
+  )
 } else {
   config.devtool = 'eval-source-map'
   config.devServer = {

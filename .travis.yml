@@ -18,6 +18,6 @@ deploy:
   bucket: nobackend.website
   region: ap-southeast-1
   skip_cleanup: true
-  local_dir: _ng
+  local_dir: public
   on:
     branch: gh-pages

@@ -8,9 +8,4 @@
 
 /_site
 
-/_ng/**/*.hot-update.*
-/_ng/*.map
-/_vue/**/*.hot-update.*
-/_vue/*.map
-
 /scripts
