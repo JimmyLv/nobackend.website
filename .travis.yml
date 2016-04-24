@@ -6,8 +6,7 @@ language: node_js
 node_js:
   - stable
 script:
-  - npm install
-  - npm run build
+  - npm install && npm run build
   - mkdir app && cp -rf _ng app/_ng && cp -rf _vue app/_vue && cp index.html app/index.html
 cache:
   directories:
