@@ -49,10 +49,9 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
         post($route, githubService) {
           'ngInject';
 
-          const category = $route.current.params.category;
-          const postId = $route.current.params.post;
-          if (postId) {
-            return githubService.getPost(category, postId);
+          const {category, post} = $route.current.params;
+          if (post) {
+            return githubService.getPost(category, post);
           }
         }
       }

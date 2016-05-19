@@ -2,7 +2,10 @@
     <button id="nav-btn" class="btn btn-primary" ng-click="$ctrl.toggleNav()">
         <i class="fa fa-lg fa-navicon"></i>
     </button>
-    <button id="toc-btn" class="btn btn-primary" ng-click="$ctrl.toggleToc()">
+    <button id="toc-btn" ng-show="$ctrl.enableToc" class="btn btn-primary" ng-click="$ctrl.toggleToc()">
         <i class="fa fa-lg {{ $ctrl.isSlide ? 'fa-arrows-alt' : 'fa-plus' }}"></i>
+    </button>
+    <button id="lang-btn" ng-show="$ctrl.enableLang" class="btn btn-primary" ng-click="$ctrl.toggleEnglish()">
+        <i class="fa fa-lg fa-language" aria-hidden="true"></i>
     </button>
 </div>
