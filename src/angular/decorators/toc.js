@@ -8,6 +8,7 @@ export default function ($anchorScroll) {
     scope: true,
     controller: function () {
       this.headlines = [];
+      this.showEnglish = true;
       this.scrollTo = function (headline) {
         console.info('selectedHeadline:', headline.element.id);
         var content = angular.element(document.querySelector('#container'));
@@ -16,6 +17,15 @@ export default function ($anchorScroll) {
         $anchorScroll(headline.element.id);
         content.addClass('offset-fixed');
       };
+      this.toggleEnglish = function () {
+        this.showEnglish = !this.showEnglish;
+        var englishContent = angular.element(document.querySelectorAll('blockquote'));
+        if (this.showEnglish) {
+          englishContent.removeClass('english-hidden');
+        } else {
+          englishContent.addClass('english-hidden');
+        }
+      }
     },
     controllerAs: 'toc',
     link: function ($scope, $element) {

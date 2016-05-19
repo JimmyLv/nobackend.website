@@ -19,6 +19,7 @@
         <!-- 目录 -->
         <div id="toc" class="panel panel-success m-hide fx-rotate-down-right fx-dur-500 fx-ease-none" ng-show="$ctrl.showToc">
             <div class="panel-body" id="nav">
+                <button ng-click="toc.toggleEnglish()">{{ toc.showEnglish? 'English' : '中文' }}</button>
                 <a class="toc-title" ng-repeat="headline in toc.headlines"
                    ng-class="{level2: headline.level == 2, level3: headline.level == 3, level4: headline.level == 4}"
                    ng-click="toc.scrollTo(headline)">{{ headline.label }}</a>

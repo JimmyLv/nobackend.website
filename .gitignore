@@ -4,8 +4,9 @@
 /bower_components
 
 /.jekyll-metadata
-/npm-debug.log
+/*.log
 
 /_site
+/_*/*.map
 
 /scripts

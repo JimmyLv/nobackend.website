@@ -37,6 +37,8 @@
     "angulartics": "^1.0.3",
     "angulartics-google-analytics": "^0.1.4",
     "bootstrap": "^3.3.6",
+    "es6-promise": "^3.0.2",
+    "firebase": "^2.4.2",
     "font-awesome": "^4.5.0",
     "font-awesome-animation": "0.0.8",
     "github-api": "^0.11.2",
@@ -48,12 +50,10 @@
     "marked": "^0.3.5",
     "ng-fx": "^2.0.4",
     "to-markdown": "^2.0.1",
-    "xmldom": "^0.1.22",
-    "xpath": "0.0.22",
-    "es6-promise": "^3.0.2",
-    "firebase": "^2.3.1",
     "vue": "^1.0.8",
-    "vue-router": "^0.7.5"
+    "vue-router": "^0.7.5",
+    "xmldom": "^0.1.22",
+    "xpath": "0.0.22"
   },
   "optionalDependencies": {
     "fsevents": "^1.0.0"

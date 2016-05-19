@@ -14,7 +14,7 @@ var isProd = process.env.NODE_ENV === 'production'
 const PATHS = {
   app: path.join(__dirname, 'src/angular'),
   build: path.join(__dirname, '_ng'),
-  publicPath: 'http://7xjbdq.com1.z0.glb.clouddn.com/_ng/'
+  publicPath: '//7xjbdq.com1.z0.glb.clouddn.com/_ng/'
 }
 
 var config = {
@@ -118,7 +118,7 @@ if (isProd) {
     new webpack.optimize.OccurenceOrderPlugin()
   )
 } else {
-  config.devtool = 'eval-source-map'
+  config.devtool = 'source-map'
   config.devServer = {
     contentBase: PATHS.build,
     historyApiFallback: true,

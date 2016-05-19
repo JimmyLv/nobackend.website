@@ -81,8 +81,8 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
         question($route, zhihuService) {
           'ngInject';
 
-          const params = $route.current.params;
-          return zhihuService.getAnswer(params.question, params.answer);
+          const {question, answer} = $route.current.params;
+          return zhihuService.getAnswer(question, answer);
         }
       }
     })

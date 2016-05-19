@@ -20,8 +20,12 @@ export default function config(markedProvider, cfpLoadingBarProvider) {
     link(href, title, text) {
       return `<a href="${href}" ${title ? 'title="' + title + '"' : ''} target="_blank">${text}</a>`;
     },
-    heading(text, level) {
-      return `<h${level} id="${text}" class="anchor">${text}</h${level}>`;
+    blockquote(quote) {
+      if (quote.indexOf('<blockquote>') > -1) {
+        return `<blockquote class="english-ref">${quote}</blockquote>`;
+      } else {
+        return `<blockquote>${quote}</blockquote>`;
+      }
     }
   });
 
