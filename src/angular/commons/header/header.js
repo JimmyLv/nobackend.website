@@ -1,6 +1,8 @@
 import './header.less'
 import 'avatar.jpg'
 
+import Firebase from 'firebase'
+
 export default  {
   templateUrl: require('./header.html'),
   bindings: {},
@@ -11,9 +13,29 @@ export default  {
 
     vm.$onInit = () => {
       githubService.getIndex().then(res => {
-        vm.posts = res.data.paginator
+        vm.posts = res.data.paginator;
       });
     };
+
+    vm.login = () => {
+      var ref = new Firebase("https://nobackend-website.firebaseio.com");
+
+      if (ref.getAuth()) {
+        ref.unauth();
+        vm.hasLogin = false;
+        console.log("Logout!");
+        return;
+      }
+      ref.authWithOAuthPopup("github", (error, authData) => {
+        if (error) {
+          console.log("Login Failed!", error);
+        } else {
+          vm.hasLogin = true;
+          vm.name = authData.github.displayName;
+          console.log("Authenticated successfully with payload:", authData);
+        }
+      });
+    }
 
     vm.clearSearch = () => {
       delete vm.searchText;

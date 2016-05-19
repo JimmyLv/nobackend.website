@@ -1,0 +1,9 @@
+{
+  "firebase": "nobackend-website",
+  "public": "_ng",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
