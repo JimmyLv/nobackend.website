@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<style lang="stylus">
+<style lang="stylus" rel="stylesheet/stylus">
 @import "../variables.styl"
 
 html, body

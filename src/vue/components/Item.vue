@@ -20,7 +20,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/babel">
 export default {
 
   name: 'Item',
@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" rel="stylesheet/stylus">
 @import "../variables.styl"
 
 .item

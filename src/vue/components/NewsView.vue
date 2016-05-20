@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/babel">
 import store from '../store'
 import Item from './Item.vue'
 
@@ -82,7 +82,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" rel="stylesheet/stylus">
 .news-view
   padding-left 5px
   padding-right 15px

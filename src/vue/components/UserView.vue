@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/babel">
 import store from '../store'
 
 export default {
@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" rel="stylesheet/stylus">
 @import "../variables.styl"
 
 .user-view
