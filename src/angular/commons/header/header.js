@@ -1,7 +1,7 @@
 import './header.less'
 import 'avatar.jpg'
 
-import Firebase from 'firebase'
+import firebase from 'firebase'
 
 export default  {
   templateUrl: require('./header.html'),
@@ -18,22 +18,31 @@ export default  {
     };
 
     vm.login = () => {
-      var ref = new Firebase("https://nobackend-website.firebaseio.com");
+      var config = {
+        apiKey: "AIzaSyC5ggKO2ibCmop9G6eyelf5hAgG4L1pqDk",
+        authDomain: "nobackend-website.firebaseapp.com",
+        databaseURL: "https://nobackend-website.firebaseio.com",
+        storageBucket: "nobackend-website.appspot.com"
+      };
+      firebase.initializeApp(config);
+      var provider = new firebase.auth.GithubAuthProvider();
+      provider.addScope('user');
 
-      if (ref.getAuth()) {
-        ref.unauth();
-        vm.hasLogin = false;
-        console.log("Logout!");
+      if (vm.hasLogin) {
+        firebase.auth().signOut().then(function () {
+          vm.hasLogin = false;
+          console.log("Logout successful!");
+        })
         return;
       }
-      ref.authWithOAuthPopup("github", (error, authData) => {
-        if (error) {
-          console.log("Login Failed!", error);
-        } else {
-          vm.hasLogin = true;
-          vm.name = authData.github.displayName;
-          console.log("Authenticated successfully with payload:", authData);
-        }
+
+      firebase.auth().signInWithPopup(provider).then(function (result) {
+        const user = result.user.providerData[0];
+        vm.hasLogin = true;
+        vm.name = user.displayName;
+        console.log("Authenticated successfully with user:", user);
+      }).catch(function (error) {
+        console.log("Login Failed!", error);
       });
     }
 
