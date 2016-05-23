@@ -14,7 +14,7 @@ var isProd = process.env.NODE_ENV === 'production'
 const PATHS = {
   app: path.join(__dirname, 'src/angular'),
   build: path.join(__dirname, '_ng'),
-  publicPath: '//7xjbdq.com1.z0.glb.clouddn.com/_ng/'
+  publicPath: '//o7mw3gkkh.qnssl.com/_ng/'
 }
 
 var config = {

@@ -10,7 +10,7 @@ var isProd = process.env.NODE_ENV === 'production'
 const PATHS = {
   app: path.join(__dirname, 'src/vue'),
   build: path.join(__dirname, '_vue'),
-  publicPath: '//7xjbdq.com1.z0.glb.clouddn.com/_vue/'
+  publicPath: '//o7mw3gkkh.qnssl.com/_vue/'
 };
 
 var config = {
