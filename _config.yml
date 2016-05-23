@@ -16,7 +16,7 @@ project:
   subtitle: 最美博客
   description: A powerful rich interactive web application by using nobackend tech stack.
   repository: https://github.com/JimmyLv/nobackend.website
-  website: http://nobackend.website
+  website: https://nobackend.website
 
 # github endpoint
 github:
@@ -60,13 +60,12 @@ locals:
 # google analytics
 ga:
   id: UA-75024401-1
-  url: http://nobackend.website
+  url: //nobackend.website
 
 # disqus setting
 disqus:
   disqus_shortname: nobackend-website
   disqus_identifier: nobackend-website
-  disqus_url: http://nobackend.website
 
 gems:
   - jekyll-sitemap

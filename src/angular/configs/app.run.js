@@ -1,4 +1,4 @@
-export default function running($rootScope, $location, $router, $http, CacheFactory) {
+export default function running($rootScope, $location, $timeout, $window, $http, CacheFactory) {
   'ngInject';
 
   $http.defaults.cache = CacheFactory('defaultCache', {
@@ -9,5 +9,14 @@ export default function running($rootScope, $location, $router, $http, CacheFact
 
   $rootScope.$on('$locationChangeSuccess', function () {
     console.info($location.absUrl());
+
+    if (!$window.DISQUS) return;
+
+    $timeout(function () {
+      $window.DISQUS.reset({
+        reload: true
+      });
+      console.info('reset DISQUS...........')
+    }, 2000);
   });
 }

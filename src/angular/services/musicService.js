@@ -7,26 +7,26 @@ class MusicService {
   }
 
   getPlayList(id) {
-    return this.$http.jsonp(this._url('playlist',id), {
+    return this.$http.get(this._url('playlist',id), {
       cache: true
     })
   }
 
   getMusic(ids) {
-    return this.$http.jsonp(this._url('songlist',ids), {
+    return this.$http.get(this._url('songlist',ids), {
       cache: true
     })
   }
 
   getAlbum(id) {
-    return this.$http.jsonp(this._url('album',id), {
+    return this.$http.get(this._url('album',id), {
       cache: true
     })
   }
 
   _url(type, id) {
     var music = this.configService.service('music');
-    return `${music.endpoint}/?p=${music.provider}&t=${type}&i=${id}&c=JSON_CALLBACK`
+    return `${music.endpoint}/?p=${music.provider}&t=${type}&i=${id}`
   }
 }
 

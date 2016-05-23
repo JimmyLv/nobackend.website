@@ -10,14 +10,21 @@ export default {
     showToc: '<',
     showNav: '<'
   },
-  controller(configService) {
+  controller($location, $routeParams, configService) {
     "ngInject";
 
     const vm = this;
 
     vm.$onInit = () => {
       vm.isIndex = vm.postContent ? false : true;
-      vm.disqusConfig = configService.config.disqus;
+
+      const { disqus_shortname, disqus_identifier } = configService.config.disqus;
+      vm.disqusConfig = {
+        disqus_shortname,
+        disqus_identifier: `${disqus_identifier}-${$routeParams.post || 'index'}`,
+        disqus_url: $location.absUrl()
+      }
+
       if (!vm.isIndex) {
         vm.article = _parseContent('---', vm.postContent);
       }
