@@ -6,8 +6,8 @@ encoding: utf-8
 author:
   name: 吕立青
   email: jimmy.jinglv@gmail.com
-  link: http://blog.jimmylv.info
-  github: http://github.com/JimmyLv
+  link: https://blog.jimmylv.info
+  github: https://github.com/JimmyLv
   weibo: http://weibo.com/liqing215
   zhihu: http://www.zhihu.com/people/JimmyLv
 
@@ -29,7 +29,7 @@ github:
 # api endpoint
 api:
   github:
-    base: http://blog.jimmylv.info.s3-website-ap-southeast-1.amazonaws.com
+    base: https://blog.jimmylv.info
     index: /api/index.json
     slides: /slides
     rss: /pages/atom.xml
@@ -43,7 +43,7 @@ api:
 
 # active items for show
 meta:
-  songlist: 330539469 # 309097660
+  songlist: 372072817 # 309097660
   active: 前端
   tags:
     - React
