@@ -6,6 +6,7 @@ language: node_js
 node_js:
   - stable
 script:
+  - npm install -g firebase-tools
   - npm install
   - npm run clean
   - npm run build:ng
@@ -22,3 +23,5 @@ deploy:
   local_dir: _ng
   on:
     branch: gh-pages
+after_success:
+  - firebase deploy --email ${FIREBASE_USERNAME} --password ${FIREBASE_PASSWORD}
