@@ -57,7 +57,7 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
       }
     })
     .when('/pages/:page', {
-      template: '<page index="$resolve.index.data" zhihu="$resolve.zhihu.data"></page>',
+      template: '<page index="$resolve.index.data" zhihu="$resolve.zhihu"></page>',
       resolve: {
         zhihu($route, zhihuService) {
           'ngInject';
@@ -70,7 +70,7 @@ export default function routing($routeProvider, $urlRouterProvider, $stateProvid
       }
     })
     .when('/pages/:page/question/:question/answer/:answer', {
-      template: '<page index="$resolve.index.data" zhihu="$resolve.zhihu.data" question="$resolve.question"></page>',
+      template: '<page index="$resolve.index.data" zhihu="$resolve.zhihu" question="$resolve.question"></page>',
       resolve: {
         zhihu(zhihuService) {
           'ngInject';

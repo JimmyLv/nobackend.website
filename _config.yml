@@ -40,6 +40,8 @@ api:
     zhihu:
       endpoint: http://api.kanzhihu.com
       userId: JimmyLv
+    yql:
+      endpoint: https://query.yahooapis.com/v1/public/yql
 
 # active items for show
 meta:

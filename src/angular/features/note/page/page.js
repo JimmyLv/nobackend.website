@@ -5,7 +5,6 @@ export default {
   templateUrl: require('./page.html'),
   bindings: {
     index: '<',
-    categories: '<',
     zhihu: '<',
     question: '<?'
   },
@@ -15,7 +14,7 @@ export default {
     const vm = this;
 
     console.info('$routeParams', $routeParams);
-    console.info('categories', vm.categories);
+    console.info('zhihu', vm.zhihu);
 
     vm.$onInit = () => {
 
