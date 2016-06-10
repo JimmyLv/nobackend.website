@@ -16,7 +16,7 @@ export default  {
       vm.enableLang = $routeParams.category === '翻译';
     }
 
-    vm.showEnglish = false;
+    vm.showEnglish = true;
 
     vm.toggleEnglish = function () {
       vm.showEnglish = !vm.showEnglish;
