@@ -26,6 +26,10 @@ export default function config(markedProvider, cfpLoadingBarProvider) {
       } else {
         return `<blockquote>${quote}</blockquote>`;
       }
+    },
+    heading(text, level) {
+      const [englishTitle, chineseTitle] = text.split(' | ')
+      return `<h${level}><span class="english-title">${englishTitle} | </span>${chineseTitle}</h${level}>`
     }
   });
 

@@ -20,10 +20,13 @@ export default  {
 
     vm.toggleEnglish = function () {
       vm.showEnglish = !vm.showEnglish;
-      var englishContent = angular.element(document.querySelectorAll('blockquote'));
+      const englishTitle = angular.element(document.querySelectorAll('.english-title'));
+      const englishContent = angular.element(document.querySelectorAll('blockquote'));
       if (vm.showEnglish) {
+        englishTitle.removeClass('english-hidden');
         englishContent.removeClass('english-hidden');
       } else {
+        englishTitle.addClass('english-hidden');
         englishContent.addClass('english-hidden');
       }
     }
