@@ -29,7 +29,8 @@ export default function config(markedProvider, cfpLoadingBarProvider) {
     },
     heading(text, level) {
       const [englishTitle, chineseTitle] = text.split(' | ')
-      return `<h${level}><span class="english-title">${englishTitle} | </span>${chineseTitle}</h${level}>`
+      return chineseTitle === undefined ? `<h${level}>${englishTitle}</h${level}>` :
+        `<h${level}><span class="english-title">${englishTitle} | </span>${chineseTitle}</h${level}>`
     }
   });
 
