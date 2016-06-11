@@ -12,41 +12,18 @@ var HappyPack = require('happypack')
 var isProd = process.env.NODE_ENV === 'production'
 
 const PATHS = {
-  app: path.join(__dirname, 'src/angular'),
-  build: path.join(__dirname, '_ng'),
-  publicPath: '//o7mw3gkkh.qnssl.com/_ng/'
+  app: path.join(__dirname, 'src/react'),
+  build: path.join(__dirname, '_react'),
+  publicPath: '//o7mw3gkkh.qnssl.com/_react/'
 }
 
 var config = {
-  stats: {children: false},
+  stats: { children: false },
   entry: {
     app: PATHS.app,
     vendor: [
-      // angular
-      'angular',
-      'angular-ui-router',
-      'angular-route',
-      'angular-new-router',
-      'angular-sanitize',
-      'angular-animate',
-
-      // 3rd dependencies
-      'ng-fx',
-      'angular-cache',
-      'angular-marked',
-      'angular-utils-disqus',
-      'angular-loading-bar',
-      'angular-socialshare',
-      'angular.audio',
-      'angular-ui-awesome',
-      'angulartics',
-      'angulartics-google-analytics',
-      'js-yaml/lib/js-yaml.js',
-      'lowdb',
-      'lowdb/browser',
-      'to-markdown',
-      'qrcode',
-      'angular-qr'
+      // react
+      'react'
     ]
   },
   output: {
@@ -57,12 +34,11 @@ var config = {
 
   module: {
     loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loader: 'ng-annotate?add=true!happypack/loader'},
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss')},
-      {test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss!less')},
-      {test: /\.(eot|woff|woff2|ttf|svg)(\?\S*)?$/, loader: 'url?limit=100000&name=./fonts/[name].[ext]'},
-      {test: /\.(png|jpe?g|gif)$/, loader: 'file?limit=8192&name=./images/[name].[ext]'},
-      {test: /\.html$/, loader: 'ngtemplate!html?attrs[]=img:src img:ng-src'}
+      { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot', 'happypack/loader'] },
+      { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss') },
+      { test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss!less') },
+      { test: /\.(eot|woff|woff2|ttf|svg)(\?\S*)?$/, loader: 'url?limit=100000&name=./fonts/[name].[ext]' },
+      { test: /\.(png|jpe?g|gif)$/, loader: 'file?limit=8192&name=./images/[name].[ext]' }
     ]
   },
   postcss: function () {
@@ -72,7 +48,7 @@ var config = {
   plugins: [
     new HappyPack({
       cache: true,
-      loaders: [ 'babel?presets[]=es2015&cacheDirectory' ],
+      loaders: ['babel?presets[]=es2015&presets[]=react&cacheDirectory'],
       threads: 5
     }),
 
@@ -81,7 +57,7 @@ var config = {
     new HtmlWebpackPlugin({ //根据模板插入css/js等生成最终HTML
       favicon: './assets/images/favicon.ico', //favicon路径，通过webpack引入同时可以生成hash值
       filename: './index.html', //生成的html存放路径，相对于path
-      template: './src/angular/index.template', //html模板路径
+      template: './src/react/index.template', //html模板路径
       inject: 'body', //js插入的位置，true/'head'/'body'/false
       hash: !!isProd, //为静态资源生成hash值
       chunks: ['vendor', 'app'],//需要引入的chunk，不配置就会引入所有页面的资源
@@ -93,10 +69,7 @@ var config = {
   ],
 
   resolve: {
-    extensions: ['', '.js', '.json'],
-    alias: {
-      'react': './pages/build/react'
-    },
+    extensions: ['', '.js', '.jsx', '.json'],
     modulesDirectories: ['node_modules', 'assets/libraries', 'assets/styles', 'assets/images']
   }
 }
@@ -118,6 +91,11 @@ if (isProd) {
     new webpack.optimize.OccurenceOrderPlugin()
   )
 } else {
+  config.entry.app = [
+    'webpack-dev-server/client?http://0.0.0.0:8082', // WebpackDevServer host and port
+    'webpack/hot/only-dev-server',
+    PATHS.app
+  ]
   config.devtool = 'source-map'
   config.devServer = {
     contentBase: PATHS.build,
@@ -126,10 +104,10 @@ if (isProd) {
     inline: true,
     progress: true,
     stats: 'errors-only',
-    port: 8080
+    port: 8082
   }
   config.plugins.push(
-    new NpmInstallPlugin({saveDev: true}),
+    new NpmInstallPlugin({ saveDev: true }),
     new webpack.HotModuleReplacementPlugin()
   )
 }
