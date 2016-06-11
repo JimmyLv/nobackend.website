@@ -80,3 +80,4 @@ exclude:
 include:
   - _ng
   - _vue
+  - _react

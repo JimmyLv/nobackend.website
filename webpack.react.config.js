@@ -12,7 +12,7 @@ var HappyPack = require('happypack')
 var isProd = process.env.NODE_ENV === 'production'
 
 const PATHS = {
-  app: path.join(__dirname, 'src/react'),
+  app: path.join(__dirname, 'src/react/index.jsx'),
   build: path.join(__dirname, '_react'),
   publicPath: '//o7mw3gkkh.qnssl.com/_react/'
 }
@@ -48,10 +48,10 @@ var config = {
   plugins: [
     new HappyPack({
       cache: true,
-      loaders: ['babel?presets[]=es2015&presets[]=react&cacheDirectory'],
+      loaders: ['babel?presets[]=react&presets[]=es2015&cacheDirectory'],
       threads: 5
     }),
-
+    new webpack.ProvidePlugin({ 'React': 'react' }),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
     new ExtractTextPlugin('[name].css'),
     new HtmlWebpackPlugin({ //根据模板插入css/js等生成最终HTML
