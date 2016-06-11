@@ -33,6 +33,7 @@ git push
 
 - [Angular 1.x](http://angularjs.org/)
 - [Vue](http://vuejs.org/)
+- [React](https://facebook.github.io/react/)
 - [Webpack](http://webpack.github.io/)
 - [Babel](https://babeljs.io/) & [ES6](https://babeljs.io/docs/learn-es2015/)
 - [最美应用](http://zuimeia.com/) & [Chrome 插件](http://chrome.zuimeia.com)
