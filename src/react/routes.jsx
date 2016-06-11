@@ -25,7 +25,7 @@ const renderRoutes = () => (
       </Route>
       <Route path="app-list" component={AppListPage}/>
       <Route path="photo" component={PhotoPage}/>
-      <Route path="*" component={NotFoundPage}/>
+      <Route path="*" component={NotFoundPage} onEnter={() => alert('This page has not ready yet!')}/>
     </Route>
   </Router>
 )

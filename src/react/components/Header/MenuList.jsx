@@ -39,9 +39,7 @@ class MenuList extends Component {
     ]
     return (
       <div className="menu m-hide">
-        {menuList.map((menu, index) => (
-          <Link key={index} to={menu.link}> {menu.name} </Link>
-        ))}
+        {menuList.map((menu, index) => <Link key={index} to={menu.link}> {menu.name} </Link>)}
         {this.state.hasLoggedIn ? this.showMenuForUserLoggedIn() : ''}
         <a onClick={this.toggleUserLogin}>{ this.state.hasLoggedIn ? this.state.username : 'Firebase' }</a>
         <a href="https://github.com/JimmyLv/nobackend.website" target="_blank">GitHub</a>
