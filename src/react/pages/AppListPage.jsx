@@ -7,7 +7,7 @@ class AppListPage extends Component {
   render() {
     return (
       <div>
-        Hello AppList!
+        <h2>Hello AppList!</h2>
       </div>
     )
   }

@@ -3,12 +3,13 @@ import {
   PropTypes,
 } from 'react'
 
-import Header from '../components/Header'
+import './AppContainer.less'
+import Header from '../components/Header/Header'
 
 class AppContainer extends Component {
   render() {
     return (
-      <div>
+      <div id="container">
         <Header/>
         {this.props.children}
       </div>
