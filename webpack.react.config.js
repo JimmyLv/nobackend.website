@@ -48,7 +48,7 @@ var config = {
   plugins: [
     new HappyPack({
       cache: true,
-      loaders: ['babel?presets[]=react&presets[]=es2015&cacheDirectory'],
+      loaders: ['babel?presets[]=react&presets[]=es2015&presets[]=stage-1&cacheDirectory'],
       threads: 5
     }),
     new webpack.ProvidePlugin({ 'React': 'react' }),
