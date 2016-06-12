@@ -1,7 +1,19 @@
-import { createStore, compose, applyMiddleware } from 'redux'
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import { musicListReducer } from '../reducers/musicListReducer'
+import { routerReducer } from 'react-router-redux'
 
-export default createStore(musicListReducer, compose(
-  applyMiddleware(thunk)
-))
+import * as reducers from '../reducers/index'
+import DevTools from '../../DevTools'
+
+const reducer = combineReducers({
+  ...reducers,
+  routing: routerReducer
+})
+
+export default createStore(
+  reducer,
+  compose(
+    applyMiddleware(thunk),
+    DevTools.instrument()
+  )
+)
