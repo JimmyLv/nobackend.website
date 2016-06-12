@@ -46,6 +46,7 @@
     "font-awesome-animation": "0.0.8",
     "github-api": "^2.0.0",
     "highlight.js": "^9.4.0",
+    "history": "^3.0.0",
     "js-yaml": "^3.6.1",
     "lodash": "^4.12.0",
     "lowdb": "^0.12.5",

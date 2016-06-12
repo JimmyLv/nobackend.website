@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom'
-import { browserHistory } from 'react-router'
+import { useRouterHistory } from 'react-router'
+import createHashHistory from 'history/lib/createHashHistory'
 import { syncHistoryWithStore } from 'react-router-redux'
 
 import '../../node_modules/font-awesome-animation/dist/font-awesome-animation.css'
@@ -18,6 +19,7 @@ store.subscribe(() =>
   saveToStorage(store.getState())
 )
 
-const history = syncHistoryWithStore(browserHistory, store)
+const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false })
+const history = syncHistoryWithStore(hashHistory, store)
 
 ReactDOM.render(<Root store={store} history={history}/>, document.getElementById('app'))

@@ -3,8 +3,7 @@ import {
   Route,
   IndexRoute,
   Redirect,
-  IndexRedirect,
-  hashHistory
+  IndexRedirect
 } from 'react-router'
 
 import BlogHome from './components/BlogHome'
@@ -17,17 +16,15 @@ import PhotoPage from './pages/PhotoPage'
 import NotFoundPage from './pages/NotFoundPage'
 
 const renderRoutes = () => (
-  <Router history={hashHistory}>
-    <Route path="/" component={AppContainer}>
-      <IndexRedirect to="/note-blog"/>
-      <Route path="note-blog" component={BlogPage}>
-        <IndexRoute component={BlogHome}/>
-      </Route>
-      <Route path="app-list" component={AppListPage}/>
-      <Route path="photo" component={PhotoPage}/>
-      <Route path="*" component={NotFoundPage} onEnter={() => alert('This page has not ready yet!')}/>
+  <Route path="/" component={AppContainer}>
+    <IndexRedirect to="/note-blog"/>
+    <Route path="note-blog" component={BlogPage}>
+      <IndexRoute component={BlogHome}/>
     </Route>
-  </Router>
+    <Route path="app-list" component={AppListPage}/>
+    <Route path="photo" component={PhotoPage}/>
+    <Route path="*" component={NotFoundPage} onEnter={() => alert('This page has not ready yet!')}/>
+  </Route>
 )
 
 export default renderRoutes
