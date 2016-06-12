@@ -6,7 +6,7 @@ import {
   IndexRedirect
 } from 'react-router'
 
-import BlogHome from './components/BlogHome'
+import BlogHome from './components/Blog/BlogHome'
 
 import AppContainer from './containers/AppContainer'
 
@@ -20,6 +20,7 @@ const renderRoutes = () => (
     <IndexRedirect to="/note-blog"/>
     <Route path="note-blog" component={BlogPage}>
       <IndexRoute component={BlogHome}/>
+
     </Route>
     <Route path="app-list" component={AppListPage}/>
     <Route path="photo" component={PhotoPage}/>
@@ -28,3 +29,8 @@ const renderRoutes = () => (
 )
 
 export default renderRoutes
+
+//
+// <Route path="category/:category" component={BlogCategory}>
+//   <Route path="post/:id" component={BlogPost}/>
+//   </Route>

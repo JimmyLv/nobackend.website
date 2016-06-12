@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom'
-import { useRouterHistory } from 'react-router'
+import { hashHistory, useRouterHistory } from 'react-router'
 import createHashHistory from 'history/lib/createHashHistory'
 import { syncHistoryWithStore } from 'react-router-redux'
 
@@ -15,11 +15,11 @@ function saveToStorage(state) {
   var data = JSON.stringify(state)
   localStorage.setItem('APP_STATE', data)
 }
-store.subscribe(() =>
-  saveToStorage(store.getState())
-)
+// store.subscribe(() =>
+//   saveToStorage(store.getState())
+// )
 
-const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false })
+// const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false })
 const history = syncHistoryWithStore(hashHistory, store)
 
 ReactDOM.render(<Root store={store} history={history}/>, document.getElementById('app'))

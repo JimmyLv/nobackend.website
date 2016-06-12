@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
 
-export default ({postList, title}) => (
+export default ({ postList, title }) => (
   <div className="panel panel-primary">
     <div className="panel-heading">{title}</div>
     <div className="panel-body">

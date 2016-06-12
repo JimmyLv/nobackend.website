@@ -10,7 +10,7 @@ class AppContainer extends Component {
     super(props)
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchMusic()
   }
 
