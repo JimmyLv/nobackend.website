@@ -7,6 +7,7 @@ import { Link } from 'react-router'
 import './Header.less'
 import MenuList from './MenuList'
 import ToolBar from './ToolBar'
+import Player from './Player'
 
 class Header extends Component {
   render() {
@@ -18,6 +19,7 @@ class Header extends Component {
           </Link>
         </div>
         <MenuList />
+        <Player src="http://p2.music.126.net/IB4CbLNNO5U1GAIPI0u32Q==/1983518976521409.mp3"/>
         <ToolBar />
       </header>
     )

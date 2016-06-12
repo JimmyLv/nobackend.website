@@ -14,6 +14,7 @@
     "clean": "rm -rf _ng _vue _react _site",
     "build": "npm run clean && npm run build:ng && npm run build:vue && npm run build:react",
     "prod": "npm run build && npm run cdn",
+    "prod:react": "npm run build:react && cd scripts && ./qrsync-v2 _react.conf.json",
     "start": "jekyll clean && jekyll serve"
   },
   "repository": {
@@ -53,6 +54,8 @@
     "ng-fx": "^2.0.4",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-media-player": "^0.4.0",
+    "react-player": "^0.7.2",
     "react-router": "^2.4.1",
     "to-markdown": "^3.0.0",
     "vue": "^1.0.24",
