@@ -1,19 +1,34 @@
-import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
-import { routerReducer } from 'react-router-redux'
+import { createStore, compose, applyMiddleware } from 'redux'
+import thunkMiddleware from 'redux-thunk'
+import createLogger from 'redux-logger'
 
-import * as reducers from '../reducers/index'
-import DevTools from '../../DevTools'
+import reducers from '../reducers/index'
+import DevTools from '../../containers/DevTools'
 
-const reducer = combineReducers({
-  ...reducers,
-  routing: routerReducer
-})
+function getInitialState() {
+  var stateString = localStorage.getItem('APP_STATE')
+  if (!stateString) {
+    return {
+      musicList: [{
+        "name": "Feeling U",
+        "url": "http://p2.music.126.net/zKr4hskGeZfxQbjbN15sdw==/7871403743831481.mp3",
+        "lrc_url": "",
+        "artists": "m80",
+        "provider": "http://music.163.com/"
+      }]
+    }
+  }
+  return JSON.parse(stateString)
+}
 
 export default createStore(
-  reducer,
+  reducers,
+  getInitialState(),
   compose(
-    applyMiddleware(thunk),
+    applyMiddleware(
+      thunkMiddleware,
+      createLogger()
+    ),
     DevTools.instrument()
   )
 )

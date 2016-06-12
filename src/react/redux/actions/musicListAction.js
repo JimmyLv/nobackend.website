@@ -1,6 +1,6 @@
 export const FETCH_MUSIC = 'FETCH_MUSIC'
 
-export function userListAction() {
+export function musicListAction() {
   return dispatch => fetch('http://app.atime.me/music-api-server/?p=netease&t=playlist&i=389445274')
     .then(res => {
       if (res.ok) {

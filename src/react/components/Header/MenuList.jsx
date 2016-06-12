@@ -5,8 +5,8 @@ import {
 import { Link } from 'react-router'
 
 class MenuList extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.toggleUserLogin = this.toggleUserLogin.bind(this)
     this.state = {
       hasLoggedIn: false

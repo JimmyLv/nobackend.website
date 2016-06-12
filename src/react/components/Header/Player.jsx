@@ -11,8 +11,8 @@ import ReactPlayer from 'react-player'
 import Duration from './Duration'
 
 class Player extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       selectedMusic: null,
       showName: false,

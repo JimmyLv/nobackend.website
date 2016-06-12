@@ -4,8 +4,8 @@ import {
 } from 'react'
 
 class ToolBar extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.clearSearch = this.clearSearch.bind(this)
     this.randomPost = this.randomPost.bind(this)
   }

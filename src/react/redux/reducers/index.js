@@ -1,1 +1,9 @@
-export musicList from './musicListReducer'
+import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
+
+import musicList from './musicListReducer'
+
+export default combineReducers({
+  musicList,
+  routing: routerReducer
+})

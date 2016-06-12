@@ -10,7 +10,15 @@ import 'yue.css'
 
 import renderRoutes from './routes'
 import store from './redux/store/index'
-import DevTools from './DevTools'
+import DevTools from './containers/DevTools'
+
+function saveToStorage(state) {
+  var data = JSON.stringify(state)
+  localStorage.setItem('APP_STATE', data)
+}
+store.subscribe(() =>
+  saveToStorage(store.getState())
+)
 
 const history = syncHistoryWithStore(browserHistory, store)
 
