@@ -29,6 +29,6 @@ export default createStore(
       thunkMiddleware,
       createLogger()
     ),
-    DevTools.instrument()
+    window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument()
   )
 )
