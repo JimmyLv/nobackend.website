@@ -6,7 +6,7 @@ import MenuList from './MenuList'
 import ToolBar from './ToolBar'
 import Player from './Player'
 
-const Header = () => (
+const Header = ({ musicList }) => (
   <header id="header">
     <div className="logo">
       <Link to="/note" title="立青作品">
@@ -14,7 +14,7 @@ const Header = () => (
       </Link>
     </div>
     <MenuList />
-    <Player songs={this.props.musicList}/>
+    <Player songs={musicList}/>
     <ToolBar />
   </header>
 )

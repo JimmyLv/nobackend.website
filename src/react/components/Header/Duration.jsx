@@ -21,6 +21,8 @@ Duration.propTypes = {
   className: PropTypes.string.isRequired,
   seconds: PropTypes.number.isRequired
 }
-Duration.defaultProps = {}
+Duration.defaultProps = {
+  className: 'duration'
+}
 
 export default Duration
