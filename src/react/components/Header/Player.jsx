@@ -1,7 +1,4 @@
-import {
-  Component,
-  PropTypes,
-} from 'react'
+import React, { Component, PropTypes } from 'react'
 
 import sample from 'lodash/sample'
 import without from 'lodash/without'
@@ -28,12 +25,19 @@ class Player extends Component {
     this.shuffle()
   }
 
-  toggleName() {
-    this.setState({ showName: !this.state.showName })
+  onProgress(state) {
+    // We only want to update time slider if we are not currently seeking
+    if (!this.state.seeking) {
+      this.setState(state)
+    }
+  }
+
+  setVolume(e) {
+    this.setState({ volume: parseFloat(e.target.value) })
   }
 
   shuffle() {
-    const selectedMusic = sample(without(this.props.songs, this.state.selectedMusic));
+    const selectedMusic = sample(without(this.props.songs, this.state.selectedMusic))
     this.setState({
       selectedMusic,
       playing: true,
@@ -54,34 +58,14 @@ class Player extends Component {
     this.setState({ selectedMusic: null, playing: false })
   }
 
-  setVolume(e) {
-    this.setState({ volume: parseFloat(e.target.value) })
-  }
-
-  onSeekMouseDown(e) {
-    this.setState({ seeking: true })
-  }
-
-  onSeekChange(e) {
-    this.setState({ played: parseFloat(e.target.value) })
-  }
-
-  onSeekMouseUp(e) {
-    this.setState({ seeking: false })
-    this.refs.player.seekTo(parseFloat(e.target.value))
-  }
-
-  onProgress(state) {
-    // We only want to update time slider if we are not currently seeking
-    if (!this.state.seeking) {
-      this.setState(state)
-    }
+  toggleName() {
+    this.setState({ showName: !this.state.showName })
   }
 
   render() {
     const {
       playing, volume,
-      played, loaded, duration,
+      played, duration,
       showName, selectedMusic
     } = this.state
 
@@ -90,8 +74,8 @@ class Player extends Component {
     return (
       <div className="music-player m-player link">
         <ReactPlayer
-          ref='player'
-          className='react-player'
+          ref="player"
+          className="react-player"
           width={0}
           height={0}
           url={selectedMusic.url}
@@ -104,10 +88,10 @@ class Player extends Component {
           onEnded={this.shuffle.bind(this)}
           onError={e => console.log('onError', e)}
           onProgress={this.onProgress.bind(this)}
-          onDuration={duration => this.setState({ duration })}
+          onDuration={d => this.setState({ d })}
         />
         <a href={`http://music.163.com/#/search/m/?s=${selectedMusicName}`} target="_blank">
-          <i className={playing ? 'faa-float animated fa fa-lg fa-music': 'fa fa-lg fa-music'}/>
+          <i className={playing ? 'faa-float animated fa fa-lg fa-music' : 'fa fa-lg fa-music'}/>
         </a>
         <a onClick={this.togglePlaying.bind(this)}>
           <i className={!playing ? 'fa fa-play' : 'fa fa-pause'}/>
@@ -116,7 +100,7 @@ class Player extends Component {
           <i className="fa fa-random"/>
         </a>
         <a onClick={this.toggleMuting.bind(this)}>
-          <i className={volume == 0 ? 'fa fa-volume-off' : 'fa fa-volume-up' }/>
+          <i className={volume === 0 ? 'fa fa-volume-off' : 'fa fa-volume-up'}/>
         </a>
         <a onClick={this.toggleName.bind(this)}>
           <Duration seconds={duration * (1 - played)}/>

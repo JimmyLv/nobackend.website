@@ -1,10 +1,5 @@
-import {
-  Router,
-  Route,
-  IndexRoute,
-  Redirect,
-  IndexRedirect
-} from 'react-router'
+import React from 'react'
+import { Route, IndexRoute, IndexRedirect } from 'react-router'
 
 import BlogHome from './components/Blog/BlogHome'
 

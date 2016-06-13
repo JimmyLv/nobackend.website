@@ -1,4 +1,4 @@
-import { Component, PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import filter from 'lodash/filter'
@@ -12,10 +12,6 @@ import PostPanel from './PostPanel'
 import { articlesAction } from '../../redux/actions/articlesAction'
 
 class BlogHome extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   componentWillMount() {
     this.props.fetchArticles()
   }
@@ -24,7 +20,7 @@ class BlogHome extends Component {
     const { articles } = this.props
     const { categories, tags, paginator } = articles
     const latest = paginator.slice(0, 10)
-    const category = filter(categories, { name: '思考' })[0]
+    const categoryWithPosts = filter(categories, { name: '思考' })[0]
 
     return (
       <div className="row yue">
@@ -33,7 +29,7 @@ class BlogHome extends Component {
             <div className="nav">
               {categories.map((category, index) => (
                 <li key={index} className="{'active': nav.id === $ctrl.selectedNav}">
-                  <Link to={`/note-blog/category/${ category.name }`}>
+                  <Link to={`/note-blog/category/${category.name}`}>
                     {category.name}
                   </Link>
                 </li>
@@ -51,9 +47,8 @@ class BlogHome extends Component {
           </div>
           <div className="col-md-9 col-xs-9 aside2">
             <div className="list-group">
-              {category.posts.map((post, index)=> (
-                <Link key={index} to={`/note-blog/category/${ post.category }/post${ post.url }`}
-                      className="list-group-item">
+              {categoryWithPosts.posts.map((post, index) => (
+                <Link key={index} className="list-group-item" to={`/note-blog/category/${post.category}/post${post.url}`}>
                   {post.title}
                 </Link>
               ))}
@@ -73,7 +68,8 @@ class BlogHome extends Component {
 }
 
 BlogHome.propTypes = {
-  articles: PropTypes.object.isRequired
+  articles: PropTypes.object.isRequired,
+  fetchArticles: PropTypes.func.isRequired
 }
 BlogHome.defaultProps = {}
 

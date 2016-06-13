@@ -1,4 +1,4 @@
-import { Component, PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import './AppContainer.less'
@@ -6,10 +6,6 @@ import Header from '../components/Header/Header'
 import { musicListAction } from '../redux/actions/musicListAction'
 
 class AppContainer extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   componentWillMount() {
     this.props.fetchMusic()
   }
@@ -24,7 +20,11 @@ class AppContainer extends Component {
   }
 }
 
-AppContainer.propTypes = {}
+AppContainer.propTypes = {
+  fetchMusic: PropTypes.func.isRequired,
+  musicList: PropTypes.array.isRequired,
+  children: PropTypes.object.isRequired
+}
 AppContainer.defaultProps = {}
 
 function mapProps(state) {

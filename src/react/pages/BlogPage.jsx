@@ -1,9 +1,9 @@
-import {
-  Component,
-  PropTypes,
-} from 'react'
+import React, { Component, PropTypes, } from 'react'
 
 class BlogPage extends Component {
+  componentDidMount() {
+  }
+
   render() {
     return (
       <div>
@@ -13,7 +13,9 @@ class BlogPage extends Component {
   }
 }
 
-BlogPage.propTypes = {}
+BlogPage.propTypes = {
+  children: PropTypes.object.isRequired
+}
 BlogPage.defaultProps = {}
 
 export default BlogPage

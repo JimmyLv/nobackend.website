@@ -1,16 +1,24 @@
+import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 
-export default ({ postList, title }) => (
+
+const PostPanel = ({ postList, title }) => (
   <div className="panel panel-primary">
     <div className="panel-heading">{title}</div>
     <div className="panel-body">
       {postList.map((post, index) => (
-        <Link key={index} to={`/note-blog/category/${ post.category }/post${ post.url }`}
-              className="list-group-item clearfix">
+        <Link key={index} to={`/note-blog/category/${post.category}/post${post.url}`} className="list-group-item clearfix">
           {post.title}
-          <span className="badge">{ post.shortdate }</span>
+          <span className="badge">{post.shortdate}</span>
         </Link>
       ))}
     </div>
   </div>
 )
+
+PostPanel.propTypes = {
+  postList: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired
+}
+
+export default PostPanel

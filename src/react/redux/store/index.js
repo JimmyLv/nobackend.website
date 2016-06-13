@@ -5,6 +5,7 @@ import createLogger from 'redux-logger'
 import reducers from '../reducers/index'
 import DevTools from '../../containers/DevTools'
 
+/*eslint-disable */
 function getInitialState() {
   // var stateString = localStorage.getItem('APP_STATE')
   // if (!stateString) {
@@ -153,6 +154,7 @@ function getInitialState() {
   // }
   // return JSON.parse(stateString)
 }
+/*eslint-enable */
 
 export default createStore(
   reducers,

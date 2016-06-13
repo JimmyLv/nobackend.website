@@ -1,9 +1,7 @@
-export default ({ className, seconds }) => {
-  return (
-    <time dateTime={`P${Math.round(seconds)}S`} className={className}>
-      {format(seconds)}
-    </time>
-  )
+import React, { PropTypes } from 'react'
+
+function pad(string) {
+  return (`0${string}`).slice(-2)
 }
 
 function format(seconds) {
@@ -13,6 +11,16 @@ function format(seconds) {
   return `${mm}:${ss}`
 }
 
-function pad(string) {
-  return ('0' + string).slice(-2)
+const Duration = ({ className, seconds }) => (
+  <time dateTime={`P${Math.round(seconds)}S`} className={className}>
+    {format(seconds)}
+  </time>
+)
+
+Duration.propTypes = {
+  className: PropTypes.string.isRequired,
+  seconds: PropTypes.number.isRequired
 }
+Duration.defaultProps = {}
+
+export default Duration

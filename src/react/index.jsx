@@ -1,3 +1,6 @@
+/* eslint-disable */
+
+import React from 'react'
 import ReactDOM from 'react-dom'
 import { hashHistory, useRouterHistory } from 'react-router'
 import createHashHistory from 'history/lib/createHashHistory'
@@ -12,8 +15,7 @@ import Root from './containers/Root'
 import store from './redux/store/index'
 
 function saveToStorage(state) {
-  var data = JSON.stringify(state)
-  localStorage.setItem('APP_STATE', data)
+  localStorage.setItem('APP_STATE', JSON.stringify(state))
 }
 // store.subscribe(() =>
 //   saveToStorage(store.getState())

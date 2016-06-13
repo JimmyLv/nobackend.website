@@ -1,7 +1,4 @@
-import {
-  Component,
-  PropTypes,
-} from 'react'
+import React, { Component } from 'react'
 
 class ToolBar extends Component {
   constructor(props) {
@@ -21,10 +18,9 @@ class ToolBar extends Component {
   render() {
     return (
       <div className="tool-bar">
-        <input className="default-search m-hide" ref="searchText"
-               placeholder="Search..." type="text"/>
-          <span className="cancel-search m-hide" onClick={this.clearSearch}><i className="fa fa-times"/></span>
-          <a onClick={this.randomPost}>随机文章</a>
+        <input className="default-search m-hide" ref="searchText" placeholder="Search..." type="text"/>
+        <span className="cancel-search m-hide" onClick={this.clearSearch}><i className="fa fa-times"/></span>
+        <a onClick={this.randomPost}>随机文章</a>
       </div>
     )
   }

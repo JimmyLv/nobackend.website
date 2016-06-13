@@ -1,7 +1,4 @@
-import {
-  Component,
-  PropTypes,
-} from 'react'
+import React, { Component, PropTypes, } from 'react'
 import { Link } from 'react-router'
 
 class MenuList extends Component {
@@ -30,25 +27,28 @@ class MenuList extends Component {
   }
 
   render() {
-    const menuList = [
-      { name: 'Hello', link: '/hello' },
-      { name: 'AppList', link: '/app-list' },
-      { name: 'Blog', link: '/note-blog' },
-      { name: 'Photo', link: '/photo' },
-      { name: 'Zhihu', link: '/pages/zhihu' }
-    ]
     return (
       <div className="menu m-hide">
-        {menuList.map((menu, index) => <Link key={index} to={menu.link}> {menu.name} </Link>)}
+        {this.props.menuList.map((menu, index) => <Link key={index} to={menu.link}> {menu.name} </Link>)}
         {this.state.hasLoggedIn ? this.showMenuForUserLoggedIn() : ''}
-        <a onClick={this.toggleUserLogin}>{ this.state.hasLoggedIn ? this.state.username : 'Firebase' }</a>
+        <a onClick={this.toggleUserLogin}>{this.state.hasLoggedIn ? this.state.username : 'Firebase'}</a>
         <a href="https://github.com/JimmyLv/nobackend.website" target="_blank">GitHub</a>
       </div>
     )
   }
 }
 
-MenuList.propTypes = {}
-MenuList.defaultProps = {}
+MenuList.propTypes = {
+  menuList: PropTypes.array.isRequired
+}
+MenuList.defaultProps = {
+  menuList: [
+    { name: 'Hello', link: '/hello' },
+    { name: 'AppList', link: '/app-list' },
+    { name: 'Blog', link: '/note-blog' },
+    { name: 'Photo', link: '/photo' },
+    { name: 'Zhihu', link: '/pages/zhihu' }
+  ]
+}
 
 export default MenuList
