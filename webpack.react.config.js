@@ -23,7 +23,17 @@ const config = {
     app: PATHS.app,
     vendor: [
       // react
-      'react'
+      'react',
+      'react-dom',
+      'react-redux',
+      'react-router',
+      'react-router-redux',
+      'redux',
+      'redux-thunk',
+
+      // 3rd dependencies
+      'history',
+      'react-player'
     ]
   },
   output: {
