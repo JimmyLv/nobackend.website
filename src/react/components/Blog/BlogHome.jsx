@@ -13,15 +13,29 @@ import PostPanel from './PostPanel'
 import { articlesAction } from '../../redux/actions/articlesAction'
 
 class BlogHome extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectedCategory: '思考'
+    }
+    this.selectCategory = this.selectCategory.bind(this)
+  }
+
   componentWillMount() {
     this.props.fetchArticles()
+  }
+
+  selectCategory(category) {
+    this.setState({
+      selectedCategory: category
+    })
   }
 
   render() {
     const { articles } = this.props
     const { categories, tags, paginator } = articles
     const latest = paginator.slice(0, 10)
-    const categoryWithPosts = filter(categories, { name: '思考' })[0]
+    const categoryWithPosts = filter(categories, { name: this.state.selectedCategory })[0]
 
     return (
       <div className="row yue">
@@ -29,10 +43,10 @@ class BlogHome extends Component {
           <div className="col-md-3 col-xs-3 aside1">
             <div className="nav">
               {categories.map((category, index) => (
-                <li key={index} className="{'active': nav.id === $ctrl.selectedNav}">
-                  <Link to={`/note-blog/category/${category.name}`}>
+                <li key={index} className={category.name === this.state.selectedCategory ? 'active' : ''}>
+                  <a onClick={() => this.selectCategory(category.name)}>
                     {category.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </div>
@@ -60,7 +74,7 @@ class BlogHome extends Component {
           <BlogHomeHeader />
           <div className="col-md-12">
             <PostPanel title={'最新文章'} postList={latest}/>
-            {tags.map((tag, index) => <PostPanel key={index} title={tag.name} postList={tag.posts}/>)}
+            {tags.slice(0, 3).map((tag, index) => <PostPanel key={index} title={tag.name} postList={tag.posts}/>)}
           </div>
         </div>
       </div>
