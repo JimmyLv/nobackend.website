@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "_ng",
+    "public": "_react",
     "ignore": [
       "firebase.json",
       "**/.*",
