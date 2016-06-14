@@ -1,4 +1,3 @@
 src/angular/*
 src/vue/*
-src/react/redux/reducers/articlesReducer.js
 src/react/index.template

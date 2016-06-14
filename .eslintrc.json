@@ -12,6 +12,13 @@
       }
     }
   },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
   "rules": {
     "global-require": 0,
     "comma-dangle": 0,
