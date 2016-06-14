@@ -5,6 +5,7 @@ import filter from 'lodash/filter'
 
 import './BlogHome.less'
 import './SideBar.less'
+import './BlogList.less'
 import './BlogContent.less'
 import BlogHomeHeader from './BlogHomeHeader'
 import PostPanel from './PostPanel'
