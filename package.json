@@ -65,6 +65,7 @@
     "to-markdown": "^3.0.0",
     "vue": "^1.0.24",
     "vue-router": "^0.7.5",
+    "whatwg-fetch": "^1.0.0",
     "xmldom": "^0.1.22",
     "xpath": "0.0.23"
   },

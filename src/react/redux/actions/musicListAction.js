@@ -1,3 +1,5 @@
+import 'whatwg-fetch'
+
 export const FETCH_MUSIC = 'FETCH_MUSIC'
 
 export function musicListAction() {

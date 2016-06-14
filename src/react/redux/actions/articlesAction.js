@@ -1,3 +1,5 @@
+import 'whatwg-fetch'
+
 export const FETCH_ARTICLE = 'FETCH_ARTICLE'
 
 export function articlesAction() {

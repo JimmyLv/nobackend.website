@@ -33,7 +33,8 @@ const config = {
 
       // 3rd dependencies
       'history',
-      'react-player'
+      'react-player',
+      'whatwg-fetch'
     ]
   },
   output: {
