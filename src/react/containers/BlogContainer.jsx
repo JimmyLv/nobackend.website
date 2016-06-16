@@ -18,7 +18,7 @@ class BlogPage extends Component {
     const { categories } = this.props.articles
 
     return (
-      <div className="row yue">
+      <div className="row">
         <SideBar categories={categories}/>
         <div className="col-md-8 col-xs-12 aside3">
           {React.cloneElement(this.props.children, { ...this.props })}

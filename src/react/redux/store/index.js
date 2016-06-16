@@ -19,7 +19,9 @@ function getInitialState() {
     }],
     article: {
       "meta": {
-        "layout": "post"
+        "title": "title",
+        "layout": "post",
+        "tags": ["tag1", "tag2"]
       },
       "content": "hello"
     },

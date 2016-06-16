@@ -2,14 +2,15 @@ import 'whatwg-fetch'
 
 export const FETCH_ARTICLE = 'FETCH_ARTICLE'
 
+export const GITHUB = {
+  user: 'JimmyLv',
+  repo: 'jimmy.lv',
+  folder: '_posts',
+  branch: 'gh-pages'
+}
+
 export function articleAction(category, id) {
-  const github = {
-    user: 'JimmyLv',
-    repo: 'jimmy.lv',
-    folder: '_posts',
-    branch: 'gh-pages'
-  }
-  const API_URL = `https://raw.githubusercontent.com/${github.user}/${github.repo}/${github.branch}/${github.folder}`
+  const API_URL = `https://raw.githubusercontent.com/${GITHUB.user}/${GITHUB.repo}/${GITHUB.branch}/${GITHUB.folder}`
 
   return dispatch => fetch(`${API_URL}/${category}/${id}.md`)
     .then(res => {

@@ -7,7 +7,7 @@ const PostPanel = ({ postList, title }) => (
     <div className="panel-heading">{title}</div>
     <div className="panel-body">
       {postList.map((post, index) => (
-        <Link key={index} to={`/note-blog${post.category}${post.url}`} className="list-group-item clearfix">
+        <Link key={index} to={`/note-blog/${post.category}${post.url}`} className="list-group-item clearfix">
           {post.title}
           <span className="badge">{post.shortdate}</span>
         </Link>
