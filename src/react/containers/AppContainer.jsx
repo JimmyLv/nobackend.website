@@ -20,9 +20,7 @@ class AppContainer extends Component {
     return (
       <div>
         <Header musicList={this.props.musicList}/>
-        <div id="container">
-          {this.props.children}
-        </div>
+        {this.props.children}
       </div>
     )
   }
