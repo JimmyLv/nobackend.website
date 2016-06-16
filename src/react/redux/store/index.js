@@ -17,6 +17,12 @@ function getInitialState() {
       "artists": "m80",
       "provider": "http://music.163.com/"
     }],
+    article: {
+      "meta": {
+        "layout": "post"
+      },
+      "content": "hello"
+    },
     articles: {
       "categories": [
         {

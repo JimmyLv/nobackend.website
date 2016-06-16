@@ -88,7 +88,7 @@ class Player extends Component {
           onEnded={this.shuffle.bind(this)}
           onError={e => console.log('onError', e)}
           onProgress={this.onProgress.bind(this)}
-          onDuration={d => this.setState({ d })}
+          onDuration={d => this.setState({ duration: d })}
         />
         <a href={`http://music.163.com/#/search/m/?s=${selectedMusicName}`} target="_blank">
           <i className={playing ? 'faa-float animated fa fa-lg fa-music' : 'fa fa-lg fa-music'}/>

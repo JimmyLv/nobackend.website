@@ -1,6 +1,6 @@
 import 'whatwg-fetch'
 
-export const FETCH_ARTICLE = 'FETCH_ARTICLE'
+export const FETCH_ARTICLES = 'FETCH_ARTICLES'
 
 export function articlesAction() {
   return dispatch => fetch('https://blog.jimmylv.info/api/index.json')
@@ -12,7 +12,7 @@ export function articlesAction() {
     })
     .then(json => {
       dispatch({
-        type: FETCH_ARTICLE,
+        type: FETCH_ARTICLES,
         payload: json
       })
     })

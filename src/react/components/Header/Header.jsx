@@ -9,7 +9,7 @@ import Player from './Player'
 const Header = ({ musicList }) => (
   <header id="header">
     <div className="logo">
-      <Link to="/note" title="立青作品">
+      <Link to="/note-blog" title="立青作品">
         <img alt="avatar" src="//o7mw3gkkh.qnssl.com/images/2016/1465649945502.png"/>
       </Link>
     </div>

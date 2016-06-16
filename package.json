@@ -55,6 +55,7 @@
     "marked": "^0.3.5",
     "ng-fx": "^2.0.4",
     "react": "^15.1.0",
+    "react-disqus-thread": "^0.4.0",
     "react-dom": "^15.1.0",
     "react-player": "^0.7.2",
     "react-redux": "^4.4.5",

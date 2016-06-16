@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+// import isEmpty from 'lodash/isEmpty'
 
 import './AppContainer.less'
 import Header from '../components/Header/Header'
@@ -11,6 +12,11 @@ class AppContainer extends Component {
   }
 
   render() {
+    // const { musicList } = this.props
+    // if (isEmpty(musicList)) {
+    //   return <h1 style={{ 'text-align': 'center' }}><i>Loading...</i></h1>
+    // }
+
     return (
       <div id="container">
         <Header musicList={this.props.musicList}/>
