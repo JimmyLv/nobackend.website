@@ -1,5 +1,5 @@
 module.exports = function (config) {
-  config.set({
+  const configuration = {
     browsers: ['Chrome'], // run in Chrome
     singleRun: true, // just run once by default
     frameworks: ['mocha', 'chai'], // use the mocha test framework
@@ -53,6 +53,18 @@ module.exports = function (config) {
     coverageReporter: {
       type: 'html', // produces a html document after code is run
       dir: 'coverage/' // path to created html doc
+    },
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
     }
-  })
+  }
+
+  if (process.env.TRAVIS) {
+    configuration.browsers = ['Chrome_travis_ci']
+  }
+
+  config.set(configuration)
 }
