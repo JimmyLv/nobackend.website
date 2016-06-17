@@ -4,6 +4,9 @@
 
 [![Build Status](https://travis-ci.org/JimmyLv/nobackend.website.svg?branch=gh-pages)](https://travis-ci.org/JimmyLv/nobackend.website)
 
+[![Dependency Status](https://img.shields.io/david/JimmyLv/nobackend.website.svg?style=flat-square)](https://david-dm.org/JimmyLv/nobackend.website)
+[![devDependency
+Status](https://img.shields.io/david/dev/JimmyLv/nobackend.website.svg?style=flat-square)](https://david-dm.org/JimmyLv/nobackend.website#info=devDependencies)
 ## Getting Started
 
 Only need change configuration inside `_config.yml` as you did in [Jekyll](https://jekyllrb.com).
