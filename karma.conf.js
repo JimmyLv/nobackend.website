@@ -1,0 +1,58 @@
+module.exports = function (config) {
+  config.set({
+    browsers: ['Chrome'], // run in Chrome
+    singleRun: true, // just run once by default
+    frameworks: ['mocha', 'chai'], // use the mocha test framework
+    files: [
+      // just load this file
+      'tests.bundle.js'
+    ],
+    plugins: ['karma-chrome-launcher', 'karma-chai', 'karma-mocha',
+      'karma-sourcemap-loader', 'karma-webpack', 'karma-coverage',
+      'karma-mocha-reporter'
+    ],
+    preprocessors: {
+      // preprocess with webpack and our sourcemap loader
+      'tests.bundle.js': ['webpack', 'sourcemap']
+    },
+    reporters: ['mocha', 'coverage'], // report results in this format
+    webpack: { // kind of a copy of your webpack config
+      devtool: 'inline-source-map', // just do inline source maps instead of the default
+      module: {
+        loaders: [
+          {
+            test: /\.jsx?$/,
+            exclude: /\/node_modules\//,
+            loader: 'babel-loader',
+            query: {
+              presets: ['react', 'es2015', 'stage-1']
+            }
+          },
+          { test: /\.(css|less)$/, loader: 'ignore-loader' }
+        ],
+        postLoaders: [{ // delays coverage til after tests are run, fixing transpiled source coverage error
+          test: /\.jsx?$/,
+          exclude: /(test|node_modules|bower_components)\//,
+          loader: 'istanbul-instrumenter'
+        }]
+      },
+      resolve: {
+        extensions: ['', '.js', '.jsx', '.json'],
+        modulesDirectories: ['node_modules', 'assets/libraries', 'assets/styles', 'assets/images']
+      },
+      externals: {
+        'cheerio': 'window',
+        'react/addons': true,
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true
+      }
+    },
+    webpackServer: {
+      noInfo: true // please don't spam the console when running in karma!
+    },
+    coverageReporter: {
+      type: 'html', // produces a html document after code is run
+      dir: 'coverage/' // path to created html doc
+    }
+  })
+}

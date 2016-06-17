@@ -26,6 +26,7 @@
     "max-len": 0,
     "eol-last": 0,
     "no-underscore-dangle": 0,
+    "quote-props": 0,
     "react/jsx-space-before-closing": 0,
     "react/jsx-no-bind": 0
   }

@@ -10,6 +10,7 @@ script:
   - npm install
   - npm run clean
   - npm run lint:react
+  - npm run test:react
   - npm run build:react
 cache:
   directories:
