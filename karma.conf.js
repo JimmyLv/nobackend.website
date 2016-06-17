@@ -1,7 +1,7 @@
 module.exports = function (config) {
   const configuration = {
     browsers: ['Chrome'], // run in Chrome
-    singleRun: true, // just run once by default
+    singleRun: false, // just run once by default
     frameworks: ['mocha', 'chai'], // use the mocha test framework
     files: [
       // just load this file

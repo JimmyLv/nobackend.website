@@ -11,7 +11,7 @@
     "dev:react": "webpack-dev-server --config webpack.react.config.js",
     "build:react": "cross-env NODE_ENV=production webpack --config webpack.react.config.js --progress --colors --hide-modules",
     "lint:react": "eslint -c .eslintrc.json --ext .jsx --ext .js src/react/*",
-    "test:react": "karma start --single-run=false",
+    "test:react": "karma start --single-run=true",
     "prod:react": "npm run build:react && cd scripts && ./qrsync-v2 _react.conf.json",
     "cdn": "cd scripts && ./qrsync-v2 _ng.conf.json && ./qrsync-v2 _vue.conf.json && ./qrsync-v2 _react.conf.json",
     "clean": "rm -rf _ng _vue _react _site",
