@@ -1,5 +1,6 @@
 import React, { Component, PropTypes, } from 'react'
 import { connect } from 'react-redux'
+import classnames from 'classnames'
 import ReactDisqus from 'react-disqus-thread'
 
 import { articlesAction } from '../redux/actions/articlesAction'
@@ -20,7 +21,7 @@ class BlogPage extends Component {
     return (
       <div className="row">
         <SideBar categories={categories}/>
-        <div className="col-md-8 col-xs-12 aside3">
+        <div className={classnames('col-md-8 col-xs-12 aside3', { 'm-hide': this.props.showContent })}>
           {React.cloneElement(this.props.children, { ...this.props })}
           <ReactDisqus
             shortname="nobackend-website"
@@ -37,13 +38,15 @@ class BlogPage extends Component {
 BlogPage.propTypes = {
   articles: PropTypes.object.isRequired,
   fetchArticles: PropTypes.func.isRequired,
-  children: PropTypes.object.isRequired
+  children: PropTypes.object.isRequired,
+  showContent: PropTypes.bool.isRequired
 }
 BlogPage.defaultProps = {}
 
 function mapProps(state) {
   return {
-    articles: state.articles
+    articles: state.articles,
+    ...state.toggle
   }
 }
 

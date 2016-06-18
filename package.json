@@ -43,6 +43,7 @@
     "angulartics": "^1.0.3",
     "angulartics-google-analytics": "^0.1.4",
     "bootstrap": "^3.3.6",
+    "classnames": "^2.2.5",
     "es6-promise": "^3.2.1",
     "firebase": "^3.0.2",
     "font-awesome": "^4.5.0",
