@@ -164,7 +164,9 @@ function getInitialState() {
       }
     }
   }
-  return JSON.parse(stateString)
+  const state = JSON.parse(stateString)
+  delete state.loadingBar // fixed loading bar always display issue
+  return state
 }
 /*eslint-enable */
 

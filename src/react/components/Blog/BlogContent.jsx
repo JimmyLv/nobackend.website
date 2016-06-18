@@ -7,7 +7,8 @@ import LoadingBar, { showLoading } from 'react-redux-loading-bar'
 
 import { GITHUB, articleAction } from '../../redux/actions/articleAction.js'
 import MusicBox from './MusicBox'
-import MarkdownArticle from './MarkdownArticle'
+import BookInfo from './BookInfo'
+import ArticleParser from './ArticleParser'
 import './BlogDetail.less'
 
 class BlogContent extends Component {
@@ -55,7 +56,9 @@ class BlogContent extends Component {
           {meta.music ? <MusicBox musicUrl={`http://music.163.com/outchain/player?type=2&id=${meta.music}&auto=0&height=66`}/> : ''}
         </div>
         <article className="col-md-12 aside3-content">
-          <MarkdownArticle layout={meta.layout} content={content}/>
+          {meta.layout === 'book' ? meta.books.map((book, index) => <BookInfo key={index} book={book}/>) :
+            <ArticleParser layout={meta.layout} content={content}/>
+          }
         </article>
         <div className="aside3-tags">
           {meta.tags.map((tag, index) => <Link key={index} className="tag" to={`/pages/tags/${tag}`}>{tag}</Link>)}

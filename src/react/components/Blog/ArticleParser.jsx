@@ -4,7 +4,7 @@ import marked from 'marked'
 import hljs from 'highlight.js'
 import 'hightlight.css'
 
-class MarkdownArticle extends Component {
+class ArticleParser extends Component {
   constructor(props) {
     super(props)
 
@@ -34,9 +34,6 @@ class MarkdownArticle extends Component {
         return hljs.highlight('javascript', code).value
       }
     })
-    this.state = {
-      auto: 0
-    }
   }
 
   render() {
@@ -49,10 +46,10 @@ class MarkdownArticle extends Component {
   }
 }
 
-MarkdownArticle.propTypes = {
+ArticleParser.propTypes = {
   layout: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired
 }
-MarkdownArticle.defaultProps = {}
+ArticleParser.defaultProps = {}
 
-export default MarkdownArticle
+export default ArticleParser

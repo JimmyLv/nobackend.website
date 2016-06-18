@@ -31,7 +31,7 @@ class MenuList extends Component {
     const { hasLoggedIn, username } = this.state
     return (
       <div className="menu m-hide">
-        {menuList.map((menu, index) => <Link key={index} className={menu.link === selectedUrl ? 'active' : ''} to={menu.link}> {menu.name} </Link>)}
+        {menuList.map((menu, index) => <Link key={index} className={selectedUrl.indexOf(menu.link) > -1 ? 'active' : ''} to={menu.link}> {menu.name} </Link>)}
         {hasLoggedIn ? this.showMenuForUserLoggedIn() : ''}
         <a onClick={this.toggleUserLogin}>{hasLoggedIn ? username : 'Firebase'}</a>
         <a href="https://github.com/JimmyLv/nobackend.website" target="_blank">GitHub</a>
