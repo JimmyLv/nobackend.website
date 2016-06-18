@@ -47,4 +47,4 @@ function mapProps(state) {
   }
 }
 
-export default connect(mapProps)(withRouter(ToolBar))
+export default withRouter(connect(mapProps)(ToolBar))
