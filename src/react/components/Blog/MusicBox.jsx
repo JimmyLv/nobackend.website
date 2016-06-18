@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react'
+import './MusicBox.less'
 
 const MusicBox = ({ musicUrl }) => (
-  <div className="aside3-music">
+  <div className="music-box">
     <iframe frameBorder="no" marginHeight="0" width="330" height="86" src={musicUrl}>
     </iframe>
   </div>

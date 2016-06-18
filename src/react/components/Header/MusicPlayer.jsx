@@ -7,7 +7,7 @@ import './Player.less'
 import ReactPlayer from 'react-player'
 import Duration from './Duration'
 
-class Player extends Component {
+class MusicPlayer extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -113,9 +113,9 @@ class Player extends Component {
   }
 }
 
-Player.propTypes = {
+MusicPlayer.propTypes = {
   songs: PropTypes.array.isRequired
 }
-Player.defaultProps = {}
+MusicPlayer.defaultProps = {}
 
-export default Player
+export default MusicPlayer

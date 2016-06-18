@@ -6,7 +6,7 @@ import { toggleContentAction } from '../../redux/actions/toggleAction'
 import './Header.less'
 import MenuList from './MenuList'
 import ToolBar from './ToolBar'
-import Player from './Player'
+import MusicPlayer from './MusicPlayer'
 
 const menuList = [
   { name: 'Hello', link: '/hello' },
@@ -24,7 +24,7 @@ const Header = ({ musicList, toggleContent, pathname }) => (
       </span>
     </div>
     <MenuList menuList={menuList} selectedUrl={pathname}/>
-    <Player songs={musicList}/>
+    <MusicPlayer songs={musicList}/>
     <ToolBar />
   </header>
 )

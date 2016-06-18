@@ -43,25 +43,25 @@ class BlogContent extends Component {
       <div className="yue">
         <LoadingBar />
         <article className="col-md-12 aside3-article">
-          <div className="aside3-title">
+          <div className="article-header">
             <h1 id="#identifier">{meta.title}</h1>
-            <div className="aside3-matter">
+            <div className="article-meta">
               <span className="words">{content.length} words</span>
               <a className="content-edit" href={editUrl} target="_blank">{filename}</a>
             </div>
             {meta.music ? <MusicBox musicUrl={`http://music.163.com/outchain/player?type=2&id=${meta.music}&auto=0&height=66`}/> : ''}
           </div>
-          <div className="aside3-content">
+          <div className="article-content">
             {meta.layout === 'book' ? meta.books.map((book, index) => <BookInfo key={index} book={book}/>) :
               <ContentParser layout={meta.layout} content={content}/>
             }
           </div>
+          <div className="article-tags">
+            {meta.tags.map((tag, index) => <Link key={index} to={`/pages/tags/${tag}`}>{tag}</Link>)}
+          </div>
         </article>
-        <div className="aside3-tags">
-          {meta.tags.map((tag, index) => <Link key={index} className="tag" to={`/pages/tags/${tag}`}>{tag}</Link>)}
-        </div>
-        <SocialShare meta={meta}/>
         <hr/>
+        <SocialShare meta={meta}/>
       </div>
     )
   }

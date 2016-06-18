@@ -1,0 +1,36 @@
+.social-share {
+  margin: 0.5em 0;
+  padding-top: .7em;
+  padding-bottom: .6em;
+  font-size: 28px;
+  text-align: center;
+  background: #fcfcfc;
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+
+    i {
+      margin: 0 10px;
+      font-style: normal;
+      color: #BCC1C4;
+      transition: color .15s linear;
+      outline: none;
+
+      &:hover {
+        color: #309E85;
+        transform: rotate(360deg);
+        transition: all 0.8s ease-in-out;
+      }
+    }
+
+    &.weixin-qr .qr-code {
+      display: none;
+    }
+
+    &.weixin-qr:hover .qr-code {
+      margin-top: 20px;
+      display: block;
+    }
+  }
+}

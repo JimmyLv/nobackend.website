@@ -1,4 +1,4 @@
-.nav-aside {
+.nav-sidebar {
   position: absolute;
   margin-top: 0;
   padding-top: 60px;
@@ -15,21 +15,23 @@
     padding-right: 0;
     text-align: center;
 
-    & > .nav > li > a {
-      cursor: pointer;
-      border-radius: 0;
-      color: #000;
-      font-size: 15px;
-      padding: 10px;
+    .aside1-nav li {
+      a {
+        cursor: pointer;
+        border-radius: 0;
+        color: #000;
+        font-size: 15px;
+        padding: 10px;
 
-      &:hover {
-        background-color: #EAEDEF;
+        &:hover {
+          background-color: #EAEDEF;
+        }
       }
-    }
 
-    .nav > li.active > a, .nav > li.active > a:hover, .nav > li.active > a:focus {
-      color: #fff;
-      background-color: #000;
+      &.active > a {
+        color: #fff;
+        background-color: #000;
+      }
     }
 
     .aside1-bottom {

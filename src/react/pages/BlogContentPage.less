@@ -1,103 +1,62 @@
-.aside3-title {
-  padding-left: 30px;
-  padding-right: 30px;
-  text-align: center;
-  color: #747778;
-  border-bottom: 1px solid #eee;
-  margin-bottom: 1em;
-}
+.aside3-article {
+  .article-header {
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+    color: #747778;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 1em;
 
-.aside3-content {
-  .english-hidden {
-    display: none;
-  }
+    .article-meta {
+      position: relative;
+      display: block;
+      font-size: 14px;
+      font-family: Optima, "Helvetica Neue", sans-serif;
+      padding-bottom: 1em;
 
-  .english-ref.english-hidden {
-    display: block;
-    p:nth-child(3) {
-      display: none !important;
-    }
-  }
-}
+      .words::after {
+        content: " on ";
+      }
 
-.aside3-matter {
-  position: relative;
-  display: block;
-  font-size: 14px;
-  font-family: Optima, "Helvetica Neue", sans-serif;
-  padding-bottom: 1em;
-
-  .words::after {
-    content: " on ";
-  }
-
-  a.content-edit {
-    color: #999;
-    text-decoration: none;
-  }
-}
-
-.aside3-music iframe {
-  display: initial;
-  text-align: center;
-  margin-bottom: 0;
-}
-
-iframe.aside3-slide {
-  min-height: 600px;
-  display: inherit;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.aside3-tags {
-  margin-bottom: 20px;
-
-  .tag {
-    margin-right: 6px;
-    font-size: 13px;
-    text-decoration: none;
-
-    &:before {
-      content: '#';
-      color: #999;
-    }
-  }
-}
-
-.aside3-share {
-  margin: 0.5em 0;
-  padding-top: .7em;
-  padding-bottom: .6em;
-  font-size: 28px;
-  text-align: center;
-  background: #fcfcfc;
-
-  a {
-    cursor: pointer;
-    text-decoration: none;
-
-    i {
-      margin: 0 10px;
-      font-style: normal;
-      color: #BCC1C4;
-      transition: color .15s linear;
-      outline: none;
-
-      &:hover {
-        color: #309E85;
-        transform: rotate(360deg);
-        transition: all 0.8s ease-in-out;
+      a.content-edit {
+        color: #999;
+        text-decoration: none;
       }
     }
+  }
 
-    &.weixin-qr .qr-code {
+  .article-content {
+    .english-hidden {
       display: none;
     }
 
-    &.weixin-qr:hover .qr-code {
-      margin-top: 20px;
+    .english-ref.english-hidden {
       display: block;
+      p:nth-child(3) {
+        display: none !important;
+      }
     }
+  }
+
+  .article-tags {
+    margin-bottom: 20px;
+
+    a {
+      margin-right: 6px;
+      font-size: 13px;
+      text-decoration: none;
+
+      &:before {
+        content: '#';
+        color: #999;
+      }
+    }
+  }
+
+  .aside3-slide iframe {
+    min-height: 600px;
+    display: inherit;
+    text-align: center;
+    margin-bottom: 10px;
   }
 }

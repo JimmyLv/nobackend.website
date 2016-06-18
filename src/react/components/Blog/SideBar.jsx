@@ -24,9 +24,9 @@ class SideBar extends Component {
     const categoryWithPosts = filter(categories, { name: this.state.selectedCategory })[0]
 
     return (
-      <div className="col-md-4 col-xs-12 nav-aside">
+      <div className="col-md-4 col-xs-12 nav-sidebar">
         <div className="col-md-3 col-xs-3 aside1">
-          <div className="nav">
+          <div className="nav aside1-nav">
             {categories.map((category, index) => (
               <li key={index} className={category.name === this.state.selectedCategory ? 'active' : ''}>
                 <a onClick={() => this.selectCategory(category.name)}>
@@ -35,7 +35,6 @@ class SideBar extends Component {
               </li>
             ))}
           </div>
-
           <div className="aside1-bottom">
             <a href="{{ $ctrl.rssUrl }}" target="_blank">
               <i className="fa fa-rss fa-2x"/>
