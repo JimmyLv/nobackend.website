@@ -10,3 +10,4 @@
 /_*/*.map
 
 /scripts
+/coverage

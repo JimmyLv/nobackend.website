@@ -2,7 +2,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { hashHistory, useRouterHistory } from 'react-router'
+import { useRouterHistory } from 'react-router'
 import createHashHistory from 'history/lib/createHashHistory'
 import { syncHistoryWithStore } from 'react-router-redux'
 
@@ -14,14 +14,15 @@ import 'yue.css'
 import Root from './containers/Root'
 import store from './redux/store/index'
 
-function saveToStorage(state) {
-  localStorage.setItem('APP_STATE', JSON.stringify(state))
-}
-// store.subscribe(() =>
-//   saveToStorage(store.getState())
-// )
-
-// const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false })
+const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false })
 const history = syncHistoryWithStore(hashHistory, store)
 
 ReactDOM.render(<Root store={store} history={history}/>, document.getElementById('app'))
+
+function saveToStorage(state) {
+  localStorage.setItem('APP_STATE', JSON.stringify(state))
+}
+
+store.subscribe(() =>
+  saveToStorage(store.getState())
+)

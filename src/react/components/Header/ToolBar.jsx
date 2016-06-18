@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 
 class ToolBar extends Component {
   constructor(props) {
@@ -12,7 +14,12 @@ class ToolBar extends Component {
   }
 
   randomPost() {
-    alert('randomPost')
+    const posts = this.props.posts
+    const post = posts[Math.floor(Math.random() * posts.length)]
+    this.props.router.push({
+      pathname: '/note-blog',
+      hash: `/${post.category}${post.url}`
+    })
   }
 
   render() {
@@ -26,7 +33,18 @@ class ToolBar extends Component {
   }
 }
 
-ToolBar.propTypes = {}
+ToolBar.propTypes = {
+  posts: PropTypes.array.isRequired,
+  router: React.PropTypes.shape({
+    push: React.PropTypes.func.isRequired
+  }).isRequired
+}
 ToolBar.defaultProps = {}
 
-export default ToolBar
+function mapProps(state) {
+  return {
+    posts: state.articles.paginator
+  }
+}
+
+export default connect(mapProps)(withRouter(ToolBar))

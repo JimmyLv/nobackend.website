@@ -22,6 +22,7 @@ npm install # properly use cnpm if you are in China
 
 npm run dev:ng # open http://localhost:8080/
 npm run dev:vue # open http://localhost:8081/
+npm run dev:react # open http://localhost:8082/
 ```
 
 ## Deploy && CI
