@@ -11,7 +11,7 @@ export default function config(markedProvider, cfpLoadingBarProvider) {
       if (lang && hljs.getLanguage(lang)) {
         return hljs.highlight(lang, code, true).value;
       } else {
-        return hljs.highlightAuto(code).value;
+        return hljs.highlight('javascript', code).value;
       }
     }
   });

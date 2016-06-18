@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import marked from 'marked'
 
 import QRCode from 'qrcode.react'
 import LoadingBar, { showLoading } from 'react-redux-loading-bar'
 
 import { GITHUB, articleAction } from '../../redux/actions/articleAction.js'
 import MusicBox from './MusicBox'
+import MarkdownArticle from './MarkdownArticle'
 import './BlogDetail.less'
 
 class BlogContent extends Component {
@@ -55,9 +55,7 @@ class BlogContent extends Component {
           {meta.music ? <MusicBox musicUrl={`http://music.163.com/outchain/player?type=2&id=${meta.music}&auto=0&height=66`}/> : ''}
         </div>
         <article className="col-md-12 aside3-content">
-          <div id="content-page" className={meta.layout === 'photo' ? 'photo' : ''}>
-            <div dangerouslySetInnerHTML={{ __html: marked(content || '') }}></div>
-          </div>
+          <MarkdownArticle layout={meta.layout} content={content}/>
         </article>
         <div className="aside3-tags">
           {meta.tags.map((tag, index) => <Link key={index} className="tag" to={`/pages/tags/${tag}`}>{tag}</Link>)}
