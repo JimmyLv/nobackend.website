@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import LoadingBar, { showLoading } from 'react-redux-loading-bar'
 
-import { GITHUB, articleAction } from '../../redux/actions/articleAction.js'
-import MusicBox from './MusicBox'
-import BookInfo from './BookInfo'
-import SocialShare from './SocialShare'
-import ArticleParser from './ArticleParser'
-import './BlogDetail.less'
+import { GITHUB, articleAction } from '../redux/actions/articleAction.js'
+import MusicBox from '../components/Blog/MusicBox'
+import BookInfo from '../components/Blog/BookInfo'
+import SocialShare from '../components/Blog/SocialShare'
+import ContentParser from '../components/Blog/ContentParser'
+import './BlogContentPage.less'
 
 class BlogContent extends Component {
   constructor(props) {
@@ -42,18 +42,20 @@ class BlogContent extends Component {
     return (
       <div className="yue">
         <LoadingBar />
-        <div className="col-md-12 aside3-title">
-          <h1 id="#identifier">{meta.title}</h1>
-          <div className="aside3-matter">
-            <span className="words">{content.length} words</span>
-            <a className="content-edit" href={editUrl} target="_blank">{filename}</a>
+        <article className="col-md-12 aside3-article">
+          <div className="aside3-title">
+            <h1 id="#identifier">{meta.title}</h1>
+            <div className="aside3-matter">
+              <span className="words">{content.length} words</span>
+              <a className="content-edit" href={editUrl} target="_blank">{filename}</a>
+            </div>
+            {meta.music ? <MusicBox musicUrl={`http://music.163.com/outchain/player?type=2&id=${meta.music}&auto=0&height=66`}/> : ''}
           </div>
-          {meta.music ? <MusicBox musicUrl={`http://music.163.com/outchain/player?type=2&id=${meta.music}&auto=0&height=66`}/> : ''}
-        </div>
-        <article className="col-md-12 aside3-content">
-          {meta.layout === 'book' ? meta.books.map((book, index) => <BookInfo key={index} book={book}/>) :
-            <ArticleParser layout={meta.layout} content={content}/>
-          }
+          <div className="aside3-content">
+            {meta.layout === 'book' ? meta.books.map((book, index) => <BookInfo key={index} book={book}/>) :
+              <ContentParser layout={meta.layout} content={content}/>
+            }
+          </div>
         </article>
         <div className="aside3-tags">
           {meta.tags.map((tag, index) => <Link key={index} className="tag" to={`/pages/tags/${tag}`}>{tag}</Link>)}

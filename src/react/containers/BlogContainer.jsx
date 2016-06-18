@@ -5,6 +5,7 @@ import ReactDisqus from 'react-disqus-thread'
 
 import { articlesAction } from '../redux/actions/articlesAction'
 import SideBar from '../components/Blog/SideBar'
+import './BlogContainer.less'
 
 class BlogPage extends Component {
   componentDidMount() {

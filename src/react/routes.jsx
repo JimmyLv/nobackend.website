@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, IndexRoute, IndexRedirect } from 'react-router'
 
-import BlogHome from './components/Blog/BlogHome'
-import BlogContent from './components/Blog/BlogContent'
+import BlogHomePage from './pages/BlogHomePage'
+import BlogContentPage from './pages/BlogContentPage'
 
 import AppContainer from './containers/AppContainer'
 
@@ -15,8 +15,8 @@ const renderRoutes = () => (
   <Route path="/" component={AppContainer}>
     <IndexRedirect to="/note-blog"/>
     <Route path="note-blog" component={BlogContainer}>
-      <IndexRoute component={BlogHome}/>
-      <Route path=":category/:id/" component={BlogContent}/>
+      <IndexRoute component={BlogHomePage}/>
+      <Route path=":category/:id/" component={BlogContentPage}/>
     </Route>
     <Route path="app-list" component={AppListPage}/>
     <Route path="photo" component={PhotoPage}/>

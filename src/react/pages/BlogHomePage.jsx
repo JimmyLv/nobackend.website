@@ -1,12 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 
-import './BlogHome.less'
-import './BlogList.less'
-import './BlogContent.less'
-import BlogHomeHeader from './BlogHeader'
-import PostPanel from './PostPanel'
+import HomeHeader from '../components/Blog/HomeHeader'
+import PostPanel from '../components/Blog/PostPanel'
+import './BlogHomePage.less'
 
-class BlogHome extends Component {
+class BlogHomePage extends Component {
   componentDidMount() {
   }
 
@@ -16,7 +14,7 @@ class BlogHome extends Component {
 
     return (
       <div>
-        <BlogHomeHeader/>
+        <HomeHeader/>
         <div className="col-md-12">
           <PostPanel title={'最新文章'} postList={latestPostList}/>
           {tags.slice(0, 3).map((tag, index) => <PostPanel key={index} title={tag.name} postList={tag.posts}/>)}
@@ -26,9 +24,9 @@ class BlogHome extends Component {
   }
 }
 
-BlogHome.propTypes = {
+BlogHomePage.propTypes = {
   articles: PropTypes.object.isRequired
 }
-BlogHome.defaultProps = {}
+BlogHomePage.defaultProps = {}
 
-export default BlogHome
+export default BlogHomePage

@@ -4,7 +4,7 @@ import marked from 'marked'
 import hljs from 'highlight.js'
 import 'hightlight.css'
 
-class ArticleParser extends Component {
+class ContentParser extends Component {
   constructor(props) {
     super(props)
 
@@ -46,10 +46,10 @@ class ArticleParser extends Component {
   }
 }
 
-ArticleParser.propTypes = {
+ContentParser.propTypes = {
   layout: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired
 }
-ArticleParser.defaultProps = {}
+ContentParser.defaultProps = {}
 
-export default ArticleParser
+export default ContentParser

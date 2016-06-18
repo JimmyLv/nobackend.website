@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 
-
 const PostPanel = ({ postList, title }) => (
   <div className="panel panel-primary">
     <div className="panel-heading">{title}</div>
