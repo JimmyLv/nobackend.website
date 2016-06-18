@@ -31,3 +31,4 @@ deploy:
     branch: gh-pages
 after_success:
   - firebase deploy --email ${FIREBASE_USERNAME} --password ${FIREBASE_PASSWORD}
+  - bash <(curl -s https://codecov.io/bash)
