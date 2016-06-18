@@ -27,11 +27,13 @@ class MenuList extends Component {
   }
 
   render() {
+    const { menuList, selectedUrl } = this.props
+    const { hasLoggedIn, username } = this.state
     return (
       <div className="menu m-hide">
-        {this.props.menuList.map((menu, index) => <Link key={index} to={menu.link}> {menu.name} </Link>)}
-        {this.state.hasLoggedIn ? this.showMenuForUserLoggedIn() : ''}
-        <a onClick={this.toggleUserLogin}>{this.state.hasLoggedIn ? this.state.username : 'Firebase'}</a>
+        {menuList.map((menu, index) => <Link key={index} className={menu.link === selectedUrl ? 'active' : ''} to={menu.link}> {menu.name} </Link>)}
+        {hasLoggedIn ? this.showMenuForUserLoggedIn() : ''}
+        <a onClick={this.toggleUserLogin}>{hasLoggedIn ? username : 'Firebase'}</a>
         <a href="https://github.com/JimmyLv/nobackend.website" target="_blank">GitHub</a>
       </div>
     )
@@ -39,16 +41,9 @@ class MenuList extends Component {
 }
 
 MenuList.propTypes = {
-  menuList: PropTypes.array.isRequired
+  menuList: PropTypes.array.isRequired,
+  selectedUrl: PropTypes.array.isRequired
 }
-MenuList.defaultProps = {
-  menuList: [
-    { name: 'Hello', link: '/hello' },
-    { name: 'AppList', link: '/app-list' },
-    { name: 'Blog', link: '/note-blog' },
-    { name: 'Photo', link: '/photo' },
-    { name: 'Zhihu', link: '/pages/zhihu' }
-  ]
-}
+MenuList.defaultProps = {}
 
 export default MenuList

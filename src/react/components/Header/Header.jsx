@@ -8,14 +8,22 @@ import MenuList from './MenuList'
 import ToolBar from './ToolBar'
 import Player from './Player'
 
-const Header = ({ musicList, toggleContent }) => (
+const menuList = [
+  { name: 'Hello', link: '/hello' },
+  { name: 'AppList', link: '/app-list' },
+  { name: 'Blog', link: '/note-blog' },
+  { name: 'Photo', link: '/photo' },
+  { name: 'Zhihu', link: '/pages/zhihu' }
+]
+
+const Header = ({ musicList, toggleContent, pathname }) => (
   <header id="header">
     <div className="logo">
       <span onClick={() => toggleContent()} title="立青作品">
         <img alt="avatar" src="//o7mw3gkkh.qnssl.com/images/2016/1465649945502.png"/>
       </span>
     </div>
-    <MenuList />
+    <MenuList menuList={menuList} selectedUrl={pathname}/>
     <Player songs={musicList}/>
     <ToolBar />
   </header>
@@ -23,12 +31,15 @@ const Header = ({ musicList, toggleContent }) => (
 
 Header.propTypes = {
   musicList: PropTypes.array.isRequired,
+  pathname: PropTypes.string.isRequired,
   toggleContent: PropTypes.func.isRequired
 }
 Header.defaultProps = {}
 
-function mapProps() {
-  return {}
+function mapProps(state) {
+  return {
+    pathname: state.routing.locationBeforeTransitions.pathname
+  }
 }
 
 function mapDispatch(dispatch) {
