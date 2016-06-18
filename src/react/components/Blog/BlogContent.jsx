@@ -1,13 +1,12 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-
-import QRCode from 'qrcode.react'
 import LoadingBar, { showLoading } from 'react-redux-loading-bar'
 
 import { GITHUB, articleAction } from '../../redux/actions/articleAction.js'
 import MusicBox from './MusicBox'
 import BookInfo from './BookInfo'
+import SocialShare from './SocialShare'
 import ArticleParser from './ArticleParser'
 import './BlogDetail.less'
 
@@ -40,10 +39,6 @@ class BlogContent extends Component {
     const SUB_TITLE = '最美博客'
     document.title = `${meta.title} | ${SUB_TITLE}`
 
-    const encodedShareLink = encodeURIComponent(window.location.href)
-    const formattedHashTags = meta.tags.map(tag => `#${tag}#`).join(' ')
-    const encodedShareContent = encodeURIComponent(`${meta.title} ${formattedHashTags} | ${SUB_TITLE}`)
-
     return (
       <div className="yue">
         <LoadingBar />
@@ -63,17 +58,7 @@ class BlogContent extends Component {
         <div className="aside3-tags">
           {meta.tags.map((tag, index) => <Link key={index} className="tag" to={`/pages/tags/${tag}`}>{tag}</Link>)}
         </div>
-        <div className="aside3-share">
-          <a href={`http://service.weibo.com/share/share.php?url= ${encodedShareLink}&amptitle=${encodedShareContent}`} target="_blank">
-            <i className="fa fa-weibo faa-shake animated"/>
-          </a>
-          <a className="weixin-qr">
-            <i className="fa fa-weixin faa-shake animated"/>
-            <div className="qr-code">
-              <QRCode value={encodedShareLink}/>
-            </div>
-          </a>
-        </div>
+        <SocialShare meta={meta}/>
         <hr/>
       </div>
     )
