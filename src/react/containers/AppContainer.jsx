@@ -18,7 +18,7 @@ class AppContainer extends Component {
     // }
 
     return (
-      <div>
+      <div className="main-app">
         <Header musicList={this.props.musicList}/>
         {this.props.children}
       </div>

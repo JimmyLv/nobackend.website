@@ -1,4 +1,5 @@
 import 'whatwg-fetch'
+import { hideLoading } from 'react-redux-loading-bar'
 
 export const FETCH_ARTICLE = 'FETCH_ARTICLE'
 
@@ -24,6 +25,7 @@ export function articleAction(category, id) {
         type: FETCH_ARTICLE,
         payload: content
       })
+      dispatch(hideLoading())
     })
     .catch(error => console.info('request error: ', error))
 }

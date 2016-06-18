@@ -2,7 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import marked from 'marked'
+
 import QRCode from 'qrcode.react'
+import LoadingBar, { showLoading } from 'react-redux-loading-bar'
 
 import { GITHUB, articleAction } from '../../redux/actions/articleAction.js'
 import MusicBox from './MusicBox'
@@ -43,6 +45,7 @@ class BlogContent extends Component {
 
     return (
       <div className="yue">
+        <LoadingBar />
         <div className="col-md-12 aside3-title">
           <h1 id="#identifier">{meta.title}</h1>
           <div className="aside3-matter">
@@ -85,12 +88,18 @@ BlogContent.propTypes = {
 BlogContent.defaultProps = {}
 
 function mapProps(state) {
-  return { ...state.article }
+  return {
+    ...state.article,
+    loadingBar: state.loadingBar
+  }
 }
 
 function mapDispatch(dispatch) {
   return {
-    fetchPost: (category, id) => dispatch(articleAction(category, id))
+    fetchPost: (category, id) => {
+      dispatch(articleAction(category, id))
+      dispatch(showLoading())
+    }
   }
 }
 
