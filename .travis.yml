@@ -16,6 +16,8 @@ script:
   - npm run lint:react
   - npm run test:react
   - npm run build:react
+after_script:
+  - npm run codecov
 cache:
   directories:
     - node_modules

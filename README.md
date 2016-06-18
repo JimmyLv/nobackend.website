@@ -2,7 +2,8 @@
 
 > A powerful rich interactive web application by using nobackend tech stack.
 
-[![Build Status](https://travis-ci.org/JimmyLv/nobackend.website.svg?branch=gh-pages)](https://travis-ci.org/JimmyLv/nobackend.website)[![codecov](https://codecov.io/gh/JimmyLv/nobackend.website/branch/gh-pages/graph/badge.svg)](https://codecov.io/gh/JimmyLv/nobackend.website)
+[![Build Status](https://travis-ci.org/JimmyLv/nobackend.website.svg?branch=gh-pages)](https://travis-ci.org/JimmyLv/nobackend.website)
+[![codecov](https://codecov.io/gh/JimmyLv/nobackend.website/branch/gh-pages/graph/badge.svg)](https://codecov.io/gh/JimmyLv/nobackend.website)
 
 [![Dependency Status](https://img.shields.io/david/JimmyLv/nobackend.website.svg?style=flat-square)](https://david-dm.org/JimmyLv/nobackend.website)
 [![devDependency

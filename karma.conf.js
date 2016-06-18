@@ -15,7 +15,6 @@ module.exports = function (config) {
       // preprocess with webpack and our sourcemap loader
       'tests.bundle.js': ['webpack', 'sourcemap']
     },
-    reporters: ['mocha', 'coverage'], // report results in this format
     webpack: { // kind of a copy of your webpack config
       devtool: 'inline-source-map', // just do inline source maps instead of the default
       module: {
@@ -50,9 +49,16 @@ module.exports = function (config) {
     webpackServer: {
       noInfo: true // please don't spam the console when running in karma!
     },
+    reporters: ['mocha', 'coverage'], // report results in this format
     coverageReporter: {
-      type: 'html', // produces a html document after code is run
-      dir: 'coverage/' // path to created html doc
+      reporters: [
+        // produces a html document after code is run
+        { type: 'html', dir: 'coverage/' },
+        // generates ./coverage/lcov.info
+        { type: 'lcovonly', subdir: '.' },
+        // generates ./coverage/coverage-final.json
+        { type: 'json', subdir: '.' }
+      ]
     },
     customLaunchers: {
       Chrome_travis_ci: {
