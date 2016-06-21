@@ -4,7 +4,7 @@ branches:
     - gh-pages
 language: node_js
 node_js:
-  - stable
+  - 4.4.5
 before_install:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
