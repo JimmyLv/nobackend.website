@@ -4,7 +4,7 @@ branches:
     - gh-pages
 language: node_js
 node_js:
-  - 4.4.5
+  - stable
 before_install:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
@@ -14,7 +14,6 @@ script:
   - npm install
   - npm run clean
   - npm run lint:react
-  - npm run test:react
   - npm run build:react
 after_script:
   - npm run codecov
