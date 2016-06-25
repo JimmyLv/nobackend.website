@@ -23,6 +23,7 @@ Status](https://img.shields.io/david/dev/JimmyLv/nobackend.website.svg?style=fla
 Only need change configuration inside `_config.yml` as you did in [Jekyll](https://jekyllrb.com).
 
 - [ ] Add more details about configs.
+- [ ] Extract separate project as git submodule.
 - [ ] Much more dev works, as you can see in [issues](https://github.com/JimmyLv/nobackend.website/issues).
 
 ## Install dependencies & Run
