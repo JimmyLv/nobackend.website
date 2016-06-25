@@ -11,8 +11,8 @@ import DevTools from '../../containers/DevTools'
 
 /*eslint-disable */
 function getInitialState() {
-  var stateString = localStorage.getItem('APP_STATE')
-  if (!stateString) {
+  // var stateString = localStorage.getItem('APP_STATE')
+  // if (!stateString) {
     return {
       musicList: [{
         "name": "Feeling U",
@@ -163,10 +163,10 @@ function getInitialState() {
           }]
       }
     }
-  }
-  const state = JSON.parse(stateString)
-  delete state.loadingBar // fixed loading bar always display issue
-  return state
+  // }
+  // const state = JSON.parse(stateString)
+  // delete state.loadingBar // fixed loading bar always display issue
+  // return state
 }
 /*eslint-enable */
 

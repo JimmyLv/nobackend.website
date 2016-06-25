@@ -18,11 +18,11 @@ const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false })
 const history = syncHistoryWithStore(hashHistory, store)
 
 ReactDOM.render(<Root store={store} history={history}/>, document.getElementById('app'))
-
-function saveToStorage(state) {
-  localStorage.setItem('APP_STATE', JSON.stringify(state))
-}
-
-store.subscribe(() =>
-  saveToStorage(store.getState())
-)
+//
+// function saveToStorage(state) {
+//   localStorage.setItem('APP_STATE', JSON.stringify(state))
+// }
+//
+// store.subscribe(() =>
+//   saveToStorage(store.getState())
+// )
