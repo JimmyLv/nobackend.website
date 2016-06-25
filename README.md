@@ -8,6 +8,15 @@
 [![Dependency Status](https://img.shields.io/david/JimmyLv/nobackend.website.svg?style=flat-square)](https://david-dm.org/JimmyLv/nobackend.website)
 [![devDependency
 Status](https://img.shields.io/david/dev/JimmyLv/nobackend.website.svg?style=flat-square)](https://david-dm.org/JimmyLv/nobackend.website#info=devDependencies)
+
+## Demos
+
+[React Version](http://nobackend.website/_react/#/note-blog)
+[![](http://7xjbdq.com1.z0.glb.clouddn.com/images/2016/1466819992709.png)](http://nobackend.website/_react/#/note-blog)
+
+[Angular 1.5 Version](http://nobackend.website/_ng/#%21/note)
+[![](http://7xjbdq.com1.z0.glb.clouddn.com/images/2016/1466819707003.png)](http://nobackend.website/_ng/#%21/note)
+
 ## Getting Started
 
 Only need change configuration inside `_config.yml` as you did in [Jekyll](https://jekyllrb.com).
@@ -39,6 +48,7 @@ git push
 - [Angular 1.x](http://angularjs.org/)
 - [Vue](http://vuejs.org/)
 - [React](https://facebook.github.io/react/)
+- [Redux](https://github.com/reactjs/redux)
 - [Webpack](http://webpack.github.io/)
 - [Babel](https://babeljs.io/) & [ES6](https://babeljs.io/docs/learn-es2015/)
 - [最美应用](http://zuimeia.com/) & [Chrome 插件](http://chrome.zuimeia.com)
@@ -46,4 +56,4 @@ git push
 
 -------
 
-Host on [GitHub](https://github.com/JimmyLv/nobackend.website) / [AWS S3](http://nobackend.website.s3-website-ap-southeast-1.amazonaws.com) / [七牛](http://7xjbdq.com1.z0.glb.clouddn.com/_ng/#!/note)
+Host on [GitHub](https://github.com/JimmyLv/nobackend.website) / [AWS S3](http://nobackend.website.s3-website-ap-southeast-1.amazonaws.com) / [七牛](http://7xjbdq.com1.z0.glb.clouddn.com/_ng/#!/note) / [Firebase](http://nobackend-website.firebaseapp.com/)
