@@ -175,9 +175,9 @@ export default createStore(
   getInitialState(),
   compose(
     applyMiddleware(
+      thunkMiddleware,
       loadingBarMiddleware(),
       routerMiddleware(browserHistory),
-      thunkMiddleware,
       createLogger()
     ),
     window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument()

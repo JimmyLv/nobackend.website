@@ -3,10 +3,10 @@ import jsyaml from 'js-yaml'
 import { FETCH_ARTICLE } from '../actions/articleAction'
 
 function _parseContent(separator, rawContent) {
-  const splitResult = rawContent.split(separator)
+  const result = rawContent.split(separator)
   return {
-    meta: jsyaml.load(splitResult[1]),
-    content: splitResult.slice(2).join(separator)
+    meta: jsyaml.load(result[1]),
+    content: result.slice(2).join(separator)
   }
 }
 

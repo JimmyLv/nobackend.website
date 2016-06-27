@@ -1,4 +1,4 @@
-# NoBackend Website
+# NoBackEnd Website
 
 > A powerful rich interactive web application by using nobackend tech stack.
 
@@ -11,12 +11,13 @@ Status](https://img.shields.io/david/dev/JimmyLv/nobackend.website.svg?style=fla
 
 ## Demos
 
-### [React Version](http://nobackend.website/_react/#/note-blog)
+### [Angular 1.5 Version](http://nobackend.website/_ng/)
+
+[![](http://7xjbdq.com1.z0.glb.clouddn.com/images/2016/1466819707003.png)](http://nobackend.website/_ng/#%21/note)
+
+### [React Version](http://nobackend.website/_react/)
 
 [![](http://7xjbdq.com1.z0.glb.clouddn.com/images/2016/1466819992709.png)](http://nobackend.website/_react/#/note-blog)
-
-### [Angular 1.5 Version](http://nobackend.website/_ng/#%21/note)
-[![](http://7xjbdq.com1.z0.glb.clouddn.com/images/2016/1466819707003.png)](http://nobackend.website/_ng/#%21/note)
 
 ## Getting Started
 
