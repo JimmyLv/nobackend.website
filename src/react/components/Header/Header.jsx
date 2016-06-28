@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import { toggleContentAction } from '../../redux/actions/toggleAction'
+import { toggleContent } from '../../redux/actions'
 
 import './Header.less'
 import MenuList from './MenuList'
@@ -16,10 +16,10 @@ const menuList = [
   { name: 'Zhihu', link: '/pages/zhihu' }
 ]
 
-const Header = ({ musicList, toggleContent, pathname }) => (
+const Header = ({ musicList, pathname, dispatch }) => (
   <header id="header">
     <div className="logo">
-      <span onClick={() => toggleContent()} title="立青作品">
+      <span onClick={() => dispatch(toggleContent())} title="立青作品">
         <img alt="avatar" src="//o7mw3gkkh.qnssl.com/images/2016/1465649945502.png"/>
       </span>
     </div>
@@ -32,20 +32,14 @@ const Header = ({ musicList, toggleContent, pathname }) => (
 Header.propTypes = {
   musicList: PropTypes.array.isRequired,
   pathname: PropTypes.string.isRequired,
-  toggleContent: PropTypes.func.isRequired
+  dispatch: PropTypes.func.isRequired
 }
 Header.defaultProps = {}
 
-function mapProps(state) {
+function mapStateToProps(state) {
   return {
     pathname: state.routing.locationBeforeTransitions.pathname
   }
 }
 
-function mapDispatch(dispatch) {
-  return {
-    toggleContent: () => dispatch(toggleContentAction())
-  }
-}
-
-export default connect(mapProps, mapDispatch)(Header)
+export default connect(mapStateToProps)(Header)

@@ -2,8 +2,8 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { useRouterHistory } from 'react-router'
-import createHashHistory from 'history/lib/createHashHistory'
+import { useRouterHistory, hashHistory } from 'react-router'
+// import createHashHistory from 'history/lib/createHashHistory'
 import { syncHistoryWithStore } from 'react-router-redux'
 
 import '../../node_modules/font-awesome-animation/dist/font-awesome-animation.css'
@@ -14,7 +14,7 @@ import 'yue.css'
 import Root from './containers/Root'
 import store from './redux/store/index'
 
-const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false })
+// const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false })
 const history = syncHistoryWithStore(hashHistory, store)
 
 ReactDOM.render(<Root store={store} history={history}/>, document.getElementById('app'))

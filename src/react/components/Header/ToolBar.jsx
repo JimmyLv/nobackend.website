@@ -41,10 +41,10 @@ ToolBar.propTypes = {
 }
 ToolBar.defaultProps = {}
 
-function mapProps(state) {
+function mapStateToProps(state) {
   return {
     posts: state.articles.paginator
   }
 }
 
-export default withRouter(connect(mapProps)(ToolBar))
+export default connect(mapStateToProps)(withRouter(ToolBar))

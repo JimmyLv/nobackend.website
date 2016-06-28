@@ -1,4 +1,4 @@
-import { TOGGLE_SIDEBAR, TOGGLE_CONTENT } from '../actions/toggleAction'
+import { TOGGLE_SIDEBAR, TOGGLE_CONTENT } from '../actions'
 
 const initialToggleState = {
   showSideBar: true,
@@ -8,9 +8,9 @@ const initialToggleState = {
 function articlesReducer(state = initialToggleState, action) {
   switch (action.type) {
     case TOGGLE_SIDEBAR:
-      return { showSideBar: !state.showSideBar }
+      return { ...state, showSideBar: !state.showSideBar }
     case TOGGLE_CONTENT:
-      return { showContent: !state.showContent }
+      return { ...state, showContent: !state.showContent }
     default:
       return state
   }

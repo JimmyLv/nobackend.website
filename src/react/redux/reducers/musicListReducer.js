@@ -1,9 +1,9 @@
-import { FETCH_MUSIC } from '../actions/musicListAction'
+import { FETCH_MUSIC } from '../actions'
 
 function musicListReducer(state = [], action) {
   switch (action.type) {
     case FETCH_MUSIC:
-      return [...action.payload]
+      return [...action.songs]
     default:
       return state
   }

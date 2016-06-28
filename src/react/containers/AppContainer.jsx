@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 
 import './AppContainer.less'
 import Header from '../components/Header/Header'
-import { musicListAction } from '../redux/actions/musicListAction'
+import { fetchMusicList } from '../redux/actions'
 
 class AppContainer extends Component {
-  componentWillMount() {
-    this.props.fetchMusic()
+  componentDidMount() {
+    this.props.dispatch(fetchMusicList())
   }
 
   render() {
@@ -27,22 +27,16 @@ class AppContainer extends Component {
 }
 
 AppContainer.propTypes = {
-  fetchMusic: PropTypes.func.isRequired,
   musicList: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired,
   children: PropTypes.object.isRequired
 }
 AppContainer.defaultProps = {}
 
-function mapProps(state) {
+function mapStateToProps(state) {
   return {
     musicList: state.musicList
   }
 }
 
-function mapDispatch(dispatch) {
-  return {
-    fetchMusic: () => dispatch(musicListAction())
-  }
-}
-
-export default connect(mapProps, mapDispatch)(AppContainer)
+export default connect(mapStateToProps)(AppContainer)

@@ -42,7 +42,7 @@ class MenuList extends Component {
 
 MenuList.propTypes = {
   menuList: PropTypes.array.isRequired,
-  selectedUrl: PropTypes.array.isRequired
+  selectedUrl: PropTypes.string.isRequired
 }
 MenuList.defaultProps = {}
 

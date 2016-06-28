@@ -1,13 +1,14 @@
 import { createStore, compose, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
-import { browserHistory } from 'react-router'
+import { hashHistory } from 'react-router'
 import { routerMiddleware } from 'react-router-redux'
 import { loadingBarMiddleware } from 'react-redux-loading-bar'
 
 // Apply the middleware to the store
 import reducers from '../reducers/index'
 import DevTools from '../../containers/DevTools'
+// import { fetchArticleSummary, fetchMusicList } from '../actions'
 
 /*eslint-disable */
 function getInitialState() {
@@ -170,16 +171,21 @@ function getInitialState() {
 }
 /*eslint-enable */
 
-export default createStore(
+const store = createStore(
   reducers,
   getInitialState(),
   compose(
     applyMiddleware(
       thunkMiddleware,
       loadingBarMiddleware(),
-      routerMiddleware(browserHistory),
+      routerMiddleware(hashHistory),
       createLogger()
     ),
     window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument()
   )
 )
+
+// store.dispatch(fetchArticleSummary())
+// store.dispatch(fetchMusicList())
+
+export default store

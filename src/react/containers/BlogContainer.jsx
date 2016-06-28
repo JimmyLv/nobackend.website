@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 import classnames from 'classnames'
 import ReactDisqus from 'react-disqus-thread'
 
-import { articlesAction } from '../redux/actions/articlesAction'
+import { fetchArticleSummary } from '../redux/actions'
 import SideBar from '../components/Blog/SideBar'
 import './BlogContainer.less'
 
 class BlogPage extends Component {
   componentDidMount() {
-    this.props.fetchArticles()
+    this.props.dispatch(fetchArticleSummary())
   }
 
   handleNewComment(comment) {
@@ -17,7 +17,7 @@ class BlogPage extends Component {
   }
 
   render() {
-    const { categories } = this.props.articles
+    const { categories } = this.props
 
     return (
       <div className="row">
@@ -37,24 +37,18 @@ class BlogPage extends Component {
 }
 
 BlogPage.propTypes = {
-  articles: PropTypes.object.isRequired,
-  fetchArticles: PropTypes.func.isRequired,
-  children: PropTypes.object.isRequired,
-  showContent: PropTypes.bool.isRequired
+  categories: PropTypes.array.isRequired,
+  showContent: PropTypes.bool.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  children: PropTypes.object.isRequired
 }
 BlogPage.defaultProps = {}
 
-function mapProps(state) {
+function mapStateToProps(state) {
   return {
-    articles: state.articles,
+    ...state.articles,
     ...state.toggle
   }
 }
 
-function mapDispatch(dispatch) {
-  return {
-    fetchArticles: () => dispatch(articlesAction())
-  }
-}
-
-export default connect(mapProps, mapDispatch)(BlogPage)
+export default connect(mapStateToProps)(BlogPage)

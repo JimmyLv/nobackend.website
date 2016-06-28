@@ -9,7 +9,7 @@ class BlogHomePage extends Component {
   }
 
   render() {
-    const { tags, paginator } = this.props.articles
+    const { tags, paginator } = this.props
     const latestPostList = paginator.slice(0, 10)
 
     return (
@@ -25,7 +25,8 @@ class BlogHomePage extends Component {
 }
 
 BlogHomePage.propTypes = {
-  articles: PropTypes.object.isRequired
+  tags: PropTypes.array.isRequired,
+  paginator: PropTypes.array.isRequired
 }
 BlogHomePage.defaultProps = {}
 

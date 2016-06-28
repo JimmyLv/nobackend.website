@@ -1,6 +1,6 @@
 import jsyaml from 'js-yaml'
 
-import { FETCH_ARTICLE } from '../actions/articleAction'
+import { FETCH_ARTICLE } from '../actions'
 
 function _parseContent(separator, rawContent) {
   const result = rawContent.split(separator)
@@ -13,7 +13,7 @@ function _parseContent(separator, rawContent) {
 function articleReducer(state = {}, action) {
   switch (action.type) {
     case FETCH_ARTICLE:
-      return { ..._parseContent('---', action.payload) }
+      return { ..._parseContent('---', action.content) }
     default:
       return state
   }
