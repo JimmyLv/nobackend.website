@@ -3,13 +3,13 @@ import { routerReducer } from 'react-router-redux'
 import { loadingBarReducer } from 'react-redux-loading-bar'
 
 import musicList from './musicListReducer'
-import articles from './articlesReducer'
+import articleSummary from './articleSummaryReducer'
 import article from './articleReducer'
 import toggle from './toggleReducer'
 
 export default combineReducers({
   musicList,
-  articles,
+  articleSummary,
   article,
   toggle,
   routing: routerReducer,

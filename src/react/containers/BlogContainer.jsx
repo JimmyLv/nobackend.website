@@ -46,7 +46,7 @@ BlogPage.defaultProps = {}
 
 function mapStateToProps(state) {
   return {
-    ...state.articles,
+    ...state.articleSummary,
     ...state.toggle
   }
 }

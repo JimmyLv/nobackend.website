@@ -25,7 +25,7 @@ class BlogContent extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.params !== this.props.params) {
-      const { category, id } = this.props.params
+      const { category, id } = nextProps.params
       this.props.dispatch(fetchArticleIfNeeded(category, id))
     }
   }

@@ -10,13 +10,12 @@ export const GITHUB = {
 
 export const FETCH_MUSIC = 'FETCH_MUSIC'
 export const FETCH_ARTICLE = 'FETCH_ARTICLE'
-export const FETCH_ARTICLES = 'FETCH_ARTICLES'
+export const FETCH_ARTICLE_SUMMARY = 'FETCH_ARTICLE_SUMMARY'
 export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR'
 export const TOGGLE_CONTENT = 'TOGGLE_CONTENT'
 
 function shouldFetchArticle(state, id) {
-  const location = state.routing.locationBeforeTransitions.pathname
-  if (state.article.content !== 'hello' && location.includes(id)) {
+  if (state.article.id && state.article.id === id) {
     return false
   }
 
@@ -69,7 +68,7 @@ export function fetchArticleSummary() {
     })
     .then(articles => {
       dispatch({
-        type: FETCH_ARTICLES,
+        type: FETCH_ARTICLE_SUMMARY,
         articles
       })
     })
