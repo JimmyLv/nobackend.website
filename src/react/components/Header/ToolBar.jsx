@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router'
+import { withRouter, browserHistory } from 'react-router'
 
 class ToolBar extends Component {
   constructor(props) {
@@ -16,10 +16,11 @@ class ToolBar extends Component {
   randomPost() {
     const posts = this.props.posts
     const post = posts[Math.floor(Math.random() * posts.length)]
-    this.props.router.push({
-      pathname: '/note-blog',
-      hash: `/${post.category}${post.url}`
-    })
+    // this.props.router.push({
+    //   pathname: '/note-blog',
+    //   hash: `/${post.category}${post.url}`
+    // })
+    browserHistory.push(`#/note-blog/${post.category}${post.url}`)
   }
 
   render() {
