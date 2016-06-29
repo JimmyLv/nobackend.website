@@ -176,9 +176,9 @@ const store = createStore(
   getInitialState(),
   compose(
     applyMiddleware(
-      thunkMiddleware,
-      loadingBarMiddleware(),
       routerMiddleware(hashHistory),
+      loadingBarMiddleware(),
+      thunkMiddleware,
       createLogger()
     ),
     window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument()

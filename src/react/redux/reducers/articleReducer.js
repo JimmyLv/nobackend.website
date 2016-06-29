@@ -13,7 +13,10 @@ function _parseContent(separator, rawContent) {
 function articleReducer(state = {}, action) {
   switch (action.type) {
     case FETCH_ARTICLE:
-      return { ..._parseContent('---', action.content) }
+      return {
+        id: action.id,
+        ..._parseContent('---', action.content)
+      }
     default:
       return state
   }

@@ -14,17 +14,29 @@ export const FETCH_ARTICLES = 'FETCH_ARTICLES'
 export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR'
 export const TOGGLE_CONTENT = 'TOGGLE_CONTENT'
 
-export function fetchArticle(category, id) {
+function shouldFetchArticle(state, id) {
+  const location = state.routing.locationBeforeTransitions.pathname
+  if (state.article.content !== 'hello' && location.includes(id)) {
+    return false
+  }
+
+  return true
+}
+
+function receiveArticle(content, id) {
+  return {
+    type: FETCH_ARTICLE,
+    id,
+    content
+  }
+}
+
+function fetchArticle(category, id) {
   const API_URL = `https://raw.githubusercontent.com/${GITHUB.user}/${GITHUB.repo}/${GITHUB.branch}/${GITHUB.folder}`
 
-  return (dispatch, getState) => {
-    // just a temporary fix
-    const location = getState().routing.locationBeforeTransitions.pathname
-    if (getState().article.content !== 'hello' && location.includes(id)) {
-      return
-    }
+  return dispatch => {
     dispatch(showLoading())
-    fetch(`${API_URL}/${category}/${id}.md`)
+    return fetch(`${API_URL}/${category}/${id}.md`)
       .then(res => {
         if (res.ok) {
           return res.text()
@@ -32,13 +44,18 @@ export function fetchArticle(category, id) {
         throw res.error()
       })
       .then(content => {
-        dispatch({
-          type: FETCH_ARTICLE,
-          content
-        })
         dispatch(hideLoading())
+        return dispatch(receiveArticle(content, id))
       })
       .catch(error => console.info('request error: ', error))
+  }
+}
+
+export function fetchArticleIfNeeded(category, id) {
+  return (dispatch, getState) => {
+    if (shouldFetchArticle(getState(), id)) {
+      return dispatch(fetchArticle(category, id))
+    }
   }
 }
 

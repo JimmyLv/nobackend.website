@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import LoadingBar from 'react-redux-loading-bar'
 
-import { GITHUB, fetchArticle } from '../redux/actions'
+import { GITHUB, fetchArticleIfNeeded } from '../redux/actions'
 import MusicBox from '../components/Blog/MusicBox'
 import BookInfo from '../components/Blog/BookInfo'
 import SocialShare from '../components/Blog/SocialShare'
@@ -20,13 +20,13 @@ class BlogContent extends Component {
 
   componentDidMount() {
     const { category, id } = this.props.params
-    this.props.dispatch(fetchArticle(category, id))
+    this.props.dispatch(fetchArticleIfNeeded(category, id))
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.params !== this.props.params) {
       const { category, id } = this.props.params
-      this.props.dispatch(fetchArticle(category, id))
+      this.props.dispatch(fetchArticleIfNeeded(category, id))
     }
   }
 
