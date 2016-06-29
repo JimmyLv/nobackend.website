@@ -66,10 +66,10 @@ export function fetchArticleSummary() {
       }
       throw res.error()
     })
-    .then(articles => {
+    .then(content => {
       dispatch({
         type: FETCH_ARTICLE_SUMMARY,
-        articles
+        articleSummary: content
       })
     })
     .catch(error => console.info('request error: ', error))

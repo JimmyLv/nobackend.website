@@ -30,7 +30,7 @@ function getInitialState() {
         },
         "content": "hello"
       },
-      articles: {
+      articleSummary: {
         "categories": [
           {
             "name": "摄影",

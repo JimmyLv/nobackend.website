@@ -44,7 +44,7 @@ ToolBar.defaultProps = {}
 
 function mapStateToProps(state) {
   return {
-    posts: state.articles.paginator
+    posts: state.articleSummary.paginator
   }
 }
 
