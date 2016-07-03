@@ -5,11 +5,11 @@ import { shallow } from 'enzyme'
 //
 // chai.use(chaiEnzyme()) // Note the invocation at the end
 
-import MenuList from '../../../src/react/components/Header/MenuList'
+import Navigation from '../../../src/react/components/Header/Navigation'
 
 describe('Header component', () => {
-  it('should render MenuList', () => {
-    const wrapper = shallow(<MenuList menuList={[{ name: 'pathname', link: 'pathname' }]} selectedUrl={'pathname'}/>)
+  it('should render Navigation', () => {
+    const wrapper = shallow(<Navigation menuList={[{ name: 'pathname', link: 'pathname' }]} selectedUrl={'pathname'}/>)
     expect(wrapper.find('.menu')).to.have.length(1)
     // expect(wrapper.find('span')).to.have.className('random-post')
   })

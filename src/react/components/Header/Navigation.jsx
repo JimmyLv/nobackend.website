@@ -1,7 +1,7 @@
 import React, { Component, PropTypes, } from 'react'
 import { Link } from 'react-router'
 
-class MenuList extends Component {
+class Navigation extends Component {
   constructor(props) {
     super(props)
     this.toggleUserLogin = this.toggleUserLogin.bind(this)
@@ -40,10 +40,10 @@ class MenuList extends Component {
   }
 }
 
-MenuList.propTypes = {
+Navigation.propTypes = {
   menuList: PropTypes.array.isRequired,
   selectedUrl: PropTypes.string.isRequired
 }
-MenuList.defaultProps = {}
+Navigation.defaultProps = {}
 
-export default MenuList
+export default Navigation

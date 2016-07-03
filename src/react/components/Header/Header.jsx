@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { toggleContent } from '../../redux/actions'
 
 import './Header.less'
-import MenuList from './MenuList'
+import Navigation from './Navigation'
 import ToolBar from './ToolBar'
 import MusicPlayer from './MusicPlayer'
 
@@ -23,7 +23,7 @@ const Header = ({ musicList, pathname, dispatch }) => (
         <img alt="avatar" src="//o7mw3gkkh.qnssl.com/images/2016/1465649945502.png"/>
       </span>
     </div>
-    <MenuList menuList={menuList} selectedUrl={pathname}/>
+    <Navigation menuList={menuList} selectedUrl={pathname}/>
     <MusicPlayer songs={musicList}/>
     <ToolBar />
   </header>
