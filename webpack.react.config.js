@@ -6,7 +6,6 @@ const autoprefixer = require('autoprefixer')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const NpmInstallPlugin = require('npm-install-webpack-plugin')
 const HappyPack = require('happypack')
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -117,7 +116,6 @@ if (isProd) {
     port: 8082
   }
   config.plugins.push(
-    new NpmInstallPlugin({ saveDev: true }),
     new webpack.HotModuleReplacementPlugin()
   )
 }
