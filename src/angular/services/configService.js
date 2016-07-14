@@ -1,19 +1,21 @@
-import config from 'json!yaml!../../../_config.yml';
-
 class ConfigService {
-  constructor() {
+  constructor(CONFIG) {
+    'ngInject';
+
+    this.configuration = CONFIG;
+    console.info('config...', this.configuration)
   }
 
   get config() {
-    return config;
+    return this.configuration;
   }
 
   api(name) {
-    return config.api.github.base + config.api.github[name];
+    return this.configuration.api.github.base + this.configuration.api.github[name];
   }
 
   service(name) {
-    return config.api.service[name];
+    return this.configuration.api.service[name];
   }
 }
 

@@ -7,12 +7,12 @@ export default function running($rootScope, $location, $timeout, $window, $http,
     deleteOnExpire: 'aggressive' // Items will be deleted from this cache when they expire
   });
 
-  $rootScope.$on('$locationChangeSuccess', function () {
+  $rootScope.$on('$locationChangeSuccess', () => {
     console.info($location.absUrl());
 
     if (!$window.DISQUS) return;
 
-    $timeout(function () {
+    $timeout(() => {
       $window.DISQUS.reset({
         reload: true
       });

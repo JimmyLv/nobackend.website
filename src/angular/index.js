@@ -11,6 +11,8 @@ import angulartics from 'angulartics'
 import 'angular-socialshare'
 import 'angulartics-google-analytics'
 
+import jsyaml from 'js-yaml/lib/js-yaml.js';
+
 // from assets
 import 'expose?QRCode!qrcode'
 import 'angular-qr'
@@ -24,24 +26,35 @@ import Features from './features/features.module.js'
 import Decorators from './decorators/decorators.module.js'
 import Commons from './commons/commons.module.js'
 
-angular
-  .module('app', [
-    ngAnimate,
-    ngFx,
-    ngSanitize,
-    ngCache,
-    ngMarked,
-    ngDisqus,
-    ngLoadingBar,
-    angulartics,
-    'angulartics.google.analytics',
-    '720kb.socialshare',
-    'ja.qr',
-    'ngAudio',
-    'ngUiAwesome',
-    Configs.name,
-    Services.name,
-    Commons.name,
-    Decorators.name,
-    Features.name
-  ]);
+(function () {
+  const initInjector = angular.injector(['ng']);
+  const $http = initInjector.get('$http');
+  $http.get('/_config.yml').then(
+    function (response) {
+      angular.module('config', []).constant('CONFIG', jsyaml.load(response.data));
+      angular.element(document).ready(function () {
+        angular.module('app', [
+          ngAnimate,
+          ngFx,
+          ngSanitize,
+          ngCache,
+          ngMarked,
+          ngDisqus,
+          ngLoadingBar,
+          angulartics,
+          'angulartics.google.analytics',
+          '720kb.socialshare',
+          'ja.qr',
+          'ngAudio',
+          'ngUiAwesome',
+          Configs.name,
+          Services.name,
+          Commons.name,
+          Decorators.name,
+          Features.name
+        ]);
+        angular.bootstrap(document, ['app']);
+      })
+    }
+  )
+})();

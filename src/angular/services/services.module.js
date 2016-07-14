@@ -3,7 +3,7 @@ import githubService from './githubService'
 import musicService from './musicService'
 import zhihuService from './zhihuService'
 
-export default angular.module('app.services', [])
+export default angular.module('app.services', ['config'])
   .service('configService', configService)
   .service('githubService', githubService)
   .service('zhihuService', zhihuService)

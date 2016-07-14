@@ -4,7 +4,7 @@ class GitHubService {
 
     this.$http = $http;
     this.configService = configService;
-    this.github = configService.config.github;
+    this.github = this.configService.config.github;
     console.info('config from _config.yml:', this.github);
   }
 

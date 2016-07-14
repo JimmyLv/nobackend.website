@@ -6,7 +6,7 @@
     <title>最美博客 - nobackend-website created by 吕立青</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body ng-app="app" ng-cloak>
+<body ng-cloak>
 
     <div id="container">
         <app-header></app-header>

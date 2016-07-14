@@ -6,7 +6,7 @@ const autoprefixer = require('autoprefixer')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const NpmInstallPlugin = require('npm-install-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HappyPack = require('happypack')
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -89,7 +89,10 @@ const config = {
         removeComments: true, // 移除HTML中的注释
         collapseWhitespace: false // 删除空白符与换行符
       }
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: '_config.yml', to: '_config.yml'}
+    ])
   ],
 
   resolve: {
@@ -129,7 +132,6 @@ if (isProd) {
     port: 8080
   }
   config.plugins.push(
-    new NpmInstallPlugin({ saveDev: true }),
     new webpack.HotModuleReplacementPlugin()
   )
 }
