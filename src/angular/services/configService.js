@@ -11,8 +11,8 @@ class ConfigService {
   }
 
   api(name) {
-    const baseUrl = this.configuration.api.github.base === 'undefined' ? '../' : this.configuration.api.github.base
-    return (baseUrl) + this.configuration.api.github[name];
+    const baseUrl = this.configuration.api.github.base === undefined ? '../' : this.configuration.api.github.base;
+    return baseUrl + this.configuration.api.github[name];
   }
 
   service(name) {
