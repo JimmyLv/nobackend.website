@@ -9,15 +9,20 @@ class GitHubService {
   }
 
   getPost(category, post) {
-    return this._read(`${this.github.posts}/${category}/${post}.md`)
+    const folder = this.github.subfolder ? `${category}/` : '';
+    return this._read(`${this.github.posts}/${folder}${post}.md`)
+  }
+
+  getPostByPath(path) {
+    return this._read(`${path}`)
   }
 
   getIndex() {
-    return this.$http.get(this.configService.api('index'), {cache: true})
+    return this.$http.get(this.configService.api('index'), { cache: true })
   }
 
   _read(filename) {
-    return this.$http.get(this._rawUrl(filename), {cache: true})
+    return this.$http.get(this._rawUrl(filename), { cache: true })
   }
 
   _rawUrl(path) {

@@ -20,16 +20,16 @@ project:
 
 # github endpoint
 github:
-  user: JimmyLv
-  repo: jimmy.lv
-  branch: gh-pages
+  user: linesh-simplicity
+  repo: linesh-simplicity.github.io
+  branch: master
   posts: _posts
-  subfolder: true
+  subfolder: false
 
 # api endpoint
 api:
   github:
-    base: https://blog.jimmylv.info
+#    base: https://blog.jimmylv.info
     index: /api/index.json
     slides: /slides
     rss: /pages/atom.xml
@@ -46,10 +46,10 @@ api:
 # active items for show
 meta:
   songlist: 389445274 # 372072817 # 309097660
-  active: 前端
+  active: 翻译
   tags:
-    - React
-    - 摄影
+    - 七牛
+    - markdown
 
 # chinese localization
 locals:
@@ -76,8 +76,10 @@ gems:
 exclude:
   - .idea/
   - node_modules
+  - demo
 
 include:
+  - _config.yml
   - _ng
   - _vue
   - _react

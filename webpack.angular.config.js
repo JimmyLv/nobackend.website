@@ -89,10 +89,7 @@ const config = {
         removeComments: true, // 移除HTML中的注释
         collapseWhitespace: false // 删除空白符与换行符
       }
-    }),
-    new CopyWebpackPlugin([
-      { from: '_config.yml', to: '_config.yml'}
-    ])
+    })
   ],
 
   resolve: {
@@ -132,7 +129,11 @@ if (isProd) {
     port: 8080
   }
   config.plugins.push(
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new CopyWebpackPlugin([
+      { from: '_config.yml', to: '_config.yml'},
+      { from: '_site/api/index.json', to: 'api/index.json'}
+    ])
   )
 }
 
