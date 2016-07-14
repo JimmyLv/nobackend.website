@@ -6,6 +6,7 @@
   "scripts": {
     "dev:ng": "webpack-dev-server --config webpack.angular.config.js",
     "build:ng": "cross-env NODE_ENV=production webpack --config webpack.angular.config.js --progress --colors --hide-modules",
+    "prod:ng": "npm run build:ng && cd scripts && ./qrsync-v2 _ng.conf.json",
     "dev:vue": "webpack-dev-server --config webpack.vue.config.js",
     "build:vue": "cross-env NODE_ENV=production webpack --config webpack.vue.config.js --progress --colors --hide-modules",
     "dev:react": "webpack-dev-server --config webpack.react.config.js",

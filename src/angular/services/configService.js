@@ -11,7 +11,7 @@ class ConfigService {
   }
 
   api(name) {
-    return (this.configuration.api.github.base || '') + this.configuration.api.github[name];
+    return (this.configuration.api.github.base || '../') + this.configuration.api.github[name];
   }
 
   service(name) {
