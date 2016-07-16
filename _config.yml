@@ -6,7 +6,7 @@ encoding: utf-8
 author:
   name: 吕立青
   email: jimmy.jinglv@gmail.com
-  link: https://blog.jimmylv.info
+  link: http://blog.jimmylv.info
   github: https://github.com/JimmyLv
   weibo: http://weibo.com/liqing215
   zhihu: http://www.zhihu.com/people/JimmyLv
@@ -20,16 +20,16 @@ project:
 
 # github endpoint
 github:
-  user: linesh-simplicity
-  repo: linesh-simplicity.github.io
-  branch: master
+  user: JimmyLv
+  repo: jimmy.lv
+  branch: gh-pages
   posts: _posts
-  subfolder: false
+  subfolder: true
 
 # api endpoint
 api:
   github:
-#    base: https://blog.jimmylv.info
+    base: http://blog.jimmylv.info
     index: /api/index.json
     slides: /slides
     rss: /pages/atom.xml
@@ -48,8 +48,8 @@ meta:
   songlist: 389445274 # 372072817 # 309097660
   active: 翻译
   tags:
-    - 七牛
-    - markdown
+    - React
+    - 摄影
 
 # chinese localization
 locals:
