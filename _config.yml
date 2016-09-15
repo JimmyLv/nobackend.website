@@ -21,7 +21,7 @@ project:
 # github endpoint
 github:
   user: JimmyLv
-  repo: jimmy.lv
+  repo: jimmylv.github.io
   branch: gh-pages
   posts: _posts
   subfolder: true
@@ -29,7 +29,7 @@ github:
 # api endpoint
 api:
   github:
-    base: http://blog.jimmylv.info
+    base: http://jimmylv.github.io
     index: /api/index.json
     slides: /slides
     rss: /pages/atom.xml

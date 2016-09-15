@@ -59,7 +59,7 @@ export function fetchArticleIfNeeded(category, id) {
 }
 
 export function fetchArticleSummary() {
-  return dispatch => fetch('http://blog.jimmylv.info/api/index.json')
+  return dispatch => fetch('http://jimmylv.github.io/api/index.json')
     .then(res => {
       if (res.ok) {
         return res.json()
