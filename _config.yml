@@ -22,7 +22,7 @@ project:
 github:
   user: JimmyLv
   repo: jimmylv.github.io
-  branch: gh-pages
+  branch: master
   posts: _posts
   subfolder: true
 

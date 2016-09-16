@@ -5,7 +5,7 @@ export const GITHUB = {
   user: 'JimmyLv',
   repo: 'jimmy.lv',
   folder: '_posts',
-  branch: 'gh-pages'
+  branch: 'master'
 }
 
 export const FETCH_MUSIC = 'FETCH_MUSIC'
