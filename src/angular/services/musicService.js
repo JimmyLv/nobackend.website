@@ -7,7 +7,7 @@ class MusicService {
   }
 
   getPlayList(id) {
-    return this.$http.get(this._url('playlist',id), {
+    return this.$http.get(this._url('collections',id), {
       cache: true
     })
   }
@@ -26,7 +26,8 @@ class MusicService {
 
   _url(type, id) {
     var music = this.configService.service('music');
-    return `${music.endpoint}/?p=${music.provider}&t=${type}&i=${id}`
+    // return `${music.endpoint}/?p=${music.provider}&t=${type}&i=${id}`
+    return `${music.endpoint}/music/${music.provider}/${type}/${id}`
   }
 }
 

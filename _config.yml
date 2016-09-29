@@ -29,14 +29,14 @@ github:
 # api endpoint
 api:
   github:
-    base: http://jimmylv.github.io
+    base: https://jimmylv.github.io
     index: /api/index.json
     slides: /slides
     rss: /pages/atom.xml
   service:
     music:
-      endpoint: http://app.atime.me/music-api-server
-      provider: netease # or xiami
+      endpoint: https://api.lostg.com/
+      provider: 163 # or xiami
     zhihu:
       endpoint: http://api.kanzhihu.com
       userId: JimmyLv
