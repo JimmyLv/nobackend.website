@@ -23,7 +23,7 @@ github:
   user: JimmyLv
   repo: jimmylv.github.io
   branch: master
-  posts: _posts
+  posts: ''
   subfolder: true
 
 # api endpoint
